@@ -1,0 +1,10 @@
+/* Additional manual additions for product title margin top on mobile */
+@media (max-width: 831px) {
+  .page-content h1 {
+    margin-top: 0px !important;
+  }
+
+  main.container{
+    padding: 0px !important;
+  }
+}

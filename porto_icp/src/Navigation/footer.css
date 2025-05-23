@@ -1,0 +1,19 @@
+.footer {
+  width: 100%;
+  justify-content: center; /* flex justify-center */
+  align-items: center; /* flex items-center */
+  background-color: #f3f4f6; /* bg-gray-100 */
+  border-top: 1px solid #d1d5db; /* border-t border-gray-300 */
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  text-align: center; /* text-center */
+  font-size: 0.75rem; /* text-xs */
+  color: #1e40af; /* text-blue-900 */
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 0.5rem; /* p-2 */
+    font-size: 0.5rem; /* text-sm */
+  }
+}

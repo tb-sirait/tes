@@ -1,0 +1,194 @@
+body {
+  background-color: #F5F5F5;
+  color: #1434a4;
+  height: max-content;
+}
+
+.navbar {
+  background: #EEEDED;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0.7% 1%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 4;
+  box-sizing: border-box;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: auto;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%; 
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 5px;
+  box-sizing: border-box;
+}
+
+.nick-name {
+  line-height: 1.5;
+  color: #1434a4;
+}
+
+.logo-with-text {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.logo-with-text img {
+  width: 40px;
+  height: 40px;
+  margin-left: 10px;
+  object-fit: contain;
+}
+
+.item-navbar {
+  padding: 8px 16px;
+  margin: 1px 6px;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 500;
+  color: #1434a4;
+  text-decoration: none;
+  list-style: none;
+  transition: background-color 0.3s ease;
+}
+
+.item-navbar:hover {
+  background-color: #EEEDED;
+  cursor: pointer;
+}
+
+.item-hover {
+  position: relative;
+  cursor: pointer;
+  color: #1434a4;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.item-hover::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #1434a4;
+  transition: width 0.3s ease;
+}
+
+.item-hover:hover::after {
+  width: 100%;
+}
+
+.item-hover:hover {
+  color: #1434a4;
+  background: none;
+}
+
+.teks {
+  line-height: 0.6;
+  font-size: 13px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 831px) {
+  .navbar {
+    padding: 1px 5px;
+  }
+
+  .logo-with-text {
+    margin-left: 10px;
+  }
+  .container {
+    /* Changed flex-direction to row to keep navbar items horizontal */
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .item-navbar {
+    padding: 6px 12px;
+    font-size: 14px;
+    margin: 2px 0;
+  }
+  .logo-with-text img {
+    width: 35px;
+    height: 35px;
+    margin-left: 0;
+  }
+
+  /* Hide menu by default on small screens */
+  .container.closed {
+    display: none;
+  }
+
+  /* Show menu when open */
+  .container.open {
+    display: flex;
+  }
+
+  /* Menu button styles */
+  .menu-button {
+    background: none;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #1434a4;
+    display: block;
+    margin-left: auto;
+  }
+
+  
+
+  .container.open {
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    background: #EEEDED;
+    flex-direction: column;
+    width: 200px;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    padding: 10px 0;
+    z-index: 1100;
+  }
+
+  .container.open .item-navbar {
+    margin: 8px 0;
+    padding: 10px 20px;
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  /* Optional: add a semi-transparent overlay behind the menu */
+  .menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1050;
+  }
+}
+
+/* Hide menu button on larger screens */
+@media (min-width: 832px) {
+  .menu-button {
+    display: none;
+  }
+}

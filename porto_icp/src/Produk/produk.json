@@ -1,0 +1,319 @@
+[
+  {
+    "id": 1,
+    "name": "OptiPlex 3000 Tower",
+    "brand": "Dell",
+    "images": [
+      "produk/Dell/Optiplex/3000_Tower/3.png",
+      "produk/Dell/Optiplex/3000_Tower/4.png"
+    ],
+    "specs": {
+      "cpu": "Intel Core i5",
+      "ram": "8GB",
+      "storage": "256GB SSD",
+      "gpu": "Integrated Graphics",
+      "os": "Windows 10"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Optiplex 7010 PLUS SFF",
+    "brand": "Dell",
+    "images": [
+      "produk/Dell/Optiplex/7010_Plus_SFF/1.png"
+    ],
+    "specs": {
+      "cpu": "Intel Core i7",
+      "ram": "16GB",
+      "storage": "512GB SSD",
+      "gpu": "Integrated Graphics",
+      "os": "Windows 10"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Precision Workstation 5490",
+    "brand": "Dell",
+    "images": [
+      "produk/Dell/Notebook/Precision/1.png"
+    ],
+    "specs": {
+      "cpu": "Intel Xeon",
+      "ram": "32GB",
+      "storage": "1TB SSD",
+      "gpu": "NVIDIA Quadro",
+      "os": "Windows 10 Pro"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Latitude 3440 Laptop",
+    "brand": "Dell",
+    "images": [
+      "produk/Dell/Notebook/Lattitude/3440_Laptop/1.png"
+    ],
+    "specs": {
+      "cpu": "Intel Core i5",
+      "ram": "8GB",
+      "storage": "256GB SSD",
+      "gpu": "Integrated Graphics",
+      "os": "Windows 10"
+    }
+  },
+  {
+    "id": 5,
+    "name": "Notebook V14-IIL",
+    "brand": "Lenovo",
+    "images": [
+      "produk/Lenovo/Notebook_V14/1.png"
+    ],
+    "specs": {
+      "cpu": "AMD Ryzen 5",
+      "ram": "8GB",
+      "storage": "512GB SSD",
+      "gpu": "Integrated Graphics",
+      "os": "Windows 10"
+    }
+  },
+  {
+    "id": 6,
+    "name": "XPS 9310 Laptop",
+    "brand": "Dell",
+    "images": [
+      "produk/Dell/Notebook/XPS/9310/1.png",
+      "produk/Dell/Notebook/XPS/9310/2.png"
+    ],
+    "specs": {
+      "cpu": "Intel Core I7-1185G7",
+      "ram": "16GB",
+      "storage": "1TB SSD",
+      "gpu": "Integrated Graphics",
+      "os": "Windows 10 Pro edition"
+    }
+  },
+  {
+    "id": 7,
+    "name": "Latitude 3420",
+    "brand": "Dell",
+    "images": [
+      "produk/Dell/Notebook/Latitude/3420/1.png",
+      "produk/Dell/Notebook/Latitude/3420/2.png"
+    ],
+    "specs": {
+      "cpu": "Intel Core i7-1165G7",
+      "ram": "16GB",
+      "storage": "512GB SSD",
+      "gpu": "NVIDIA GeForce MX450",
+      "os": "Windows 10 Pro"
+    }
+  },
+  {
+    "id": 8,
+    "name": "Latitude 3440",
+    "brand": "Dell",
+    "images": [
+      "produk/Dell/Notebook/Latitude/3440/1.png",
+      "produk/Dell/Notebook/Latitude/3440/2.png"
+    ],
+    "specs": {
+      "cpu": "Intel Core i5-1335U",
+      "ram": "16GB",
+      "storage": "256GB SSD",
+      "gpu": "Intel Iris Xe Graphics",
+      "os": "Windows 11 Pro"
+    }
+  },
+  {
+    "id": 9,
+    "name": "ThinkPad L14 Gen 4",
+    "brand": "Lenovo",
+    "images": [
+      "produk/Lenovo/Notebook/ThinkPad/L14/1.png",
+      "produk/Lenovo/Notebook/ThinkPad/L14/2.png"
+    ],
+    "specs": {
+      "cpu": "Intel Core i5-1345U vPro",
+      "ram": "16GB",
+      "storage": "512GB SSD",
+      "gpu": "Intel Iris Xe Graphics",
+      "os": "Windows 11 Pro"
+    }
+  },
+  {
+    "id": 10,
+    "name": "TravelMate P214",
+    "brand": "Acer",
+    "images": [
+      "produk/Acer/Notebook/TravelMate/P214/1.png",
+      "produk/Acer/Notebook/TravelMate/P214/2.png"
+    ],
+    "specs": {
+      "cpu": "Intel Core i5-1135G7",
+      "ram": "8GB",
+      "storage": "256GB SSD",
+      "gpu": "Integrated Graphics",
+      "os": "Windows 11 Pro"
+    }
+  },
+  {
+    "id": 11,
+    "name": "Latitude 3390 2-in-1",
+    "brand": "Dell",
+    "images": [
+      "produk/Dell/Notebook/Latitude/3390/1.png",
+      "produk/Dell/Notebook/Latitude/3390/2.png"
+    ],
+    "specs": {
+      "cpu": "Intel Core i5-8250U",
+      "ram": "8GB",
+      "storage": "256GB SSD",
+      "gpu": "Integrated Graphics",
+      "os": "Windows 10 Pro"
+    }
+  },
+  {
+    "id": 12,
+    "name": "Latitude 3410",
+    "brand": "Dell",
+    "images": [
+      "produk/Dell/Notebook/Latitude/3410/1.png",
+      "produk/Dell/Notebook/Latitude/3410/2.png"
+    ],
+    "specs": {
+      "cpu": "Intel Core i7-10510U",
+      "ram": "8GB",
+      "storage": "512GB SSD",
+      "gpu": "Integrated Graphics",
+      "os": "Windows 10 Home"
+    }
+  },
+  {
+    "id": 13,
+    "name": "XPS 9310",
+    "brand": "Dell",
+    "images": [
+      "produk/Dell/Notebook/XPS/9310/1.png",
+      "produk/Dell/Notebook/XPS/9310/2.png"
+    ],
+    "specs": {
+      "cpu": "Intel Core i7-1185G7",
+      "ram": "16GB",
+      "storage": "1TB SSD",
+      "gpu": "Intel Iris Xe Graphics",
+      "os": "Windows 10 Pro"
+    }
+  },
+  {
+    "id": 14,
+    "name": "XPS 15 (9510)",
+    "brand": "Dell",
+    "images": [
+      "produk/Dell/Notebook/XPS/15/1.png",
+      "produk/Dell/Notebook/XPS/15/2.png"
+    ],
+    "specs": {
+      "cpu": "Intel Core i7-11800H",
+      "ram": "16GB",
+      "storage": "1TB SSD",
+      "gpu": "NVIDIA GeForce RTX 3050 Ti",
+      "os": "Windows 10 Pro"
+    }
+  },
+  {
+    "id": 15,
+    "name": "Vostro 3400 i5-1135G7",
+    "brand": "Dell",
+    "images": [
+      "produk/Dell/Notebook/Vostro/3400/1.png",
+      "produk/Dell/Notebook/Vostro/3400/2.png"
+    ],
+    "specs": {
+      "cpu": "Intel Core i5-1135G7",
+      "ram": "No RAM",
+      "storage": "1TB SATA HDD",
+      "gpu": "Intel Iris Xe Graphics",
+      "os": "Windows 10 Home"
+    }
+  },
+  {
+    "id": 16,
+    "name": "Vostro 3400 i7-1165G7",
+    "brand": "Dell",
+    "images": [
+      "produk/Dell/Notebook/Vostro/3400/1.png",
+      "produk/Dell/Notebook/Vostro/3400/2.png"
+    ],
+    "specs": {
+      "cpu": "Intel Core i7-1165G7",
+      "ram": "8GB",
+      "storage": "256GB SSD",
+      "gpu": "NVIDIA GeForce MX330 2GB",
+      "os": "Windows 10 Home"
+    }
+  },
+  {
+    "id": 17,
+    "name": "Latitude 7310 CTO 8GB",
+    "brand": "Dell",
+    "images": [
+      "produk/Dell/Notebook/Latitude/7310/1.png",
+      "produk/Dell/Notebook/Latitude/7310/2.png"
+    ],
+    "specs": {
+      "cpu": "Intel Core i7-10610U",
+      "ram": "8GB Onboard",
+      "storage": "256GB SSD",
+      "gpu": "Integrated Graphics",
+      "os": "Windows 10 Pro"
+    }
+  },
+  {
+    "id": 88,
+    "name": "Latitude 7310 CTO 16GB",
+    "brand": "Dell",
+    "images": [
+      "produk/Dell/Notebook/Latitude/7310/1.png",
+      "produk/Dell/Notebook/Latitude/7310/2.png"
+    ],
+    "specs": {
+      "cpu": "Intel Core i7-10610U",
+      "ram": "16GB Non-ECC Integrated",
+      "storage": "512GB SSD",
+      "gpu": "Integrated Graphics",
+      "os": "Windows 10 Pro"
+    }
+  },
+  {
+    "id": 19,
+    "name": "Latitude 3420 i7-1165G7 16GB",
+    "brand": "Dell",
+    "images": [
+      "produk/Dell/Notebook/Latitude/3420/1.png",
+      "produk/Dell/Notebook/Latitude/3420/2.png"
+    ],
+    "specs": {
+      "cpu": "Intel Core i7-1165G7",
+      "ram": "16GB DDR4",
+      "storage": "512GB SSD",
+      "gpu": "NVIDIA GeForce MX450 2GB",
+      "os": "Windows 10 Pro"
+    }
+  },
+  {
+    "id": 20,
+    "name": "Latitude 3420 i7-1165G7 256GB SSD",
+    "brand": "Dell",
+    "images": [
+      "produk/Dell/Notebook/Latitude/3420/1.png",
+      "produk/Dell/Notebook/Latitude/3420/2.png"
+    ],
+    "specs": {
+      "cpu": "Intel Core i7-1165G7",
+      "ram": "16GB DDR4",
+      "storage": "256GB SSD",
+      "gpu": "NVIDIA GeForce MX450 2GB",
+      "os": "Windows 10 Pro"
+    }
+  }
+]
+
