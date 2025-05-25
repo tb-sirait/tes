@@ -444,6 +444,83 @@
       "gpu": "Intel Graphics",
       "os": "Windows 11 Pro 64"
     }
+  },
+  {
+    "id": 30,
+    "name": "Apple iPhone 15 128GB",
+    "brand": "Apple",
+    "images": [],
+    "specs": {
+      "cpu": "",
+      "ram": "",
+      "storage": "",
+      "gpu": "",
+      "os": ""
+    }
+  },
+  {
+    "id": 31,
+    "name": "Apple iPhone 16 128GB",
+    "brand": "Apple",
+    "images": [],
+    "specs": {
+      "cpu": "",
+      "ram": "",
+      "storage": "",
+      "gpu": "",
+      "os": ""
+    }
+  },
+  {
+    "id": 32,
+    "name": "Apple iPhone 16e 128GB",
+    "brand": "Apple",
+    "images": [],
+    "specs": {
+      "cpu": "",
+      "ram": "",
+      "storage": "",
+      "gpu": "",
+      "os": ""
+    }
+  },
+  {
+    "id": 33,
+    "name": "Samsung A55 8/256GB",
+    "brand": "Samsung",
+    "images": [],
+    "specs": {
+      "cpu": "",
+      "ram": "",
+      "storage": "",
+      "gpu": "",
+      "os": ""
+    }
+  },
+  {
+    "id": 34,
+    "name": "Samsung S24FE 256GB",
+    "brand": "Samsung",
+    "images": [],
+    "specs": {
+      "cpu": "",
+      "ram": "",
+      "storage": "",
+      "gpu": "",
+      "os": ""
+    }
+  },
+  {
+    "id": 35,
+    "name": "Samsung Z Flip 6 12/256GB",
+    "brand": "Samsung",
+    "images": [],
+    "specs": {
+      "cpu": "",
+      "ram": "",
+      "storage": "",
+      "gpu": "",
+      "os": ""
+    }
   }
-
 ]

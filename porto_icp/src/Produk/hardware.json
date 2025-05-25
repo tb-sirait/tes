@@ -1,0 +1,92 @@
+[
+  {
+    "name": "Toner HP 119 A Black",
+    "brand": "HP",
+    "type": "Tinta & Toner"
+  },
+  {
+    "name": "Toner HP 119 A Cyan",
+    "brand": "HP",
+    "type": "Tinta & Toner"
+  },
+  {
+    "name": "Toner HP 119 A Magenta",
+    "brand": "HP",
+    "type": "Tinta & Toner"
+  },
+  {
+    "name": "Toner HP 119 A Yellow",
+    "brand": "HP",
+    "type": "Tinta & Toner"
+  },
+  {
+    "name": "Tinta HP GT53 Black",
+    "brand": "HP",
+    "type": "Tinta & Toner"
+  },
+  {
+    "name": "Tinta HP GT52 Cyan",
+    "brand": "HP",
+    "type": "Tinta & Toner"
+  },
+  {
+    "name": "Tinta HP GT52 Magenta",
+    "brand": "HP",
+    "type": "Tinta & Toner"
+  },
+  {
+    "name": "Tinta HP GT52 Yellow",
+    "brand": "HP",
+    "type": "Tinta & Toner"
+  },
+  {
+    "name": "K400 Plus Wireless Touch Keyboard",
+    "brand": "Logitech",
+    "type": "Keyboard"
+  },
+  {
+    "name": "HDD 16TB Seagate Iron Wolf Pro ST16000NT001",
+    "brand": "Seagate",
+    "type": "HDD"
+  },
+  {
+    "name": "UPS APC BV1000IMS",
+    "brand": "APC",
+    "type": "UPS"
+  },
+  {
+    "name": "TP Link - SG2008",
+    "brand": "TP Link",
+    "type": "Switch"
+  },
+  {
+    "name": "Scanner Canon Lide 300",
+    "brand": "Canon",
+    "type": "Scanner"
+  },
+  {
+    "name": "Monitor LG 24MR400-B 24” FULL HD DISPLAY WITH AMD FREESYNC 100HZ",
+    "brand": "LG",
+    "type": "Monitor"
+  },
+  {
+    "name": "Printer Epson L3210",
+    "brand": "Epson",
+    "type": "Printer"
+  },
+  {
+    "name": "Projector BenQ MX560 4000 lumens, XGA, DLP",
+    "brand": "BenQ",
+    "type": "Projector"
+  },
+  {
+    "name": "Apple Magic Mouse Black Multitouch",
+    "brand": "Apple",
+    "type": "Mouse"
+  },
+  {
+    "name": "Apple Adapter 20W USB-C",
+    "brand": "Apple",
+    "type": "charger"
+  }
+]
