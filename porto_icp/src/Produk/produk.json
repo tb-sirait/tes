@@ -314,6 +314,136 @@
       "gpu": "NVIDIA GeForce MX450 2GB",
       "os": "Windows 10 Pro"
     }
+  },
+  {
+    "id": 21,
+    "name": "Notebook LENOVO V14-IIL (Intel Core I7-1065G1)",
+    "brand": "Lenovo",
+    "images": [
+      "produk/Lenovo/Notebook_V14/1.png"
+    ],
+    "specs": {
+      "cpu": "Intel Core I7-1065G1",
+      "ram": "8GB (up max 20 GB)",
+      "storage": "512GB M.2 PCIe NVMe Solid State Drive",
+      "gpu": "Integrated Graphics",
+      "os": "Windows 10 Home Single Language English"
+    }
+  },
+  {
+    "id": 22,
+    "name": "Notebook LENOVO V14-IIL (Intel Core I5-1035G1)",
+    "brand": "Lenovo",
+    "images": [
+      "produk/Lenovo/Notebook_V14/1.png"
+    ],
+    "specs": {
+      "cpu": "Intel Core I5-1035G1",
+      "ram": "8GB, 4Gx2, DDR4, (4GB OnBoard) max 20 GB",
+      "storage": "256GB M.2 PCIe NVMe Solid State Drive",
+      "gpu": "Integrated Graphics",
+      "os": "Windows 10 Home Single Language English"
+    }
+  },
+  {
+    "id": 23,
+    "name": "Notebook LENOVO V14-IIL (Intel Core I3-1005G1)",
+    "brand": "Lenovo",
+    "images": [
+      "produk/Lenovo/Notebook_V14/1.png"
+    ],
+    "specs": {
+      "cpu": "Intel Core I3-1005G1",
+      "ram": "8GB, 4G DDR4, (4GB OnBoard) max 20 GB",
+      "storage": "256GB M.2 PCIe NVMe Solid State Drive type 2280/2242",
+      "gpu": "Integrated Graphics",
+      "os": "Windows 10 Home Single Language English"
+    }
+  },
+  {
+    "id": 24,
+    "name": "Lenovo X12 Detachable Gen 2 (Type 21LK, 21LL)",
+    "brand": "Lenovo",
+    "images": [
+      "produk/Lenovo/X12_Detachable/1.png"
+    ],
+    "specs": {
+      "cpu": "Intel® Core™ Ultra 7 164U",
+      "ram": "16GB LPD5X-7500 (onboard) not upgradable",
+      "storage": "1x 512 GB SSD PCIe",
+      "gpu": "Intel® Graphics",
+      "os": "Windows 11 Pro 64"
+    }
+  },
+  {
+    "id": 25,
+    "name": "Lenovo Think Pad E14 Gen 6",
+    "brand": "Lenovo",
+    "images": [
+      "produk/Lenovo/ThinkPad_E14/1.png"
+    ],
+    "specs": {
+      "cpu": "Intel® Core™ Ultra 5 125U 1.300GHz Processor",
+      "ram": "16 GB DDR5-5600",
+      "storage": "512 GB SSD PCIe 2242",
+      "gpu": "Integrated Graphics",
+      "os": "Windows 11 Pro 64"
+    }
+  },
+  {
+    "id": 26,
+    "name": "Lenovo Thinkpad L13 Gen 5 Screen 13.3”",
+    "brand": "Lenovo",
+    "images": [
+      "produk/Lenovo/ThinkPad_L13/1.png"
+    ],
+    "specs": {
+      "cpu": "Intel® Core™ Ultra 5 135U",
+      "ram": "16 GB DDR5",
+      "storage": "512 GB SSD",
+      "gpu": "Integrated Graphics",
+      "os": "Windows 11 Pro 64"
+    }
+  },
+  {
+    "id": 27,
+    "name": "NB DELL LATITUDE 3390 2-in-1",
+    "brand": "Dell",
+    "images": [],
+    "specs": {
+      "cpu": "Intel Core i5-8250U",
+      "ram": "8GB",
+      "storage": "256GB SSD",
+      "gpu": "Integrated Graphics",
+      "os": "Windows 10 Pro",
+      "screen": "13.3\" Touchscreen"
+    }
+  },
+  {
+    "id": 28,
+    "name": "Dell Latitude 3410",
+    "brand": "Dell",
+    "images": [],
+    "specs": {
+      "cpu": "Intel Core i7-10510U",
+      "ram": "8GB DDR4",
+      "storage": "512GB PCIe NVMe",
+      "gpu": "Integrated Graphics",
+      "os": "Windows 10 Home Single Language"
+    }
+  },
+  {
+    "id": 29,
+    "name": "Lenovo X12 Detachable Gen 2 (Type 21LK, 21LL)",
+    "brand": "Lenovo",
+    "images": [],
+    "specs": {
+      "cpu": "Intel Core Ultra 7 164U",
+      "ram": "16GB LPD5X-7500 (onboard) not upgradable",
+      "storage": "512GB SSD PCIe",
+      "gpu": "Intel Graphics",
+      "os": "Windows 11 Pro 64"
+    }
   }
-]
 
+]

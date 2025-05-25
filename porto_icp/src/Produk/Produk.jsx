@@ -187,7 +187,7 @@ const products = produkData.map(product => ({
             </div>
 
             <h2 className="text-3xl font-bold mb-8 text-gray-900 dark:text-white">
-              {selectedBrand ? `Produk ${selectedBrand}` : "Produk Populer"}
+              {selectedBrand ? `Produk ${selectedBrand}` : "Produk Populer"} ({(selectedBrand ? products.filter(product => product.brand === selectedBrand) : products).length})
             </h2>
 
             {/* Product Grid */}
