@@ -6,6 +6,7 @@ import "./produk.css"
 import "./manual_additions.css"
 import Footer from "../Navigation/footer"
 import produkData from "./produk.json";
+import { FaFilter } from 'react-icons/fa';
 
 import DellLogo from "../assets/Dell_logo.png";
 import LenovoLogo from "../assets/lenovo_logo.png";
@@ -124,6 +125,12 @@ const products = produkData.map(product => ({
     touchEndX.current = e.changedTouches[0].clientX
   }
 
+  const [showFilters, setShowFilters] = useState(false);
+
+  const toggleFilter = () => {
+    setShowFilters(prev => !prev);
+  };
+
   const handleTouchEnd = () => {
     if (!touchStartX.current || !touchEndX.current) return
     const distance = touchStartX.current - touchEndX.current
@@ -185,6 +192,32 @@ const products = produkData.map(product => ({
                 </div>
               ))}
             </div>
+
+            <div className="filter-wrapper">
+              <div className="search-bar">
+                <select className="category-select">
+                  <option>Kategori</option>
+                </select>
+                <input type="text" className="search-input" placeholder="Cari Produk" />
+                <button className="filter-button" onClick={toggleFilter}>
+                  Filter <FaFilter />
+                </button>
+              </div>
+
+              {showFilters && (
+                <div className="product-section">
+                  <div className="product-filters">
+                    <span style={{ marginLeft: "10px"}}>Filter Produk:</span>
+                    <div className="filter-tags">
+                      {['Hardware', 'Software', 'Computer', 'Laptop', 'Smartphone', 'Sparepart'].map(tag => (
+                        <button key={tag} className="tag-button">{tag}</button>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+  
 
             <h2 className="text-3xl font-bold mb-8 text-gray-900 dark:text-white">
               {selectedBrand ? `Produk ${selectedBrand}` : "Produk Populer"} ({(selectedBrand ? products.filter(product => product.brand === selectedBrand) : products).length})

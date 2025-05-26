@@ -54,7 +54,7 @@ function Tentang() {
               </div>
               <div className="intro-text">
                 <p><strong>PT Infoduta Computindo Perkasa</strong> adalah perusahaan yang bergerak di bidang Teknologi Informasi (IT) untuk memenuhi kebutuhan hardware dan software yang dimiliki oleh perusahaan-perusahaan di Indonesia, serta memberikan solusi untuk memenuhi kebutuhan alat IT pada perusahaan-perusahaan tersebut.</p>
-                <p><strong>PT Infoduta Computindo Perkasa</strong> telah berdiri sejak tahun 1995 dan hingga saat ini, telah dipercaya sebagai mitra tetap produk IT di perusahaan besar di Indonesia seperti: Pertamina Group, Telkom Group, Telkom Malaysia, Perbankan, dan perusahaan-perusahaan swasta lainnya.</p>
+                <p><strong>PT Infoduta Computindo Perkasa</strong> telah berdiri sejak tahun 1995 hingga saat ini, dan telah dipercaya sebagai mitra tetap produk IT di perusahaan besar di Indonesia seperti: Pertamina Group, Telkom Group, Telkom Malaysia, Perbankan, dan perusahaan-perusahaan swasta lainnya.</p>
                 <p><strong>PT Infoduta Computindo Perkasa</strong> memiliki team solid yang selalu siap dalam memberikan layanan terbaik untuk mendukung setiap proses bisnis perusahaan Anda dengan orientasi solusi dan pelayanan maksimal. Kami menyediakan produk-produk dari brand high-end dengan harga yang sangat terjangkau. Kami menjual produk-produk IT seperti Laptop, PC, Printer, UPS, Server, Software, Hardware serta sparepart dari berbagai macam brand.</p>
               </div>
             </div>
@@ -106,7 +106,6 @@ function Tentang() {
                 </ol>
               </div>
             </div>
-            
           </section>
 
           <div className="section-kontak">
