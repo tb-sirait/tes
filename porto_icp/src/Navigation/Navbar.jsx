@@ -1,6 +1,8 @@
 import './navbar.css'
 import React, { useState } from 'react';
 
+
+
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownVisible, setDropdownVisible] = useState(false);
@@ -49,12 +51,12 @@ function Navbar() {
                 Produk
               </a>
               <ul className={`dropdown-menu ${dropdownVisible ? 'show' : ''}`}>
-                <li><a href="/produk/software">Software</a></li>
-                <li><a href="/produk/hardware">Hardware</a></li>
-                <li><a href="/produk/sparepart">Sparepart</a></li>
-                <li><a href="/produk/komputer">Komputer</a></li>
-                <li><a href="/produk/laptop">Laptop</a></li>
-                <li><a href="/produk/smartphone">Smartphone</a></li>
+                <li><a href="/software">Software</a></li>
+                <li><a href="/hardware">Hardware</a></li>
+                <li><a href="/sparepart">Sparepart</a></li>
+                <li><a href="/Computer">Komputer</a></li>
+                <li><a href="/laptop">Laptop</a></li>
+                <li><a href="/smartphone">Smartphone</a></li>
               </ul>
             </li>
             

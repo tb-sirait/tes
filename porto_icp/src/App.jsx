@@ -1,11 +1,19 @@
 import React, { useEffect } from "react"
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom"
+
 import Navbar from "./Navigation/Navbar"
 import Homepage from "./Homepage/Homepage"
 import Layanan from "./Layanan/Layanan"
 import Produk from "./Produk/Produk"
 import Tentang from "./Tentang/Tentang"
 import Karir from "./Karir/Karir"
+
+import Computer from "./Produk/Produk_Pages/Computer"
+import Hardware from "./Produk/Produk_Pages/Hardware"
+import Software from "./Produk/Produk_Pages/Software" 
+import Sparepart from "./Produk/Produk_Pages/Sparepart"
+import Smartphone from "./Produk/Produk_Pages/Smartphone"
+import Laptop from "./Produk/Produk_Pages/Laptop"
 
 import CookieConsent from "./components/CookieConsent"
 import ScrollToTop from "./components/ScrollToTop"
@@ -83,6 +91,13 @@ function App() {
         <Route path="/layanan" element={<Layanan />} />
         <Route path="/tentang" element={<Tentang />} />
         <Route path="/karir" element={<Karir />} />
+        <Route path="/software" element={<Software />} />
+        <Route path="/hardware" element={<Hardware />} />
+        <Route path="/sparepart" element={<Sparepart />} />
+        <Route path="/computer" element={<Computer />} />
+        <Route path="/smartphone" element={<Smartphone />} />
+        <Route path="/laptop" element={<Laptop />} />
+        <Route path="*" element={<Homepage />} />
       </Routes>
       <CookieConsent />
     </Router>
