@@ -48,13 +48,6 @@ const ProductCard = ({ product, onViewDetails }) => {
           {product.specs?.storage && <SpecItem icon={<HardDrive />} label="Penyimpanan" value={product.specs.storage} />}
           {product.specs?.gpu && <SpecItem icon={<Monitor />} label="GPU" value={product.specs.gpu} />}
         </div>
-        <div className="spec-text-summary">
-          {product.specs?.cpu && <span>{product.specs.cpu}</span>}
-          {product.specs?.ram && <span>{product.specs.ram}</span>}
-          {product.specs?.storage && <span>{product.specs.storage}</span>}
-          {product.specs?.gpu && <span>{product.specs.gpu}</span>}
-        </div>
-        {/* Removed the View Details button as requested */}
       </div>
     </div>
   );

@@ -120,13 +120,6 @@ const products = produkData.map(product => ({
   const handleTouchMove = (e) => {
     touchEndX.current = e.changedTouches[0].clientX
   }
-
-  const [showFilters, setShowFilters] = useState(false);
-
-  const toggleFilter = () => {
-    setShowFilters(prev => !prev);
-  };
-
   const handleTouchEnd = () => {
     if (!touchStartX.current || !touchEndX.current) return
     const distance = touchStartX.current - touchEndX.current
@@ -189,44 +182,7 @@ const products = produkData.map(product => ({
               ))}
             </div>
 
-            <div className="filter-wrapper">
-            <div className="search-bar">
-              <select 
-                className="category-select"
-                value={selectedBrand || ""}
-                onChange={(e) => {
-                  const brandValue = e.target.value;
-                  setSelectedBrand(brandValue === "" ? null : brandValue);
-                  setBrandClickCount(0); // Reset click count when using dropdown
-                }}
-              >
-                <option value="">Semua Merk</option>
-                {brands.map((brand) => (
-                  <option key={brand.name} value={brand.name}>
-                    {brand.name}
-                  </option>
-                ))}
-                </select>
-                <input type="text" className="search-input" placeholder="Cari Produk" />
-                <button className="filter-button" onClick={toggleFilter}>
-                  Filter <FaFilter />
-                </button>
-              </div>
-
-              {showFilters && (
-                <div className="product-section">
-                  <div className="product-filters">
-                    <span style={{ marginLeft: "10px"}}>Filter Produk:</span>
-                    <div className="filter-tags">
-                      {['Hardware', 'Software', 'Computer', 'Laptop', 'Smartphone', 'Sparepart'].map(tag => (
-                        <button key={tag} className="tag-button">{tag}</button>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
-
+            
             <h2 className="text-3xl font-bold mb-8 text-gray-900 dark:text-white">
               {selectedBrand ? `Produk ${selectedBrand}` : "Produk Populer"} ({(selectedBrand ? products.filter(product => product.brand === selectedBrand) : products).length})
             </h2>
@@ -244,7 +200,7 @@ const products = produkData.map(product => ({
                   <div
                     key={product.id}
                     className="product-card bg-blue-900 rounded-3xl p-8 flex flex-row text-white items-start shadow-xl cursor-pointer hover:shadow-2xl transition-shadow duration-300"
-                    style={{ cursor: "pointer" }}
+                    style={{ cursor: "pointer" , width: "80%"}}
                     onClick={() => openModal(product)}
                   >
                   <div className="flex flex-col items-center mr-8 separator-line">
