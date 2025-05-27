@@ -18,13 +18,11 @@ import serviceIt from "../assets/layanan/service_it.png";
 import kantorIcp from "../assets/kantor_icp.png";
 
 const images = [
-    consulIt,
-    hardwareIt,
-    procureIt,
-    serviceIt
-  ];
-
-
+  consulIt,
+  hardwareIt,
+  procureIt,
+  serviceIt
+];
 
 function Layanan() {
 
@@ -140,75 +138,75 @@ function Layanan() {
             </div>
         </section>
         <section className="kontak" style={{ marginTop: "50px" , width: "40%", marginLeft: "auto", marginRight: "auto"}}>
-                    <h3>Contact Us</h3>
-                    <p style={{marginBottom: "10px"}}>Informasi lebih lanjut, silahkan hubungi kami untuk berdiskusi.</p>
-        
-                    <div className="kontak-container">
-                      {/* Kotak Map */}
-                      <div className="map-box">
-                        <div className="mapouter">
-                          <div className="gmap_canvas">
-                            <iframe 
-                              className="gmap_iframe"
-                              src="https://maps.google.com/maps?q=PT+infoduta&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                              frameBorder="0"
-                              scrolling="no"
-                              marginHeight="0"
-                              marginWidth="0"
-                            ></iframe>
-                          </div>
-                        </div>
-                      </div>
-        
-                      {/* Kotak Kontak */}
-                      <div className="kontak-box">
-                        <div className="kontak-item">
-                          <FaEnvelope className="icon" />
-                          <span>dewi.handayani@infoduta.com</span>
-                        </div>
-                        <a 
-                          href= "" 
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          style={{ textDecoration: "none", color: "white", gap: "10px", display: "flex", alignItems: "left" }}
-                          onClick={(e) => { e.preventDefault(); openModal(); }}
-                        >
-                          <FaEnvelope className="icon" />
-                          <span>Hubungi Admin Sales</span>
-                        </a>
-                        <a 
-                          href= {whatsappLink} 
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          style={{ textDecoration: "none", color: "white", gap: "10px", display: "flex", alignItems: "left" }}
-                        >
-                          <FaWhatsapp className="icon" />
-                          <span>0813-1411-8264</span>
-                        </a>
-                        <a 
-                          href={whatsappLink2}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          style={{ textDecoration: "none", color: "white", gap: "10px", display: "flex", alignItems: "left" }}
-                        >
-                          <FaWhatsapp className="icon" />
-                          <span>0897-5808-407</span>
-                        </a>
-                        <div className="kontak-item">
-                          <FaPhone className="icon" />
-                          <span>(021) 3983-1939</span>
-                        </div>
-                        <div className="kontak-item">
-                          <FaMapMarkerAlt className="icon" />
-                        <div>
-                          <strong>PT. Infoduta Computindo Perkasa</strong><br />
-                          HR Building, Jl. K.H. Wahid Hasyim No.5 G1 Floor,<br />
-                          RT.12/RW.9, Kb. Sirih, Kec. Menteng, Kota Jakarta Pusat,<br />
-                          Daerah Khusus Ibukota Jakarta 10340.
-                        </div>
-                      </div>
-                    </div>
-                    </div>
+          <h3>Contact Us</h3>
+          <p style={{marginBottom: "10px"}}>Informasi lebih lanjut, silahkan hubungi kami untuk berdiskusi.</p>
+
+          <div className="kontak-container">
+            {/* Kotak Map */}
+            <div className="map-box">
+              <div className="mapouter">
+                <div className="gmap_canvas">
+                  <iframe 
+                    className="gmap_iframe"
+                    src="https://maps.google.com/maps?q=PT+infoduta&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                    frameBorder="0"
+                    scrolling="no"
+                    marginHeight="0"
+                    marginWidth="0"
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+
+            {/* Kotak Kontak */}
+            <div className="kontak-box">
+              <div className="kontak-item">
+                <FaEnvelope className="icon" />
+                <span>dewi.handayani@infoduta.com</span>
+              </div>
+              <a 
+                href= "" 
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ textDecoration: "none", color: "white", gap: "10px", display: "flex", alignItems: "left" }}
+                onClick={(e) => { e.preventDefault(); openModal(); }}
+              >
+                <FaEnvelope className="icon" />
+                <span>Hubungi Admin Sales</span>
+              </a>
+              <a 
+                href= {whatsappLink} 
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ textDecoration: "none", color: "white", gap: "10px", display: "flex", alignItems: "left" }}
+              >
+                <FaWhatsapp className="icon" />
+                <span>0813-1411-8264</span>
+              </a>
+              <a 
+                href={whatsappLink2}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ textDecoration: "none", color: "white", gap: "10px", display: "flex", alignItems: "left" }}
+              >
+                <FaWhatsapp className="icon" />
+                <span>0897-5808-407</span>
+              </a>
+              <div className="kontak-item">
+                <FaPhone className="icon" />
+                <span>(021) 3983-1939</span>
+              </div>
+              <div className="kontak-item">
+                <FaMapMarkerAlt className="icon" />
+              <div>
+                <strong>PT. Infoduta Computindo Perkasa</strong><br />
+                HR Building, Jl. K.H. Wahid Hasyim No.5 G1 Floor,<br />
+                RT.12/RW.9, Kb. Sirih, Kec. Menteng, Kota Jakarta Pusat,<br />
+                Daerah Khusus Ibukota Jakarta 10340.
+              </div>
+            </div>
+          </div>
+          </div>
         </section>
 
         {/* Modal for Admin Sales Emails */}

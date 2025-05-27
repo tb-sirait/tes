@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from "react"
 
 import Navbar from "../Navigation/Navbar"
@@ -110,9 +109,6 @@ const products = produkData.map(product => ({
     }
   }, [currentImageIndex, selectedProduct]);
 
-  // Add className to image for fade effect
-
-
   const closeNoProductModal = () => {
     setIsNoProductModalOpen(false)
   }
@@ -194,9 +190,22 @@ const products = produkData.map(product => ({
             </div>
 
             <div className="filter-wrapper">
-              <div className="search-bar">
-                <select className="category-select">
-                  <option>Kategori</option>
+            <div className="search-bar">
+              <select 
+                className="category-select"
+                value={selectedBrand || ""}
+                onChange={(e) => {
+                  const brandValue = e.target.value;
+                  setSelectedBrand(brandValue === "" ? null : brandValue);
+                  setBrandClickCount(0); // Reset click count when using dropdown
+                }}
+              >
+                <option value="">Semua Merk</option>
+                {brands.map((brand) => (
+                  <option key={brand.name} value={brand.name}>
+                    {brand.name}
+                  </option>
+                ))}
                 </select>
                 <input type="text" className="search-input" placeholder="Cari Produk" />
                 <button className="filter-button" onClick={toggleFilter}>
@@ -217,7 +226,6 @@ const products = produkData.map(product => ({
                 </div>
               )}
             </div>
-  
 
             <h2 className="text-3xl font-bold mb-8 text-gray-900 dark:text-white">
               {selectedBrand ? `Produk ${selectedBrand}` : "Produk Populer"} ({(selectedBrand ? products.filter(product => product.brand === selectedBrand) : products).length})
@@ -296,7 +304,6 @@ const products = produkData.map(product => ({
                 <></>
               )}
             </div>
-
           </div>
         </div>
       </main>
