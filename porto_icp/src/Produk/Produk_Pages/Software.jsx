@@ -3,17 +3,8 @@ import softwareData from "../software.json";
 import "./Laptop.css";
 import {
   Search,
-  Filter,
-  ShoppingCart,
-  Star,
-  Cpu,
-  MemoryStick,
-  HardDrive,
-  Monitor,
   X,
-  Phone,
   MessageCircle,
-  Mail,
 } from "lucide-react";
 import "./Laptop.css";
 import Navbar from "../../Navigation/Navbar.jsx";
@@ -44,11 +35,11 @@ const ProductModal = ({ product, isOpen, onClose }) => {
             <h2>{product.name}</h2>
             {product.usage && <p>Usage: {product.usage}</p>}
             <div className="modal-actions">
-              <button className="contact-button"><Phone /> Hubungi Kami</button>
-              <div className="contact-options">
-                <button className="whatsapp"><MessageCircle /> WhatsApp</button>
-                <button className="email"><Mail /> Email</button>
-              </div>
+              <button className="contact-button"><MessageCircle /> Hubungi Kami</button>
+            </div>
+            <div className="extra-info">
+              <p><strong>✨ Penawaran spesial:</strong> Gratis konsultasi dan bantuan instalansi produk.</p>
+              <p><strong>🚚 Pesan Antar:</strong> Tersedia antar barang untuk Jakarta dan Sekitarnya</p>
             </div>
           </div>
         </div>
@@ -96,7 +87,6 @@ const Software = () => {
         isOpen={!!selectedProduct}
         onClose={() => setSelectedProduct(null)}
       />
-
       <Footer />
     </div>
   );

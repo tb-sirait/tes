@@ -4,17 +4,17 @@ import "./Laptop.css";
 import {
   Search,
   Filter,
-  ShoppingCart,
-  Star,
+  
+  
   Cpu,
   MemoryStick,
   HardDrive,
   Monitor,
   X,
   AppWindow,
-  Phone,
+  
   MessageCircle,
-  Mail,
+  
 } from "lucide-react";
 import "./Laptop.css";
 import Navbar from "../../Navigation/Navbar.jsx";
@@ -83,7 +83,8 @@ const ProductModal = ({ product, isOpen, onClose }) => {
           <div className="modal-details">
             <h2>{product.name}</h2>
             <div className="meta">
-              <span className="brand-tag">{product.brand} <br></br></span>
+              <span className="brand-tag">{product.brand} </span>
+              <span> | </span>
               <span className="type-tag">{product.jenis}</span>
             </div>
             <div className="modal-specs">

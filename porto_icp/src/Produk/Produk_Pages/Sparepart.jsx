@@ -89,11 +89,8 @@ const ProductModal = ({ product, isOpen, onClose }) => {
             <h2>{product.name}</h2>
             <div className="meta">
               <span className="brand-tag">{product.brand}</span>
+              <span> | </span>
               <span className="type-tag">{product.jenis}</span>
-            </div>
-            <div className="rating">
-              {[...Array(5)].map((_, i) => <Star key={i} className="rating-star" />)}
-              <span>(4.8/5 rating)</span>
             </div>
             <div className="modal-specs">
               {product.specs?.cpu && <SpecItem icon={<Cpu />} label="Processor" value={product.specs.cpu} />}
@@ -103,14 +100,12 @@ const ProductModal = ({ product, isOpen, onClose }) => {
               {product.specs?.os && <SpecItem icon={<div className="os-icon" />} label="Operating System" value={product.specs.os} />}
             </div>
             <div className="modal-actions">
-              <button className="contact-button"><Phone /> Hubungi Kami</button>
               <div className="contact-options">
-                <button className="whatsapp"><MessageCircle /> WhatsApp</button>
-                <button className="email"><Mail /> Email</button>
+                <button className="contact-button"><MessageCircle /> Hubungi Kami</button>
               </div>
               <div className="extra-info">
-                <p><strong>✨ Special Offer:</strong> Free consultation and installation support</p>
-                <p><strong>🚚 Delivery:</strong> Available in Jakarta and surrounding areas</p>
+                <p><strong>✨ Penawaran spesial:</strong> Gratis konsultasi dan bantuan instalansi produk.</p>
+                <p><strong>🚚 Pesan Antar:</strong> Tersedia antar barang untuk Jakarta dan Sekitarnya</p>
               </div>
             </div>
           </div>

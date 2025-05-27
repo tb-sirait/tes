@@ -84,6 +84,7 @@ const ProductModal = ({ product, isOpen, onClose }) => {
             <h2>{product.name}</h2>
             <div className="meta">
               <span className="brand-tag">{product.brand}</span>
+              <span> | </span>
               <span className="type-tag">{product.jenis}</span>
             </div>
             <div className="rating">

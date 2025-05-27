@@ -79,18 +79,16 @@ const HardwareModal = ({ product, isOpen, onClose }) => {
             <h2>{product.name}</h2>
             <div className="meta">
               <span className="brand-tag">{product.brand}</span>
+              <span> | </span>
               <span className="type-tag">{product.type}</span>
             </div>
-            {/* Removed rating and modal-specs since hardware data does not have these */}
             <div className="modal-actions">
-              <button className="contact-button"><Phone /> Hubungi Kami</button>
               <div className="contact-options">
-                <button className="whatsapp"><MessageCircle /> WhatsApp</button>
-                <button className="email"><Mail /> Email</button>
+                <button className="contact-button"><MessageCircle /> Hubungi Kami</button>
               </div>
               <div className="extra-info">
-                <p><strong>✨ Special Offer:</strong> Free consultation and installation support</p>
-                <p><strong>🚚 Delivery:</strong> Available in Jakarta and surrounding areas</p>
+                <p><strong>✨ Penawaran spesial:</strong> Gratis konsultasi dan bantuan instalansi produk.</p>
+                <p><strong>🚚 Pesan Antar:</strong> Tersedia antar barang untuk Jakarta dan Sekitarnya</p>
               </div>
             </div>
           </div>

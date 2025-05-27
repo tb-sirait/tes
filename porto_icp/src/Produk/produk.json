@@ -462,20 +462,6 @@
   },
   {
     "id": 29,
-    "name": "Lenovo X12 Detachable Gen 2 (Type 21LK, 21LL)",
-    "brand": "Lenovo",
-    "jenis": "Detachable Laptop",
-    "images": [],
-    "specs": {
-      "cpu": "Intel Core Ultra 7 164U",
-      "ram": "16GB LPD5X-7500 (onboard) not upgradable",
-      "storage": "512GB SSD PCIe",
-      "gpu": "Intel Graphics",
-      "os": "Windows 11 Pro 64"
-    }
-  },
-  {
-    "id": 30,
     "name": "Apple iPhone 15 128GB",
     "brand": "Apple",
     "jenis": "Smartphone",
@@ -489,7 +475,7 @@
     }
   },
   {
-    "id": 31,
+    "id": 30,
     "name": "Apple iPhone 16 128GB",
     "brand": "Apple",
     "jenis": "Smartphone",
@@ -503,7 +489,7 @@
     }
   },
   {
-    "id": 32,
+    "id": 31,
     "name": "Apple iPhone 16e 128GB",
     "brand": "Apple",
     "jenis": "Smartphone",
@@ -517,7 +503,7 @@
     }
   },
   {
-    "id": 33,
+    "id": 32,
     "name": "Samsung A55 8/256GB",
     "brand": "Samsung",
     "jenis": "Smartphone",
@@ -531,22 +517,8 @@
     }
   },
   {
-    "id": 34,
+    "id": 33,
     "name": "Samsung S24FE 256GB",
-    "brand": "Samsung",
-    "jenis": "Smartphone",
-    "images": [],
-    "specs": {
-      "cpu": "",
-      "ram": "",
-      "storage": "",
-      "gpu": "",
-      "os": ""
-    }
-  },
-  {
-    "id": 35,
-    "name": "Samsung Z Flip 6 12/256GB",
     "brand": "Samsung",
     "jenis": "Smartphone",
     "images": [],
@@ -559,3 +531,4 @@
     }
   }
 ]
+      

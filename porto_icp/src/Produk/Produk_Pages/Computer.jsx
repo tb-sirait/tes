@@ -41,10 +41,10 @@ const ProductCard = ({ product, onViewDetails }) => {
           <span className="type">{product.jenis}</span>
         </div>
         <div className="specs">
-          {product.specs?.cpu && <SpecItem icon={<Cpu />} label="Processor" value={product.specs.cpu} />}
-          {product.specs?.ram && <SpecItem icon={<MemoryStick />} label="Memory" value={product.specs.ram} />}
-          {product.specs?.storage && <SpecItem icon={<HardDrive />} label="Storage" value={product.specs.storage} />}
-          {product.specs?.gpu && <SpecItem icon={<Monitor />} label="Graphics" value={product.specs.gpu} />}
+          {product.specs?.cpu && <SpecItem icon={<Cpu />} label="Prosesor" value={product.specs.cpu} />}
+          {product.specs?.ram && <SpecItem icon={<MemoryStick />} label="RAM" value={product.specs.ram} />}
+          {product.specs?.storage && <SpecItem icon={<HardDrive />} label="Penyimpanan" value={product.specs.storage} />}
+          {product.specs?.gpu && <SpecItem icon={<Monitor />} label="GPU" value={product.specs.gpu} />}
         </div>
       </div>
     </div>
@@ -82,6 +82,7 @@ const ProductModal = ({ product, isOpen, onClose }) => {
             <h2>{product.name}</h2>
             <div className="meta">
               <span className="brand-tag">{product.brand}</span>
+              <span> | </span>
               <span className="type-tag">{product.jenis}</span>
             </div>
             <div className="rating">
@@ -89,11 +90,11 @@ const ProductModal = ({ product, isOpen, onClose }) => {
               <span>(4.8/5 rating)</span>
             </div>
             <div className="modal-specs">
-              {product.specs?.cpu && <SpecItem icon={<Cpu />} label="Processor" value={product.specs.cpu} />}
-              {product.specs?.ram && <SpecItem icon={<MemoryStick />} label="Memory" value={product.specs.ram} />}
-              {product.specs?.storage && <SpecItem icon={<HardDrive />} label="Storage" value={product.specs.storage} />}
-              {product.specs?.gpu && <SpecItem icon={<Monitor />} label="Graphics" value={product.specs.gpu} />}
-              {product.specs?.os && <SpecItem icon={<div className="os-icon" />} label="Operating System" value={product.specs.os} />}
+              {product.specs?.cpu && <SpecItem icon={<Cpu />} label="Prosesor (CPU)" value={product.specs.cpu} />}
+              {product.specs?.ram && <SpecItem icon={<MemoryStick />} label="RAM" value={product.specs.ram} />}
+              {product.specs?.storage && <SpecItem icon={<HardDrive />} label="Penyimpanan" value={product.specs.storage} />}
+              {product.specs?.gpu && <SpecItem icon={<Monitor />} label="GPU" value={product.specs.gpu} />}
+              {product.specs?.os && <SpecItem icon={<div className="os-icon" />} label="Sistem Operasi" value={product.specs.os} />}
             </div>
             <div className="modal-actions">
               <button className="contact-button"><Phone /> Hubungi Kami</button>
