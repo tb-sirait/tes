@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import produkData from "../sparepart.json";
+import produkData from "../../Produk/sparepart.json";
 import "./laptop.css";
 import {
   Search,
@@ -19,17 +19,13 @@ import Navbar from "../../Navigation/Navbar.jsx";
 import Footer from "../../Navigation/footer.jsx";
 
 const ProductCard = ({ product, onViewDetails }) => {
-  const [imgError, setImgError] = useState(false);
-
-  const imgSrc = imgError
-    ? "/api/placeholder/200/150"
-    : `/src/assets/${product.images?.[0]}`;
+  const [setImgError] = useState(false);
 
   return (
     <div className="product-card" onClick={() => onViewDetails(product)}>
       <div className="product-image">
         <img
-          src={imgSrc}
+          src={product.images}
           alt={product.name}
           onError={() => setImgError(true)}
         />
@@ -81,7 +77,7 @@ const ProductModal = ({ product, isOpen, onClose }) => {
         <div className="modal-body">
           <div className="modal-image">
             <img
-              src={product.images?.[0] ? `/src/assets/${product.images[0]}` : '/api/placeholder/200/150'}
+              src={product.images}
               alt={product.name}
             />
           </div>
