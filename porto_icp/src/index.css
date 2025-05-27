@@ -1,5 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
 :root {
-  font-family: 'Phetsarath', sans-serif;
+  font-family: 'Inter', sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -97,5 +98,5 @@ html, body, #root {
   height: 100%;
   overflow-x: hidden; /* penting untuk mencegah scroll horizontal */
   box-sizing: border-box;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: 'Inter', sans-serif;
 }
