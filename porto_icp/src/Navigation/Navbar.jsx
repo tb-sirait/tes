@@ -1,6 +1,6 @@
 import './navbar.css'
 import React, { useState } from 'react';
-
+import logoICP from '../assets/logo_icp.svg';
 
 
 function Navbar() {
@@ -23,7 +23,7 @@ function Navbar() {
     <>
       <div className="navbar">
         <a href="/" className="logo-with-text" onClick={() => setMenuOpen(false)}>
-        <img src="../src/assets/logo_icp.svg" alt="Logo ICP" className="logo" />
+        <img src={logoICP} alt="Logo ICP" className="logo" />
           <div className="teks">
             <p className='nick-name'>Infoduta</p>
             <p className='nick-name'>Computindo Perkasa</p>
