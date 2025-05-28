@@ -20,6 +20,46 @@ import "./Laptop.css";
 import Navbar from "../../Navigation/Navbar.jsx";
 import Footer from "../../Navigation/footer.jsx";
 
+const ProductHeader = ({
+  searchQuery,
+  onSearchChange,
+  selectedBrand,
+  onBrandChange,
+  brandOptions,
+}) => {
+  return (
+    <div className="product-header">
+      <div className="header-text">
+        <h1>Produk Laptop</h1>
+        <p>
+          Temukan berbagai pilihan laptop dengan spesifikasi terbaik yang sesuai dengan kebutuhan Anda.
+        </p>
+      </div>
+
+      <div className="search-filter-bar">
+        <h5 style={{marginRight: "0px",color: "#1434a4"}}>Cari:</h5>
+        <input
+          type="text"
+          placeholder="Cari laptop..."
+          value={searchQuery}
+          onChange={onSearchChange}
+          className="search-input"
+        />
+        <select
+          value={selectedBrand}
+          onChange={onBrandChange}
+          className="brand-select"
+        >
+          <option value="">Semua Merek</option>
+          {brandOptions.map((brand, idx) => (
+            <option key={idx} value={brand}>{brand}</option>
+          ))}
+        </select>
+      </div>
+    </div>
+  );
+};
+
 const ProductCard = ({ product, onViewDetails }) => {
   const [imgError, setImgError] = useState(false);
 
@@ -133,26 +173,13 @@ const Laptop = () => {
   return (
     <div className="laptop-page">
       <Navbar />
-
-      <div className="search-filter-bar">
-        <input
-          type="text"
-          placeholder="Search laptops..."
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          className="search-input"
-        />
-        <select
-          value={selectedBrand}
-          onChange={(e) => setSelectedBrand(e.target.value)}
-          className="brand-select"
-        >
-          <option value="">All Brands</option>
-          {[...new Set(products.map(p => p.brand))].map((brand, i) => (
-            <option key={i} value={brand}>{brand}</option>
-          ))}
-        </select>
-      </div>
+      <ProductHeader
+        searchQuery={searchQuery}
+        onSearchChange={(e) => setSearchQuery(e.target.value)}
+        selectedBrand={selectedBrand}
+        onBrandChange={(e) => setSelectedBrand(e.target.value)}
+        brandOptions={[...new Set(products.map(p => p.brand))]}
+      />
 
       <div className="product-grid" style={{ marginTop: '30px' }}>
         {filteredProducts.map(product => (

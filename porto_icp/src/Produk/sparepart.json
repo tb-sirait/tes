@@ -3,147 +3,147 @@
     "name": "Nvidia A100 80GB PCIE",
     "jenis": "GPU",
     "brand": "NVIDIA",
-    "images": ["../src/assets/produk/sparepart/nvidia/1.png"],
+    "images": ["/assets/produk/sparepart/nvidia/1.png"],
     "description": "High-performance Nvidia A100 80GB PCIe GPU designed for AI and HPC workloads."
   },
   {
     "name": "Nvidia Tesla V100 32GB PCIe 3.0 GPU",
     "jenis": "GPU",
     "brand": "NVIDIA",
-    "images": ["../src/assets/produk/sparepart/nvidia/3.png"],
+    "images": ["/assets/produk/sparepart/nvidia/3.png"],
     "description": "Nvidia Tesla V100 32GB PCIe GPU optimized for deep learning and scientific computing."
   },
   {
     "name": "NVIDIA L40S Passive PCIE 48GB",
     "jenis": "GPU",
     "brand": "Unknown",
-    "images": ["../src/assets/produk/sparepart/nvidia/2.png"],
+    "images": ["/assets/produk/sparepart/nvidia/2.png"],
     "description": "NVIDIA L40S Passive PCIe 48GB GPU suitable for professional visualization and AI."
   },
   {
     "name": "BACKPLANE DAUGHTER CARD BPN-SAS3-216EL (Brand Supermicro)",
     "jenis": "Backplane",
     "brand": "Supermicro",
-    "images": ["../src/assets/produk/sparepart/supermicro/1.png"],
+    "images": ["/assets/produk/sparepart/supermicro/1.png"],
     "description": "Supermicro backplane daughter card BPN-SAS3-216EL for SAS3 storage expansion."
   },
   {
     "name": "POWER SUPPLY PWS-920P-SQ",
     "jenis": "Power Supply",
     "brand": "Supermicro",
-    "images": ["../src/assets/produk/sparepart/supermicro/2.png"],
+    "images": ["/assets/produk/sparepart/supermicro/2.png"],
     "description": "Supermicro PWS-920P-SQ power supply unit for reliable server power delivery."
   },
   {
     "name": "MEMORY 8GB 2RX8 PC3L 12800R",
     "jenis": "Memory",
     "brand": "Micron/Hynix",
-    "images": ["../src/assets/produk/sparepart/hynix/1.png"],
+    "images": ["/assets/produk/sparepart/hynix/1.png"],
     "description": "8GB DDR3L 12800R registered memory module from Micron/Hynix for server applications."
   },
   {
     "name": "SUPERMICRO SAS2-216EL SAS DAUGHTER CARD 2PORT EXPANDER FOR SAS2-216EB BACKPLANE",
     "jenis": "Expander Card",
     "brand": "Supermicro",
-    "images": ["../src/assets/produk/sparepart/supermicro/3.png"],
+    "images": ["/assets/produk/sparepart/supermicro/3.png"],
     "description": "Supermicro SAS2-216EL SAS daughter card 2-port expander for SAS2-216EB backplane."
   },
   {
     "name": "SUPERMICRO X9DRi-LN4F+REV 1.20A System board",
     "jenis": "System Board",
     "brand": "Supermicro",
-    "images": ["../src/assets/produk/sparepart/supermicro/4.png"],
+    "images": ["/assets/produk/sparepart/supermicro/4.png"],
     "description": "Supermicro X9DRi-LN4F+REV 1.20A system board for high-performance server builds."
   },
   {
     "name": "Motherboard Gigabyte H610MK DDR4 Socket LGA 1700",
     "jenis": "Motherboard",
     "brand": "Gigabyte",
-    "images": ["../src/assets/produk/sparepart/gigabyte/1.png"],
+    "images": ["/assets/produk/sparepart/gigabyte/1.png"],
     "description": "Gigabyte H610MK DDR4 motherboard with LGA 1700 socket for Intel processors."
   },
   {
     "name": "Processor Intel Core i5-12400 LGA 1700",
     "jenis": "Processor",
     "brand": "Intel",
-    "images": ["../src/assets/produk/sparepart/intel/i5.png"],
+    "images": ["/assets/produk/sparepart/intel/i5.png"],
     "description": "Intel Core i5-12400 processor with LGA 1700 socket, suitable for mid-range desktops."
   },
   {
     "name": "Memory RAM V-GEN Longdimm Platinum 8GB DDR4 2666Mhz (PC-21300)",
     "jenis": "Memory",
     "brand": "V-GEN",
-    "images": ["../src/assets/produk/sparepart/vgen/1.png"],
+    "images": ["/assets/produk/sparepart/vgen/1.png"],
     "description": "V-GEN Longdimm Platinum 8GB DDR4 2666MHz RAM module for desktop and server use."
   },
   {
     "name": "Modem orbit Telkomsel Orbit 5G Z1 Modem WiFi 5G",
     "jenis": "Modem",
     "brand": "Telkomsel",
-    "images": ["../src/assets/produk/sparepart/Orbit/1.png"],
+    "images": ["/assets/produk/sparepart/Orbit/1.png"],
     "description": "Telkomsel Orbit 5G Z1 modem providing high-speed 5G WiFi connectivity."
   },
   {
     "name": "Samsung SSD NVME PM9A1 512GB",
     "jenis": "Storage",
     "brand": "Samsung",
-    "images": ["../src/assets/produk/sparepart/samsung/1.png"],
+    "images": ["/assets/produk/sparepart/samsung/1.png"],
     "description": "Samsung PM9A1 512GB NVMe SSD offering fast storage performance."
   },
   {
     "name": "UGREEN Kabel HDMI To VGA Converter",
     "jenis": "Cable/Converter",
     "brand": "UGREEN",
-    "images": ["../src/assets/produk/sparepart/ugreen/1.png"],
+    "images": ["/assets/produk/sparepart/ugreen/1.png"],
     "description": "UGREEN HDMI to VGA converter cable for connecting HDMI devices to VGA displays."
   },
   {
     "name": "CABLE UTP 1000FT/ROLL CAT5E BELDEN 1583A",
     "jenis": "Cable",
     "brand": "Belden",
-    "images": ["../src/assets/produk/sparepart/belden/1.png"],
+    "images": ["/assets/produk/sparepart/belden/1.png"],
     "description": "Belden CAT5E UTP cable, 1000 feet per roll, suitable for network installations."
   },
   {
     "name": "Mikrotik RB750GR3",
     "jenis": "Router",
     "brand": "Mikrotik",
-    "images": ["../src/assets/produk/sparepart/mikrotik/1.png"],
+    "images": ["/assets/produk/sparepart/mikrotik/1.png"],
     "description": "Mikrotik RB750GR3 router offering reliable and flexible networking solutions."
   },
   {
     "name": "Dlink DGS 1016D/C",
     "jenis": "Switch",
     "brand": "Dlink",
-    "images": ["../src/assets/produk/sparepart/Dlink/1.png"],
+    "images": ["/assets/produk/sparepart/Dlink/1.png"],
     "description": "Dlink DGS 1016D/C switch with 16 ports for efficient network management."
   },
   {
     "name": "Ruijie RG-EW1200G PRO",
     "jenis": "Router",
     "brand": "Ruijie",
-    "images": ["../src/assets/produk/sparepart/ruijie/1.png"],
+    "images": ["/assets/produk/sparepart/ruijie/1.png"],
     "description": "Ruijie RG-EW1200G PRO router designed for high-performance wireless networking."
   },
   {
     "name": "USB Flash Drives SDCZ50-032G-B35 SanDisk Cruzer Blade USB Flash Drive 32GB 2.0",
     "jenis": "USB Flash Drive",
     "brand": "SanDisk",
-    "images": ["../src/assets/produk/sparepart/sandisk/1.png"],
+    "images": ["/assets/produk/sparepart/sandisk/1.png"],
     "description": "SanDisk Cruzer Blade 32GB USB 2.0 flash drive for portable data storage."
   },
   {
     "name": "USB Flash Drives SDCZ50-064G-B35 SanDisk Cruzer Blade USB Flash Drive 64GB 2.0",
     "jenis": "USB Flash Drive",
     "brand": "SanDisk",
-    "images": ["../src/assets/produk/sparepart/sandisk/1.png"],
+    "images": ["/assets/produk/sparepart/sandisk/1.png"],
     "description": "SanDisk Cruzer Blade 64GB USB 2.0 flash drive for reliable portable storage."
   },
   {
     "name": "Kabel HDMI Vention B02 5m High Speed 4K FHD 1080p 3D HDR - B02  (HDMI Male to Male Cable)",
     "jenis": "Cable",
     "brand": "Vention",
-    "images": ["../src/assets/produk/sparepart/vention/1.png"],
+    "images": ["/assets/produk/sparepart/vention/1.png"],
     "description": "Vention B02 5m high-speed HDMI male-to-male cable supporting 4K and HDR."
   }
 ]
