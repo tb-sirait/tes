@@ -2,6 +2,13 @@ import React, { useState, useEffect } from "react";
 import produkData from "../produk.json";
 import "./Laptop.css";
 
+// Import images explicitly
+import SamsungA551 from "../../assets/produk/samsung/A55/1.png";
+import SamsungS24FE from "../../assets/produk/samsung/S24FE/1.png";
+import Iphone16 from "../../assets/produk/Apple/16/1.png";
+import Iphone16e from "../../assets/produk/Apple/16e/1.png";
+import Iphone15 from "../../assets/produk/Apple/15/1.png";
+
 import {
   Search,
   Filter,
@@ -20,12 +27,21 @@ import "./Laptop.css";
 import Navbar from "../../Navigation/Navbar.jsx";
 import Footer from "../../Navigation/footer.jsx";
 
+const imageMap = {
+  "Samsung A55 8/256GB": SamsungA551,
+  "Samsung S24FE 256GB": SamsungS24FE,
+  "Apple iPhone 16 128GB": Iphone16,
+  "Apple iPhone 16e 128GB": Iphone16e,
+  "Apple iPhone 15 128GB": Iphone15
+  // Add other smartphone images here with keys matching product names
+};
+
 const ProductCard = ({ product, onViewDetails }) => {
   const [imgError, setImgError] = useState(false);
 
   const imgSrc = imgError
     ? "/api/placeholder/200/150"
-    : `/src/assets/${product.images?.[0]}`;
+    : imageMap[product.name] || "/api/placeholder/200/150";
 
   return (
     <div className="product-card" onClick={() => onViewDetails(product)}>
@@ -93,7 +109,6 @@ const ProductHeader = ({
   );
 };
 
-
 const SpecItem = ({ icon, label, value }) => (
   <div className="spec-item">
     <div className="icon-box">{icon}</div>
@@ -116,7 +131,7 @@ const ProductModal = ({ product, isOpen, onClose }) => {
         <div className="modal-body">
           <div className="modal-image">
             <img
-              src={product.images?.[0] ? `/src/assets/${product.images[0]}` : '/api/placeholder/200/150'}
+              src={product.name && imageMap[product.name] ? imageMap[product.name] : '/api/placeholder/200/150'}
               alt={product.name}
             />
           </div>
@@ -127,10 +142,6 @@ const ProductModal = ({ product, isOpen, onClose }) => {
               <span> | </span>
               <span className="type-tag">{product.jenis}</span>
             </div>
-            <div className="rating">
-              {[...Array(5)].map((_, i) => <Star key={i} className="rating-star" />)}
-              <span>(4.8/5 rating)</span>
-            </div>
             <div className="modal-specs">
               {product.specs?.cpu && <SpecItem icon={<Cpu />} label="Processor" value={product.specs.cpu} />}
               {product.specs?.ram && <SpecItem icon={<MemoryStick />} label="Memory" value={product.specs.ram} />}
@@ -139,11 +150,7 @@ const ProductModal = ({ product, isOpen, onClose }) => {
               {product.specs?.os && <SpecItem icon={<div className="os-icon" />} label="Operating System" value={product.specs.os} />}
             </div>
             <div className="modal-actions">
-              <button className="contact-button"><Phone /> Hubungi Kami</button>
-              <div className="contact-options">
-                <button className="whatsapp"><MessageCircle /> WhatsApp</button>
-                <button className="email"><Mail /> Email</button>
-              </div>
+              <button className="contact-button"><MessageCircle /> Hubungi Kami</button>
               <div className="extra-info">
                 <p><strong>✨ Special Offer:</strong> Free consultation and installation support</p>
                 <p><strong>🚚 Delivery:</strong> Available in Jakarta and surrounding areas</p>
@@ -161,7 +168,6 @@ const Laptop = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [products, setProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
-  // const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const smartphoneProducts = produkData
@@ -184,7 +190,8 @@ const Laptop = () => {
         onSearchChange={(e) => setSearchQuery(e.target.value)}
         selectedBrand={selectedBrand}
         onBrandChange={(e) => setSelectedBrand(e.target.value)}
-        brandOptions={[...new Set(products.map(p => p.brand))].sort()}/>
+        brandOptions={[...new Set(products.map(p => p.brand))].sort()}
+      />
 
       <div className="product-grid" style={{ marginTop: '30px' }}>
         {filteredProducts.map(product => (
