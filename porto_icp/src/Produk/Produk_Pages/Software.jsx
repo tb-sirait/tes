@@ -13,9 +13,17 @@ import Footer from "../../Navigation/footer.jsx";
 const ProductCard = ({ product, onViewDetails }) => {
   return (
     <div className="product-card" onClick={() => onViewDetails(product)}>
+      {product.image && (
+        <img
+          src={product.image}
+          alt={product.name}
+          className="product-image"
+          style={{ width: "100%", height: "150px", objectFit: "contain" }}
+        />
+      )}
       <div className="product-info">
         <h3>{product.name}</h3>
-        {product.usage && <p style={{color:"#000000"}}>Usage: {product.usage}</p>}
+        {product.usage && <p style={{ color: "#000000" }}>Usage: {product.usage}</p>}
       </div>
     </div>
   );
@@ -24,6 +32,8 @@ const ProductCard = ({ product, onViewDetails }) => {
 const ProductModal = ({ product, isOpen, onClose }) => {
   if (!isOpen || !product) return null;
 
+  const imgSrc = product.image ? product.image : "/api/placeholder/200/150";
+
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -31,6 +41,12 @@ const ProductModal = ({ product, isOpen, onClose }) => {
           <X />
         </button>
         <div className="modal-body">
+          <div className="modal-image">
+            <img
+              src={imgSrc}
+              alt={product.name}
+            />
+          </div>
           <div className="modal-details">
             <h2>{product.name}</h2>
             {product.usage && <p>Usage: {product.usage}</p>}
