@@ -1,36 +1,23 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState, useEffect } from "react";
 import produkData from "../hardware.json";
 import "./Laptop.css";
 import {
-  Search,
-  Filter,
-  ShoppingCart,
-  Star,
-  Cpu,
-  MemoryStick,
-  HardDrive,
-  Monitor,
   X,
-  Phone,
+  Search,
   MessageCircle,
-  Mail,
 } from "lucide-react";
 import "./Laptop.css";
 import Navbar from "../../Navigation/Navbar.jsx";
 import Footer from "../../Navigation/footer.jsx";
 
 const HardwareCard = ({ product, onViewDetails }) => {
-  const [imgError, setImgError] = useState(false);
-
-  const imgSrc = imgError || !product.images || product.images.length === 0
-    ? "/api/placeholder/200/150"
-    : `/src/assets/${product.images[0]}`;
-
+  const [setImgError] = useState(false);
   return (
     <div className="product-card" onClick={() => onViewDetails(product)}>
       <div className="product-image">
         <img
-          src={imgSrc}
+          src={product.images}
           alt={product.name}
           onError={() => setImgError(true)}
         />
@@ -48,20 +35,9 @@ const HardwareCard = ({ product, onViewDetails }) => {
   );
 };
 
-
-const SpecItem = ({ icon, label, value }) => (
-  <div className="spec-item">
-    <div className="icon-box">{icon}</div>
-    <div className="spec-text">
-      <small>{label}</small>
-      <strong>{value}</strong>
-    </div>
-  </div>
-);
-
 const HardwareModal = ({ product, isOpen, onClose }) => {
   if (!isOpen || !product) return null;
-
+  const [setImgError] = useState(false);
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -71,8 +47,9 @@ const HardwareModal = ({ product, isOpen, onClose }) => {
         <div className="modal-body">
           <div className="modal-image">
             <img
-              src={product.images?.[0] ? `/src/assets/${product.images[0]}` : '/api/placeholder/200/150'}
+              src={product.images}
               alt={product.name}
+              onError={() => setImgError(true)}
             />
           </div>
           <div className="modal-details">
@@ -82,6 +59,7 @@ const HardwareModal = ({ product, isOpen, onClose }) => {
               <span> | </span>
               <span className="type-tag">{product.type}</span>
             </div>
+            <p className="product-description">{product.description}</p>
             <div className="modal-actions">
               <div className="contact-options">
                 <button className="contact-button"><MessageCircle /> Hubungi Kami</button>

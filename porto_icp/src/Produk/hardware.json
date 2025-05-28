@@ -2,91 +2,127 @@
   {
     "name": "Toner HP 119 A Black",
     "brand": "HP",
-    "type": "Tinta & Toner"
+    "type": "Tinta & Toner",
+    "images": "/src/assets/produk/hp_toner/1.png",
+    "description": "Toner hitam berkualitas tinggi untuk printer HP 119 A. Cocok untuk printer tipe: HP Color Laser 150a, HP Color Laser 150nw, HP Color Laser MFP 178nw, HP Color Laser 179nw, HP Color Laser MFP 178nwg, HP Color Laser MFP 179fnw, dan HP Color Laser MFP 179fwg."
   },
   {
     "name": "Toner HP 119 A Cyan",
     "brand": "HP",
-    "type": "Tinta & Toner"
+    "type": "Tinta & Toner",
+    "images": "/src/assets/produk/hp_toner/1.png",
+    "description": "Toner cyan untuk printer HP Color Laser 150a, HP Color Laser 150nw, HP Color Laser MFP 178nw, HP Color Laser 179nw, HP Color Laser MFP 178nwg, HP Color Laser MFP 179fnw, dan HP Color Laser MFP 179fwg, menghasilkan warna yang cerah dan akurat."
   },
   {
     "name": "Toner HP 119 A Magenta",
     "brand": "HP",
-    "type": "Tinta & Toner"
+    "type": "Tinta & Toner",
+    "images": "/src/assets/produk/hp_toner/1.png",
+    "description": "Toner magenta berkualitas untuk printer HP Color Laser 150a, HP Color Laser 150nw, HP Color Laser MFP 178nw, HP Color Laser 179nw, HP Color Laser MFP 178nwg, HP Color Laser MFP 179fnw, dan HP Color Laser MFP 179fwg, memberikan warna yang hidup dan konsisten."
   },
   {
     "name": "Toner HP 119 A Yellow",
     "brand": "HP",
-    "type": "Tinta & Toner"
+    "type": "Tinta & Toner",
+    "images": "/src/assets/produk/hp_toner/1.png",
+    "description": "Toner kuning untuk printer HP Color Laser 150a, HP Color Laser 150nw, HP Color Laser MFP 178nw, HP Color Laser 179nw, HP Color Laser MFP 178nwg, HP Color Laser MFP 179fnw, dan HP Color Laser MFP 179fwg, memastikan hasil cetak yang cerah dan tahan lama."
   },
   {
     "name": "Tinta HP GT53 Black",
     "brand": "HP",
-    "type": "Tinta & Toner"
+    "type": "Tinta & Toner",
+    "images": "/src/assets/produk/hp_ink/3.png",
+    "description": "Tinta hitam HP GT53 dengan kualitas tinggi untuk hasil cetak yang tajam dan jelas. Cocok untuk printer tipe: HP DeskJet GT 5810 All-in-One Printer dan HP DeskJet GT 5820 All-in-One Printer"
   },
   {
     "name": "Tinta HP GT52 Cyan",
     "brand": "HP",
-    "type": "Tinta & Toner"
+    "type": "Tinta & Toner",
+    "images": "/src/assets/produk/hp_ink/4.png",
+    "description": "Tinta cyan HP GT52 yang menghasilkan warna cerah dan akurat. Cocok untuk printer tipe: HP DeskJet GT 5810 All-in-One Printer dan HP DeskJet GT 5820 All-in-One Printer"
   },
   {
     "name": "Tinta HP GT52 Magenta",
     "brand": "HP",
-    "type": "Tinta & Toner"
+    "type": "Tinta & Toner",
+    "images": "/src/assets/produk/hp_ink/2.png",
+    "description": "Tinta magenta HP GT52 berkualitas tinggi untuk warna yang hidup dan konsisten. Cocok untuk printer tipe: HP DeskJet GT 5810 All-in-One Printer dan HP DeskJet GT 5820 All-in-One Printer"
   },
   {
     "name": "Tinta HP GT52 Yellow",
     "brand": "HP",
-    "type": "Tinta & Toner"
+    "type": "Tinta & Toner",
+    "images": "/src/assets/produk/hp_ink/1.png",
+    "description": "Tinta kuning HP GT52 yang memastikan hasil cetak cerah dan tahan lama. Cocok untuk printer tipe: HP DeskJet GT 5810 All-in-One Printer dan HP DeskJet GT 5820 All-in-One Printer"
   },
   {
     "name": "K400 Plus Wireless Touch Keyboard",
     "brand": "Logitech",
-    "type": "Keyboard"
+    "type": "Keyboard",
+    "images": "/src/assets/produk/hardware/logitech/1.png",
+    "description": "Keyboard nirkabel Logitech K400 Plus dengan touchpad terintegrasi, nyaman untuk penggunaan sehari-hari."
   },
   {
     "name": "HDD 16TB Seagate Iron Wolf Pro ST16000NT001",
     "brand": "Seagate",
-    "type": "HDD"
+    "type": "HDD",
+    "images": "/src/assets/produk/hardware/seagate/1.png",
+    "description": "Hard drive Seagate Iron Wolf Pro 16TB dengan performa tinggi dan keandalan untuk penyimpanan data besar."
   },
   {
     "name": "UPS APC BV1000IMS",
     "brand": "APC",
-    "type": "UPS"
+    "type": "UPS",
+    "images": "/src/assets/produk/hardware/APC/1.png",
+    "description": "UPS APC BV1000IMS memberikan perlindungan daya yang handal untuk perangkat elektronik Anda."
   },
   {
     "name": "TP Link - SG2008",
     "brand": "TP Link",
-    "type": "Switch"
+    "type": "Switch",
+    "images": "/src/assets/produk/hardware/tplink/1.png",
+    "description": "Switch TP Link SG2008 dengan 8 port gigabit untuk konektivitas jaringan yang cepat dan stabil."
   },
   {
     "name": "Scanner Canon Lide 300",
     "brand": "Canon",
-    "type": "Scanner"
+    "type": "Scanner",
+    "images": "/src/assets/produk/hardware/canon/1.png",
+    "description": "Scanner Canon Lide 300 dengan resolusi tinggi untuk pemindaian dokumen yang jelas dan detail."
   },
   {
     "name": "Monitor LG 24MR400-B 24” FULL HD DISPLAY WITH AMD FREESYNC 100HZ",
     "brand": "LG",
-    "type": "Monitor"
+    "type": "Monitor",
+    "images": "/src/assets/produk/hardware/LG/1.png",
+    "description": "Monitor LG 24MR400-B 24 inci dengan resolusi Full HD dan teknologi AMD FreeSync untuk tampilan yang halus."
   },
   {
     "name": "Printer Epson L3210",
     "brand": "Epson",
-    "type": "Printer"
+    "type": "Printer",
+    "images": "/src/assets/produk/hardware/epson/1.png",
+    "description": "Printer Epson L3210 dengan fitur cetak, scan, dan copy yang efisien untuk kebutuhan kantor."
   },
   {
     "name": "Projector BenQ MX560 4000 lumens, XGA, DLP",
     "brand": "BenQ",
-    "type": "Projector"
+    "type": "Projector",
+    "images": "/src/assets/produk/hardware/benq/1.png",
+    "description": "Proyektor BenQ MX560 dengan kecerahan 4000 lumens dan teknologi DLP untuk presentasi yang jelas."
   },
   {
     "name": "Apple Magic Mouse Black Multitouch",
     "brand": "Apple",
-    "type": "Mouse"
+    "type": "Mouse",
+    "images": "/src/assets/produk/hardware/apple/2.png",
+    "description": "Apple Magic Mouse hitam dengan fitur multitouch untuk navigasi yang intuitif."
   },
   {
     "name": "Apple Adapter 20W USB-C",
     "brand": "Apple",
-    "type": "charger"
+    "type": "charger",
+    "images": "/src/assets/produk/hardware/apple/1.png",
+    "description": "Adaptor Apple 20W USB-C untuk pengisian daya cepat perangkat Apple Anda."
   }
 ]

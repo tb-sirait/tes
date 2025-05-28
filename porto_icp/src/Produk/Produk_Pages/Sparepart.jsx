@@ -36,34 +36,10 @@ const ProductCard = ({ product, onViewDetails }) => {
           <span className="brand">{product.brand}</span>
           <span className="type">{product.jenis}</span>
         </div>
-        <div className="specs">
-          {product.specs?.cpu && <SpecItem icon={<Cpu />} label="Processor" value={product.specs.cpu} />}
-          {product.specs?.ram && <SpecItem icon={<MemoryStick />} label="Memory" value={product.specs.ram} />}
-          {product.specs?.storage && <SpecItem icon={<HardDrive />} label="Storage" value={product.specs.storage} />}
-          {product.specs?.gpu && <SpecItem icon={<Monitor />} label="Graphics" value={product.specs.gpu} />}
-        </div>
-        <div className="spec-text-summary">
-          {product.specs?.cpu && <span>{product.specs.cpu}</span>}
-          {product.specs?.ram && <span>{product.specs.ram}</span>}
-          {product.specs?.storage && <span>{product.specs.storage}</span>}
-          {product.specs?.gpu && <span>{product.specs.gpu}</span>}
-        </div>
-        {/* Removed the View Details button as requested */}
       </div>
     </div>
   );
 };
-
-
-const SpecItem = ({ icon, label, value }) => (
-  <div className="spec-item">
-    <div className="icon-box">{icon}</div>
-    <div className="spec-text">
-      <small>{label}</small>
-      <strong>{value}</strong>
-    </div>
-  </div>
-);
 
 const ProductModal = ({ product, isOpen, onClose }) => {
   if (!isOpen || !product) return null;
@@ -88,13 +64,7 @@ const ProductModal = ({ product, isOpen, onClose }) => {
               <span> | </span>
               <span className="type-tag">{product.jenis}</span>
             </div>
-            <div className="modal-specs">
-              {product.specs?.cpu && <SpecItem icon={<Cpu />} label="Processor" value={product.specs.cpu} />}
-              {product.specs?.ram && <SpecItem icon={<MemoryStick />} label="Memory" value={product.specs.ram} />}
-              {product.specs?.storage && <SpecItem icon={<HardDrive />} label="Storage" value={product.specs.storage} />}
-              {product.specs?.gpu && <SpecItem icon={<Monitor />} label="Graphics" value={product.specs.gpu} />}
-              {product.specs?.os && <SpecItem icon={<div className="os-icon" />} label="Operating System" value={product.specs.os} />}
-            </div>
+            <p className="product-description">{product.description}</p>
             <div className="modal-actions">
               <div className="contact-options">
                 <button className="contact-button"><MessageCircle /> Hubungi Kami</button>
