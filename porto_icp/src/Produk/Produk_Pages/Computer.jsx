@@ -142,7 +142,7 @@ const ProductModal = ({ product, isOpen, onClose }) => {
               {product.specs?.os && <SpecItem icon={<div className="os-icon" />} label="Sistem Operasi" value={product.specs.os} />}
             </div>
             <div className="modal-actions">
-              <button className="contact-button"><MessageCircle /> Hubungi Kami</button>
+              <a className="contact-button" href={`https://wa.me/628975808407?text=${encodeURIComponent(`Saya berminat pada unit produk ${product.name} untuk perusahaan saya. Bisa diskusi untuk produknya?`)}`}><MessageCircle /> Hubungi Kami</a>
               <div className="extra-info">
                 <p><strong>✨ Special Offer:</strong> Free consultation and installation support</p>
                 <p><strong>🚚 Delivery:</strong> Available in Jakarta and surrounding areas</p>
