@@ -3,7 +3,7 @@ based on Website App with React + Vite framework, Showing all about **Infoduta's
 
 ## Short Details of Infoduta App
 <ul>
-  Feature on Website **Infoduta App:**
+  Feature on Website <h3>Infoduta App:</h3>
   <li>Beranda (Home): Viewing What's inside on **Infoduta's App**</li>
   <li>Produk (Produk): Showing What's product sell on **Infoduta**</li>
   <li>Layanan (Services): Showing What's services serve on **Infoduta** to our client</li>
