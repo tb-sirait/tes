@@ -113,7 +113,7 @@ const ProductModal = ({ product, isOpen, onClose }) => {
                 href={`https://wa.me/628975808407?text=${encodeURIComponent(`Saya berminat pada unit produk ${product.name} untuk perusahaan saya. Bisa diskusi untuk produknya?`)}`} target="_blank" rel="noopener noreferrer"><MessageCircle /> Hubungi Kami</a>
               </div>
               <div className="extra-info">
-                <p><strong>✨ Penawaran spesial:</strong> Gratis konsultasi dan bantuan instalansi produk.</p>
+                <p><strong>✨ Penawaran spesial:</strong> Gratis konsultasi dan bantuan instalasi produk.</p>
                 <p><strong>🚚 Pesan Antar:</strong> Tersedia antar barang untuk Jakarta dan Sekitarnya</p>
               </div>
             </div>

@@ -138,8 +138,8 @@ export default function Produk() {
     return (
       <div className="product-header">
         <div className="header-text">
-          <h1>Produk Komputer</h1>
-          <p>Temukan berbagai pilihan Komputer dengan spesifikasi terbaik yang sesuai dengan kebutuhan perusahaan Anda.</p>
+          <h1>Produk</h1>
+          <p>Temukan berbagai pilihan Komputer, Laptop, Smartphone, dan berbagai barang IT lainnya dengan spesifikasi terbaik yang sesuai dengan kebutuhan perusahaan Anda.</p>
         </div>
         <div className="search-filter-bar">
           <h5 style={{ marginRight: "10px", color: "#1434a4" }}>Cari:</h5>

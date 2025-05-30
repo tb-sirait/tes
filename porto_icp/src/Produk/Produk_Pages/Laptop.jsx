@@ -176,7 +176,7 @@ const ProductModal = ({ product, isOpen, onClose }) => {
              Hubungi Kami</a>
           </div>
           <div className="extra-info">
-            <p><strong>✨ Penawaran spesial:</strong> Gratis konsultasi dan bantuan instalansi produk.</p>
+            <p><strong>✨ Penawaran spesial:</strong> Gratis konsultasi dan bantuan instalasi produk.</p>
             <p><strong>🚚 Pesan Antar:</strong> Tersedia antar barang untuk Jakarta dan Sekitarnya</p>
           </div>
         </div>
