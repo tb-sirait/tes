@@ -19,6 +19,7 @@ body {
   position: relative;
   overflow: hidden;
   z-index: 1;
+  flex: 2;
 }
 .overlay {
   position: absolute;
@@ -70,6 +71,7 @@ body {
   border-radius: 8px;
   box-shadow: 4px 10px 20px rgba(0, 0, 0, 0.3);
   position: relative;
+  /* Removed transform to prevent unwanted offset */
   transform: translate(-10%, -35%);
 }
 
@@ -109,6 +111,7 @@ body {
   transition: opacity 1s ease, transform 1s ease;
   animation: none; /* remove direct animation to allow class-based animations */
   max-height: none;
+  pointer-events: none; /* prevent interaction on inactive images */
 }
 
 .active {
@@ -120,6 +123,13 @@ body {
 .inactive {
   opacity: 0;
   z-index: 1;
+  visibility: hidden; /* hide inactive images completely */
+}
+
+.slide-out-right {
+  animation: slideOutRight 1s forwards ease-in-out;
+  z-index: 1;
+  visibility: hidden; /* hide image after sliding out */
 }
 
 @keyframes slideOutRight {

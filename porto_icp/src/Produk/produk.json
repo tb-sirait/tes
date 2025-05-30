@@ -517,6 +517,85 @@
       "gpu": "AMD RDNA 2",
       "os": "Android 14 One UI 6.0"
     }
+  },
+  {
+    "id": 34,
+    "name": "Samsung S24FE 128GB",
+    "brand": "Samsung",
+    "jenis": "Smartphone",
+    "images": ["produk/samsung/S24FE/1.png"],
+    "specs": {
+      "cpu": "Exynos 2400e",
+      "ram": "8GB",
+      "storage": "128GB/256GB",
+      "gpu": "AMD RDNA 2",
+      "os": "Android 14 One UI 6.0"
+    }
+  },
+  {
+    "id": 35,
+    "name": "Optiplex 3000SFF",
+    "brand": "Dell",
+    "jenis": "PC",
+    "images": [
+      "produk/Dell/Optiplex/3000_SFF/1.png"
+    ],
+    "specs": {
+      "cpu": "Intel Core i5-12500",
+      "ram": "16GB DDR5",
+      "storage": "512GB SSD M.2 2230",
+      "gpu": "Integrated Graphics on CPU",
+      "os": "Windows 11 Home"
+    }
+  },
+  {
+    "id": 36,
+    "name": "Optiplex 7000 Tower",
+    "brand": "Dell",
+    "jenis": "PC",
+    "images": [
+      "produk/Dell/Optiplex/7000_Tower/1.png"
+    ],
+    "specs": {
+      "cpu": "Intel Core i5-12500",
+      "ram": "16GB DDR5",
+      "storage": "512GB SSD M.2 2230",
+      "gpu": "Integrated Graphics on CPU",
+      "os": "Windows 10 Pro"
+    }
+  },
+  {
+    "id": 37,
+    "name": "Optiplex 7060 Micro",
+    "brand": "Dell",
+    "jenis": "PC",
+    "images": [
+      "produk/Dell/Optiplex/7060_Micro/1.png"
+    ],
+    "specs": {
+      "cpu": "Intel Core i5-8400",
+      "ram": "8GB DDR5",
+      "storage": "1TB SATA HDD",
+      "gpu": "Integrated Graphics on CPU",
+      "os": "Windows 10 Pro"
+    }
+  },
+  {
+    "id": 38,
+    "name": "Optiplex 7010 Micro",
+    "brand": "Dell",
+    "jenis": "PC",
+    "images": [
+      "produk/Dell/Optiplex/7000_Micro/1.png"
+    ],
+    "specs": {
+      "cpu": "Intel Core i5-13500",
+      "ram": "8GB DDR5",
+      "storage": "512GB SSD M.2 2230",
+      "gpu": "Integrated Graphics on CPU",
+      "os": "Windows 11 Pro"
+    }
   }
+
 ]
       
