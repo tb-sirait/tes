@@ -28,7 +28,7 @@ function Tentang() {
     window.scrollTo(0, 0);
   }, []);
 
-  const message = encodeURIComponent("saya berminat kak");
+  const message = encodeURIComponent("Selamat pagi Ibu, saya ingin berdiskusi terkait pengadaan alat IT PT Infoduta Computindo Perkasa untuk perusahaan saya. Bisakah kita berdiskusi terlebih dahulu?. Terima kasih!");
   const phoneNumber = "6281314118264";
   const whatsappLink = `https://wa.me/${phoneNumber}?text=${message}`;
 
