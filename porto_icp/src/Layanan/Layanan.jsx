@@ -3,6 +3,7 @@ import { useEffect } from "react"
 import { useState } from "react"
 import { useRef } from "react"
 import { FaEnvelope, FaWhatsapp, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
+import FAQ from "../Tentang/faq"
 
 import Navbar from "../Navigation/Navbar"
 import "../layanan/layanan.css"
@@ -227,7 +228,7 @@ function Layanan() {
             </div>
           </div>
         )}
-
+        <FAQ />
         <Footer />
         </>
     )

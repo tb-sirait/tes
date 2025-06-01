@@ -1,5 +1,6 @@
 import React from "react"
 import { FaEnvelope, FaWhatsapp, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
+import FAQ from "./faq"
 
 import Navbar from "../Navigation/Navbar"
 import "./tentang.css"
@@ -173,8 +174,9 @@ function Tentang() {
             </div>
         </section>
         </div>
+      <FAQ />
       </div>
-      <Footer />
+    <Footer />
     </>
   )
 }
