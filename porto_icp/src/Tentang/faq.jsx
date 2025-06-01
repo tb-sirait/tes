@@ -7,7 +7,20 @@ const FAQ = () => {
     {
       id: 1,
       question: "Bagaimana cara mengajukan produk IT untuk keperluan perusahaan saya?",
-      answer: "Untuk mengajukan produk IT, Anda dapat menghubungi tim sales kami melalui formulir kontak di website atau langsung menelepon ke nomor customer service. Tim kami akan membantu menganalisis kebutuhan perusahaan Anda dan memberikan rekomendasi solusi IT yang tepat."
+      answer: (
+        <>
+          Untuk mengajukan produk IT, Anda dapat menghubungi {' '}
+          <a 
+            href="https://wa.me/6281314118264?text=Halo%20saya%20ingin%20bertanya%20tentang%20produk%20IT" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{ color: '#667eea', textDecoration: 'underline' }}
+          >
+            Customer Service kami via WhatsApp
+          </a>
+          , atau dapat menghubungi via email ke tim sales kami. Tim kami akan membantu menganalisis kebutuhan perusahaan Anda dan memberikan rekomendasi solusi IT yang tepat.
+        </>
+      )
     },
     {
       id: 2,
@@ -48,8 +61,7 @@ const FAQ = () => {
       maxWidth: '1200px',
       margin: '20px auto',
       fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
-      padding: '20px',
-      minHeight: '100vh'
+      padding: '20px',   
     },
     faqContainer: {
       backgroundColor: 'white',
@@ -254,7 +266,7 @@ const FAQ = () => {
           
           <div style={styles.footer}>
             <p>
-              Tidak menemukan jawaban yang Anda cari? 
+              Tidak menemukan jawaban yang Anda cari? bisa langsung 
               <a 
                 href="#" 
                 style={styles.contactLink}
