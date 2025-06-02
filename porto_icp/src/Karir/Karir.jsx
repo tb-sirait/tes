@@ -1,10 +1,11 @@
-import React from "react";
 import { useState, useEffect, useRef } from "react";
 
 import Navbar from "../Navigation/Navbar";
 import "./karir.css";
 import Footer from "../Navigation/footer";
 import { sendForm } from "emailjs-com";
+
+import kantorIcpLandscapeImage from "../assets/kantor_icp(landscape).png";
 
 function Karir() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -112,10 +113,10 @@ function Karir() {
 
     try {
       await sendForm(
-        "service_9e0ngq3", // Ganti dengan Service ID kamu
-        "template_rjxaunz", // Ganti dengan Template ID kamu
+        "service_9e0ngq3", 
+        "template_rjxaunz", 
         formRef.current,
-        "nYM60UZycO9ExRaZF" // Ganti dengan Public Key kamu
+        "nYM60UZycO9ExRaZF"
       );
       
       alert("Lamaran berhasil terkirim! Terima kasih atas minat Anda. Tim HRD kami akan menghubungi Anda segera.");
@@ -163,7 +164,10 @@ function Karir() {
     <>
       <Navbar />
       <div className="career-page">
-        <div className="background-image mobile-background"></div>
+        <div
+          className="background-image mobile-background"
+          style={{ backgroundImage: `url(${kantorIcpLandscapeImage})` }}
+        ></div>
         <div className="blue-overlay"></div>
         
         <main className="main-content">
@@ -231,7 +235,7 @@ function Karir() {
 
               <form ref={formRef} onSubmit={handleSubmit} className="application-form">
                 <input type="hidden" name="message" value="" />
-                <input type="hidden" name="to_email" value="hrd@infoduta.com" />
+                <input type="hidden" name="to_email" value="tbsintheworld@gmail.com" />
                 
                 <div className="form-group">
                   <label htmlFor="from_name" className="form-label">

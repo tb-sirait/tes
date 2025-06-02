@@ -5,7 +5,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 1000;  
   background-color: white;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
@@ -13,14 +13,13 @@
 .career-page {
   position: relative;
   min-height: 100vh;
-  background-color: #f8fafc;
+  background: #9ca3af;
   padding-top: 60px; /* space for fixed navbar */
 }
 
 .career-page {
   position: relative;
   min-height: 100vh;
-  background-color: #f8fafc;
 }
 
 .background-image {
@@ -32,12 +31,12 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  z-index: -2;
+  z-index: -1;
+  filter: brightness(0.1);
+  filter: blur(20px);
 }
 
-.mobile-background {
-  background-image: url('/path/to/your/background-image.jpg'); /* Update with your image path */
-}
+/* background-image for .mobile-background is set inline in JSX via imported image */
 
 .blue-overlay {
   position: fixed;
@@ -527,54 +526,4 @@
 }
 
 /* Dark mode support (optional) */
-@media (prefers-color-scheme: dark) {
-  .career-page {
-    background-color: #0f172a;
-  }
-  
-  .job-card {
-    background: rgba(30, 41, 59, 0.8);
-    border-color: rgba(148, 163, 184, 0.2);
-  }
-  
-  .job-title {
-    color: #f1f5f9;
-  }
-  
-  .job-description,
-  .requirement-item {
-    color: #cbd5e1;
-  }
-  
-  .requirements-title {
-    color: #e2e8f0;
-  }
-  
-  .modal-container {
-    background: #1e293b;
-  }
-  
-  .modal-title {
-    color: #f1f5f9;
-  }
-  
-  .form-label {
-    color: #e2e8f0;
-  }
-  
-  .form-input {
-    background-color: #334155;
-    border-color: #475569;
-    color: #f1f5f9;
-  }
-  
-  .form-input:focus {
-    border-color: #3b82f6;
-  }
-  
-  .file-input-label {
-    background-color: #334155;
-    border-color: #475569;
-    color: #cbd5e1;
-  }
-}
+/* Removed dark mode support to keep only one theme */
