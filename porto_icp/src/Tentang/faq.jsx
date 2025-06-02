@@ -3,6 +3,10 @@ import React, { useState } from 'react';
 const FAQ = () => {
   const [expandedItems, setExpandedItems] = useState({});
 
+  const contactUsMessage = encodeURIComponent("Selamat pagi Ibu, saya ingin berdiskusi terkait pengadaan alat IT PT Infoduta Computindo Perkasa untuk perusahaan saya. Bisakah kita berdiskusi terlebih dahulu?. Terima kasih!");
+  const contactUsPhoneNumber = "628975808407";
+  const contactUsLink = `https://wa.me/${contactUsPhoneNumber}?text=${contactUsMessage}`;
+
   const faqData = [
     {
       id: 1,
@@ -11,7 +15,7 @@ const FAQ = () => {
         <>
           Untuk mengajukan produk IT, Anda dapat menghubungi {' '}
           <a 
-            href="https://wa.me/6281314118264?text=Halo%20saya%20ingin%20bertanya%20tentang%20produk%20IT" 
+            href="https://wa.me/628975808407?text=Halo%20saya%20ingin%20bertanya%20tentang%20produk%20IT" 
             target="_blank" 
             rel="noopener noreferrer"
             style={{ color: '#667eea', textDecoration: 'underline' }}
@@ -24,28 +28,41 @@ const FAQ = () => {
     },
     {
       id: 2,
-      question: "Apa saja layanan IT yang tersedia untuk perusahaan?",
-      answer: "Kami menyediakan berbagai layanan IT seperti konsultasi sistem informasi, pengembangan software custom, implementasi sistem ERP, layanan cloud computing, keamanan siber, maintenance server, dan dukungan teknis 24/7."
+      question: "Berapa lama waktu yang dibutuhkan untuk pengajuan alat IT di Infoduta?",
+      answer: "Waktu proses dari yang anda ajukan bervariasi tergantung kompleksitas keperluan dan skala perusahaan. Untuk sistem sederhana, kami dapat menyiapkan perangkat IT paling singkat 2 hari setelah pengajuan (untuk skala kecil). Kami akan memberikan solusi yang detail setelah analisis kebutuhan."
     },
     {
       id: 3,
-      question: "Berapa lama waktu implementasi sistem IT baru?",
-      answer: "Waktu implementasi bervariasi tergantung kompleksitas sistem dan skala perusahaan. Untuk sistem sederhana biasanya 2-4 minggu, sistem menengah 1-3 bulan, dan sistem enterprise bisa 3-6 bulan. Kami akan memberikan timeline yang detail setelah analisis kebutuhan."
+      question: "Apa saja produk IT yang tersedia di Infoduta?",
+      answer: "Kami menyediakan berbagai produk IT dari brand ternama seperti Dell, Lenovo, Cisco, Microsoft, Asus, Samsung, HP, Apple, WD, dan Infocus. Produk yang kami tawarkan meliputi laptop, PC desktop, printer, UPS, server, software, hardware, dan sparepart."
     },
     {
       id: 4,
-      question: "Apakah tersedia layanan maintenance dan support setelah implementasi?",
-      answer: "Ya, kami menyediakan layanan maintenance dan support berkelanjutan dengan berbagai paket sesuai kebutuhan. Termasuk monitoring sistem, update software, backup data, troubleshooting, dan dukungan teknis dengan response time yang terjamin."
+      question: "Apakah Infoduta menyediakan layanan purna jual?",
+      answer: "Ya, kami menyediakan layanan purna jual untuk memastikan produk yang Anda beli berfungsi dengan baik. Tim support kami siap membantu Anda dengan perawatan, perbaikan, dan dukungan teknis lainnya."
     },
     {
       id: 5,
-      question: "Bagaimana sistem keamanan data perusahaan dijamin?",
-      answer: "Kami menerapkan standar keamanan tingkat enterprise dengan enkripsi end-to-end, firewall berlapis, sistem backup otomatis, monitoring 24/7, dan compliance terhadap standar internasional seperti ISO 27001. Data perusahaan Anda akan terlindungi dengan maksimal."
+      question: "Bagaimana cara menghubungi tim support jika ada kendala teknis?",
+      answer: (
+        <>
+          Anda dapat menghubungi tim support kami melalui email di {' '}
+          <a 
+            href="mailto:service@infoduta.com" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{ color: '#667eea', textDecoration: 'underline' }}
+          >
+            service@infoduta.com
+          </a>
+          . Tim kami siap membantu Anda untuk menyelesaikan kendala teknis yang Anda hadapi.
+        </>
+      )
     },
     {
       id: 6,
-      question: "Apakah bisa melakukan kustomisasi sesuai kebutuhan spesifik perusahaan?",
-      answer: "Tentu saja. Kami mengkhususkan diri dalam pengembangan solusi IT yang disesuaikan dengan kebutuhan unik setiap perusahaan. Tim developer kami akan bekerja sama dengan Anda untuk memastikan sistem yang dikembangkan sesuai dengan workflow dan requirement bisnis Anda."
+      question: "Apakah Infoduta menyediakan layanan Jasa Antar (Delivery) produk?",
+      answer: "Ya, kami menyediakan layanan Jasa Antar untuk pengiriman produk IT ke lokasi perusahaan Anda untuk area Jakarta dan Sekitarnya. Kami akan memastikan produk sampai dengan aman dan tepat waktu."
     }
   ];
 
@@ -61,7 +78,7 @@ const FAQ = () => {
       maxWidth: '1200px',
       margin: '20px auto',
       fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
-      padding: '20px',   
+      padding: '10px',   
     },
     faqContainer: {
       backgroundColor: 'white',
@@ -191,7 +208,7 @@ const FAQ = () => {
         <div style={styles.faqContainer}>
           <div style={styles.header}>
             <h1 style={styles.headerTitle}>FAQ</h1>
-            <p style={styles.headerSubtitle}>Frequently Asked Questions</p>
+            <p style={styles.headerSubtitle}>(Frequently Asked Questions)</p>
           </div>
           
           <div style={styles.faqList}>
@@ -266,9 +283,10 @@ const FAQ = () => {
           
           <div style={styles.footer}>
             <p>
-              Tidak menemukan jawaban yang Anda cari? bisa langsung 
+              Tidak menemukan jawaban yang Anda cari? bisa diskusikan secara langsung dengan {' '}
               <a 
-                href="#" 
+                href={contactUsLink}
+                target="_blank" 
                 style={styles.contactLink}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.textDecoration = 'underline';
@@ -279,7 +297,7 @@ const FAQ = () => {
                   e.currentTarget.style.color = styles.contactLink.color;
                 }}
               >
-                {' '}Hubungi tim support kami
+                menghubungi Tim Marketing kami
               </a>
             </p>
           </div>
