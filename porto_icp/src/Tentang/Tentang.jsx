@@ -2,7 +2,7 @@ import React from "react"
 import { FaEnvelope, FaWhatsapp, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
 import FAQ from "./faq"
 
-import Navbar from "../Navigation/Navbar"
+import Navbar from "../Navigation/navbar"
 import "./tentang.css"
 import Footer from "../Navigation/footer"
 import kantorImage from "../assets/kantor_icp.png";
