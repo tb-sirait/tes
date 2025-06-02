@@ -160,7 +160,7 @@ function Layanan() {
             </div>
 
             {/* Kotak Kontak */}
-            <div className="kontak-box">
+            <div className="kontak-box" style={{ maxWidth: "600px", marginLeft: "auto", marginRight: "auto"}}>
               <div className="kontak-item">
                 <FaEnvelope className="icon" />
                 <span>dewi.handayani@infoduta.com</span>

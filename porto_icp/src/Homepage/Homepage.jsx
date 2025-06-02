@@ -2,10 +2,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Footer from '../Navigation/footer';
+import Navbar from '../Navigation/navbar';
 
 // Mock components for demonstration - replace with your actual components
-const Navbar = () => <nav style={{ background: 'white', boxShadow: '0 2px 4px rgba(0,0,0,0.1)', padding: '1rem' }}>Navbar Component</nav>;
-
 
 // Placeholder images - replace with your actual imports
 import KantorImage from '../assets/kantor_icp(landscape1).png';
@@ -318,22 +317,47 @@ function Homepage() {
       height: '1rem'
     },
     // Media queries simulation
-    '@media (max-width: 768px)': {
-      heroContent: {
-        position: 'static',
-        background: 'rgba(0, 0, 0, 0.6)',
-        margin: '1rem',
-        padding: '2rem',
-        borderRadius: '1rem',
-        transform: 'none'
-      },
-      heroTitle: {
-        fontSize: '2rem'
-      },
-      sectionTitle: {
-        fontSize: '2rem'
+      '@media (max-width: 768px)': {
+        heroContent: {
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          background: 'rgba(0, 0, 0, 0.6)',
+          margin: '0 1rem',
+          padding: '1.5rem',
+          borderRadius: '1rem',
+          zIndex: 10,
+          maxWidth: '95%',
+          width: 'auto',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          textAlign: 'center'
+        },
+        heroContentInner: {
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center'
+        },
+        heroImage: {
+          zIndex: 1
+        },
+        heroTitle: {
+          fontSize: '1.75rem',
+          lineHeight: '1.2'
+        },
+        heroSubtitle: {
+          fontSize: '1.25rem'
+        },
+        heroTagline: {
+          fontSize: '1rem'
+        },
+        sectionTitle: {
+          fontSize: '2rem'
+        }
       }
-    }
   };
 
   return (
@@ -378,31 +402,58 @@ function Homepage() {
           }
 
           @media (max-width: 768px) {
-            .hero-content {
-              position: static !important;
-              background: rgba(0, 0, 0, 0.6) !important;
-              margin: 1rem !important;
-              padding: 2rem !important;
-              border-radius: 1rem !important;
-              transform: none !important;
-              right: auto !important;
-              top: auto !important;
-              max-width: none !important;
-            }
-            
-            .hero-title {
-              font-size: 2rem !important;
-            }
-            
-            .section-title {
-              font-size: 2rem !important;
-            }
-            
-            .cards-grid {
-              grid-template-columns: 1fr !important;
-              gap: 1.5rem !important;
-            }
+          .hero-content {
+            position: absolute !important;
+            top: 50% !important;
+            left: 50% !important;
+            transform: translate(-50%, -50%) !important;
+            background: rgba(0, 0, 0, 0.6) !important;
+            margin: 0 1rem !important;
+            padding: 1.5rem !important;
+            border-radius: 1rem !important;
+            z-index: 10 !important;
+            max-width: 95% !important;
+            width: auto !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            text-align: center !important;
+            overflow-wrap: break-word !important;
+            word-wrap: break-word !important;
+            hyphens: auto !important;
           }
+          .hero-content-inner {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+          }
+
+          .heroImage {
+            z-index: 1 !important;
+          }
+          
+          .hero-title {
+            font-size: 1.75rem !important;
+            line-height: 1.2 !important;
+          }
+          
+          
+          .section-title {
+            font-size: 2rem !important;
+          }
+          .hero-subtitle {
+            font-size: 1.25rem !important;
+          }
+          .hero-tagline {
+            font-size: 1rem !important;
+          }
+          
+          .cards-grid {
+            grid-template-columns: 1fr !important;
+            gap: 1.5rem !important;
+          }
+        }
         `}
       </style>
 
