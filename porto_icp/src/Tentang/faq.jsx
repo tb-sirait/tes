@@ -94,7 +94,7 @@ const FAQ = () => {
       textAlign: 'center'
     },
     headerTitle: {
-      fontSize: '2.5rem',
+      fontSize: '2rem',
       fontWeight: '700',
       marginBottom: '10px',
       margin: 0,
@@ -125,8 +125,8 @@ const FAQ = () => {
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',
-      fontSize: '1.1rem',
-      fontWeight: '600',
+      fontSize: '0.95rem',
+      fontWeight: '700',
       color: '#343a40',
       transition: 'all 0.3s ease',
       outline: 'none'
@@ -170,13 +170,15 @@ const FAQ = () => {
       borderRadius: '8px',
       padding: '20px',
       color: '#495057',
-      lineHeight: '1.7'
+      lineHeight: '1.7',
+      fontSize: '0.9rem'
     },
     footer: {
       backgroundColor: '#f8f9fa',
       padding: '20px',
       textAlign: 'center',
-      color: '#6c757d'
+      color: '#6c757d',
+      fontSize: '0.9rem'
     },
     contactLink: {
       color: '#667eea',

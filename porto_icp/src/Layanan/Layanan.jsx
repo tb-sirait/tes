@@ -119,7 +119,7 @@ function Layanan() {
         </section>
         <section className="highlight-2">
             <h2>Layanan Purnajual Unggulan</h2>
-            <div className="highlight-content-right" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <div className="highlight-content-right" style={{}}>
                 <div className="highlight-content-right-text">
                     <p>
                         Sebagai bentuk komitmen kami terhadap kualitas dan kepuasan pelanggan, layanan purnajual Infoduta menyediakan:

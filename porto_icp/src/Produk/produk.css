@@ -68,6 +68,7 @@
 
 h1, h2, h3 {
   color: #1e40af; /* blue-800 */
+  font-weight: 700;
 }
 
 .flex {

@@ -50,7 +50,7 @@ function Tentang() {
             <div className="intro">
 
               <div className="kantor-overlay-container">
-                <img src={kantorImage} alt="Gedung" className="intro-image" />
+                <img src={kantorImage} alt="Gedung" className="intro-image" style={{width: "300px", height: "auto"}}/>
                 <div className="kantor-overlay"></div>
               </div>
               <div className="intro-text">
