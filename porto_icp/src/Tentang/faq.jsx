@@ -76,7 +76,7 @@ const FAQ = () => {
   const styles = {
     container: {
       maxWidth: '1200px',
-      margin: '20px auto',
+      margin: '80px auto',
       fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
       padding: '10px',   
     },
