@@ -75,8 +75,7 @@ function Homepage() {
   const styles = {
     container: {
       minHeight: '100vh',
-      backgroundColor: '#f8fafc',
-      fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif'
+      backgroundColor: '#f8fafc'
     },
     heroSection: {
       position: 'relative',
