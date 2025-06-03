@@ -2,7 +2,7 @@
 import { useState, useEffect, useRef } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 
-import Navbar from "../Navigation/navbar";
+import Navbar from "../Navigation/Navbar";
 import "./karir.css";
 import Footer from "../Navigation/footer";
 import { sendForm } from "emailjs-com";
