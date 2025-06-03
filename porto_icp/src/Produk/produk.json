@@ -595,5 +595,21 @@
       "gpu": "Integrated Graphics on CPU",
       "os": "Windows 11 Pro"
     }
+  },
+  {
+    "id": 39,
+    "name": "Asus Zenbook 14",
+    "brand": "Asus",
+    "jenis": "Laptop",
+    "images": [
+      "produk/Asus/Zenbook/14/1.png"
+    ],
+    "specs": {
+      "cpu": "AMD Ryzen 7 8840HS",
+      "ram": "16GB",
+      "storage": "512GB SSD M.2",
+      "gpu": "AMD Graphics",
+      "os": "Windows 11 with Office 2024 Home and Student"
+    }
   }
 ]

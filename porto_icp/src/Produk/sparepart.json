@@ -145,5 +145,19 @@
     "brand": "Vention",
     "images": ["/assets/produk/sparepart/vention/1.png"],
     "description": "Vention B02 5m high-speed HDMI male-to-male cable supporting 4K and HDR."
+  },
+  {
+    "name": "Tape Cartridge 38L7302 ULTRIUM LTO 7",
+    "jenis": "Data Storage",
+    "brand": "IBM",
+    "images": ["/assets/produk/sparepart/vention/1.png"],
+    "description": "IBM ULTRIUM LTO 7 tape cartridge 38L7302 for high-capacity data storage."
+  },
+  {
+    "name": "RJ45 Comscope CAT6",
+    "jenis": "LAN",
+    "brand": "Comscope",
+    "images": ["/assets/produk/sparepart/vention/1.png"],
+    "description": "Comscope CAT6 RJ45 connectors for high-speed network connections."
   }
 ]
