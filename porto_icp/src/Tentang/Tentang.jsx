@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { FaEnvelope, FaWhatsapp, FaPhone, FaMapMarkerAlt, FaUsers, FaHandshake, FaTrophy } from 'react-icons/fa';
 import FAQ from "./faq";
-import Navbar from "../Navigation/navbar";
+import Navbar from "../Navigation/Navbar";
 import Footer from "../Navigation/footer";
 import "./tentang.css";
 
