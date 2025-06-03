@@ -2,7 +2,7 @@ import React from "react"
 import { useEffect } from "react"
 import { useState } from "react"
 import { useRef } from "react"
-import { FaEnvelope, FaWhatsapp, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaEnvelope, FaWhatsapp, FaPhone, FaMapMarkerAlt, FaCheck} from 'react-icons/fa';
 import FAQ from "../Tentang/faq"
 
 import Navbar from "../Navigation/Navbar"
@@ -125,10 +125,10 @@ function Layanan() {
                         Sebagai bentuk komitmen kami terhadap kualitas dan kepuasan pelanggan, layanan purnajual Infoduta menyediakan:
                     </p>
                     <ul>
-                        <li><strong>Servis Bergaransi:</strong> Setiap produk yang Anda beli atau sewa mendapatkan layanan servis bergaransi untuk memastikan performa optimal tanpa biaya tambahan selama masa garansi.</li>
-                        <li><strong>Konsultasi Alat IT Gratis:</strong> Kami menyediakan konsultasi profesional tentang peralatan dan solusi IT yang sesuai dengan kebutuhan Anda tanpa biaya tambahan, baik sebelum maupun setelah pembelian.</li>
-                        <li><strong>Pengiriman dan Instalasi:</strong> Kami menawarkan layanan pengiriman dan instalasi produk IT di lokasi Anda untuk memastikan semua perangkat siap digunakan dengan cepat dan efisien.</li>
-                        <li><strong>Pelatihan Penggunaan:</strong> Kami memberikan pelatihan penggunaan produk IT yang Anda beli atau sewa, sehingga Anda dapat memaksimalkan manfaat dari teknologi yang ada.</li>
+                        <li><FaCheck/>{" "}<strong>Servis Bergaransi:</strong> Setiap produk yang Anda beli atau sewa mendapatkan layanan servis bergaransi untuk memastikan performa optimal tanpa biaya tambahan selama masa garansi.</li>
+                        <li><FaCheck/>{" "}<strong>Konsultasi Alat IT Gratis:</strong> Kami menyediakan konsultasi profesional tentang peralatan dan solusi IT yang sesuai dengan kebutuhan Anda tanpa biaya tambahan, baik sebelum maupun setelah pembelian.</li>
+                        <li><FaCheck/>{" "}<strong>Pengiriman dan Instalasi:</strong> Kami menawarkan layanan pengiriman dan instalasi produk IT di lokasi Anda untuk memastikan semua perangkat siap digunakan dengan cepat dan efisien.</li>
+                        <li><FaCheck/>{" "}<strong>Pelatihan Penggunaan:</strong> Kami memberikan pelatihan penggunaan produk IT yang Anda beli atau sewa, sehingga Anda dapat memaksimalkan manfaat dari teknologi yang ada.</li>
                     </ul>
                 </div>    
                 <img
