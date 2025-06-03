@@ -277,7 +277,6 @@ export default function Produk() {
           </div>
         </div>
       )}
-
       <Footer />
     </>
   );
