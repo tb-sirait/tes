@@ -1,11 +1,15 @@
-import { useState, useEffect, useRef } from "react";
 
-import Navbar from "../Navigation/Navbar";
+import { useState, useEffect, useRef } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
+
+import Navbar from "../Navigation/navbar";
 import "./karir.css";
 import Footer from "../Navigation/footer";
 import { sendForm } from "emailjs-com";
 
 import kantorIcpLandscapeImage from "../assets/kantor_icp(landscape).png";
+
+const RECAPTCHA_SITE_KEY = "YOUR_RECAPTCHA_SITE_KEY"; // Replace with your actual site key
 
 function Karir() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -17,7 +21,9 @@ function Karir() {
   });
   const [jobTitle, setJobTitle] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  // Removed reCAPTCHA state
   const formRef = useRef();
+  // Removed reCAPTCHA ref
 
   const openModal = (title) => {
     setJobTitle(title);
@@ -91,8 +97,15 @@ function Karir() {
       return false;
     }
 
+    // if (!recaptchaValue) {
+    //   alert("Mohon verifikasi reCAPTCHA.");
+    //   return false;
+    // }
+
     return true;
   };
+
+  // Removed handleRecaptchaChange function
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -308,6 +321,8 @@ function Karir() {
                   </div>
                   <small className="form-help">Maksimal ukuran file 5MB</small>
                 </div>
+
+                {/* Removed reCAPTCHA component */}
 
                 <div className="form-actions">
                   <button 

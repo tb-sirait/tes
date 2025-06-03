@@ -1,10 +1,13 @@
-import React from "react"
-import { FaEnvelope, FaWhatsapp, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
-import FAQ from "./faq"
+import React, { useEffect } from "react";
+import { FaEnvelope, FaWhatsapp, FaPhone, FaMapMarkerAlt, FaUsers, FaHandshake, FaTrophy } from 'react-icons/fa';
+import FAQ from "./faq";
+import Navbar from "../Navigation/navbar";
+import Footer from "../Navigation/footer";
+import "./tentang.css";
 
-import Navbar from "../Navigation/navbar"
-import "./tentang.css"
-import Footer from "../Navigation/footer"
+import { activateScrollAnimation } from "./scrollAnimation";
+
+// Import images
 import kantorImage from "../assets/kantor_icp.png";
 import strukturImage from "../assets/struktur_keorganisasian_icp.png";
 import dellLogo from "../assets/Dell_logo.png";
@@ -22,99 +25,202 @@ import telkomLogo from "../assets/Telkom_logo.png";
 import tmLogo from "../assets/TM_logo.png";
 import plnLogo from "../assets/pln_logo.png";
 
-import { useEffect } from "react";
-
 function Tentang() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  useEffect(() => {
+    activateScrollAnimation();
+  }, []);
+
   const message = encodeURIComponent("Selamat pagi Ibu, saya ingin berdiskusi terkait pengadaan alat IT PT Infoduta Computindo Perkasa untuk perusahaan saya. Bisakah kita berdiskusi terlebih dahulu?. Terima kasih!");
   const phoneNumber = "6281314118264";
-  const whatsappLink = `https://wa.me/${phoneNumber}?text=${message}`;
-
   const phoneNumber2 = "628975808407";
+  const whatsappLink = `https://wa.me/${phoneNumber}?text=${message}`;
   const whatsappLink2 = `https://wa.me/${phoneNumber2}?text=${message}`;
+
+  const brandLogos = [
+    { src: dellLogo, alt: "Dell" },
+    { src: lenovoLogo, alt: "Lenovo" },
+    { src: ciscoLogo, alt: "Cisco" },
+    { src: microsoftLogo, alt: "Microsoft" },
+    { src: asusLogo, alt: "Asus" },
+    { src: samsungLogo, alt: "Samsung" },
+    { src: hpLogo, alt: "HP" },
+    { src: appleLogo, alt: "Apple" },
+    { src: wdLogo, alt: "WD" },
+    { src: infocusLogo, alt: "InFocus" }
+  ];
+
+  const partnerLogos = [
+    { src: pertaminaLogo, alt: "Pertamina" },
+    { src: telkomLogo, alt: "Telkom Indonesia" },
+    { src: tmLogo, alt: "TM" },
+    { src: plnLogo, alt: "PLN" }
+  ];
+
+  const achievements = [
+    {
+      icon: <FaTrophy />,
+      title: "29+ Tahun Pengalaman",
+      description: "Melayani sejak 1995 hingga kini"
+    },
+    {
+      icon: <FaUsers />,
+      title: "100+ Klien Terpercaya",
+      description: "Perusahaan besar di Indonesia"
+    },
+    {
+      icon: <FaHandshake />,
+      title: "Layanan 24/7",
+      description: "Support dan konsultasi penuh"
+    }
+  ];
 
   return (
     <>
       <Navbar />
-      <div className="Tentang">
-        <div className="container" style={{ marginTop: "0px" , display: "flex", flexDirection: "column", alignItems: "center"}}>
-          <header className="header">
-            <h2>Profil PT. Infoduta Computindo Perkasa</h2>
-            <h3>“Solusi Kebutuhan Hardware dan Software Pilihan Anda”</h3>
-          </header>
-
-          <div className="about-us" style={{ display: "flex", flexDirection: "column", alignItems: "center"}}>
-            <div className="intro">
-
-              <div className="kantor-overlay-container">
-                <img src={kantorImage} alt="Gedung" className="intro-image" style={{width: "300px", height: "auto"}}/>
-                <div className="kantor-overlay"></div>
+      <div className="tentang">
+        {/* Hero Section */}
+        <section className="hero-section-ttg">
+              <h1 className="hero-title-ttg">PT. Infoduta Computindo Perkasa</h1>
+              <p className="hero-subtitle-ttg">"Solusi Kebutuhan Hardware dan Software Pilihan Anda"</p>
+          <div className="hero-content-ttg">
+            <div className="hero-text-ttg">
+              <div className="hero-stats-ttg">
+                {achievements.map((achievement, index) => (
+                  <div key={index} className="stat-item">
+                    <div className="stat-icon">{achievement.icon}</div>
+                    <div className="stat-content">
+                      <h3>{achievement.title}</h3>
+                      <p>{achievement.description}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
-              <div className="intro-text">
-                <p><strong>PT Infoduta Computindo Perkasa</strong> adalah perusahaan yang bergerak di bidang Teknologi Informasi (IT) untuk memenuhi kebutuhan hardware dan software yang dimiliki oleh perusahaan-perusahaan di Indonesia, serta memberikan solusi untuk memenuhi kebutuhan alat IT pada perusahaan-perusahaan tersebut.</p>
-                <p><strong>PT Infoduta Computindo Perkasa</strong> telah berdiri sejak tahun 1995 hingga saat ini, dan telah dipercaya sebagai mitra tetap produk IT di perusahaan besar di Indonesia seperti: Pertamina Group, Telkom Group, Telkom Malaysia, Perbankan, dan perusahaan-perusahaan swasta lainnya.</p>
-                <p><strong>PT Infoduta Computindo Perkasa</strong> memiliki team solid yang selalu siap dalam memberikan layanan terbaik untuk mendukung setiap proses bisnis perusahaan Anda dengan orientasi solusi dan pelayanan maksimal. Kami menyediakan produk-produk dari brand high-end dengan harga yang sangat terjangkau. Kami menjual produk-produk IT seperti Laptop, PC, Printer, UPS, Server, Software, Hardware serta sparepart dari berbagai macam brand.</p>
+            </div>
+            <div className="hero-image-ttg">
+              <div className="image-container">
+                <img src={kantorImage} alt="Kantor PT Infoduta Computindo Perkasa" />
+                <div className="image-overlay"></div>
               </div>
             </div>
           </div>
+        </section>
 
-          <div className="struktur-organisasi">
+        {/* About Section */}
+        <section className="about-section">
+          <div className="container">
+            <div className="section-header" style={{marginRight: "70px"}}>
+              <h2>Tentang Perusahaan</h2>
+              <div className="section-divider"></div>
+            </div>
+            <div className="about-content">
+              <div className="about-text">
+                <div className="text-block">
+                  <p>
+                    <strong>PT Infoduta Computindo Perkasa</strong> adalah perusahaan yang bergerak di bidang Teknologi Informasi (IT) untuk memenuhi kebutuhan hardware dan software yang dimiliki oleh perusahaan-perusahaan di Indonesia, serta memberikan solusi untuk memenuhi kebutuhan alat IT pada perusahaan-perusahaan tersebut.
+                  </p>
+                </div>
+                <div className="text-block">
+                  <p>
+                    <strong>PT Infoduta Computindo Perkasa</strong> telah berdiri sejak tahun 1995 hingga saat ini, dan telah dipercaya sebagai mitra tetap produk IT di perusahaan besar di Indonesia seperti: Pertamina Group, Telkom Group, Telkom Malaysia, Perbankan, dan perusahaan-perusahaan swasta lainnya.
+                  </p>
+                </div>
+                <div className="text-block">
+                  <p>
+                    <strong>PT Infoduta Computindo Perkasa</strong> memiliki team solid yang selalu siap dalam memberikan layanan terbaik untuk mendukung setiap proses bisnis perusahaan Anda dengan orientasi solusi dan pelayanan maksimal. Kami menyediakan produk-produk dari brand high-end dengan harga yang sangat terjangkau. Kami menjual produk-produk IT seperti Laptop, PC, Printer, UPS, Server, Software, Hardware serta sparepart dari berbagai macam brand.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Organizational Structure */}
+        <section className="struktur-section">
+          <div className="container">
+            <div className="section-header">
+              <h2>Struktur Organisasi</h2>
+              <div className="section-divider"></div>
+            </div>
+          </div>
+          <div className="struktur-container">
             <img src={strukturImage} alt="Struktur Organisasi" className="struktur-image" />
           </div>
+        </section>
 
-          <section className="brand-support">
-            <h3>Brand Partner Support</h3>
-            <div className="brand-logos">
-              <img src={dellLogo} alt="Dell" />
-              <img src={lenovoLogo} alt="Lenovo" />
-              <img src={ciscoLogo} alt="Cisco" />
-              <img src={microsoftLogo} alt="Microsoft" />
-              <img src={asusLogo} alt="Asus" />
-              <img src={samsungLogo} alt="Samsung" />
-              <img src={hpLogo} alt="HP" />
-              <img src={appleLogo} alt="Apple" />
-              <img src={wdLogo} alt="WD" />
-              <img src={infocusLogo} alt="InFocus" />
+        {/* Vision & Mission */}
+        <section className="visi-misi-section">
+          <div className="container">
+            <div className="section-header">
+              <h2>Visi & Misi Perusahaan</h2>
+              <div className="section-divider"></div>
             </div>
-          </section>
-
-          <section className="partners">
-            <h3>Rekan Kerja Perusahaan</h3>
-            <div className="partner-logos" style={{ display: "flex", justifyContent: "space-between", maxWidth: "1200px", gap: "40px", marginBottom: "50px"}}>
-              <img src={pertaminaLogo} alt="Pertamina" />
-              <img src={telkomLogo} alt="Telkom Indonesia" />
-              <img src={tmLogo} alt="TM" />
-              <img src={plnLogo} alt="PLN" />
-            </div>
-          </section>
-
-          <section className="visi-misi" style={{ display: "flex", flexDirection: "column", alignItems: "center"}}>
-            <h3>Visi Misi Perusahaan</h3>
-            <div className="visi-misi-content" style={{ display: "flex", justifyContent: "space-between", width: "fi", maxWidth: "1200px", gap: "40px"}}>
-              <div className="visi">
-                <h4>Visi</h4>
-                <p>Menjadi Perusahaan Vendor Produk Teknologi Informasi (IT) terbaik yang berguna dalam mendukung proses pengembangan bisnis perusahaan klien kami.</p>
+            <div className="visi-misi-content">
+              <div className="visi-card">
+                <div className="card-header">
+                  <h3>Visi</h3>
+                </div>
+                <div className="card-content">
+                  <p>Menjadi Perusahaan Vendor Produk Teknologi Informasi (IT) terbaik yang berguna dalam mendukung proses pengembangan bisnis perusahaan klien kami.</p>
+                </div>
               </div>
-              <div className="misi">
-                <h4>Misi</h4>
-                <ol>
-                  <li>Memberikan solusi serta pelayanan yang cepat, hangat dan proses transaksi dengan mudah.</li>
-                  <li>Jaminan layanan purna jual (After sales service).</li>
-                  <li>Memiliki Teknisi komputer professional yang selalu siap dalam memperbaiki produk IT yang bermasalah.</li>
-                </ol>
+              <div className="misi-card">
+                <div className="card-header">
+                  <h3>Misi</h3>
+                </div>
+                <div className="card-content">
+                  <ol>
+                    <li>Memberikan solusi serta pelayanan yang cepat, hangat dan proses transaksi dengan mudah.</li>
+                    <li>Jaminan layanan purna jual (After sales service).</li>
+                    <li>Memiliki Teknisi komputer professional yang selalu siap dalam memperbaiki produk IT yang bermasalah.</li>
+                  </ol>
+                </div>
               </div>
             </div>
-          </section>
-
-          <div className="section-kontak">
-            
           </div>
-          <section className="kontak">
-            <h3>Our Contact</h3>
-            <p style={{marginBottom: "10px"}}>Untuk informasi lebih lanjut, silakan hubungi kami melalui:</p>
+        </section>
+
+        {/* Brand Partners */}
+        <section className="brand-section">
+          <div className="container">
+            <div className="section-header">
+              <h2>Brand Partner Support</h2>
+              <div className="section-divider"></div>
+            </div>
+          </div>
+          <div className="brand-logos">
+            {brandLogos.map((brand, index) => (
+              <div key={index} className="brand-item">
+                <img src={brand.src} alt={brand.alt} />
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Partners */}
+        <section className="partners-section">
+          <div className="container">
+            <div className="section-header">
+              <h2>Rekan Kerja Perusahaan</h2>
+              <div className="section-divider"></div>
+            </div>
+          </div>
+          <div className="partner-logos">
+            {partnerLogos.map((partner, index) => (
+              <div key={index} className="partner-item">
+                <img src={partner.src} alt={partner.alt} />
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="kontak" style={{padding: "50px 0"}}>
+            <h2 style={{fontSize:"45px"}}>Our Contact</h2>
+            <div className="section-divider" style={{marginBottom:"20px"}}></div>
+            <p style={{marginBottom: "18px", fontSize:"18px"}}>Untuk informasi lebih lanjut, silakan hubungi kami melalui:</p>
 
             <div className="kontak-container">
               {/* Kotak Map */}
@@ -173,13 +279,12 @@ function Tentang() {
             </div>
             </div>
         </section>
-        </div>
-      <FAQ />
+
+        <FAQ />
       </div>
-    <Footer />
+      <Footer />
     </>
-  )
+  );
 }
 
-export default Tentang
-
+export default Tentang;
