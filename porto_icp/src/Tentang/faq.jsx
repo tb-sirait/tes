@@ -29,7 +29,7 @@ const FAQ = () => {
     {
       id: 2,
       question: "Berapa lama waktu yang dibutuhkan untuk pengajuan alat IT di Infoduta?",
-      answer: "Waktu proses dari yang anda ajukan bervariasi tergantung kompleksitas keperluan dan skala perusahaan. Untuk sistem sederhana, kami dapat menyiapkan perangkat IT paling singkat 2 hari setelah pengajuan (untuk skala kecil). Kami akan memberikan solusi yang detail setelah analisis kebutuhan."
+      answer: "Waktu proses dari yang anda ajukan bervariasi tergantung kompleksitas keperluan dan skala perusahaan. Sebagian besar kami mampu menyiapkan perangkat IT dengan cepat 1-2 hari setelah pengajuan. Kami akan memberikan solusi analisis detail  kebutuhan Anda."
     },
     {
       id: 3,

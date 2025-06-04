@@ -1,0 +1,180 @@
+[
+    {
+        "id": 1,
+        "brand": "Dell",
+        "name": "SERVER DELL PowerEdge R750xs",
+        "gambar": "assets/produk/Dell/server_r750xs.png",
+        "processor": "1 x Intel Xeon Silver 4309Y 2.80GHz 8-core",
+        "mainboard": "",
+        "memory": "512GB ECC DDR4",
+        "storage": "12 x HDD 4TB SATA 3.5inch",
+        "raid": "PercH755",
+        "psu": "1400W x2",
+        "tpm": "",
+        "idrac": "iDrac Enterprise",
+        "network": [
+            "NIC 10Gb Base-T dual port BCM57416B1",
+            "1Gb Base-T dual port BCM5720"
+        ],
+        "nic": "",
+        "riser": "",
+        "chassis": "",
+        "accessories": "",
+        "os": "",
+        "warranty": ""
+    },
+    {
+        "id": 2,
+        "brand": "Dell",
+        "name": "SERVER DELL PowerEdge R760",
+        "gambar": "assets/produk/Dell/server_r760.png",
+        "processor": "1 x Intel Xeon Silver 4416+ 2G, 20C/40T, 16GT/s, 37.5M Cache, Turbo, HT (165W) DDR5-4000",
+        "mainboard": "",
+        "memory": "16GB x8",
+        "storage": "3 x 2.4TB Hard Drive SAS ISE 12Gbps 10K 512e 2.5in Hot-Plug (max 16 Slot)",
+        "raid": "PERC H755 SAS Front",
+        "psu": "2 x 800W",
+        "tpm": "",
+        "idrac": "iDRAC9, Enterprise 16G",
+        "network": [
+            "Broadcom 5720 Dual Port 1GbE Optional LOM",
+            "Broadcom 5720 Quad Port 1GbE BASE-T Adapter, OCP NIC 3.0"
+        ],
+        "nic": "",
+        "riser": "Riser Config 9, 3x8 FH Slots (Gen5), 1x16 LP Slot (Gen4)",
+        "chassis": "",
+        "accessories": "",
+        "os": "",
+        "warranty": ""
+    },
+    {
+        "id": 3,
+        "brand": "Dell",
+        "name": "SERVER DELL PowerEdge R440",
+        "gambar": "assets/produk/Dell/server_r440.png",
+        "processor": "2 x Intel Xeon Silver 4110 8 Core (16 Core total)",
+        "mainboard": "",
+        "memory": "128GB",
+        "storage": "4TB HDD",
+        "raid": "PERC H330 RAID Controller",
+        "psu": "Dual, Hot Plug, Redundant Power Supply (1+1), 550W",
+        "tpm": "",
+        "idrac": "",
+        "network": [
+            "1GB NIC",
+            "Dual-Port 1Gbe"
+        ],
+        "nic": "",
+        "riser": "",
+        "chassis": "",
+        "accessories": "",
+        "os": "",
+        "warranty": ""
+    },
+    {
+        "id": 4,
+        "brand": "Dell",
+        "name": "Server Dell PowerEdge R760xs",
+        "gambar": "assets/produk/Dell/server_r760xs.png",
+        "processor": "2 x Intel Xeon Gold 6526Y 2.8G, 16C/32T, 20GT/s, 37.5M Cache, Turbo, HT (195W) DDR5-5200",
+        "mainboard": "PowerEdge R760xs Motherboard with Broadcom 5720 Dual Port 1Gb On-Board LOM, MLK",
+        "memory": "16 x 64GB RD8IMM, 5600MT/s, Dual Rank",
+        "storage": "2 x 480GB SSD SATA Read Intensive 6Gbps 512 2.5in Hot-plug AG Drive, 1 DWPD",
+        "raid": "PERC H755 SAS Front",
+        "psu": "Dual, Hot-plug, Power Supply Redundant (1+1), 1400W, Mixed Mode, NAF",
+        "tpm": "Trusted Platform Module 2.0 V3",
+        "idrac": "",
+        "network": [
+            "Broadcom 57414 Dual Port 10/25GbE SFP28, OCP NIC 3.0",
+            "Broadcom 57414 Dual Port 10/25GbE SFP28 Adapter, PCIe Low Profile, V2",
+            "Emulex LPe35002 Dual Port FC32 Fibre Channel HBA, PCIe Low Profile"
+        ],
+        "nic": "",
+        "riser": "",
+        "chassis": "",
+        "accessories": "",
+        "os": "",
+        "warranty": ""
+    },
+    {
+        "id": 5,
+        "brand": "Dell",
+        "name": "PowerEdge T150 Server",
+        "gambar": "assets/produk/Dell/poweredge_t150.png",
+        "processor": "Intel Xeon E-2324 3.1GHz, 8M Cache, 4C/4T, Turbo (65W), 3200 MT/s",
+        "mainboard": "",
+        "memory": "4 x 8GB UDIMM, 3200MT/s, ECC",
+        "storage": "1TB SSD 2.5”",
+        "raid": "",
+        "psu": "300 Watt",
+        "tpm": "Trusted Platform Module 2.0 V3",
+        "idrac": "",
+        "network": "",
+        "nic": "",
+        "riser": "",
+        "chassis": "3.5\" Chassis with up to 4 Hard Drives and Software RAID",
+        "accessories": [
+            "Dell K+M USB",
+            "Internal DVD R/W"
+        ],
+        "os": "",
+        "warranty": ""
+    },
+    {
+        "id": 6,
+        "brand": "Dell",
+        "name": "Server Dell PowerEdge T40",
+        "gambar": "assets/produk/Dell/server_t40.png",
+        "processor": "Intel Xeon E-2224G 3.5GHz, 8M cache, 4C/4T, turbo (71W)",
+        "mainboard": "",
+        "memory": "16GB",
+        "storage": "8TB 7.2K Entry SATA 3.5",
+        "raid": "",
+        "psu": "Single Power Supply 300W",
+        "tpm": "",
+        "idrac": "",
+        "network": "",
+        "nic": "",
+        "riser": "",
+        "chassis": "",
+        "accessories": [
+            "Dvdrw",
+            "Keyboard and Mouse"
+        ],
+        "os": "NO OS",
+        "warranty": "3 Yrs Pro Support Warranty"
+    },
+    {
+        "id": 7,
+        "brand": "Supermicro",
+        "name": "Server SUPER MICRO 4U",
+        "gambar": "assets/produk/supermicro/server_4u.png",
+        "processor": "2 x Intel Xeon Silver 4110 @2.10GHz (16 Core)",
+        "mainboard": "X11DPH-T",
+        "memory": "128GB (16x8GB)",
+        "storage": [
+            "HDD 96TB (24x4TB SATA DELL 3.5\")",
+            "2x2.5\" Hot Swap SATA 3 Drive Bay Rear Slot (1TB SATA installed)"
+        ],
+        "raid": "AVAGO 3108 MEGA RAID",
+        "psu": "1200WATT x2",
+        "tpm": "",
+        "idrac": "",
+        "network": [
+            "2x Port LAN 10GB",
+            "1x Port Serial",
+            "1x Port IPMI",
+            "4x Port USB"
+        ],
+        "nic": [
+            "1GB NIC",
+            "Dual-Port 1Gbe"
+        ],
+        "riser": "",
+        "chassis": "",
+        "accessories": "",
+        "os": "",
+        "warranty": "",
+        "perc": "PERC RAID Controller"
+    }
+]

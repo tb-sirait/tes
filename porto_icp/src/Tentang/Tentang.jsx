@@ -3,6 +3,7 @@ import { FaEnvelope, FaWhatsapp, FaPhone, FaMapMarkerAlt, FaUsers, FaHandshake, 
 import FAQ from "./faq";
 import Navbar from "../Navigation/Navbar";
 import Footer from "../Navigation/footer";
+import KontakContainer from "./kontakContainer";
 import "./tentang.css";
 
 import { activateScrollAnimation } from "./scrollAnimation";
@@ -33,12 +34,6 @@ function Tentang() {
   useEffect(() => {
     activateScrollAnimation();
   }, []);
-
-  const message = encodeURIComponent("Selamat pagi Ibu, saya ingin berdiskusi terkait pengadaan alat IT PT Infoduta Computindo Perkasa untuk perusahaan saya. Bisakah kita berdiskusi terlebih dahulu?. Terima kasih!");
-  const phoneNumber = "6281314118264";
-  const phoneNumber2 = "628975808407";
-  const whatsappLink = `https://wa.me/${phoneNumber}?text=${message}`;
-  const whatsappLink2 = `https://wa.me/${phoneNumber2}?text=${message}`;
 
   const brandLogos = [
     { src: dellLogo, alt: "Dell" },
@@ -217,69 +212,7 @@ function Tentang() {
           </div>
         </section>
 
-        <section className="kontak" style={{padding: "50px 0"}}>
-            <h2 style={{fontSize:"45px"}}>Our Contact</h2>
-            <div className="section-divider" style={{marginBottom:"20px"}}></div>
-            <p style={{marginBottom: "18px", fontSize:"18px"}}>Untuk informasi lebih lanjut, silakan hubungi kami melalui:</p>
-
-            <div className="kontak-container">
-              {/* Kotak Map */}
-              <div className="map-box">
-                <div className="mapouter">
-                  <div className="gmap_canvas">
-                    <iframe 
-                      className="gmap_iframe"
-                      src="https://maps.google.com/maps?q=PT+infoduta&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                      frameBorder="0"
-                      scrolling="no"
-                      marginHeight="0"
-                      marginWidth="0"
-                    ></iframe>
-                  </div>
-                </div>
-              </div>
-
-              {/* Kotak Kontak */}
-              <div className="kontak-box">
-                <div className="kontak-item">
-                  <FaEnvelope className="icon" />
-                  <span>dewi.handayani@infoduta.com</span>
-                </div>
-                <a 
-                  href= {whatsappLink} 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ textDecoration: "none", color: "white", gap: "10px", display: "flex", alignItems: "left" }}
-                >
-                  <FaWhatsapp className="icon" />
-                  <span>0813-1411-8264</span>
-                </a>
-                <a 
-                  href={whatsappLink2}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ textDecoration: "none", color: "white", gap: "10px", display: "flex", alignItems: "left" }}
-                >
-                  <FaWhatsapp className="icon" />
-                  <span>0897-5808-407</span>
-                </a>
-                <div className="kontak-item">
-                  <FaPhone className="icon" />
-                  <span>(021) 3983-1939</span>
-                </div>
-                <div className="kontak-item">
-                  <FaMapMarkerAlt className="icon" />
-                <div>
-                  <strong>PT. Infoduta Computindo Perkasa</strong><br />
-                  HR Building, Jl. K.H. Wahid Hasyim No.5 G1 Floor,<br />
-                  RT.12/RW.9, Kb. Sirih, Kec. Menteng, Kota Jakarta Pusat,<br />
-                  Daerah Khusus Ibukota Jakarta 10340.
-                </div>
-              </div>
-            </div>
-            </div>
-        </section>
-
+        <KontakContainer />
         <FAQ />
       </div>
       <Footer />
