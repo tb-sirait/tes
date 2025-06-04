@@ -57,6 +57,7 @@ function Navbar() {
                 <li><a href="/Computer">Komputer</a></li>
                 <li><a href="/laptop">Laptop</a></li>
                 <li><a href="/smartphone">Smartphone</a></li>
+                <li><a href="/server">Server</a></li>
               </ul>
             </li>
             

@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Footer from '../Navigation/footer';
-import Navbar from '../Navigation/navbar';
+import Navbar from '../Navigation/Navbar';
 
 // Mock components for demonstration - replace with your actual components
 

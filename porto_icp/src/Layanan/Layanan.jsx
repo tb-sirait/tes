@@ -10,14 +10,13 @@ import Footer from "../Navigation/footer";
 import FAQ from "../Tentang/faq";
 import KontakContainer from "../Tentang/kontakContainer";
 
-// Mock images
-const kantorIcp = "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=600&fit=crop";
-const aiGeneratifProduk = "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop";
-const aiGeneratifService = "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop";
-const consulIt = "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop";
-const hardwareIt = "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=300&fit=crop";
-const procureIt = "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=300&fit=crop";
-const serviceIt = "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400&h=300&fit=crop";
+import kantorIcp from "../assets/kantor_icp(landscape1).png";
+import aiGeneratifProduk from "../assets/layanan/ai_generatif_produk.png";
+import aiGeneratifService from "../assets/layanan/ai_generatif_service.png";
+import consulIt from "../assets/layanan/consul_it.png";
+import hardwareIt from "../assets/layanan/hardware_it.png";
+import procureIt from "../assets/layanan/procure_it.png";
+import serviceIt from "../assets/layanan/service_it.png";
 
 const images = [consulIt, hardwareIt, procureIt, serviceIt];
 
@@ -25,11 +24,7 @@ function Layanan() {
     useEffect(() => {
       window.scrollTo(0, 0);
     }, []);
-
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const [nextIndex, setNextIndex] = useState(1);
-    const [isAnimating, setIsAnimating] = useState(false);
-    const timeoutRef = useRef(null); 
+    
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
@@ -46,19 +41,6 @@ function Layanan() {
         if (target) observer.observe(target);
         return () => observer.disconnect();
     }, []);
-
-    useEffect(() => {
-        timeoutRef.current = setTimeout(() => {
-            setIsAnimating(true);
-            setTimeout(() => {
-                setCurrentIndex((prev) => (prev + 1) % images.length);
-                setNextIndex((prev) => (prev + 1) % images.length);
-                setIsAnimating(false);
-            }, 1000);
-        }, 1500);
-
-        return () => clearTimeout(timeoutRef.current);
-    }, [currentIndex]);
 
     const services = [
         {
@@ -93,26 +75,9 @@ function Layanan() {
         <div className="layanan-hero" style={{backgroundImage: `url(${kantorIcp})`}}>
             <div className="floating-elements"></div>
             <div className="service-hero-content">
-                <h1 className="hero-title">Layanan</h1>
+                <h1 className="layanan-hero-title">Layanan</h1>
                 <div className="hero-divider"></div>
-                <p className="hero-subtitle">Solusi teknologi informasi terpadu untuk mengoptimalkan bisnis Anda dengan layanan berkualitas tinggi</p>
-                
-                <div className="slideshow-container">
-                    <img
-                        key={currentIndex}
-                        src={images[currentIndex]}
-                        alt={`Slide ${currentIndex + 1}`}
-                        className={`slideshow-image ${isAnimating ? "slide-out-right" : "active"}`}
-                        style={{ zIndex: isAnimating ? 1 : 2 }}
-                    />
-                    <img
-                        key={nextIndex}
-                        src={images[nextIndex]}
-                        alt={`Slide ${nextIndex + 1}`}
-                        className={`slideshow-image ${isAnimating ? "slide-in-right" : "inactive"}`}
-                        style={{ zIndex: isAnimating ? 2 : 1 }}
-                    />
-                </div>
+                <p className="hero-subtitle">Infoduta hadir sebagai solusi untuk bisnis anda dengan melayani Pengadaan atau Penyewaan Produk IT.</p>
             </div>
         </div>
 

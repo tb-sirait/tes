@@ -93,11 +93,11 @@ function KontakContainer() {
                 <div className="modal-container" onClick={(e) => e.stopPropagation()}>
                 <h2 className="text-xl font-bold mb-4">Daftar Email Admin Sales</h2>
                 <ul className="space-y-2 text-base">
-                    <li>sales.1@infoduta.com</li>
-                    <li>sales.2@infoduta.com</li>
-                    <li>sales.3@infoduta.com</li>
-                    <li>sales.6@infoduta.com</li>
-                    <li>sales.7@infoduta.com</li>
+                    <li><a href="mailto:sales.1@infoduta.com" className="email-link">sales.1@infoduta.com</a></li>
+                    <li><a href="mailto:sales.2@infoduta.com" className="email-link">sales.2@infoduta.com</a></li>
+                    <li><a href="mailto:sales.3@infoduta.com" className="email-link">sales.3@infoduta.com</a></li>
+                    <li><a href="mailto:sales.6@infoduta.com" className="email-link">sales.6@infoduta.com</a></li>
+                    <li><a href="mailto:sales.7@infoduta.com" className="email-link">sales.7@infoduta.com</a></li>
                 </ul>
                 <div className="flex justify-end space-x-2 mt-4">
                     <button onClick={closeModal} className="cancel-btn">Close</button>

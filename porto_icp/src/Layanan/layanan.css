@@ -23,7 +23,7 @@
     color: white;
 }
 
-.hero-title {
+.layanan-hero-title {
     font-size: 4rem;
     font-weight: 800;
     margin-bottom: 1rem;
@@ -212,7 +212,7 @@
 }
 
 .highlight-section {
-    padding: 100px 20px;
+    padding: 50px 20px;
     background: white;
 }
 
@@ -264,7 +264,6 @@
 .highlight-list li {
     display: flex;
     align-items: flex-start;
-    margin-bottom: 1.5rem;
     padding: 1rem;
     background: white;
     border-radius: 10px;
