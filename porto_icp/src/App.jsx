@@ -14,6 +14,7 @@ import Software from "./Produk/Produk_Pages/Software"
 import Sparepart from "./Produk/Produk_Pages/Sparepart"
 import Smartphone from "./Produk/Produk_Pages/Smartphone"
 import Laptop from "./Produk/Produk_Pages/Laptop"
+import Server from "./Produk/Produk_Pages/Server"
 
 import CookieConsent from "./components/CookieConsent"
 import ScrollToTop from "./components/ScrollToTop"
@@ -97,6 +98,7 @@ function App() {
         <Route path="/computer" element={<Computer />} />
         <Route path="/smartphone" element={<Smartphone />} />
         <Route path="/laptop" element={<Laptop />} />
+        <Route path="/server" element={<Server/>}/>
         <Route path="*" element={<Homepage />} />
       </Routes>
       <CookieConsent />
