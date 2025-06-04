@@ -1,7 +1,6 @@
 import React from "react"
 import { useEffect } from "react"
 import { useState } from "react"
-import { useRef } from "react"
 import { FaEnvelope, FaWhatsapp, FaPhone, FaMapMarkerAlt, FaCheck, FaCogs, FaServer, FaNetworkWired, FaHeadset, FaShieldAlt, FaRocket} from 'react-icons/fa';
 import "./layanan.css"
 
@@ -13,12 +12,6 @@ import KontakContainer from "../Tentang/kontakContainer";
 import kantorIcp from "../assets/kantor_icp(landscape1).png";
 import aiGeneratifProduk from "../assets/layanan/ai_generatif_produk.png";
 import aiGeneratifService from "../assets/layanan/ai_generatif_service.png";
-import consulIt from "../assets/layanan/consul_it.png";
-import hardwareIt from "../assets/layanan/hardware_it.png";
-import procureIt from "../assets/layanan/procure_it.png";
-import serviceIt from "../assets/layanan/service_it.png";
-
-const images = [consulIt, hardwareIt, procureIt, serviceIt];
 
 function Layanan() {
     useEffect(() => {
