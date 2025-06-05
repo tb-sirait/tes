@@ -6,7 +6,6 @@ function Footer() {
     return(
         <footer className="footer">
             <div className="footer-container">
-                {/* Company Info Section */}
                 <div className="footer-section company-info">
                     <img
                         className="icp-image"
@@ -51,11 +50,10 @@ function Footer() {
                 <div className="footer-section services">
                     <h4 className="footer-section-title">Layanan Kami</h4>
                     <ul className="footer-links">
-                        <li><a href="/layanan/web-development">Web Development</a></li>
-                        <li><a href="/layanan/mobile-app">Mobile App</a></li>
-                        <li><a href="/layanan/cloud-services">Cloud Services</a></li>
-                        <li><a href="/layanan/digital-marketing">Digital Marketing</a></li>
-                        <li><a href="/layanan/it-consulting">IT Consulting</a></li>
+                        <li><a href="/layanan">Penjualan Produk IT</a></li>
+                        <li><a href="/layanan">Penyewaan Produk IT</a></li>
+                        <li><a href="/produk">Produk yang ditawarkan</a></li>
+                        <li><a href="/layanan">IT Consulting</a></li>
                     </ul>
                 </div>
 

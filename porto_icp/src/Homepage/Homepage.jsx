@@ -239,7 +239,7 @@ function Homepage() {
       margin: '0 auto'
     },
     card: {
-      background: 'linear-gradient(135deg, #1e40af 0%, #3730a3 100%)',
+      background: 'linear-gradient(135deg, #1434a4 0%, #3730a3 100%)',
       borderRadius: '1rem',
       padding: '2rem',
       textAlign: 'center',
@@ -406,7 +406,6 @@ function Homepage() {
             top: 50% !important;
             left: 50% !important;
             transform: translate(-50%, -50%) !important;
-            background: rgba(0, 0, 0, 0.6) !important;
             margin: 0 1rem !important;
             padding: 1.5rem !important;
             border-radius: 1rem !important;
