@@ -211,7 +211,6 @@ function Tentang() {
             ))}
           </div>
         </section>
-
         <KontakContainer />
         <FAQ />
       </div>

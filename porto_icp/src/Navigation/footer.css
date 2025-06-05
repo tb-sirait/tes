@@ -7,6 +7,7 @@
     position: relative;
     overflow: hidden;
     font-family: inter, sans-serif;
+    
 }
 
 .footer::before {
@@ -150,6 +151,13 @@
     border: 1px solid rgba(255,255,255,0.1);
     background: rgba(255,255,255,0.02);
 }
+
+.social-link.whatsapp {
+    background-color: #25d3bc00;
+    color: white;
+    border-color: rgba(37, 211, 102, 0.3);
+}
+
 
 .social-link:hover {
     transform: translateX(5px);

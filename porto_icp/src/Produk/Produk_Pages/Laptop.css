@@ -2,7 +2,6 @@
 .laptop-page {
   font-family: 'Inter', sans-serif;
   background-color: #f5f7fa;
-  padding: 20px;
 }
 
 /* Header Produk Modern */
@@ -117,6 +116,7 @@
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
   margin-bottom: 20px;
+  padding: 20px;
 }
 
 /* Kartu Produk */
@@ -334,4 +334,8 @@
 
 .spec-text small {
   margin-right: 6px;
+}
+
+Footer{
+  width: 100vw;
 }
