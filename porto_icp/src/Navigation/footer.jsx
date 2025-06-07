@@ -20,7 +20,7 @@ function Footer() {
                     <div className="company-address">
                         <h4>Alamat Kantor</h4>
                         <p>
-                            HR Building Lt. G1<br/>
+                            HR Building Lt. G2<br/>
                             Jl. K.H. Wahid Hasyim No. 5<br/>
                             Kebon Sirih, Menteng<br/>
                             Jakarta Pusat 10340<br/>

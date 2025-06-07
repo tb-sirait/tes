@@ -80,7 +80,7 @@ function KontakContainer() {
                 <FaMapMarkerAlt className="icon" />
                 <div>
                 <strong>PT. Infoduta Computindo Perkasa</strong><br />
-                HR Building, Jl. K.H. Wahid Hasyim No.5 G1 Floor,<br />
+                HR Building, Jl. K.H. Wahid Hasyim No.5 G2 Floor,<br />
                 RT.12/RW.9, Kb. Sirih, Kec. Menteng, Kota Jakarta Pusat,<br />
                 Daerah Khusus Ibukota Jakarta 10340.
                 </div>
