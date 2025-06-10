@@ -174,7 +174,7 @@ const Hardware = () => {
   });
 
   return (
-    <div className="hardware-page">
+    <div className="laptop-page">
       <Navbar />
       <ProductHeader
         searchQuery={searchQuery}

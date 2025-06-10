@@ -63,6 +63,11 @@ const FAQ = () => {
       id: 6,
       question: "Apakah Infoduta menyediakan layanan Jasa Antar (Delivery) produk?",
       answer: "Ya, kami menyediakan layanan Jasa Antar untuk pengiriman produk IT ke lokasi perusahaan Anda untuk area Jakarta dan Sekitarnya. Kami akan memastikan produk sampai dengan aman dan tepat waktu."
+    },
+    {
+      id: 7,
+      question: "Apakah perusahaan ini menyediakan Jasa Sewa Alat IT?",
+      answer: "Ya, kami menyediakan layanan penyewaan alat IT untuk perusahaan yang membutuhkan solusi IT dalam waktu yang dapat ditentukan. Anda dapat menghubungi tim sales kami untuk informasi lebih lanjut mengenai syarat dan ketentuan penyewaan."
     }
   ];
 
@@ -75,7 +80,7 @@ const FAQ = () => {
 
   const styles = {
     container: {
-      maxWidth: '1200px',
+      maxWidth: '1400px',
       margin: '80px auto',
       fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
       padding: '10px',   

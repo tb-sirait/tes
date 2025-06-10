@@ -14,6 +14,7 @@ import {
   X,
   Phone,
   MessageCircle,
+  AppWindow,
   Mail,
 } from "lucide-react";
 import Navbar from "../../Navigation/Navbar.jsx";
@@ -65,8 +66,7 @@ const SpecItem = ({ icon, label, value }) => (
   <div className="spec-item">
     <div className="icon-box">{icon}</div>
     <div className="spec-text">
-      <small>{label}</small>
-      <strong>{value}</strong>
+      <strong>{label}</strong>&nbsp;<small>{value}</small>
     </div>
   </div>
 );
@@ -139,7 +139,7 @@ const ProductModal = ({ product, isOpen, onClose }) => {
               {product.specs?.ram && <SpecItem icon={<MemoryStick />} label="RAM" value={product.specs.ram} />}
               {product.specs?.storage && <SpecItem icon={<HardDrive />} label="Penyimpanan" value={product.specs.storage} />}
               {product.specs?.gpu && <SpecItem icon={<Monitor />} label="GPU" value={product.specs.gpu} />}
-              {product.specs?.os && <SpecItem icon={<div className="os-icon" />} label="Sistem Operasi" value={product.specs.os} />}
+              {product.specs?.os && <SpecItem icon={<AppWindow/>} label="Sistem Operasi" value={product.specs.os} />}
             </div>
             <div className="modal-actions">
               <a className="contact-button" href={`https://wa.me/628975808407?text=${encodeURIComponent(`Saya berminat pada unit produk ${product.name} untuk perusahaan saya. Bisa diskusi untuk produknya?`)}`}><MessageCircle /> Hubungi Kami</a>
@@ -177,7 +177,7 @@ const Computer = () => {
   });
 
   return (
-    <div className="computer-page">
+    <div className="laptop-page">
       <Navbar />
       <ProductHeader
         searchQuery={searchQuery}

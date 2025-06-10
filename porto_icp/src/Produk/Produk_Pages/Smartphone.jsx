@@ -20,6 +20,7 @@ import {
   Monitor,
   X,
   Phone,
+  AppWindow,
   MessageCircle,
   Mail,
 } from "lucide-react";
@@ -147,7 +148,7 @@ const ProductModal = ({ product, isOpen, onClose }) => {
               {product.specs?.ram && <SpecItem icon={<MemoryStick />} label="Memory" value={product.specs.ram} />}
               {product.specs?.storage && <SpecItem icon={<HardDrive />} label="Storage" value={product.specs.storage} />}
               {product.specs?.gpu && <SpecItem icon={<Monitor />} label="Graphics" value={product.specs.gpu} />}
-              {product.specs?.os && <SpecItem icon={<div className="os-icon" />} label="Operating System" value={product.specs.os} />}
+              {product.specs?.os && <SpecItem icon={<AppWindow/>} label="Operating System" value={product.specs.os} />}
             </div>
             <div className="modal-actions">
               <a className="contact-button"

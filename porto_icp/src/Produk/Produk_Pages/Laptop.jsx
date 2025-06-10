@@ -142,8 +142,8 @@ const ProductModal = ({ product, isOpen, onClose }) => {
   if (!isOpen || !product) return null;
 
   return (
-    <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+    <div className="laptop-page modal-overlay" onClick={onClose}>
+      <div className="laptop-page modal-content" onClick={(e) => e.stopPropagation()}>
         <button className="close-button" onClick={onClose}>
           <X />
         </button>

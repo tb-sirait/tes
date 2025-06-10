@@ -183,7 +183,7 @@ const Sparepart = () => {
   });
 
   return (
-    <div className="sparepart-page">
+    <div className="laptop-page">
       <Navbar />
       <ProductHeader
         searchQuery={searchQuery}

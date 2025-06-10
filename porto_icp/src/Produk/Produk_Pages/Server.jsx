@@ -173,7 +173,7 @@ const Server = () => {
   });
 
   return (
-    <div className="server-page">
+    <div className="laptop-page">
       <Navbar />
       <ProductHeader
         searchQuery={searchQuery}
