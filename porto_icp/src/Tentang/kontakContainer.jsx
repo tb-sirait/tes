@@ -8,6 +8,7 @@ function KontakContainer() {
     const phoneNumber2 = "628975808407";
     const whatsappLink = `https://wa.me/${phoneNumber}?text=${message}`;
     const whatsappLink2 = `https://wa.me/${phoneNumber2}?text=${message}`;
+    const whatsappLink3 = `https://wa.me/6285545031039?text=${message}`;
 
     const [modalOpen, setModalOpen] = useState(false);
 
@@ -55,6 +56,15 @@ function KontakContainer() {
                 <span>Hubungi Admin Sales</span>
             </a>
             <a 
+                href= {whatsappLink3} 
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ textDecoration: "none", color: "white", gap: "10px", display: "flex", alignItems: "left" }}
+            >
+                <FaWhatsapp className="icon" />
+                <span>0855-4503-1039</span>
+            </a>
+            <a 
                 href= {whatsappLink} 
                 target="_blank"
                 rel="noopener noreferrer"
@@ -88,18 +98,18 @@ function KontakContainer() {
             </div>
         </div>
         </section>
-        {modalOpen && (
+            {modalOpen && (
             <div className="modal-backdrop" onClick={closeModal}>
                 <div className="modal-container" onClick={(e) => e.stopPropagation()}>
-                <h2 className="text-xl font-bold mb-4">Daftar Email Admin Sales</h2>
-                <ul className="space-y-2 text-base">
+                <h2 className="modal-title">Daftar Email Admin Sales</h2>
+                <ul className="email-list">
                     <li><a href="mailto:sales.1@infoduta.com" className="email-link">sales.1@infoduta.com</a></li>
                     <li><a href="mailto:sales.2@infoduta.com" className="email-link">sales.2@infoduta.com</a></li>
                     <li><a href="mailto:sales.3@infoduta.com" className="email-link">sales.3@infoduta.com</a></li>
                     <li><a href="mailto:sales.6@infoduta.com" className="email-link">sales.6@infoduta.com</a></li>
                     <li><a href="mailto:sales.7@infoduta.com" className="email-link">sales.7@infoduta.com</a></li>
                 </ul>
-                <div className="flex justify-end space-x-2 mt-4">
+                <div className="modal-footer">
                     <button onClick={closeModal} className="cancel-btn">Close</button>
                 </div>
                 </div>
