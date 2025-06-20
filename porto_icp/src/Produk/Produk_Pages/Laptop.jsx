@@ -152,7 +152,7 @@ const ProductModal = ({ product, isOpen, onClose }) => {
             <div className="modal-actions">
               <div className="contact-options">
                 <a className="contact-button"
-                  href={`https://wa.me/628975808407?text=${encodeURIComponent(`Saya berminat pada unit produk ${product.name} untuk perusahaan saya. Bisa diskusi untuk produknya?`)}`}>
+                  href={`https://wa.me/6285545031039?text=${encodeURIComponent(`Saya berminat pada unit produk ${product.name} untuk perusahaan saya. Bisa diskusi untuk produknya?`)}`}>
                   <MessageCircle />
                   Hubungi Kami</a>
               </div>
