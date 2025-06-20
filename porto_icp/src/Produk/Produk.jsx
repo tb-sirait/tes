@@ -276,7 +276,7 @@ export default function Produk() {
             
             <div className="search-filter-container">
               <div className="search-wrapper">
-                <FaSearch className="search-icon" />
+                <FaSearch className="search-icon"  />
                 <input
                   type="text"
                   placeholder="Cari produk yang Anda butuhkan..."

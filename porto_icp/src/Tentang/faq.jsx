@@ -4,7 +4,7 @@ const FAQ = () => {
   const [expandedItems, setExpandedItems] = useState({});
 
   const contactUsMessage = encodeURIComponent("Selamat pagi Ibu, saya ingin berdiskusi terkait pengadaan alat IT PT Infoduta Computindo Perkasa untuk perusahaan saya. Bisakah kita berdiskusi terlebih dahulu?. Terima kasih!");
-  const contactUsPhoneNumber = "628975808407";
+  const contactUsPhoneNumber = "6285545031039";
   const contactUsLink = `https://wa.me/${contactUsPhoneNumber}?text=${contactUsMessage}`;
 
   const faqData = [
@@ -15,7 +15,7 @@ const FAQ = () => {
         <>
           Untuk mengajukan produk IT, Anda dapat menghubungi {' '}
           <a 
-            href="https://wa.me/628975808407?text=Halo%20saya%20ingin%20bertanya%20tentang%20produk%20IT" 
+            href="https://wa.me/6285545031039?text=Halo%20saya%20ingin%20bertanya%20tentang%20produk%20IT" 
             target="_blank" 
             rel="noopener noreferrer"
             style={{ color: '#667eea', textDecoration: 'underline' }}
@@ -55,7 +55,15 @@ const FAQ = () => {
           >
             service@infoduta.com
           </a>
-          . Tim kami siap membantu Anda untuk menyelesaikan kendala teknis yang Anda hadapi.
+          {' '}atau bisa hubungi tim kami {' '}
+          <a 
+            href="https://wa.me/6285545031040?text=Halo%20saya%20ingin%20bertanya%20tentang%20kendala%20teknis" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{ color: '#667eea', textDecoration: 'underline' }}
+          >
+            melalui WhatsApp di sini
+          </a>. Tim kami siap membantu Anda untuk menyelesaikan kendala teknis yang Anda hadapi.
         </>
       )
     },
