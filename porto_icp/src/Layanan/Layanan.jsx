@@ -150,7 +150,7 @@ function Layanan() {
                         <li>
                             <FaCheck className="check-icon" />
                             <div>
-                                <strong>Pelatihan Penggunaan:</strong> Kami memberikan pelatihan penggunaan produk IT yang Anda beli atau sewa, sehingga Anda dapat memaksimalkan manfaat dari teknologi yang ada.
+                                <strong>Pelatihan Penggunaan:</strong> Kami memberikan pelatihan penggunaan produk IT yang Anda beli atau sewa, sehingga Anda dapat memaksimalkan manfaat untuk perusahaan Anda dari teknologi yang diterima.
                             </div>
                         </li>
                     </ul>

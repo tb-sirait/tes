@@ -20,20 +20,24 @@ import {
 import Navbar from "../../Navigation/Navbar.jsx";
 import Footer from "../../Navigation/footer.jsx";
 
-import Optiplex1 from "../../assets/produk/Dell/Optiplex/3000_Tower/1.png";
-import Optiplex2 from "../../assets/produk/Dell/Optiplex/7010_Plus_SFF/1.png";
+// Dynamically import all images under src/assets/produk
+const images = import.meta.glob("../../assets/produk/**/*.{png,jpg,jpeg,svg}", { eager: true });
 
-const imageMap = {
-  "OptiPlex 3000 Tower": Optiplex1,
-  "Optiplex 7010 PLUS SFF": Optiplex2,
-};
+const imageMap = {};
+for (const path in images) {
+  // Normalize path to match JSON image paths
+  const normalizedPath = path.replace(/^..\/..\/assets\//, "").replace(/\\\\/g, "/").replace(/\\/g, "/");
+  imageMap[normalizedPath] = images[path].default || images[path];
+}
 
 const ProductCard = ({ product, onViewDetails }) => {
   const [imgError, setImgError] = useState(false);
 
+  // Use first image path from product.images to get image src from imageMap
+  const firstImagePath = product.images && product.images.length > 0 ? product.images[0] : null;
   const imgSrc = imgError
     ? "/api/placeholder/200/150"
-    : imageMap[product.name] || "/api/placeholder/200/150";
+    : (firstImagePath && imageMap[firstImagePath]) || "/api/placeholder/200/150";
 
   return (
     <div className="product-card" onClick={() => onViewDetails(product)}>

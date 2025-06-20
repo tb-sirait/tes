@@ -37,17 +37,21 @@ export default function Produk() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const images = import.meta.glob('../assets/produk/**/*.{png,jpg,jpeg,svg}', { eager: true });
-  const imageMap = {};
-  for (const path in images) {
-    const key = path.replace('../assets/', '');
-    imageMap[key] = images[path].default;
+  // Function to import images dynamically from JSON references
+  function importImagesFromJson(jsonData) {
+    const images = import.meta.glob('../assets/produk/**/*.{png,jpg,jpeg,svg}', { eager: true });
+    const imageMap = {};
+    for (const path in images) {
+      const key = path.replace('../assets/', '');
+      imageMap[key] = images[path].default;
+    }
+    return jsonData.map(product => ({
+      ...product,
+      images: product.images.map(imagePath => imageMap[imagePath] || '')
+    }));
   }
 
-  const products = produkData.map(product => ({
-    ...product,
-    images: product.images.map(imagePath => imageMap[imagePath] || '')
-  }));
+  const products = importImagesFromJson(produkData);
 
   const filteredProducts = products.filter(product => {
     const matchesBrand = !selectedBrand || product.brand === selectedBrand;

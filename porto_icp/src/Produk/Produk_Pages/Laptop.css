@@ -84,6 +84,131 @@
   }
 }
 
+/* Responsive adjustments for mobile devices */
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    padding: 10px 20px;
+    gap: 15px;
+  }
+
+  .product-card {
+    padding: 15px;
+    min-height: auto;
+  }
+
+  .product-image img {
+    width: 200px;
+    height: 200px;
+    padding: 20px;
+  }
+
+  .product-info h3 {
+    font-size: 1rem;
+  }
+
+  .product-meta {
+    font-size: 0.75rem;
+  }
+
+  .specs {
+    margin-top: 8px;
+  }
+
+  /* Adjust contact button for tablet */
+  .contact-button {
+    width: 60% !important;
+    padding: 12px 18px !important;
+    font-size: 1rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+    padding: 10px 10px;
+    gap: 10px;
+  }
+
+  .product-card {
+    width: 100%;
+    padding: 10px;
+    flex-direction: column;
+  }
+
+  .product-image {
+    width: 100%;
+    padding: 0;
+  }
+
+  .product-image img {
+    width: 100%;
+    height: auto;
+    padding: 0;
+    border-radius: 12px;
+  }
+
+  .product-info h3 {
+    font-size: 0.9rem;
+  }
+
+  .product-meta {
+    font-size: 0.7rem;
+  }
+
+  .specs {
+    margin-top: 6px;
+  }
+
+  .contact-button {
+    width: 100%;
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+
+  /* Modal responsiveness */
+  .laptop-page .modal-content {
+    width: 95%;
+    max-width: 100%;
+    padding: 20px 15px 30px 15px;
+    border-radius: 12px;
+  }
+
+  .laptop-page .modal-body {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .laptop-page .modal-image img {
+    width: 100%;
+    height: auto;
+    max-height: 250px;
+    object-fit: contain;
+    padding: 0;
+  }
+
+  .laptop-page .modal-details {
+    width: 100%;
+  }
+
+  .laptop-page .contact-button {
+    width: 100%;
+    font-size: 1rem;
+    padding: 12px 0;
+  }
+
+  .laptop-page .close-button {
+    top: 15px;
+    right: 15px;
+    font-size: 1.4rem;
+  }
+
+  .laptop-page .modal-overlay {
+    overflow-y: auto;
+    padding: 10px 0;
+  }
+}
+
 .search-input,
 .brand-select {
   padding: 12px 18px;
@@ -296,6 +421,7 @@
   color: #555;
   transition: color 0.3s ease;
   user-select: none;
+  z-index: 1100;
 }
 
 .laptop-page .modal-body {
@@ -367,6 +493,12 @@
   font-weight: 600;
   box-shadow: 0 4px 12px rgba(25, 135, 84, 0.4);
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-button svg {
+  margin-left: 4px;
+  margin-right: 0;
+  vertical-align: middle;
 }
 
 .contact-button:hover {

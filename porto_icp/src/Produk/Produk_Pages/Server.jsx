@@ -18,12 +18,21 @@ import {
 import Navbar from "../../Navigation/Navbar.jsx";
 import Footer from "../../Navigation/footer.jsx";
 
+// Import all images dynamically from assets/produk folder
+const images = import.meta.glob('../../assets/produk/**', { eager: true, as: 'url' });
+
+const getImageUrl = (imagePath) => {
+  // Normalize path to start with ../../assets/produk/
+  const normalizedPath = imagePath.startsWith('assets/produk') ? '../../' + imagePath : imagePath;
+  return images[normalizedPath] || null;
+};
+
 const ProductCard = ({ product, onViewDetails }) => {
   const [imgError, setImgError] = useState(false);
 
   const imgSrc = imgError
     ? "/api/placeholder/200/150"
-    : product.gambar || "/api/placeholder/200/150";
+    : getImageUrl(product.gambar) || "/api/placeholder/200/150";
 
   return (
     <div className="product-card" onClick={() => onViewDetails(product)}>
@@ -107,6 +116,8 @@ const ProductModal = ({ product, isOpen, onClose }) => {
 
   const storageValue = Array.isArray(product.storage) ? product.storage.join(", ") : product.storage;
 
+  const imgSrc = getImageUrl(product.gambar) || '/api/placeholder/200/150';
+
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -116,7 +127,7 @@ const ProductModal = ({ product, isOpen, onClose }) => {
         <div className="modal-body">
           <div className="modal-image">
             <img
-              src={product.gambar || '/api/placeholder/200/150'}
+              src={imgSrc}
               alt={product.name}
             />
           </div>

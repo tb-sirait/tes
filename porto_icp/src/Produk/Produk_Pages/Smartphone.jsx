@@ -1,14 +1,6 @@
 import React, { useState, useEffect } from "react";
 import produkData from "../produk.json";
 import "./Laptop.css";
-
-// Import images explicitly
-import SamsungA551 from "../../assets/produk/samsung/A55/1.png";
-import SamsungS24FE from "../../assets/produk/samsung/S24FE/1.png";
-import Iphone16 from "../../assets/produk/Apple/16/1.png";
-import Iphone16e from "../../assets/produk/Apple/16e/1.png";
-import Iphone15 from "../../assets/produk/Apple/15/1.png";
-
 import {
   Search,
   Filter,
@@ -28,21 +20,24 @@ import "./Laptop.css";
 import Navbar from "../../Navigation/Navbar.jsx";
 import Footer from "../../Navigation/footer.jsx";
 
-const imageMap = {
-  "Samsung A55 8/256GB": SamsungA551,
-  "Samsung S24FE 256GB": SamsungS24FE,
-  "Apple iPhone 16 128GB": Iphone16,
-  "Apple iPhone 16e 128GB": Iphone16e,
-  "Apple iPhone 15 128GB": Iphone15
-  // Add other smartphone images here with keys matching product names
-};
+// Dynamically import all images under src/assets/produk
+const images = import.meta.glob("../../assets/produk/**/*.{png,jpg,jpeg,svg}", { eager: true });
+
+const imageMap = {};
+for (const path in images) {
+  // Normalize path to match JSON image paths
+  const normalizedPath = path.replace(/^..\/..\/assets\//, "").replace(/\\\\/g, "/").replace(/\\/g, "/");
+  imageMap[normalizedPath] = images[path].default || images[path];
+}
 
 const ProductCard = ({ product, onViewDetails }) => {
   const [imgError, setImgError] = useState(false);
 
+  // Use first image path from product.images to get image src from imageMap
+  const firstImagePath = product.images && product.images.length > 0 ? product.images[0] : null;
   const imgSrc = imgError
     ? "/api/placeholder/200/150"
-    : imageMap[product.name] || "/api/placeholder/200/150";
+    : (firstImagePath && imageMap[firstImagePath]) || "/api/placeholder/200/150";
 
   return (
     <div className="product-card" onClick={() => onViewDetails(product)}>
@@ -123,6 +118,10 @@ const SpecItem = ({ icon, label, value }) => (
 const ProductModal = ({ product, isOpen, onClose }) => {
   if (!isOpen || !product) return null;
 
+  // Use first image path from product.images to get image src from imageMap
+  const firstImagePath = product.images && product.images.length > 0 ? product.images[0] : null;
+  const imgSrc = (firstImagePath && imageMap[firstImagePath]) || '/api/placeholder/200/150';
+
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -132,7 +131,7 @@ const ProductModal = ({ product, isOpen, onClose }) => {
         <div className="modal-body">
           <div className="modal-image">
             <img
-              src={product.name && imageMap[product.name] ? imageMap[product.name] : '/api/placeholder/200/150'}
+              src={imgSrc}
               alt={product.name}
             />
           </div>
