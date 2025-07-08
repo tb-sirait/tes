@@ -10,8 +10,26 @@ import "./Laptop.css";
 import Navbar from "../../Navigation/Navbar.jsx";
 import Footer from "../../Navigation/footer.jsx";
 
+
+// Function to import images dynamically from JSON references
+function importImagesFromJson(jsonData) {
+  const images = import.meta.glob('../assets/software/**/*.{png,jpg,jpeg,svg}', { eager: true });
+  const imageMap = {};
+  for (const path in images) {
+    const key = path.replace('../assets/', '');
+    imageMap[key] = images[path].default;
+  }
+  return jsonData.map(product => ({
+    ...product,
+    image: imageMap[product.image] || '-'
+  }));
+}
+
+const products = importImagesFromJson(softwareData);
+
+
 // Import images explicitly
-import microsoft1 from "../../assets/software/microsoft/1.png";
+/* import microsoft1 from "../../assets/software/microsoft/1.png";
 import microsoft2 from "../../assets/software/microsoft/2.png";
 import microsoft3 from "../../assets/software/microsoft/3.png";
 import microsoft4 from "../../assets/software/microsoft/4.png";
@@ -32,7 +50,7 @@ const imageMap = {
   "Windows Server 2025 Standard - 16 Core License Pack": microsoft2,
   "Acrobat Pro for teams Subscription New": adobe1,
   "Microsoft SQL Server 2022 Standard Edition": sql1,
-};
+}; */
 
 const ProductCard = ({ product, onViewDetails }) => {
   return (

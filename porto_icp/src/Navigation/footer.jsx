@@ -30,6 +30,9 @@ function Footer() {
                             <strong>Telepon:</strong> +62 21 3983 1939<br/>
                             <strong>Email:</strong> cs@infoduta.com
                         </p>
+                        <p style={{ fontSize: '11px' }}>
+                            <i>*Beberapa gambar pada website ini merupakan hasil ilustrasi digital berbasis AI dan digunakan untuk tujuan visualisasi.</i>
+                        </p>
                     </div>
                 </div>
 
