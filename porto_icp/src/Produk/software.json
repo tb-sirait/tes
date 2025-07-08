@@ -48,5 +48,95 @@
     "name": "Microsoft SQL Server 2022 Standard Edition",
     "usage": "Lisensi Seumur Hidup",
     "image": "/src/assets/software/sql/1.png"
+  },
+  {
+    "name": "Heimdal EPDR Plus & Ransomware Encryption Protection",
+    "usage": "Lisensi Seumur Hidup",
+    "image": "/src/assets/software/heimdal/1.png"
+  },
+  {
+    "name": "PDF Exchange Pro",
+    "usage": "1 Tahun Berlangganan",
+    "image": "/src/assets/software/pdf/1.png"
+  },
+  {
+    "name":"AutoCAD LT 2024 Commercial New Single-user",
+    "usage": "Lisensi Seumur Hidup",
+    "image": "/src/assets/software/autocad/1.png"
+  },
+  {
+    "name": "Thinkcell Annual Subscription",
+    "usage": "1 Tahun Berlangganan",
+    "image": "/src/assets/software/thinkcell/1.png"
+  },
+  {
+    "name": "Software SketchUp Pro For Professional Use, ANN TRM CTR",
+    "usage": "Lisensi Seumur Hidup",
+    "image": "/src/assets/software/sketchup/1.png"
+  },
+  {
+    "name": "Software Enscape Fixed Seat License",
+    "usage": "Lisensi Seumur Hidup",
+    "image": "/src/assets/software/enscape/1.png"
+  },
+  {
+    "name": "ChatGPT Team",
+    "usage": "1 Tahun Berlangganan",
+    "image": "/src/assets/software/chatgpt/1.png"
+  },
+  {
+    "name": "Hootsuite Professional",
+    "usage": "1 Tahun Berlangganan",
+    "image": "/src/assets/software/hootsuite/1.png"
+  },
+  {
+    "name": "S.id – Pro",
+    "usage": "1 Tahun Berlangganan",
+    "image": "/src/assets/software/sid/1.png"
+  },
+  {
+    "name": "Figma Organization Dev Seat",
+    "usage":"Lisensi Seumur Hidup",
+    "image": "/src/assets/software/figma/1.png"
+  },
+  {
+    "name": "Adobe Illustrator",
+    "usage": "Lisensi Seumur Hidup",
+    "image": "/src/assets/software/adobe/2.png"
+  },
+  {
+    "name": "Adobe Photoshop",
+    "usage": "Lisensi Seumur Hidup",  
+    "image": "/src/assets/software/adobe/3.png"
+  },
+  {
+    "name": "Windows Server 2025  - CAL",
+    "usage": "Lisensi Seumur Hidup",
+    "image": "/src/assets/software/microsoft/3.png"
+  },
+  {
+    "name": "Windows Server 2025 Standard",
+    "usage": "Lisensi Seumur Hidup",
+    "image": "/src/assets/software/microsoft/4.png"
+  },
+  {
+    "name": "SQL Server Standard Edition",
+    "usage": "Lisensi Seumur Hidup",
+    "image": "/src/assets/software/sql/2.png"
+  },
+  {
+    "name": "Vmware Cloud Foundation 5",
+    "usage": "Lisensi Seumur Hidup",
+    "image": "/src/assets/software/vmware/1.png"
+  },
+  {
+    "name": "FortiToken",
+    "usage": "Lisensi Seumur Hidup",
+    "image": "/src/assets/software/fortinet/1.png"
+  },
+  {
+    "name": "Canva PRO",
+    "usage": "1 Tahun Berlangganan",
+    "image": "/src/assets/software/canva/1.png"
   }
 ]
