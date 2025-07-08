@@ -57,7 +57,7 @@ const ProductCard = ({ product, onViewDetails }) => {
     <div className="product-card" onClick={() => onViewDetails(product)}>
       <div className="product-image">
         <img
-          src={imageMap[product.name] || ""}
+          src={product.image || ""}
           alt={product.name}
           style={{ width: "100%", height: "150px", objectFit: "contain" }}
         />
@@ -73,7 +73,7 @@ const ProductCard = ({ product, onViewDetails }) => {
 const ProductModal = ({ product, isOpen, onClose }) => {
   if (!isOpen || !product) return null;
 
-  const imgSrc = imageMap[product.name] || "/api/placeholder/200/150";
+  const imgSrc = product.image || "/api/placeholder/200/150";
 
   return (
     <div className="modal-overlay" onClick={onClose}>
