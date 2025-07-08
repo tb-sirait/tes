@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState, useEffect } from "react";
 import produkData from "../hardware.json";
 import "./Laptop.css";
@@ -11,73 +10,32 @@ import "./Laptop.css";
 import Navbar from "../../Navigation/Navbar.jsx";
 import Footer from "../../Navigation/footer.jsx";
 
+// Dynamically import all images from assets folder using Vite's import.meta.glob
+const images = import.meta.glob('../../assets/produk/hardware/**/*.{png,jpg,jpeg,svg}', { eager: true, as: 'url' });
+const hpInkImages = import.meta.glob('../../assets/produk/hp_ink/*.{png,jpg,jpeg,svg}', { eager: true, as: 'url' });
+const hpTonerImages = import.meta.glob('../../assets/produk/hp_toner/*.{png,jpg,jpeg,svg}', { eager: true, as: 'url' });
 
-// Function to import images dynamically from JSON references
-function importImagesFromJson(jsonData) {
-  const images = import.meta.glob('../assets/produk/hardware/**/*.{png,jpg,jpeg,svg}', { eager: true });
-  const imageMap = {};
-  for (const path in images) {
-    const key = path.replace('../assets/', '');
-    imageMap[key] = images[path].default;
-  }
-  return jsonData.map(product => ({
-    ...product,
-    image: imageMap[product.image] || '-'
-  }));
-}
+// Merge all images into one object
+const allImages = { ...images, ...hpInkImages, ...hpTonerImages };
 
-const products = importImagesFromJson(produkData);
-
-/*// Import images explicitly
-import hp_ink1 from "../../assets/produk/hp_ink/1.png";
-import hp_ink2 from "../../assets/produk/hp_ink/2.png";
-import hp_ink3 from "../../assets/produk/hp_ink/3.png";
-import hp_ink4 from "../../assets/produk/hp_ink/4.png";
-import hp_toner1 from "../../assets/produk/hp_toner/1.png";
-import logitech1 from "../../assets/produk/hardware/logitech/1.png";
-import seagate1 from "../../assets/produk/hardware/seagate/1.png";
-import apc1 from "../../assets/produk/hardware/APC/1.png";
-import tplink1 from "../../assets/produk/hardware/tplink/1.png";
-import canon1 from "../../assets/produk/hardware/canon/1.png";
-import lg1 from "../../assets/produk/hardware/LG/1.png";
-import epson1 from "../../assets/produk/hardware/epson/1.png";
-import benq1 from "../../assets/produk/hardware/benq/1.png";
-import apple1 from "../../assets/produk/hardware/apple/1.png";
-import apple2 from "../../assets/produk/hardware/apple/2.png";
-
-const imageMap = {
-  "Toner HP 119 A Black": hp_toner1,
-  "Toner HP 119 A Cyan": hp_toner1,
-  "Toner HP 119 A Magenta": hp_toner1,
-  "Toner HP 119 A Yellow": hp_toner1,
-  "Tinta HP GT53 Black": hp_ink3,
-  "Tinta HP GT52 Cyan": hp_ink4,
-  "Tinta HP GT52 Magenta": hp_ink2,
-  "Tinta HP GT52 Yellow": hp_ink1,
-  "K400 Plus Wireless Touch Keyboard": logitech1,
-  "HDD 16TB Seagate Iron Wolf Pro ST16000NT001": seagate1,
-  "UPS APC BV1000IMS": apc1,
-  "TP Link - SG2008": tplink1,
-  "Scanner Canon Lide 300": canon1,
-  "Monitor LG 24MR400-B 24” FULL HD DISPLAY WITH AMD FREESYNC 100HZ": lg1,
-  "Printer Epson L3210": epson1,
-  "Projector BenQ MX560 4000 lumens, XGA, DLP": benq1,
-  "Apple Magic Mouse Black Multitouch": apple2,
-  "Apple Adapter 20W USB-C": apple1,
-};*/
-
-
+// Helper function to get image URL from JSON image path string
+const getImageUrl = (imagePath) => {
+  // The imagePath in JSON is like "/src/assets/produk/hp_toner/1.png"
+  // We need to convert it to relative path from this file to match keys in allImages
+  // Remove leading "/src/" from path
+  const relativePath = imagePath.replace(/^\/src\//, '../../');
+  return allImages[relativePath] || "/api/placeholder/200/150";
+};
 
 const HardwareCard = ({ product, onViewDetails }) => {
-  const [imgError, setImgError] = useState(false);
-  const imgSrc = product.image || "/api/placeholder/200/150";
+  const imgSrc = getImageUrl(product.images);
 
   return (
     <div className="product-card" onClick={() => onViewDetails(product)}>
       <div className="product-image">
         <img src={imgSrc}
         alt={product.name}
-        onError={() => setImgError(true)} />
+        />
       </div>
       <div className="product-info">
         <h3>{product.name}</h3>
@@ -132,8 +90,7 @@ const ProductHeader = ({
 
 const HardwareModal = ({ product, isOpen, onClose }) => {
   if (!isOpen || !product) return null;
-  const [imgError, setImgError] = useState(false);
-  const imgSrc = product.image || "/api/placeholder/200/150";
+  const imgSrc = getImageUrl(product.images);
 
   return (
     <div className="modal-overlay" onClick={onClose}>
@@ -143,7 +100,7 @@ const HardwareModal = ({ product, isOpen, onClose }) => {
         </button>
         <div className="modal-body">
           <div className="modal-image">
-            <img src={imgSrc} alt={product.name} onError={() => setImgError(true)} />
+            <img src={imgSrc} alt={product.name} />
           </div>
           <div className="modal-details">
             <h2>{product.name}</h2>
@@ -156,11 +113,11 @@ const HardwareModal = ({ product, isOpen, onClose }) => {
             <div className="modal-actions">
               <div className="contact-options">
                 <a 
-                className="contact-button"
-                href={`https://wa.me/6285545031039?text=${encodeURIComponent(`Saya berminat pada unit produk ${product.name} untuk perusahaan saya. Bisa diskusi untuk produknya?`)}`}
+                  className="contact-button"
+                  href={`https://wa.me/6285545031039?text=${encodeURIComponent(`Saya berminat pada unit produk ${product.name} untuk perusahaan saya. Bisa diskusi untuk produknya?`)}`}
                 >
-                <MessageCircle /> 
-                Hubungi Kami
+                  <MessageCircle /> 
+                  Hubungi Kami
                 </a>
               </div>
               <div className="extra-info">
@@ -180,7 +137,6 @@ const Hardware = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [products, setProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
-  // const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     setProducts(produkData.sort((a, b) => a.name.localeCompare(b.name)));
