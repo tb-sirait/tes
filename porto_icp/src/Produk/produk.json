@@ -624,7 +624,7 @@
     "brand": "Dell",
     "jenis": "PC",
     "images": [
-      "produk/Dell/Optiplex/7000_Micro/1.png"
+      "produk/Dell/Optiplex/7010_Micro/1.png"
     ],
     "specs": {
       "cpu": "Intel Core i5-13500",
@@ -952,7 +952,7 @@
     "brand": "Asus",
     "jenis": "Laptop",
     "images": [
-      "produk/HP/ProBook/440/G9/1.png"
+      "produk/Vivobook/S14/S3407CA-VIPS7112M/1.png"
     ],
     "specs": {
       "cpu": "Intel Core i5-1235U",
