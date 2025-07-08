@@ -66,7 +66,7 @@
     "name": "Processor Intel Core i5-12400 LGA 1700",
     "jenis": "Processor",
     "brand": "Intel",
-    "images": ["/assets/produk/sparepart/intel/i5.png"],
+    "images": ["/assets/produk/sparepart/intel/1.png"],
     "description": "Intel Core i5-12400 processor with LGA 1700 socket, suitable for mid-range desktops."
   },
   {
@@ -150,14 +150,14 @@
     "name": "Tape Cartridge 38L7302 ULTRIUM LTO 7",
     "jenis": "Data Storage",
     "brand": "IBM",
-    "images": ["/assets/produk/sparepart/vention/1.png"],
+    "images": ["/assets/produk/sparepart/ibm/1.png"],
     "description": "IBM ULTRIUM LTO 7 tape cartridge 38L7302 for high-capacity data storage."
   },
   {
     "name": "RJ45 Comscope CAT6",
     "jenis": "LAN",
     "brand": "Comscope",
-    "images": ["/assets/produk/sparepart/vention/1.png"],
+    "images": ["/assets/produk/sparepart/comscope/1.png"],
     "description": "Comscope CAT6 RJ45 connectors for high-speed network connections."
   }
 ]

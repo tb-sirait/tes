@@ -18,7 +18,27 @@ import {
 import Navbar from "../../Navigation/Navbar.jsx";
 import Footer from "../../Navigation/footer.jsx";
 
-// Import images explicitly
+
+// Dynamically import all images from assets folder using Vite's import.meta.glob
+const images = import.meta.glob('../../assets/produk/sparepart/**/*.{png,jpg,jpeg,svg}', { eager: true, as: 'url' });
+
+// Merge all images into one object
+const allImages = { ...images};
+
+const getImageUrl = (imagePath) => {
+  if (!imagePath || typeof imagePath !== 'string') {
+    console.warn('getImageUrl received non-string imagePath:', imagePath);
+    return "/api/placeholder/200/150";
+  }
+  // The imagePath in JSON is like "/src/assets/produk/hp_toner/1.png"
+  // We need to convert it to relative path from this file to match keys in allImages
+  // Remove leading "/src/" from path
+  const relativePath = imagePath.replace(/^\/src\//, '../../');
+  return allImages[relativePath] || "/api/placeholder/200/150";
+};
+
+
+/*// Import images explicitly
 import nvidia1 from "../../assets/produk/sparepart/nvidia/1.png";
 import nvidia3 from "../../assets/produk/sparepart/nvidia/3.png";
 import nvidia2 from "../../assets/produk/sparepart/nvidia/2.png";
@@ -62,16 +82,16 @@ const imageMap = {
   "USB Flash Drives SDCZ50-032G-B35 SanDisk Cruzer Blade USB Flash Drive 32GB 2.0": sandisk1,
   "USB Flash Drives SDCZ50-064G-B35 SanDisk Cruzer Blade USB Flash Drive 64GB 2.0": sandisk1,
   "Kabel HDMI Vention B02 5m High Speed 4K FHD 1080p 3D HDR - B02  (HDMI Male to Male Cable)": vention1,
-};
+};*/
 
 const ProductCard = ({ product, onViewDetails }) => {
-  const [setImgError] = useState(false);
-  const imgSrc = imageMap[product.name] || "";
+  console.log('ProductCard product.images:', product.images, 'product.images[0]:', product.images && product.images.length > 0 ? product.images[0] : null);
+  const imgSrc = getImageUrl(product.images && product.images.length > 0 ? product.images[0] : '');
 
   return (
     <div className="product-card" onClick={() => onViewDetails(product)}>
       <div className="product-image">
-        <img src={imgSrc} alt={product.name} onError={() => setImgError(true)} />
+        <img src={imgSrc} alt={product.name} />
       </div>
       <div className="product-info">
         <h3>{product.name}</h3>
