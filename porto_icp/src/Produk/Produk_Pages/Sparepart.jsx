@@ -30,10 +30,10 @@ const getImageUrl = (imagePath) => {
     console.warn('getImageUrl received non-string imagePath:', imagePath);
     return "/api/placeholder/200/150";
   }
-  // The imagePath in JSON is like "/src/assets/produk/hp_toner/1.png"
+  // The imagePath in JSON is like "/assets/produk/sparepart/nvidia/1.png"
   // We need to convert it to relative path from this file to match keys in allImages
-  // Remove leading "/src/" from path
-  const relativePath = imagePath.replace(/^\/src\//, '../../');
+  // Replace leading "/assets/" with "../../assets/"
+  const relativePath = imagePath.replace(/^\/assets\//, '../../assets/');
   return allImages[relativePath] || "/api/placeholder/200/150";
 };
 
