@@ -107,7 +107,8 @@ const ProductCard = ({ product, onViewDetails }) => {
 const ProductModal = ({ product, isOpen, onClose }) => {
   if (!isOpen || !product) return null;
 
-  const imgSrc = imageMap[product.name] || "";
+  // Use getImageUrl to get image src instead of imageMap which is undefined
+  const imgSrc = getImageUrl(product.images && product.images.length > 0 ? product.images[0] : '');
 
   return (
     <div className="modal-overlay" onClick={onClose}>
