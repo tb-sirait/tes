@@ -97,7 +97,7 @@
   {
     "name": "Figma Organization Dev Seat",
     "usage":"Lisensi Seumur Hidup",
-    "image": "/src/assets/software/figma/1.png"
+    "image": "/src/assets/software/figma/1.svg"
   },
   {
     "name": "Adobe Illustrator",
@@ -132,11 +132,11 @@
   {
     "name": "FortiToken",
     "usage": "Lisensi Seumur Hidup",
-    "image": "/src/assets/software/fortinet/1.png"
+    "image": "/src/assets/software/fortitoken/1.svg"
   },
   {
     "name": "Canva PRO",
     "usage": "1 Tahun Berlangganan",
-    "image": "/src/assets/software/canva/1.png"
+    "image": "/src/assets/software/canva/1.svg"
   }
 ]

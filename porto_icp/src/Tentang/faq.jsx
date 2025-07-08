@@ -88,7 +88,7 @@ const FAQ = () => {
 
   const styles = {
     container: {
-      maxWidth: '1400px',
+      maxWidth: '1200px',
       margin: '80px auto',
       fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
       padding: '10px',   

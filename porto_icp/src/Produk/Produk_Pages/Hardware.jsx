@@ -11,7 +11,24 @@ import "./Laptop.css";
 import Navbar from "../../Navigation/Navbar.jsx";
 import Footer from "../../Navigation/footer.jsx";
 
-// Import images explicitly
+
+// Function to import images dynamically from JSON references
+function importImagesFromJson(jsonData) {
+  const images = import.meta.glob('../assets/produk/hardware/**/*.{png,jpg,jpeg,svg}', { eager: true });
+  const imageMap = {};
+  for (const path in images) {
+    const key = path.replace('../assets/', '');
+    imageMap[key] = images[path].default;
+  }
+  return jsonData.map(product => ({
+    ...product,
+    image: imageMap[product.image] || '-'
+  }));
+}
+
+const products = importImagesFromJson(produkData);
+
+/*// Import images explicitly
 import hp_ink1 from "../../assets/produk/hp_ink/1.png";
 import hp_ink2 from "../../assets/produk/hp_ink/2.png";
 import hp_ink3 from "../../assets/produk/hp_ink/3.png";
@@ -47,18 +64,20 @@ const imageMap = {
   "Projector BenQ MX560 4000 lumens, XGA, DLP": benq1,
   "Apple Magic Mouse Black Multitouch": apple2,
   "Apple Adapter 20W USB-C": apple1,
-};
+};*/
 
 
 
 const HardwareCard = ({ product, onViewDetails }) => {
-  const [setImgError] = useState(false);
-  const imgSrc = imageMap[product.name] || "";
+  const [imgError, setImgError] = useState(false);
+  const imgSrc = product.image || "/api/placeholder/200/150";
 
   return (
     <div className="product-card" onClick={() => onViewDetails(product)}>
       <div className="product-image">
-        <img src={imgSrc} alt={product.name} onError={() => setImgError(true)} />
+        <img src={imgSrc}
+        alt={product.name}
+        onError={() => setImgError(true)} />
       </div>
       <div className="product-info">
         <h3>{product.name}</h3>
@@ -113,8 +132,8 @@ const ProductHeader = ({
 
 const HardwareModal = ({ product, isOpen, onClose }) => {
   if (!isOpen || !product) return null;
-  const [setImgError] = useState(false);
-  const imgSrc = imageMap[product.name] || "";
+  const [imgError, setImgError] = useState(false);
+  const imgSrc = product.image || "/api/placeholder/200/150";
 
   return (
     <div className="modal-overlay" onClick={onClose}>

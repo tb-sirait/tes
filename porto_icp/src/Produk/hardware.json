@@ -129,29 +129,29 @@
     "name": "Seagate 2TB onetouch 2,5” HDD External",
     "brand": "Seagate",
     "type": "charger",
-    "images": "/src/assets/produk/hardware/apple/1.png",
+    "images": "/src/assets/produk/hardware/seagate/2.png",
     "description": "Seagate OneTouch 2TB HDD eksternal 2,5 inci untuk penyimpanan data portabel yang mudah dibawa."
   },
   {
-    "name": "Tp-link EAP245 AC1750 Wireless",
+    "name": "TP Link EAP245 AC1750 Wireless",
     "brand": "TP Link",
     "type": "Access Point",
-    "images": "/src/assets/produk/hardware/apple/1.png",
+    "images": "/src/assets/produk/hardware/tplink/2.png",
     "description": "Access Point TP Link EAP245 AC1750 Wireless untuk koneksi Wi-Fi yang cepat dan stabil di area luas."
   },
   {
     "name": "Epson L121",
     "brand": "Epson",
     "type": "Printer",
-    "images": "/src/assets/produk/hardware/logitech/2.png",
+    "images": "/src/assets/produk/hardware/epson/2.png",
     "description": "Printer Epson L121 dengan sistem tangki tinta untuk cetak dokumen berkualitas tinggi dan efisien."
   },
   {
     "name": "Epson L3250",
     "brand": "Epson",
     "type": "Printer",
-    "images": "/src/assets/produk/hardware/logitech/3.png",
-    "description": "Mouse nirkabel Logitech M331 Silent Plus dengan desain ergonomis dan suara klik yang tenang."
+    "images": "/src/assets/produk/hardware/epson/3.png",
+    "description": "Printer Epson L3250 dengan sistem tangki tinta untuk cetak dokumen berkualitas tinggi dan efisien."
   },
   {
     "name": "Mikrotik RB450GX4",
@@ -171,35 +171,35 @@
     "name": "LG Monitor Curved 32Mr50C 32\" FHD",
     "brand": "LG",
     "type": "Monitor",
-    "images": "/src/assets/produk/hardware/logitech/2.png",
+    "images": "/src/assets/produk/hardware/LG/2.png",
     "description": "Monitor LG Curved 32MR50C 32 inci dengan resolusi Full HD untuk pengalaman menonton yang imersif."
   },
   {
     "name": "Monitor Xiaomi Curved G34WQi 34\" WQHD",
     "brand": "Xiaomi",
     "type": "Monitor",
-    "images": "/src/assets/produk/hardware/logitech/6.png",
+    "images": "/src/assets/produk/hardware/xiaomi/1.png",
     "description": "Monitor Xiaomi Curved G34WQi 34 inci dengan resolusi WQHD untuk tampilan yang luas dan detail."
   },
   {
     "name": "Unifi UDR7 (15W)",
     "brand": "Unifi",
     "type": "Router",
-    "images": "/src/assets/produk/hardware/logitech/4.png",
+    "images": "/src/assets/produk/hardware/unifi/1.png",
     "description": "Router Unifi UDR7 dengan daya 15W, dirancang untuk konektivitas jaringan yang handal dan cepat."
   },
   {
     "name": "Unifi U7 Pro",
     "brand": "Unifi",
     "type": "Router",
-    "images": "/src/assets/produk/hardware/logitech/4.png",
+    "images": "/src/assets/produk/hardware/unifi/2.png",
     "description": "Router Unifi U7 Pro dengan performa tinggi untuk jaringan yang stabil dan cepat, ideal untuk penggunaan di rumah atau kantor."
   },
   {
     "name": "Starlink V4 Gen 3 Satellite kit (6 Router Antenna)",
     "brand": "Starlink",
     "type": "Satellite Kit",
-    "images": "/src/assets/produk/hardware/logitech/4.png",
+    "images": "/src/assets/produk/hardware/starlink/1.png",
     "description": "Starlink V4 Gen 3 Satellite kit dengan 6 router antenna untuk koneksi internet satelit yang cepat dan andal di lokasi terpencil."
   },
   {
