@@ -7,7 +7,7 @@ import Navbar from '../Navigation/Navbar';
 // Mock components for demonstration - replace with your actual components
 
 // Placeholder images - replace with your actual imports
-import KantorImage from '../assets/kantor_icp(landscape1).png';
+import KantorImage from '../assets/kantor_icp(landscape1).svg';
 import ArrowImage from '../assets/arrow.png';
 import WorkstationImage from '../assets/Workstation.png';
 import ServicesImage from '../assets/Services.png';

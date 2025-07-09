@@ -7,7 +7,8 @@ import "./karir.css";
 import Footer from "../Navigation/footer";
 import { sendForm } from "emailjs-com";
 
-import kantorIcpLandscapeImage from "../assets/kantor_icp(landscape).png";
+//import kantorIcpLandscapeImage from "../assets/kantor_icp(landscape).png";
+import KantorImage from "../assets/kantor_icp(landscape1).svg";
 
 const RECAPTCHA_SITE_KEY = "YOUR_RECAPTCHA_SITE_KEY"; // Replace with your actual site key
 
@@ -177,10 +178,11 @@ function Karir() {
     <>
       <Navbar />
       <div className="career-page">
-        <div
+        <img
           className="background-image mobile-background"
-          style={{ backgroundImage: `url(${kantorIcpLandscapeImage})` }}
-        ></div>
+          src={KantorImage}
+          alt="Background"
+        />
         <div className="blue-overlay"></div>
         
         <main className="main-content">
