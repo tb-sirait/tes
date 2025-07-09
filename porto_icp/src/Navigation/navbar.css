@@ -188,13 +188,14 @@ body {
   .container {
     flex-direction: row;
     align-items: flex-start;
-    gap: 8px;
+    gap: 3px;
+    width: 100%;
   }
   
   .item-navbar {
-    padding: 6px 12px;
-    font-size: 14px;
-    margin: 2px 0;
+    padding: 3px 35px;
+    font-size: 16px;
+    /*margin: 2px 0;*/
   }
   
   .logo-with-text img {
@@ -212,11 +213,12 @@ body {
   .container.open {
     display: flex;
     position: absolute;
-    top: 60px;
-    right: 10px;
+    top: 75px;
+    right: -10px;
     background: #EEEDED;
     flex-direction: column;
-    width: 200px;
+    width: 100%; 
+    height:auto;
     border-radius: 5px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     padding: 10px 0;
@@ -225,7 +227,7 @@ body {
 
   .container.open .item-navbar {
     margin: 8px 0;
-    padding: 10px 20px;
+    /*padding: 8px 10px;*/
     width: 100%;
     justify-content: flex-start;
   }
@@ -239,7 +241,8 @@ body {
     box-shadow: none;
     border-radius: 0;
     background: #f8f8f8;
-    margin-left: 20px;
+    margin-left: 60px;
+    width: calc(100% - 40px); /* Lebar dropdown sesuai dengan container */
   }
 }
 
