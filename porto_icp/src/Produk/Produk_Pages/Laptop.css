@@ -299,6 +299,19 @@
   color: inherit;
 }
 
+/* Ikon Chat */
+.chat-icon {
+  stroke: #fff;
+  width: 1em;
+  height: 1em;
+}
+
+.chat-icon:hover {
+  stroke: rgb(108, 251, 184); ;
+}
+
+
+
 /* Informasi Produk */
 .product-info {
   padding: 16px;
@@ -480,7 +493,7 @@
 /* Tombol Kontak */
 .contact-button {
   background-color: #198754;
-  color: white;
+  color: rgb(255, 255, 255); 
   border: none;
   padding: 12px 18px;
   border-radius: 8px;
@@ -504,6 +517,7 @@
 .contact-button:hover {
   background-color: #146c43;
   box-shadow: 0 6px 16px rgba(20, 108, 67, 0.6);
+  color: rgb(108, 251, 184); 
 }
 
 /* Opsi Kontak */
