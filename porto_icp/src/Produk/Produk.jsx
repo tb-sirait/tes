@@ -227,11 +227,12 @@ export default function Produk() {
 
           .search-icon {
             position: absolute;
-            left: 1rem;
+            left: 3.5rem;
             top: 50%;
             transform: translateY(-50%);
             color: #666;
             font-size: 1.1rem;
+            z-index: 200;
           }
 
           .brand-select {
