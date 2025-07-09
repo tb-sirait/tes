@@ -58,7 +58,7 @@
     "brand": "Dell",
     "jenis": "Laptop",
     "images": [
-      "produk/Dell/Notebook/Lattitude/3440_Laptop/1.png"
+      "produk/Dell/Notebook/Latitude/3440_Laptop/1.png"
     ],
     "specs": {
       "cpu": "Intel Core i5",
@@ -110,7 +110,7 @@
     "brand": "Dell",
     "jenis": "Laptop",
     "images": [
-      "assets/produk/Dell/Notebook/Latitude/3420/1.png"
+      "produk/Dell/Notebook/Latitude/3420/1.png"
     ],
     "specs": {
       "cpu": "Intel Core i7-1165G7",
@@ -127,7 +127,7 @@
     "brand": "Dell",
     "jenis": "Laptop",
     "images": [
-      "produk/Dell/Notebook/Latitude/3440_laptop/1.png"
+      "produk/Dell/Notebook/Latitude/3440_Laptop/1.png"
     ],
     "specs": {
       "cpu": "Intel Core i5-1335U",
@@ -217,7 +217,7 @@
     ],
     "specs": {
       "cpu": "Intel Core i7-1185G7",
-      "ram": "16GB",
+      "ram": "8GB",
       "storage": "1TB SSD",
       "gpu": "Intel Iris Xe Graphics",
       "os": "Windows 10 Pro"
@@ -451,7 +451,7 @@
     "name": "NB DELL LATITUDE 3390 2-in-1",
     "brand": "Dell",
     "jenis": "Laptop",
-    "images": [],
+    "images": [ "produk/Dell/Notebook/Latitude/3390/1.png" ],
     "specs": {
       "cpu": "Intel Core i5-8250U",
       "ram": "8GB",
@@ -467,7 +467,7 @@
     "name": "Dell Latitude 3410",
     "brand": "Dell",
     "jenis": "Laptop",
-    "images": [],
+    "images": [ "produk/Dell/Notebook/Latitude/3410/1.png" ],
     "specs": {
       "cpu": "Intel Core i7-10510U",
       "ram": "8GB DDR4",
@@ -710,7 +710,7 @@
     "brand": "HP",
     "jenis": "Laptop",
     "images": [
-      "produk/HP/EliteBook/630/G10/2.png"
+      "produk/HP/EliteBook/630/G10/1.png"
     ],
     "specs": {
       "cpu": "Intel Core i7-1355U",
@@ -745,7 +745,7 @@
     "brand": "HP",
     "jenis": "Laptop",
     "images": [
-      "produk/HP/EliteBook/630/G11/2.png"
+      "produk/HP/EliteBook/630/G11/1.png"
     ],
     "specs": {
       "cpu": "Intel U7-155U",
@@ -952,7 +952,7 @@
     "brand": "Asus",
     "jenis": "Laptop",
     "images": [
-      "produk/Vivobook/S14/S3407CA-VIPS7112M/1.png"
+      "produk/Asus/Vivobook/S14/S3407CA-VIPS7112M/1.png"
     ],
     "specs": {
       "cpu": "Intel Core i5-1235U",
@@ -961,7 +961,7 @@
       "gpu": "Integrated Graphics",
       "os": "Windows 11 Pro 64"
     },
-    "deskripsi": "HP ProBook 440 G9 14 inch FHD laptop with Intel Core i5-1235U processor, 8GB DDR4 RAM, 256GB SSD storage, backlit keyboard, fingerprint reader, and 3/3/3 warranty."
+    "deskripsi": "Asus Vivobook S3407CA-VIPS7112M with Intel Core i5-1235U processor, 8GB DDR4 RAM, 256GB SSD storage, and 3/3/3 warranty."
   },
   {
     "id": 58,
@@ -969,7 +969,7 @@
     "brand": "HP",
     "jenis": "Laptop",
     "images": [
-      "produk/HP/ProBook/440/G9/2.png"
+      "produk/HP/Probook/440/G9/1.png"
     ],
     "specs": {
       "cpu": "Intel Core i7-1255U",
