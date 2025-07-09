@@ -795,7 +795,7 @@
     "name": "HP ProOne 240 G9 AIO",
     "brand": "HP",
     "released": "new",
-    "jenis": "All-in-One PC",
+    "jenis": "PC",
     "images": [
       "produk/HP/ProOne/240/G9/1.png"
     ],
@@ -813,7 +813,7 @@
     "name": "HP ProOne 240 G10 AIO",
     "brand": "HP",
     "released": "new",
-    "jenis": "All-in-One PC",
+    "jenis": "PC",
     "images": [
       "produk/HP/ProOne/240/G10/1.png"
     ],
@@ -831,9 +831,9 @@
     "name": "HP ProOne 240 G10 AIO",
     "brand": "HP",
     "released": "new",
-    "jenis": "All-in-One PC",
+    "jenis": "PC",
     "images": [
-      "produk/HP/ProOne/240/G10/2.png"
+      "produk/HP/ProOne/240/G10/1.png"
     ],
     "specs": {
       "cpu": "Intel U7-155U",
@@ -848,7 +848,7 @@
     "id": 51,
     "name": "HP Pro Tower 280 G9",
     "brand": "HP",
-    "jenis": "Desktop PC",
+    "jenis": "PC",
     "images": [
       "produk/HP/Pro/Tower/280/G9/1.png"
     ],
@@ -865,9 +865,9 @@
     "id": 52,
     "name": "HP Pro Tower 280 G9",
     "brand": "HP",
-    "jenis": "Desktop PC",
+    "jenis": "PC",
     "images": [
-      "produk/HP/Pro/Tower/280/G9/2.png"
+      "produk/HP/Pro/Tower/280/G9/1.png"
     ],
     "specs": {
       "cpu": "Intel Core i7-12700",
@@ -882,7 +882,7 @@
     "id": 53,
     "name": "HP Pro Tower 400 G9 MT",
     "brand": "HP",
-    "jenis": "Desktop PC",
+    "jenis": "PC",
     "images": [
       "produk/HP/Pro/Tower/400/G9/1.png"
     ],
@@ -899,9 +899,9 @@
     "id": 54,
     "name": "HP Pro Tower 400 G9",
     "brand": "HP",
-    "jenis": "Desktop PC",
+    "jenis": "PC",
     "images": [
-      "produk/HP/Pro/Tower/400/G9/2.png"
+      "produk/HP/Pro/Tower/400/G9/1.png"
     ],
     "specs": {
       "cpu": "Intel Core i7-12700",
@@ -916,7 +916,7 @@
     "id": 55,
     "name": "HP Pro Tower Maverick 280 G9",
     "brand": "HP",
-    "jenis": "Desktop PC",
+    "jenis": "PC",
     "images": [
       "produk/HP/Pro/Tower/Maverick/280/G9/1.png"
     ],
@@ -933,9 +933,9 @@
     "id": 56,
     "name": "HP Pro Tower Maverick 280 G9",
     "brand": "HP",
-    "jenis": "Desktop PC",
+    "jenis": "PC",
     "images": [
-      "produk/HP/Pro/Tower/Maverick/280/G9/2.png"
+      "produk/HP/Pro/Tower/Maverick/280/G9/1.png"
     ],
     "specs": {
       "cpu": "Intel Core i7-12700",
