@@ -139,8 +139,7 @@ body {
 }
 
 .dropdown-menu li {
-  padding: 8px 20px;
-  margin: 0;
+  margin: 10px 10px;
 }
 
 .dropdown-menu li a {
@@ -149,7 +148,7 @@ body {
   display: block;
   transition: background 0.2s, padding-left 0.2s;
   text-decoration: none;
-  padding: 8px 0;
+  padding: 0.5rem 1rem;
 }
 
 .dropdown-menu li a:hover {
@@ -158,19 +157,60 @@ body {
   color: #0b4de1;
 }
 
+/* Menu animation */
+.dropdown:hover .dropdown_menu--animated {
+  display: block;
+}
+.dropdown-menu--animated {
+  display: none;
+}
+.dropdown-menu--animated li {
+  display: block;
+  opacity: 1;
+}
+
+.dropdown-menu-6 {
+  animation: growDown 300ms ease-in-out forwards;
+  transform-origin: top center;
+}
+
+@keyframes growDown {
+  0% {
+    transform: scaleY(0);
+  }
+  80% {
+    transform: scaleY(1.1);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
 /* Menu button untuk mobile */
 .menu-button {
   background: none;
   border: none;
   outline: none;
   box-shadow: none;
-  font-size: 28px;
+  font-size: 30px;
   cursor: pointer;
   color: #1434a4;
   display: none;
 }
 
+
+.menu-button:focus {
+  outline: 2px solid #1433a486;
+}
+
 /* Responsive adjustments */
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: row;
+  }
+}
+
+
 @media (max-width: 831px) {
   .navbar {
     padding: 1px 5px;
@@ -213,8 +253,9 @@ body {
   .container.open {
     display: flex;
     position: absolute;
-    top: 75px;
+    top: 72px;
     right: -10px;
+    left: -10px;
     background: #EEEDED;
     flex-direction: column;
     width: 100%; 
@@ -244,6 +285,10 @@ body {
     margin-left: 60px;
     width: calc(100% - 40px); /* Lebar dropdown sesuai dengan container */
   }
+
+  .dropdown-menu li {
+    transform: translateX(10px); 
+  }
 }
 
 /* Hide menu button on larger screens */
@@ -252,3 +297,4 @@ body {
     display: none;
   }
 }
+

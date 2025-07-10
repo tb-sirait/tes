@@ -107,7 +107,7 @@ function Tentang() {
         {/* About Section */}
         <section className="about-section">
           <div className="container">
-            <div className="section-header" style={{marginRight: "70px"}}>
+            <div className="section-header">
               <h2>Tentang Perusahaan</h2>
               <div className="section-divider"></div>
             </div>
@@ -150,7 +150,7 @@ function Tentang() {
         <section className="visi-misi-section">
           <div className="container">
             <div className="section-header">
-              <h6 style={{fontSize: "40px", fontWeight: "700"}}>Visi Misi Perusahaan</h6>
+              <h6>Visi Misi Perusahaan</h6>
               <div className="section-divider"></div>
             </div>
             <div className="visi-misi-content">
@@ -199,7 +199,7 @@ function Tentang() {
         <section className="partners-section">
           <div className="container">
             <div className="section-header">
-              <h6 style={{fontSize: "40px", fontWeight: "700"}}>Rekan Kerja Perusahaan</h6>
+              <h6>Rekan Kerja Perusahaan</h6>
               <div className="section-divider"></div>
             </div>
           </div>

@@ -35,8 +35,8 @@ function Navbar() {
         </button>
         
         <nav>
-          <ul className={`container ${menuOpen ? 'open' : 'closed'}`}>
-            <li className="item-navbar">
+          <ul className={`container ${menuOpen ? 'open' : 'closed'} dropdown-menu-6 `}>
+            <li className="item-navbar" >
               <a className="item-hover" href="/" onClick={() => setMenuOpen(false)}>
                 Beranda
               </a>
