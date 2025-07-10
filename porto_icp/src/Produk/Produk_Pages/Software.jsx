@@ -11,21 +11,38 @@ import Navbar from "../../Navigation/Navbar.jsx";
 import Footer from "../../Navigation/footer.jsx";
 
 
-// Function to import images dynamically from JSON references
-function importImagesFromJson(jsonData) {
-  const images = import.meta.glob('../assets/software/**/*.{png,jpg,jpeg,svg}', { eager: true });
-  const imageMap = {};
-  for (const path in images) {
-    const key = path.replace('../assets/', '');
-    imageMap[key] = images[path].default;
-  }
-  return jsonData.map(product => ({
-    ...product,
-    image: imageMap[product.image] || '-'
-  }));
-}
+// Import images explicitly
+import microsoft1 from "../../assets/software/microsoft/1.png";
+import microsoft2 from "../../assets/software/microsoft/2.png";
+import microsoft3 from "../../assets/software/microsoft/3.png";
+import microsoft4 from "../../assets/software/microsoft/4.png";
+import microsoft5 from "../../assets/software/microsoft/5.png";
+import microsoft6 from "../../assets/software/microsoft/6.png";
+import windows1 from "../../assets/software/windows/1.png";
+import adobe1 from "../../assets/software/adobe/1.png";
+import sql1 from "../../assets/software/sql/1.png";
+import heimdal1 from "../../assets/software/heimdal/1.png";
+import pdf1 from "../../assets/software/pdf/1.png";
+import autocad1 from "../../assets/software/autocad/1.png";
+import thinkcell1 from "../../assets/software/thinkcell/1.png";
+import sketchup1 from "../../assets/software/sketchup/1.png";
+import enscape1 from "../../assets/software/enscape/1.png";
+import chatgpt1 from "../../assets/software/chatgpt/1.png";
+import hootsuite1 from "../../assets/software/hootsuite/1.png";
+import sid1 from "../../assets/software/sid/1.png";
+import figma1 from "../../assets/software/figma/1.svg";
+import adobe2 from "../../assets/software/adobe/2.png";
+import adobe3 from "../../assets/software/adobe/3.png";
+import sql2 from "../../assets/software/sql/2.png";
+import vmware1 from "../../assets/software/vmware/1.png";
+import fortitoken1 from "../../assets/software/fortitoken/1.svg";
+import canva1 from "../../assets/software/canva/1.svg";
 
-const products = importImagesFromJson(softwareData);
+/*const imageMap = {
+  "Windows Server 2025 Standard - 16 Core License Pack": microsoft2,
+  "Acrobat Pro for teams Subscription New": adobe1,
+  "Microsoft SQL Server 2022 Standard Edition": sql1,
+};*/
 
 const ProductCard = ({ product, onViewDetails }) => {
   return (

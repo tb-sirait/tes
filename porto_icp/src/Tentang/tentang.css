@@ -436,7 +436,9 @@
 
 /* Responsive Design - Diperbaiki */
 @media (max-width: 1024px) {
-
+  div.container{
+    flex-direction: column;
+  }
   .visi-card {
   margin-left: 0px;
   }
@@ -467,9 +469,7 @@
 }
 
 @media (max-width: 832px) {
-    .container{
-    flex-direction: column;
-  }
+
   .hero-content-ttg {
     grid-template-columns: 1fr;
     gap: 40px;
