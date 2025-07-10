@@ -38,11 +38,36 @@ import vmware1 from "../../assets/software/vmware/1.png";
 import fortitoken1 from "../../assets/software/fortitoken/1.svg";
 import canva1 from "../../assets/software/canva/1.svg";
 
-/*const imageMap = {
-  "Windows Server 2025 Standard - 16 Core License Pack": microsoft2,
+const imageMap = {
+  "Microsoft Office 365 Family": microsoft1,
+  "Microsoft Office 365 Personal": microsoft2,
+  "Microsoft Office 2024 Home and Student": microsoft3,
+  "Microsoft Office 2024 Home and Business": microsoft4,
+  "Microsoft Office Professional Plus 2024": microsoft6,
+  "Microsoft Office Standard 2024": microsoft5,
+  "Windows 11 Pro": windows1,
   "Acrobat Pro for teams Subscription New": adobe1,
+  "Windows Server 2025 Standard - 16 Core License Pack": microsoft2,
   "Microsoft SQL Server 2022 Standard Edition": sql1,
-};*/
+  "Heimdal EPDR Plus & Ransomware Encryption Protection": heimdal1,
+  "PDF Exchange Pro": pdf1,
+  "AutoCAD LT 2024 Commercial New Single-user": autocad1,
+  "Thinkcell Annual Subscription": thinkcell1,
+  "Software SketchUp Pro For Professional Use, ANN TRM CTR": sketchup1,
+  "Software Enscape Fixed Seat License": enscape1,
+  "ChatGPT Team": chatgpt1,
+  "Hootsuite Professional": hootsuite1,
+  "S.id – Pro": sid1,
+  "Figma Organization Dev Seat": figma1,
+  "Adobe Illustrator": adobe2,
+  "Adobe Photoshop": adobe3,
+  "Windows Server 2025  - CAL": microsoft3,
+  "Windows Server 2025 Standard": microsoft4,
+  "SQL Server Standard Edition": sql2,
+  "Vmware Cloud Foundation 5": vmware1,
+  "FortiToken": fortitoken1,
+  "Canva PRO": canva1,
+};
 
 const ProductCard = ({ product, onViewDetails }) => {
   return (
@@ -145,7 +170,12 @@ const Software = () => {
 
   useEffect(() => {
     const sortedProducts = softwareData.sort((a, b) => a.name.localeCompare(b.name));
-    setProducts(sortedProducts);
+    // Map images from imageMap to products
+    const productsWithImages = sortedProducts.map(product => ({
+      ...product,
+      image: imageMap[product.name] || product.image || ""
+    }));
+    setProducts(productsWithImages);
   }, []);
 
   // Extract unique usage options from products
