@@ -8,7 +8,7 @@ import Footer from "../Navigation/footer";
 import { sendForm } from "emailjs-com";
 
 //import kantorIcpLandscapeImage from "../assets/kantor_icp(landscape).png";
-import KantorImage from "../assets/kantor_icp(landscape1).png";
+import KantorImage from "../assets/kantor_icp(landscape1).webp";
 
 const RECAPTCHA_SITE_KEY = "YOUR_RECAPTCHA_SITE_KEY"; // Replace with your actual site key
 

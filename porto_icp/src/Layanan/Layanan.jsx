@@ -9,7 +9,7 @@ import Footer from "../Navigation/footer";
 import FAQ from "../Tentang/faq";
 import KontakContainer from "../Tentang/kontakContainer";
 
-import kantorIcp from "../assets/kantor_icp(landscape1).png";
+import kantorIcp from "../assets/kantor_icp(landscape1).webp";
 import aiGeneratifProduk from "../assets/layanan/ai_generatif_produk.png";
 import aiGeneratifService from "../assets/layanan/ai_generatif_service.png";
 

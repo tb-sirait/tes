@@ -116,7 +116,15 @@ const ProductHeader = ({
 };
 
 const ProductModal = ({ product, isOpen, onClose }) => {
+  const [imgError, setImgError] = React.useState(false);
+
   if (!isOpen || !product) return null;
+
+  // Use first image path from product.images to get image src from imageMap
+  const firstImagePath = product.images && product.images.length > 0 ? product.images[0] : null;
+  const imgSrc = imgError
+    ? "/api/placeholder/200/150"
+    : (firstImagePath && imageMap[firstImagePath]) || "/api/placeholder/200/150";
 
   return (
     <div className="modal-overlay" onClick={onClose}>
@@ -127,8 +135,9 @@ const ProductModal = ({ product, isOpen, onClose }) => {
         <div className="modal-body">
           <div className="modal-image">
             <img
-              src={product.images?.[0] ? `/src/assets/${product.images[0]}` : '/api/placeholder/200/150'}
+              src={imgSrc}
               alt={product.name}
+              onError={() => setImgError(true)}
             />
           </div>
           <div className="modal-details">
