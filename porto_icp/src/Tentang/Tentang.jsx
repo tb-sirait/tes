@@ -9,7 +9,7 @@ import "./tentang.css";
 import { activateScrollAnimation } from "./scrollAnimation";
 
 // Import images
-import kantorImage from "../assets/kantor_icp.png";
+import kantorImage from "../assets/kantor_icp.webp";
 import strukturImage from "../assets/struktur_keorganisasian_icp.png";
 import dellLogo from "../assets/Dell_logo.png";
 import lenovoLogo from "../assets/lenovo_logo.png";

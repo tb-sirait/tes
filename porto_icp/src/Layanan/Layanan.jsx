@@ -65,8 +65,9 @@ function Layanan() {
     return (
         <>
         <Navbar />
-        <div className="layanan-hero" style={{backgroundImage: `url(${kantorIcp})`}}>
-            <div className="floating-elements"></div>
+        <div className="layanan-hero">
+            {/*style={{backgroundImage: `url(${kantorIcp})`}}*/}
+            <div></div>
             <div className="service-hero-content">
                 <h1 className="layanan-hero-title">Layanan</h1>
                 <div className="hero-divider"></div>
