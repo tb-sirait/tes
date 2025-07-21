@@ -74,6 +74,21 @@
   }
 }
 
+@keyframes popupScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.modal-content.popup-animation {
+  animation: popupScale 0.3s ease forwards;
+}
+
 h1, h2, h3 {
   color: #1e40af; /* blue-800 */
   font-weight: 700;
