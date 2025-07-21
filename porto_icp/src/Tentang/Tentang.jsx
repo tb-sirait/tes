@@ -88,7 +88,7 @@ function Tentang() {
                   <div key={index} className="stat-item">
                     <div className="stat-icon">{achievement.icon}</div>
                     <div className="stat-content">
-                      <h3>{achievement.title}</h3>
+                      <h3 style={{color: "#ffffffff"}}>{achievement.title}</h3>
                       <p>{achievement.description}</p>
                     </div>
                   </div>
