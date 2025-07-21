@@ -13,6 +13,7 @@ import AsusLogo from "../assets/Asus_logo.png";
 import HpLogo from "../assets/hp_logo.png";
 import InfocusLogo from "../assets/Infocus_logo.png";
 import AppleLogo from "../assets/Apple_logo.png";
+import AcerLogo from "../assets/Acer_logo.png";
 import PrevIcon from "../assets/produk/icon/prev.png";
 import NextIcon from "../assets/produk/icon/next.png";
 
@@ -69,6 +70,7 @@ export default function Produk() {
     { name: "HP", logo: HpLogo },
     { name: "InFocus", logo: InfocusLogo },
     { name: "Apple", logo: AppleLogo },
+    { name: "Acer", logo: AcerLogo },
   ];
 
   const openModal = (product) => {
@@ -1037,6 +1039,10 @@ export default function Produk() {
                         } else if (product.brand === "Asus") {
                           return (
                             <img src={import.meta.env.BASE_URL + 'src/assets/Asus_logo_white.png'} alt={product.brand} className="product-brand-logo" />
+                          );
+                        } else if (product.brand === "Acer") {
+                          return (
+                            <img src={import.meta.env.BASE_URL + 'src/assets/Acer_logo.png'} alt={product.brand} className="product-brand-logo" />
                           );
                         } else {
                           return <img src={brandObj.logo} alt={product.brand} className="product-brand-logo" />;
