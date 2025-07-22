@@ -25,7 +25,6 @@ function KontakContainer() {
         <div className="kontak-container" style={{maxWidth: "1200px"}}>
             {/* Kotak Map */}
             <div className="map-box">
-            <div className="mapouter">
                 <div className="gmap_canvas">
                 <iframe 
                     className="gmap_iframe"
@@ -36,7 +35,6 @@ function KontakContainer() {
                     marginWidth="0"
                 ></iframe>
                 </div>
-            </div>
             </div>
 
             {/* Kotak Kontak */}

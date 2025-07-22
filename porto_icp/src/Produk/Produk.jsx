@@ -17,6 +17,15 @@ import AcerLogo from "../assets/Acer_logo.png";
 import PrevIcon from "../assets/produk/icon/prev.png";
 import NextIcon from "../assets/produk/icon/next.png";
 
+import {
+  MemoryStick,
+  Gpu,
+  Cpu,
+  AppWindow,
+  HardDrive,
+  X
+} from 'lucide-react';
+
 export default function Produk() {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -151,7 +160,7 @@ export default function Produk() {
     return (
       <>
         <style jsx>{`
-                .product-header {
+          .product-header {
           background: linear-gradient(135deg, #667eea 0%, #1434a4 100%);
           border-radius: 24px;
           padding: 3rem 2rem;
@@ -174,6 +183,32 @@ export default function Produk() {
           .header-content {
           position: relative;
           z-index: 1;
+          }
+
+          .closeModalButton{
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 10px;
+          }
+
+          .close-button {
+            font-size: 1.4rem;
+            background-color: none;
+            color: #555555;
+            border: none;
+            background: none;
+            padding:0;
+            padding-top: 15px;
+            padding-bottom: 20px;
+            outline: none;
+          }
+          
+          .close-button:hover {
+            outline: none;
+          }
+
+          .close-button:focus {
+            outline: none;
           }
 
           .header-text h1 {
@@ -457,6 +492,9 @@ export default function Produk() {
           .spec-icon {
           font-size: 1.2rem;
           margin-right: 0.75rem;
+          color: #1434a4;
+          width: 24px;
+          height: 24px;
           }
 
           /* Mobile Styles */
@@ -1055,19 +1093,19 @@ export default function Produk() {
                     {isMobile && (
                       <div className="mobile-specs">
                         <div className="mobile-spec-item">
-                          <span className="spec-icon">🧠</span> {product.specs.cpu}
+                          <span className="spec-icon"><Cpu /></span> {product.specs.cpu}
                         </div>
                         <div className="mobile-spec-item">
-                          <span className="spec-icon">🎮</span> {product.specs.gpu}
+                          <span className="spec-icon"><Gpu /></span> {product.specs.gpu}
                         </div>
                         <div className="mobile-spec-item">
-                          <span className="spec-icon">💾</span> {product.specs.ram}
+                          <span className="spec-icon"><MemoryStick/></span> {product.specs.ram}
                         </div>
                         <div className="mobile-spec-item">
-                          <span className="spec-icon">🗄️</span> {product.specs.storage}
+                          <span className="spec-icon"><HardDrive /></span> {product.specs.storage}
                         </div>
                         <div className="mobile-spec-item">
-                          <span className="spec-icon">🖥️</span> {product.specs.os}
+                          <span className="spec-icon"><AppWindow /></span> {product.specs.os}
                         </div>
                       </div>
                     )}
@@ -1077,19 +1115,19 @@ export default function Produk() {
                     <div className="product-specs">
                       <ul className="specs-list">
                         <li className="spec-item">
-                          <span className="spec-icon">🧠</span> {product.specs.cpu}
+                          <span className="spec-icon"><Cpu /></span> {product.specs.cpu}
                         </li>
                         <li className="spec-item">
-                          <span className="spec-icon">🎮</span> {product.specs.gpu}
+                          <span className="spec-icon"><Gpu /></span> {product.specs.gpu}
                         </li>
                         <li className="spec-item">
-                          <span className="spec-icon">💾</span> {product.specs.ram}
+                          <span className="spec-icon"><MemoryStick/></span> {product.specs.ram}
                         </li>
                         <li className="spec-item">
-                          <span className="spec-icon">🗄️</span> {product.specs.storage}
+                          <span className="spec-icon"><HardDrive /></span> {product.specs.storage}
                         </li>
                         <li className="spec-item">
-                          <span className="spec-icon">🖥️</span> {product.specs.os}
+                          <span className="spec-icon"><AppWindow /></span> {product.specs.os}
                         </li>
                       </ul>
                     </div>
@@ -1105,6 +1143,13 @@ export default function Produk() {
         <div className={`modal-overlay ${isClosing ? 'fade-out' : ''}`} onClick={closeModal}>
           {console.log("Rendering modal-overlay with class:", isClosing ? 'fade-out' : 'none')}
           <div className={`modal-content ${isClosing ? 'fade-out' : ''}`} onClick={(e) => e.stopPropagation()}>
+            <div className="closeModalButton">
+              {isMobile && (
+                <button className="close-button" onClick={closeModal}>
+                  <X />
+                </button>
+              )}
+            </div>
             <div className="modal-image-container">
               {!isMobile && (
                 <button 
@@ -1146,19 +1191,19 @@ export default function Produk() {
             
             <div className="modal-specs">
               <div className="modal-spec-item">
-                <span className="spec-icon">🧠</span> {selectedProduct.specs.cpu}
+                <span className="spec-icon"><Cpu /></span> {selectedProduct.specs.cpu}
               </div>
               <div className="modal-spec-item">
-                <span className="spec-icon">🎮</span> {selectedProduct.specs.gpu}
+                <span className="spec-icon"><Gpu /></span> {selectedProduct.specs.gpu}
               </div>
               <div className="modal-spec-item">
-                <span className="spec-icon">💾</span> {selectedProduct.specs.ram}
+                <span className="spec-icon"><MemoryStick /></span> {selectedProduct.specs.ram}
               </div>
               <div className="modal-spec-item">
-                <span className="spec-icon">🗄️</span> {selectedProduct.specs.storage}
+                <span className="spec-icon"><HardDrive /></span> {selectedProduct.specs.storage}
               </div>
               <div className="modal-spec-item">
-                <span className="spec-icon">🖥️</span> {selectedProduct.specs.os}
+                <span className="spec-icon"><AppWindow /></span> {selectedProduct.specs.os}
               </div>
             </div>
           </div>

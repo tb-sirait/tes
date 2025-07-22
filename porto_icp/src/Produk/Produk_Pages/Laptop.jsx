@@ -24,6 +24,7 @@ import {
   X,
   AppWindow,
   MessageCircle,
+  Gpu,
 } from "lucide-react";
 import "./Laptop.css";
 import Navbar from "../../Navigation/Navbar.jsx";
@@ -146,7 +147,7 @@ const ProductModal = ({ product, isOpen, onClose }) => {
               {product.specs?.cpu && <SpecItem icon={<Cpu />} label="Prosesor (CPU)" value={product.specs.cpu} />}
               {product.specs?.ram && <SpecItem icon={<MemoryStick />} label="RAM" value={product.specs.ram} />}
               {product.specs?.storage && <SpecItem icon={<HardDrive />} label="Penyimpanan" value={product.specs.storage} />}
-              {product.specs?.gpu && <SpecItem icon={<Monitor />} label="GPU" value={product.specs.gpu} />}
+              {product.specs?.gpu && <SpecItem icon={<Gpu />} label="GPU" value={product.specs.gpu} />}
               {product.specs?.os && <SpecItem icon={<AppWindow />} label="Sistem Operasi" value={product.specs.os} />}
             </div>
             <div className="modal-actions">
