@@ -176,5 +176,31 @@
         "os": "",
         "warranty": "",
         "perc": "PERC RAID Controller"
+    },
+    {
+        "id": 8,
+        "brand": "Indmem",
+        "name": "ADAPTER SAS TO USB EXTERNAL 3.0 INDMEM",
+        "gambar": "assets/produk/indmem/1.png",
+        "processor": "",
+        "storage": [
+            "18 TB"
+        ],
+        "raid": "",
+        "psu": "",
+        "tpm": "",
+        "idrac": "",
+        "network": [
+            ""
+        ],
+        "nic": [
+            ""
+        ],
+        "riser": "",
+        "chassis": "",
+        "accessories": "",
+        "os": "",
+        "warranty": "",
+        "perc": ""
     }
 ]

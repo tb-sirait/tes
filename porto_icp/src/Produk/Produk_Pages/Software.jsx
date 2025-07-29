@@ -24,6 +24,7 @@ import sql1 from "../../assets/software/sql/1.png";
 import heimdal1 from "../../assets/software/heimdal/1.png";
 import pdf1 from "../../assets/software/pdf/1.png";
 import autocad1 from "../../assets/software/autocad/1.png";
+import autocad2 from "../../assets/software/autocad/2.png";
 import thinkcell1 from "../../assets/software/thinkcell/1.png";
 import sketchup1 from "../../assets/software/sketchup/1.png";
 import enscape1 from "../../assets/software/enscape/1.png";
@@ -52,6 +53,7 @@ const imageMap = {
   "Heimdal EPDR Plus & Ransomware Encryption Protection": heimdal1,
   "PDF Exchange Pro": pdf1,
   "AutoCAD LT 2024 Commercial New Single-user": autocad1,
+  "AutoCAD LT 2026 Commercial New Single-user ELD Annual Subscription": autocad2,
   "Thinkcell Annual Subscription": thinkcell1,
   "Software SketchUp Pro For Professional Use, ANN TRM CTR": sketchup1,
   "Software Enscape Fixed Seat License": enscape1,

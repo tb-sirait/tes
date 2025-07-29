@@ -16,7 +16,7 @@
   {
     "name": "NVIDIA L40S Passive PCIE 48GB",
     "jenis": "GPU",
-    "brand": "Unknown",
+    "brand": "NVIDIA",
     "images": ["/assets/produk/sparepart/nvidia/2.png"],
     "description": "NVIDIA L40S Passive PCIe 48GB GPU suitable for professional visualization and AI."
   },
@@ -159,5 +159,26 @@
     "brand": "Comscope",
     "images": ["/assets/produk/sparepart/comscope/1.png"],
     "description": "Comscope CAT6 RJ45 connectors for high-speed network connections."
+  },
+  {
+    "name": "ATEN UC232A",
+    "jenis": "Kabel",
+    "brand": "ATEN",
+    "images": ["/assets/produk/sparepart/atentech/1.png"],
+    "description": "ATEN UC232A USB cable for reliable and high-speed data transfer."
+  },
+  {
+    "name": "Telkomsel Orbit Max H2 Modem WiFi 4G",
+    "jenis": "Modem",
+    "brand": "Telkomsel",
+    "images": ["/assets/produk/sparepart/Orbit/2.png"],
+    "description": "Telkomsel Orbit 5G Z1 modem providing high-speed 4G WiFi connectivity."
+  },
+  {
+    "name": "Prolink DL-7303 4G+ Cat6 Fixed Wi-Fi Router",
+    "jenis": "Router",
+    "brand": "Prolink",
+    "images": ["/assets/produk/sparepart/prolink/1.png"],
+    "description": "Prolink DL-7303 4G+ Cat6 fixed Wi-Fi router for reliable and high-speed internet access."
   }
 ]

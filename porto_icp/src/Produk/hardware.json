@@ -128,7 +128,7 @@
   {
     "name": "Seagate 2TB onetouch 2,5” HDD External",
     "brand": "Seagate",
-    "type": "charger",
+    "type": "HDD",
     "images": "/src/assets/produk/hardware/seagate/2.png",
     "description": "Seagate OneTouch 2TB HDD eksternal 2,5 inci untuk penyimpanan data portabel yang mudah dibawa."
   },
@@ -164,7 +164,7 @@
     "name": "Contex HD ULTRA X 4250",
     "brand": "Contex",
     "type": "Scanner",
-    "images": "/src/assets/produk/hardware/logitech/5.png",
+    "images": "/src/assets/produk/hardware/logitech/2.png",
     "description": "Scanner Contex HD ULTRA X 4250 dengan resolusi tinggi untuk pemindaian dokumen besar dan detail."
   },
   {
@@ -206,7 +206,162 @@
     "name": "Logitech H151 Stereo Headset",
     "brand": "Logitech",
     "type": "Headset",
-    "images": "/src/assets/produk/hardware/logitech/7.png",
+    "images": "/src/assets/produk/hardware/logitech/3.png",
     "description": "Logitech H151 Stereo Headset dengan suara stereo yang jernih dan mikrofon yang dapat disesuaikan, ideal untuk panggilan video dan musik."
+  },
+  {
+    "name": "MX Keys Mini Logitech",
+    "brand": "Logitech",
+    "type": "Keyboard",
+    "images": "/src/assets/produk/hardware/logitech/4.png",
+    "description": "MX Keys Mini Logitech dengan desain minimalis dan fungsionalitas lengkap."
+  },
+  {
+    "name": "Jabra Evolve2 65 link380c MS Stereo",
+    "brand": "Jabra",
+    "type": "Headset",
+    "images": "/src/assets/produk/hardware/jabra/1.png",
+    "description": "Headset Jabra Evolve2 dengan fungsi busylight."
+  },
+  {
+    "name": "Dell Mobile Wireless Mouse MS3320W",
+    "brand": "Dell",
+    "type": "Mouse",
+    "images": "/src/assets/produk/hardware/dell/1.png",
+    "description": "Dell Mobile Wireless Mouse MS3320W dengan desain ringan."
+  },
+  {
+    "name": "Dell EcoLoop Pro Slim Backpack - CP5724S (INDO)",
+    "brand": "Dell",
+    "type": "Lainnya",
+    "images": "/src/assets/produk/hardware/dell/2.png",
+    "description": "Dell Ecoloop Pro Slim Backpack for all your carrying needs."
+  },
+  {
+    "name": "MK270R Keyboard Mouse Logitech",
+    "brand": "Logitech",
+    "type": "Keyboard",
+    "images": "/src/assets/produk/hardware/logitech/5.png",
+    "description": "MK270R Keyboard Mouse Logitech yang praktis dengan paket keyboard dan mouse."
+  },
+  {
+    "name": "Logitech Zone 305 with receive",
+    "brand": "Logitech",
+    "type": "Headset",
+    "images": "/src/assets/produk/hardware/logitech/6.png",
+    "description": "Logitech Zone 305 with receive yang dapat digunakan untuk panggilan video dan musik."
+  },
+  {
+
+    "name": "Dell Pro Premium Compact Mouse - MS7421W (INDO)",
+    "brand": "Dell",
+    "type": "Mouse",
+    "images": "/src/assets/produk/hardware/dell/3.png",
+    "description": "Dell Pro Premium Compact Mouse - MS7421W yang dapat digunakan untuk berbagai keperluan."
+  },
+  {
+    "name": "Ribbon color YMCK-500 image P/N : RT4F010P00308",
+    "brand": "Evolis",
+    "type":"Tinta & Toner",
+    "images": "/src/assets/produk/hardware/evolis/1.png",
+    "description": "Ribbon color YMCK-500 image P/N : RT4F010P00308 yang dapat digunakan untuk berbagai keperluan."
+  },
+  {
+    "name": "Ribbon Film-500 image P/N : RTCL009P00308",
+    "brand": "Evolis",
+    "type":"Tinta & Toner",
+    "images": "/src/assets/produk/hardware/evolis/2.png",
+    "description": "Ribbon Film-500 image P/N : RTCL009P00308 yang dapat digunakan untuk berbagai keperluan."
+  },
+  {
+    "name": "BROTHER SCANNER ADS-3300W",
+    "brand": "Brother",
+    "type": "Scanner",
+    "images": "/src/assets/produk/hardware/brother/1.png",
+    "description": "BROTHER SCANNER ADS-3300W memiliki kemampuan scan yang kuat."
+  },
+  {
+    "name": "PRINTER DCP-T720DW BROTHER",
+    "brand": "Brother",
+    "type": "Printer",
+    "images": "/src/assets/produk/hardware/brother/2.png",
+    "description": "PRINTER DCP-T720DW BROTHER multifungsi dengan kemampuan printing dua sisi."
+  },
+  {
+    "name": "UPS APC BVX900LI-MS 480watt",
+    "brand": "APC",
+    "type": "UPS",
+    "images": "/src/assets/produk/hardware/APC/2.png",
+    "description": "UPS APC BVX900LI-MS 480watt memberikan perlindungan daya yang handal untuk perangkat elektronik Anda."
+  },
+  {
+    "name": "Logitech mouse wireless bluetooth silent M240",
+    "brand": "Logitech",
+    "type": "Mouse",
+    "images": "/src/assets/produk/hardware/logitech/7.png",
+    "description": "Mouse tanpa suara dari Logitech yang dapat digunakan untuk berbagai keperluan."
+  },
+  {
+    "name": "Ubiquiti POE injector U-POE-AT",
+    "brand": "Ubiquiti",
+    "type": "Router",
+    "images": "/src/assets/produk/hardware/ubiquiti/1.png",
+    "description": "Ubiquiti POE injector U-POE-AT yang dapat digunakan untuk berbagai keperluan."
+  },
+  {
+    "name": "Printer HP Laserjet 108w",
+    "brand": "HP",
+    "type": "Printer",
+    "images": "/src/assets/produk/hardware/hp/1.png",
+    "description": "Printer HP Laserjet 108w untuk keperluan printing Anda."
+  },
+  {
+    "name": "Seagate Skyhawk 6TB 3.5HDD",
+    "brand": "Seagate",
+    "type": "HDD",
+    "images": "/src/assets/produk/hardware/seagate/3.png",
+    "description": "Seagate Skyhawk 6TB 3.5HDD dengan penyimpanan besar."
+  },
+  {
+    "name": "D-Link DGS-f1010P",
+    "brand": "Dlink",
+    "type": "Router",
+    "images": "/src/assets/produk/hardware/dlink/1.png",
+    "description": "D-Link untuk berbagai konseksi sesuai kebutuhan Anda."
+  },
+  {
+    "name": "Ubiquiti UNVR",
+    "brand": "Ubiquiti",
+    "type": "Network",
+    "images": "/src/assets/produk/hardware/ubiquiti/2.png",
+    "description": "Ubiquiti UNVR yang dapat digunakan untuk berbagai keperluan merekam Anda."
+  },
+  {
+    "name": "Proyektor Epson EB-W51 (4,000 lm)",
+    "brand": "Epson",
+    "type": "Projector",
+    "images": "/src/assets/produk/hardware/epson/4.png",
+    "description": "Proyektor Epson EB-W51 (4,000 lm) dengan kemampuan proyeksi yang kuat."
+  },
+  {
+    "name": "LG Projector UST Laser CineBeam HU715Q - 2500 ANSI LUMEN - 4K UHD",
+    "brand": "LG",
+    "type": "Projector",
+    "images": "/src/assets/produk/hardware/LG/3.png",
+    "description": "LG Projector UST Laser CineBeam HU715Q dengan tampilan 4K UHD."
+  },
+  {
+    "name": "BenQ Gaming Projector X300G 4K HDR 84% DCI-P3 LED 2000lm 4ms Zero Latency",
+    "brand": "BenQ",
+    "type": "Projector",
+    "images": "/src/assets/produk/hardware/benq/2.png",
+    "description": "BenQ Gaming Projector X300G untuk proyeksi tambilan 4K HDR."
+  },
+  {
+    "name": "Dell Thunderbolt Dock - WD22TB4 (EURO)",
+    "brand": "Dell",
+    "type": "External Port",
+    "images": "/src/assets/produk/hardware/dell/4.png",
+    "description": "Dell Thunderbolt Dock untuk keperluan sambungan koneksi Anda."
   }
 ]

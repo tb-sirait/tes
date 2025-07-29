@@ -138,5 +138,20 @@
     "name": "Canva PRO",
     "usage": "1 Tahun Berlangganan",
     "image": "/src/assets/software/canva/1.svg"
+  },
+  {
+    "name": "License Figma Full Seat",
+    "usage":"1 Tahun Berlangganan",
+    "image": "/src/assets/software/figma/1.svg"
+  },
+  {
+    "name": "AutoCAD LT 2026 Commercial New Single-user ELD Annual Subscription",
+    "usage": "1 Tahun Berlangganan",
+    "image": "/src/assets/software/autocad/2.png"
+  },
+  {
+    "name": "SketchUp Pro For Professional Use",
+    "usage": "1 Tahun Berlangganan",
+    "image": "/src/assets/software/sketchup/1.png"
   }
 ]

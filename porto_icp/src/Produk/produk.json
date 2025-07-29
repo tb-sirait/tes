@@ -1083,7 +1083,100 @@
         "os": "Windows 11 Home"
       },
       "deskripsi": "ASUS Vivobook 14 with 14-inch WUXGA IPS display, AMD Ryzen AI 5 processor, 16GB DDR5 RAM, 512GB SSD, plastic build, Cool Silver color, SonicMaster audio, backlit keyboard, FHD IR camera with Windows Hello, and US MIL-STD 810H military-grade standard."
+    },
+    {
+      "id": 65,
+      "name": "Xiaomi Redmi Note 14 5G 8/256",
+      "brand": "Xiaomi",
+      "jenis": "Smartphone",
+      "images": [
+        "produk/xiaomi/Redmi/14/1.png"
+      ],
+      "specs": {
+        "cpu": "Prosesor octa-core 2,5 GHz",
+        "ram": "8GB",
+        "gpu": "IMG BXM-8-256",
+        "storage": "256GB",
+        "os": "Xiaomi HyperOS"
+    },
+    "deskripsi": "Xiaomi Redmi Note 14 with connectivity to 5G."
+  },
+  {
+    "id": 66,
+    "name": "Notebook Lenovo Yoga 7 2-in-1 14ILL10 83JQ003UID",
+    "brand": "Lenovo",
+    "jenis": "Laptop",
+    "images": [
+      "produk/Lenovo/Yoga/7/1.png"
+    ],
+    "specs": {
+      "cpu": "Intel Core Ultra 5 226V, 8C (4P + 4LPE) / 8T",
+      "ram": "16GB Soldered LPDDR5x-8533",
+      "storage": "512GB SSD M.2 2242 PCIe 4.0x4 NVMe"
     }
+  },
+  {
+    "id": 67,
+    "name": "16-inch MacBook Pro M4 Pro",
+    "brand": "Apple",
+    "jenis": "Laptop",
+    "images": [
+      "produk/Apple/M4/1.png"
+    ],
+    "specs": {
+      "cpu": "MBP M4 PRO 14 CORE ",
+      "ram": "48GB",
+      "storage": "512GB SSD",
+      "gpu": "20 CORE GPU"
+    }
+  },
+  {
+    "id": 68,
+    "name": "Notebook Asus Expertbook P1403CVA-S63850WS",
+    "brand": "Asus",
+    "jenis": "Laptop",
+    "images": [
+      "produk/Asus/Expertbook/1.png"
+    ],
+    "specs": {
+      "cpu": "Intel Core i3-1315U",
+      "ram": "8GB",
+      "storage": "512GB SSD",
+      "os": "Win 11 Home+OHs"
+    }
+  },
+  {
+    "id": 69,
+    "name": "Notebook HP EliteBook 630",
+    "brand": "HP",
+    "jenis": "Laptop",
+    "images": [
+      "produk/HP/EliteBook/630/1.png"
+    ],
+    "specs": {
+      "cpu": "Intel U7-155U (12M Cache, up to 4.80 GHz)",
+      "gpu": "Integrated Graphics",
+      "ram": "16GB (1x16GB) DDR5 5600",
+      "storage": "SSD 1TB NVMe",
+      "os": "Windows 11 Pro 64"
+    }
+  },
+  {
+    "id": 70,
+    "name": "DELL LATITUDE 5450",
+    "brand": "Dell",
+    "jenis": "Laptop",
+    "images": [
+      "produk/Dell/Notebook/Latitude/5450/1.png"
+    ],
+    "specs": {
+      "cpu": "Intel Core Ultra 7 165H vPro (24 MB cache, 16 cores, 22 threads, up to 5.0 GHz)",
+      "ram": "16 GB: 1 x 16 GB, DDR5, 5600 MT/s (5200 MT/s with 13th Gen Intel Core processors)",
+      "storage": "1 TB, M.2 2230, QLC, Gen 4 PCIe NVMe, SSD",
+      "gpu": "Integrated Intel graphics for Intel Core Ultra 7 155U processor",
+      "os": "Windows 11 Pro, English"
+    }
+  }
 ]
 
 
