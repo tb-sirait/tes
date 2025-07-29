@@ -5,12 +5,13 @@ import produkData from "./produk.json";
 import { FaFilter, FaSearch } from 'react-icons/fa';
 import "./Produk.css";
 
-import DellLogo from "../assets/Dell_logo.png";
+import DellLogoWhite from "../assets/Dell_logo_white.png";
+import XiaomiLogo from "../assets/xiaomi_logo.webp";
 import LenovoLogo from "../assets/lenovo_logo.png";
 import CiscoLogo from "../assets/Cisco_logo.png";
 import SamsungLogo from "../assets/samsung_logo.png";
-import AsusLogo from "../assets/Asus_logo.png";
-import HpLogo from "../assets/hp_logo.png";
+import AsusLogoWhite from "../assets/Asus_logo_white.png";
+import HpLogoWhite from "../assets/hp_logo_white.png";
 import InfocusLogo from "../assets/Infocus_logo.png";
 import AppleLogo from "../assets/Apple_logo.png";
 import AcerLogo from "../assets/Acer_logo.png";
@@ -71,15 +72,16 @@ export default function Produk() {
   });
 
   const brands = [
-    { name: "Dell", logo: DellLogo },
+    { name: "Dell", logo: DellLogoWhite },
     { name: "Lenovo", logo: LenovoLogo },
     { name: "Cisco", logo: CiscoLogo },
     { name: "Samsung", logo: SamsungLogo },
-    { name: "Asus", logo: AsusLogo },
-    { name: "HP", logo: HpLogo },
+    { name: "Asus", logo: AsusLogoWhite },
+    { name: "HP", logo: HpLogoWhite },
     { name: "InFocus", logo: InfocusLogo },
     { name: "Apple", logo: AppleLogo },
     { name: "Acer", logo: AcerLogo },
+    {name: "Xiaomi", logo: XiaomiLogo}
   ];
 
   const openModal = (product) => {
@@ -1068,19 +1070,23 @@ export default function Produk() {
                       if (brandObj && brandObj.logo) {
                         if (product.brand === "Dell") {
                           return (
-                            <img src={import.meta.env.BASE_URL + 'src/assets/Dell_logo_white.png'} alt={product.brand} className="product-brand-logo" />
+                            <img src={DellLogoWhite} alt={product.brand} className="product-brand-logo" />
                           );
                         } else if (product.brand === "HP") {
                           return (
-                            <img src={import.meta.env.BASE_URL + 'src/assets/hp_logo_white.png'} alt={product.brand} className="product-brand-logo" />
+                            <img src={HpLogoWhite} alt={product.brand} className="product-brand-logo" />
                           );
                         } else if (product.brand === "Asus") {
                           return (
-                            <img src={import.meta.env.BASE_URL + 'src/assets/Asus_logo_white.png'} alt={product.brand} className="product-brand-logo" />
+                            <img src={AsusLogoWhite} alt={product.brand} className="product-brand-logo" />
                           );
                         } else if (product.brand === "Acer") {
                           return (
-                            <img src={import.meta.env.BASE_URL + 'src/assets/Acer_logo.png'} alt={product.brand} className="product-brand-logo" />
+                            <img src={AcerLogo} alt={product.brand} className="product-brand-logo" />
+                          );
+                        } else if (product.brand === "Xiaomi") {
+                          return (
+                            <img src={XiaomiLogo} alt={product.brand} className="product-brand-logo" />
                           );
                         } else {
                           return <img src={brandObj.logo} alt={product.brand} className="product-brand-logo" />;

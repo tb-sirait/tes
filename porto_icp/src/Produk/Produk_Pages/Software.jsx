@@ -61,6 +61,7 @@ const imageMap = {
   "Hootsuite Professional": hootsuite1,
   "S.id – Pro": sid1,
   "Figma Organization Dev Seat": figma1,
+  "License Figma Full Seat": figma1,
   "Adobe Illustrator": adobe2,
   "Adobe Photoshop": adobe3,
   "Windows Server 2025  - CAL": microsoft3,
