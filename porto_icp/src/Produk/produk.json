@@ -1111,8 +1111,10 @@
     ],
     "specs": {
       "cpu": "Intel Core Ultra 5 226V, 8C (4P + 4LPE) / 8T",
+      "gpu": "AMD Radeon 680M Graphic",
       "ram": "16GB Soldered LPDDR5x-8533",
-      "storage": "512GB SSD M.2 2242 PCIe 4.0x4 NVMe"
+      "storage": "512GB SSD M.2 2242 PCIe 4.0x4 NVMe",
+      "os": "Windows"
     }
   },
   {
@@ -1125,6 +1127,7 @@
     ],
     "specs": {
       "cpu": "MBP M4 PRO 14 CORE ",
+      "os": "macOS",
       "ram": "48GB",
       "storage": "512GB SSD",
       "gpu": "20 CORE GPU"
@@ -1141,6 +1144,7 @@
     "specs": {
       "cpu": "Intel Core i3-1315U",
       "ram": "8GB",
+      "gpu": "Integrated Graphics",
       "storage": "512GB SSD",
       "os": "Win 11 Home+OHs"
     }
