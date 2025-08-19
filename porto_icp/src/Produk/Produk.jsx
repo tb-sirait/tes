@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Navbar from "../Navigation/Navbar";
 import Footer from "../Navigation/footer";
 import produkData from "./produk.json";
-import { FaFilter, FaSearch } from 'react-icons/fa';
+import { FaFilter, FaSearch } from "react-icons/fa";
 import "./Produk.css";
 
 import DellLogoWhite from "../assets/Dell_logo_white.png";
@@ -18,14 +18,7 @@ import AcerLogo from "../assets/Acer_logo.png";
 import PrevIcon from "../assets/produk/icon/prev.png";
 import NextIcon from "../assets/produk/icon/next.png";
 
-import {
-  MemoryStick,
-  Gpu,
-  Cpu,
-  AppWindow,
-  HardDrive,
-  X
-} from 'lucide-react';
+import { MemoryStick, Gpu, Cpu, AppWindow, HardDrive, X } from "lucide-react";
 
 export default function Produk() {
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -51,23 +44,28 @@ export default function Produk() {
 
   // Function to import images dynamically from JSON references
   function importImagesFromJson(jsonData) {
-    const images = import.meta.glob('../assets/produk/**/*.{png,jpg,jpeg,svg}', { eager: true });
+    const images = import.meta.glob(
+      "../assets/produk/**/*.{png,jpg,jpeg,svg}",
+      { eager: true },
+    );
     const imageMap = {};
     for (const path in images) {
-      const key = path.replace('../assets/', '');
+      const key = path.replace("../assets/", "");
       imageMap[key] = images[path].default;
     }
-    return jsonData.map(product => ({
+    return jsonData.map((product) => ({
       ...product,
-      images: product.images.map(imagePath => imageMap[imagePath] || '')
+      images: product.images.map((imagePath) => imageMap[imagePath] || ""),
     }));
   }
 
   const products = importImagesFromJson(produkData);
 
-  const filteredProducts = products.filter(product => {
+  const filteredProducts = products.filter((product) => {
     const matchesBrand = !selectedBrand || product.brand === selectedBrand;
-    const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesSearch = product.name
+      .toLowerCase()
+      .includes(searchQuery.toLowerCase());
     return matchesBrand && matchesSearch;
   });
 
@@ -81,7 +79,7 @@ export default function Produk() {
     { name: "InFocus", logo: InfocusLogo },
     { name: "Apple", logo: AppleLogo },
     { name: "Acer", logo: AcerLogo },
-    {name: "Xiaomi", logo: XiaomiLogo}
+    { name: "Xiaomi", logo: XiaomiLogo },
   ];
 
   const openModal = (product) => {
@@ -105,15 +103,15 @@ export default function Produk() {
 
   const goToPreviousImage = () => {
     setSlideDirection("left");
-    setCurrentImageIndex(prevIndex =>
-      prevIndex === 0 ? selectedProduct.images.length - 1 : prevIndex - 1
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === 0 ? selectedProduct.images.length - 1 : prevIndex - 1,
     );
   };
 
   const goToNextImage = () => {
     setSlideDirection("right");
-    setCurrentImageIndex(prevIndex =>
-      prevIndex === selectedProduct.images.length - 1 ? 0 : prevIndex + 1
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === selectedProduct.images.length - 1 ? 0 : prevIndex + 1,
     );
   };
 
@@ -139,13 +137,13 @@ export default function Produk() {
     const minSwipeDistance = 50;
     if (distance > minSwipeDistance) {
       setSlideDirection("right");
-      setCurrentImageIndex(prevIndex =>
-        prevIndex === selectedProduct.images.length - 1 ? 0 : prevIndex + 1
+      setCurrentImageIndex((prevIndex) =>
+        prevIndex === selectedProduct.images.length - 1 ? 0 : prevIndex + 1,
       );
     } else if (distance < -minSwipeDistance) {
       setSlideDirection("left");
-      setCurrentImageIndex(prevIndex =>
-        prevIndex === 0 ? selectedProduct.images.length - 1 : prevIndex - 1
+      setCurrentImageIndex((prevIndex) =>
+        prevIndex === 0 ? selectedProduct.images.length - 1 : prevIndex - 1,
       );
     }
     touchStartX.current = null;
@@ -163,31 +161,31 @@ export default function Produk() {
       <>
         <style jsx>{`
           .product-header {
-          background: linear-gradient(135deg, #667eea 0%, #1434a4 100%);
-          border-radius: 24px;
-          padding: 3rem 2rem;
-          margin-bottom: 2rem;
-          color: white;
-          position: relative;
-          overflow: hidden;
+            background: linear-gradient(135deg, #667eea 0%, #1434a4 100%);
+            border-radius: 24px;
+            padding: 3rem 2rem;
+            margin-bottom: 2rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
           }
 
           .product-header::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          pointer-events: none;
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
           }
 
           .header-content {
-          position: relative;
-          z-index: 1;
+            position: relative;
+            z-index: 1;
           }
 
-          .closeModalButton{
+          .closeModalButton {
             display: flex;
             justify-content: flex-end;
             padding-right: 10px;
@@ -199,12 +197,12 @@ export default function Produk() {
             color: #555555;
             border: none;
             background: none;
-            padding:0;
+            padding: 0;
             padding-top: 15px;
             padding-bottom: 20px;
             outline: none;
           }
-          
+
           .close-button:hover {
             outline: none;
           }
@@ -214,484 +212,493 @@ export default function Produk() {
           }
 
           .header-text h1 {
-          font-size: 3.5rem;
-          font-weight: 800;
-          margin-bottom: 1rem;
-          text-shadow: 0 4px 8px rgba(0,0,0,0.3);
-          background: linear-gradient(45deg, #ffffff, #e0e7ff);
-          -webkit-background-clip: text;
-          background-clip: text;
-          -webkit-text-fill-color: transparent;
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(45deg, #ffffff, #e0e7ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
           }
 
           .header-text p {
-          font-size: 1.2rem;
-          line-height: 1.6;
-          opacity: 0.95;
-          max-width: 800px;
-          margin-bottom: 2rem;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            opacity: 0.95;
+            max-width: 800px;
+            margin-bottom: 2rem;
           }
 
           .search-filter-container {
-          display: flex;
-          gap: 1rem;
-          flex-wrap: wrap;
-          align-items: center;
-          margin-top: 2rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-top: 2rem;
           }
 
           .search-wrapper {
-          position: relative;
-          flex: 1;
-          min-width: 300px;
+            position: relative;
+            flex: 1;
+            min-width: 300px;
           }
 
           .search-input {
-          width: 100%;
-          padding: 1rem 1rem 1rem 3rem;
-          border: none;
-          border-radius: 50px;
-          background: rgba(255, 255, 255, 0.95);
-          backdrop-filter: blur(10px);
-          font-size: 1rem;
-          color: #333;
-          box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-          transition: all 0.3s ease;
+            width: 100%;
+            padding: 1rem 1rem 1rem 3rem;
+            border: none;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            font-size: 1rem;
+            color: #333;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
           }
 
           .search-input:focus {
-          outline: none;
-          background: white;
-          box-shadow: 0 12px 40px rgba(0,0,0,0.15);
-          transform: translateY(-2px);
+            outline: none;
+            background: white;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
           }
 
           .search-icon {
-          position: absolute;
-          left: 3.5rem;
-          top: 50%;
-          transform: translateY(-50%);
-          color: #666;
-          font-size: 1.1rem;
-          z-index: 200;
+            position: absolute;
+            left: 3.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #666;
+            font-size: 1.1rem;
+            z-index: 200;
           }
 
           .brand-select {
-          padding: 1rem 1.5rem;
-          border: none;
-          border-radius: 50px;
-          background: rgba(255, 255, 255, 0.95);
-          backdrop-filter: blur(10px);
-          font-size: 1rem;
-          color: #333;
-          min-width: 200px;
-          cursor: pointer;
-          box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-          transition: all 0.3s ease;
+            padding: 1rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            font-size: 1rem;
+            color: #333;
+            min-width: 200px;
+            cursor: pointer;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
           }
 
           .brand-select:focus {
-          outline: none;
-          background: white;
-          box-shadow: 0 12px 40px rgba(0,0,0,0.15);
-          transform: translateY(-2px);
+            outline: none;
+            background: white;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
           }
 
           @media (max-width: 768px) {
-          .product-header {
-          padding: 2rem 1.5rem;
-          }
+            .product-header {
+              padding: 2rem 1.5rem;
+            }
 
-          .header-text h1 {
-          font-size: 2.5rem;
-          }
+            .header-text h1 {
+              font-size: 2.5rem;
+            }
 
-          .header-text p {
-          font-size: 1rem;
-          }
+            .header-text p {
+              font-size: 1rem;
+            }
 
-          .search-filter-container {
-          flex-direction: column;
-          align-items: stretch;
-          }
+            .search-filter-container {
+              flex-direction: column;
+              align-items: stretch;
+            }
 
-          .search-wrapper {
-          min-width: auto;
-          }
+            .search-wrapper {
+              min-width: auto;
+            }
           }
 
           .main-container {
-          min-height: 100vh;
-          background: linear-gradient(to bottom, #f8fafc, #e2e8f0);
+            min-height: 100vh;
+            background: linear-gradient(to bottom, #f8fafc, #e2e8f0);
           }
 
           .page-content {
-          max-width: 1400px;
-          margin: 0 auto;
-          padding: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
           }
 
           .section-title {
-          font-size: 2.5rem;
-          font-weight: 700;
-          color: #1e293b;
-          margin: 2rem 0;
-          text-align: center;
-          position: relative;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin: 2rem 0;
+            text-align: center;
+            position: relative;
           }
 
           .section-title::after {
-          content: '';
-          position: absolute;
-          bottom: -10px;
-          left: 50%;
-          transform: translateX(-50%);
-          width: 80px;
-          height: 4px;
-          background: linear-gradient(45deg, #667eea, #764ba2);
-          border-radius: 2px;
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 2px;
           }
 
           .products-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-          gap: 2rem;
-          margin-top: 3rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
           }
 
           .product-card {
-          background: linear-gradient(135deg, #007bff, #6f42c1);
-          border-radius: 24px;
-          padding: 2rem;
-          box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-          cursor: pointer;
-          position: relative;
-          overflow: hidden;
-          border: 1px solid rgba(255,255,255,0.2);
+            background: linear-gradient(135deg, #007bff, #6f42c1);
+            border-radius: 24px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.2);
           }
 
           .product-card::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: -100%;
-          width: 100%;
-          height: 100%;
-          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-          transition: left 0.6s ease;
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+              90deg,
+              transparent,
+              rgba(255, 255, 255, 0.4),
+              transparent
+            );
+            transition: left 0.6s ease;
           }
 
           .product-card:hover::before {
-          left: 100%;
+            left: 100%;
           }
 
           .product-card:hover {
-          transform: translateY(-10px) scale(1.02);
-          box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
           }
 
           .product-content {
-          display: flex;
-          gap: 2rem;
-          align-items: flex-start;
-          position: relative;
-          z-index: 1;
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+            position: relative;
+            z-index: 1;
           }
 
           .product-image-section {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          min-width: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 200px;
           }
 
           .product-image {
-          width: 180px;
-          height: 180px;
-          object-fit: contain;
-          border-radius: 16px;
-          padding: 1rem;
-          margin-bottom: 1.5rem;
-          transition: all 0.3s ease;
+            width: 180px;
+            height: 180px;
+            object-fit: contain;
+            border-radius: 16px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
           }
 
           .product-image.fade {
-          opacity: 0;
+            opacity: 0;
           }
 
           .product-title {
-          font-size: 1.2rem;
-          font-weight: 700;
-          color: #ffffffff;
-          margin-bottom: 0.5rem;
-          text-align: center;
-          max-width: 200px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #ffffffff;
+            margin-bottom: 0.5rem;
+            text-align: center;
+            max-width: 200px;
           }
 
           .product-brand {
-          font-size: 1rem;
-          color: #64748b;
-          font-weight: 500;
-          text-align: center;
-          padding: 0.5rem 1rem;
-          background: linear-gradient(45deg, #667eea, #764ba2);
-          color: white;
-          border-radius: 50px;
-          margin-bottom: 1rem;
+            font-size: 1rem;
+            color: #64748b;
+            font-weight: 500;
+            text-align: center;
+            padding: 0.5rem 1rem;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 50px;
+            margin-bottom: 1rem;
           }
 
           .product-brand-logo {
-          max-width: 90px !important;
-          max-height: 50px !important;
-          display: block;
-          margin: 0 auto 1rem auto;
-          border-radius: 50px;
-          object-fit: contain;
+            max-width: 90px !important;
+            max-height: 50px !important;
+            display: block;
+            margin: 0 auto 1rem auto;
+            border-radius: 50px;
+            object-fit: contain;
           }
 
           .product-brand-text {
-          font-size: 1rem;
-          color: #64748b;
-          font-weight: 500;
-          text-align: center;
-          padding: 0.5rem 1rem;
-          background: linear-gradient(45deg, #667eea, #764ba2);
-          color: white;
-          border-radius: 50px;
-          margin-bottom: 1rem;
+            font-size: 1rem;
+            color: #64748b;
+            font-weight: 500;
+            text-align: center;
+            padding: 0.5rem 1rem;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 50px;
+            margin-bottom: 1rem;
           }
 
           .product-specs {
-          flex: 1;
+            flex: 1;
           }
 
           .specs-list {
-          list-style: none;
-          padding: 0;
-          margin: 0;
-          display: grid;
-          gap: 1rem;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            gap: 1rem;
           }
 
           .spec-item {
-          display: flex;
-          align-items: center;
-          padding: 1rem;
-          background: linear-gradient(135deg, #f8fafc, #ffffff);
-          border-radius: 12px;
-          border-left: 4px solid #667eea;
-          transition: all 0.3s ease;
-          font-weight: 500;
-          color: #374151;
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            background: linear-gradient(135deg, #f8fafc, #ffffff);
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            color: #374151;
           }
 
           .spec-item:hover {
-          transform: translateX(5px);
-          box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
           }
 
           .spec-icon {
-          font-size: 1.2rem;
-          margin-right: 0.75rem;
-          color: #1434a4;
-          width: 24px;
-          height: 24px;
+            font-size: 1.2rem;
+            margin-right: 0.75rem;
+            color: #1434a4;
+            width: 24px;
+            height: 24px;
           }
 
           /* Mobile Styles */
           .mobile-specs {
-          width: 100%;
-          margin-top: 1rem;
+            width: 100%;
+            margin-top: 1rem;
           }
 
           .mobile-spec-item {
-          display: flex;
-          align-items: center;
-          padding: 0.75rem;
-          background: linear-gradient(135deg, #f1f5f9, #ffffff);
-          border-radius: 8px;
-          margin-bottom: 0.5rem;
-          font-size: 0.9rem;
-          color: #374151;
-          border-left: 3px solid #667eea;
+            display: flex;
+            align-items: center;
+            padding: 0.75rem;
+            background: linear-gradient(135deg, #f1f5f9, #ffffff);
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: #374151;
+            border-left: 3px solid #667eea;
           }
 
           /* Modal Styles */
           .modal-overlay {
-          position: fixed;
-          inset: 0;
-          background: rgba(0, 0, 0, 0.8);
-          backdrop-filter: blur(8px);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          z-index: 1000;
-          padding: 1rem;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 1rem;
           }
 
           .modal-content {
-          background: white;
-          border-radius: 24px;
-          padding: 2rem;
-          max-width: 700px;
-          width: 100%;
-          max-height: 90vh;
-          overflow-y: auto;
-          box-shadow: 0 25px 50px rgba(0,0,0,0.25);
-          position: relative;
+            background: white;
+            border-radius: 24px;
+            padding: 2rem;
+            max-width: 700px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+            position: relative;
           }
 
           .modal-image-container {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 1rem;
-          margin: 0 auto 2rem auto;
-          max-width: 78%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin: 0 auto 2rem auto;
+            max-width: 78%;
           }
 
           .modal-image {
-          width: 300px;
-          height: 300px;
-          object-fit: contain;
-          border-radius: 16px;
-          background: linear-gradient(135deg, #f8fafc, #e2e8f0);
-          padding: 1rem;
+            width: 300px;
+            height: 300px;
+            object-fit: contain;
+            border-radius: 16px;
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            padding: 1rem;
           }
 
           .nav-button {
-          background: linear-gradient(45deg, #667eea, #764ba2);
-          border: none;
-          border-radius: 50%;
-          width: 50px;
-          height: 50px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          cursor: pointer;
-          transition: all 0.3s ease;
-          box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
           }
 
           .nav-button:hover {
-          transform: scale(1.1);
-          box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
           }
 
           .nav-button img {
-          width: 20px;
-          filter: brightness(0) invert(1);
+            width: 20px;
+            filter: brightness(0) invert(1);
           }
 
           .modal-title {
-          font-size: 2rem;
-          font-weight: 700;
-          color: #1e293b;
-          text-align: center;
-          margin-bottom: 1rem;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            text-align: center;
+            margin-bottom: 1rem;
           }
 
           .modal-brand {
-          font-size: 1.1rem;
-          color: white;
-          background: linear-gradient(45deg, #667eea, #764ba2);
-          padding: 0.5rem 1.5rem;
-          border-radius: 50px;
-          text-align: center;
-          margin-bottom: 2rem;
-          font-weight: 600;
+            font-size: 1.1rem;
+            color: white;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-weight: 600;
           }
 
           .modal-specs {
-          display: grid;
-          gap: 1rem;
+            display: grid;
+            gap: 1rem;
           }
 
           .modal-spec-item {
-          display: flex;
-          align-items: center;
-          padding: 1rem;
-          background: linear-gradient(135deg, #f8fafc, #ffffff);
-          border-radius: 12px;
-          border-left: 4px solid #667eea;
-          font-weight: 500;
-          color: #374151;
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            background: linear-gradient(135deg, #f8fafc, #ffffff);
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+            font-weight: 500;
+            color: #374151;
           }
 
           /* Animations */
           .slide-in-right {
-          animation: slideInRight 0.3s ease-in-out;
+            animation: slideInRight 0.3s ease-in-out;
           }
 
           .slide-in-left {
-          animation: slideInLeft 0.3s ease-in-out;
+            animation: slideInLeft 0.3s ease-in-out;
           }
 
           @keyframes slideInRight {
-          0% {
-          transform: translateX(100%);
-          opacity: 0;
-          }
-          100% {
-          transform: translateX(0);
-          opacity: 1;
-          }
+            0% {
+              transform: translateX(100%);
+              opacity: 0;
+            }
+            100% {
+              transform: translateX(0);
+              opacity: 1;
+            }
           }
 
           @keyframes slideInLeft {
-          0% {
-          transform: translateX(-100%);
-          opacity: 0;
-          }
-          100% {
-          transform: translateX(0);
-          opacity: 1;
-          }
+            0% {
+              transform: translateX(-100%);
+              opacity: 0;
+            }
+            100% {
+              transform: translateX(0);
+              opacity: 1;
+            }
           }
 
           /* Responsive Design */
           @media (max-width: 768px) {
-          .page-content {
-          padding: 1rem;
-          }
+            .page-content {
+              padding: 1rem;
+            }
 
-          .products-grid {
-          grid-template-columns: 1fr;
-          gap: 1.5rem;
-          }
+            .products-grid {
+              grid-template-columns: 1fr;
+              gap: 1.5rem;
+            }
 
-          .product-content {
-          flex-direction: column;
-          text-align: center;
-          }
+            .product-content {
+              flex-direction: column;
+              text-align: center;
+            }
 
-          .modal-content {
-          padding: 1.5rem;
-          margin: 1rem;
-          }
+            .modal-content {
+              padding: 1.5rem;
+              margin: 1rem;
+            }
 
-          .modal-image {
-          width: 250px;
-          height: 250px;
-          }
+            .modal-image {
+              width: 250px;
+              height: 250px;
+            }
 
-          .section-title {
-          font-size: 2rem;
-          }
+            .section-title {
+              font-size: 2rem;
+            }
           }
         `}</style>
-        
+
         <div className="product-header">
           <div className="header-content">
             <div className="header-text">
               <h1>Produk</h1>
-              <p>Temukan berbagai pilihan Komputer, Laptop, Smartphone, dan berbagai barang IT lainnya dengan spesifikasi terbaik yang sesuai dengan kebutuhan perusahaan Anda.</p>
+              <p>
+                Temukan berbagai pilihan Komputer, Laptop, Smartphone, dan
+                berbagai barang IT lainnya dengan spesifikasi terbaik yang
+                sesuai dengan kebutuhan perusahaan Anda.
+              </p>
             </div>
-            
+
             <div className="search-filter-container">
               <div className="search-wrapper">
-                <FaSearch className="search-icon"  />
+                <FaSearch className="search-icon" />
                 <input
                   type="text"
                   placeholder="Cari produk yang Anda butuhkan..."
@@ -700,7 +707,7 @@ export default function Produk() {
                   className="search-input"
                 />
               </div>
-              
+
               <select
                 value={selectedBrand}
                 onChange={onBrandChange}
@@ -708,7 +715,9 @@ export default function Produk() {
               >
                 <option value="">🏷️ Semua Merek</option>
                 {brandOptions.map((brand, idx) => (
-                  <option key={idx} value={brand}>{brand}</option>
+                  <option key={idx} value={brand}>
+                    {brand}
+                  </option>
                 ))}
               </select>
             </div>
@@ -742,7 +751,7 @@ export default function Produk() {
         }
 
         .section-title::after {
-          content: '';
+          content: "";
           position: absolute;
           bottom: -10px;
           left: 50%;
@@ -764,22 +773,27 @@ export default function Produk() {
           background: white;
           border-radius: 24px;
           padding: 2rem;
-          box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
           transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
           cursor: pointer;
           position: relative;
           overflow: hidden;
-          border: 1px solid rgba(255,255,255,0.2);
+          border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .product-card::before {
-          content: '';
+          content: "";
           position: absolute;
           top: 0;
           left: -100%;
           width: 100%;
           height: 100%;
-          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.4),
+            transparent
+          );
           transition: left 0.6s ease;
         }
 
@@ -789,7 +803,7 @@ export default function Produk() {
 
         .product-card:hover {
           transform: translateY(-10px) scale(1.02);
-          box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+          box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
         }
 
         .product-content {
@@ -893,7 +907,7 @@ export default function Produk() {
           width: 100%;
           max-height: 90vh;
           overflow-y: auto;
-          box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+          box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
           position: relative;
         }
 
@@ -1043,15 +1057,16 @@ export default function Produk() {
             onSearchChange={(e) => setSearchQuery(e.target.value)}
             selectedBrand={selectedBrand}
             onBrandChange={(e) => setSelectedBrand(e.target.value)}
-            brandOptions={brands.map(brand => brand.name)}
+            brandOptions={brands.map((brand) => brand.name)}
           />
 
           <h2 className="section-title">
-            {selectedBrand ? `Produk ${selectedBrand}` : "Produk Populer"} ({filteredProducts.length})
+            {selectedBrand ? `Produk ${selectedBrand}` : "Produk Populer"} (
+            {filteredProducts.length})
           </h2>
 
           <div className="products-grid">
-            {filteredProducts.map(product => (
+            {filteredProducts.map((product) => (
               <div
                 key={product.id}
                 className="product-card"
@@ -1062,56 +1077,103 @@ export default function Produk() {
                     <img
                       src={product.images?.[0] || ""}
                       alt={product.name}
-                      className={`product-image ${fade ? 'fade' : ''}`}
+                      className={`product-image ${fade ? "fade" : ""}`}
                     />
                     <h4 className="product-title">{product.name}</h4>
                     {(() => {
-                      const brandObj = brands.find(b => b.name === product.brand);
+                      const brandObj = brands.find(
+                        (b) => b.name === product.brand,
+                      );
                       if (brandObj && brandObj.logo) {
                         if (product.brand === "Dell") {
                           return (
-                            <img src={DellLogoWhite} alt={product.brand} className="product-brand-logo" />
+                            <img
+                              src={DellLogoWhite}
+                              alt={product.brand}
+                              className="product-brand-logo"
+                            />
                           );
                         } else if (product.brand === "HP") {
                           return (
-                            <img src={HpLogoWhite} alt={product.brand} className="product-brand-logo" />
+                            <img
+                              src={HpLogoWhite}
+                              alt={product.brand}
+                              className="product-brand-logo"
+                            />
                           );
                         } else if (product.brand === "Asus") {
                           return (
-                            <img src={AsusLogoWhite} alt={product.brand} className="product-brand-logo" />
+                            <img
+                              src={AsusLogoWhite}
+                              alt={product.brand}
+                              className="product-brand-logo"
+                            />
                           );
                         } else if (product.brand === "Acer") {
                           return (
-                            <img src={AcerLogo} alt={product.brand} className="product-brand-logo" />
+                            <img
+                              src={AcerLogo}
+                              alt={product.brand}
+                              className="product-brand-logo"
+                            />
                           );
                         } else if (product.brand === "Xiaomi") {
                           return (
-                            <img src={XiaomiLogo} alt={product.brand} className="product-brand-logo" />
+                            <img
+                              src={XiaomiLogo}
+                              alt={product.brand}
+                              className="product-brand-logo"
+                            />
                           );
                         } else {
-                          return <img src={brandObj.logo} alt={product.brand} className="product-brand-logo" />;
+                          return (
+                            <img
+                              src={brandObj.logo}
+                              alt={product.brand}
+                              className="product-brand-logo"
+                            />
+                          );
                         }
                       } else {
-                        return <div className="product-brand-text">{product.brand}</div>;
+                        return (
+                          <div className="product-brand-text">
+                            {product.brand}
+                          </div>
+                        );
                       }
                     })()}
-                    
+
                     {isMobile && (
                       <div className="mobile-specs">
                         <div className="mobile-spec-item">
-                          <span className="spec-icon"><Cpu /></span> {product.specs.cpu}
+                          <span className="spec-icon">
+                            <Cpu />
+                          </span>{" "}
+                          {product.specs.cpu}
                         </div>
                         <div className="mobile-spec-item">
-                          <span className="spec-icon"><Gpu /></span> {product.specs.gpu}
+                          <span className="spec-icon">
+                            <Gpu />
+                          </span>{" "}
+                          {product.specs.gpu}
                         </div>
                         <div className="mobile-spec-item">
-                          <span className="spec-icon"><MemoryStick/></span> {product.specs.ram}
+                          <span className="spec-icon">
+                            <MemoryStick />
+                          </span>{" "}
+                          {product.specs.ram}
                         </div>
                         <div className="mobile-spec-item">
-                          <span className="spec-icon"><HardDrive /></span> {product.specs.storage}
+                          <span className="spec-icon">
+                            <HardDrive />
+                          </span>{" "}
+                          {product.specs.storage}
                         </div>
                         <div className="mobile-spec-item">
-                          <span className="spec-icon"><AppWindow /></span> {product.specs.os}
+                          <span className="spec-icon">
+                            <AppWindow />
+                          </span>{" "}
+                          {product.specs.os}
                         </div>
                       </div>
                     )}
@@ -1121,19 +1183,34 @@ export default function Produk() {
                     <div className="product-specs">
                       <ul className="specs-list">
                         <li className="spec-item">
-                          <span className="spec-icon"><Cpu /></span> {product.specs.cpu}
+                          <span className="spec-icon">
+                            <Cpu />
+                          </span>{" "}
+                          {product.specs.cpu}
                         </li>
                         <li className="spec-item">
-                          <span className="spec-icon"><Gpu /></span> {product.specs.gpu}
+                          <span className="spec-icon">
+                            <Gpu />
+                          </span>{" "}
+                          {product.specs.gpu}
                         </li>
                         <li className="spec-item">
-                          <span className="spec-icon"><MemoryStick/></span> {product.specs.ram}
+                          <span className="spec-icon">
+                            <MemoryStick />
+                          </span>{" "}
+                          {product.specs.ram}
                         </li>
                         <li className="spec-item">
-                          <span className="spec-icon"><HardDrive /></span> {product.specs.storage}
+                          <span className="spec-icon">
+                            <HardDrive />
+                          </span>{" "}
+                          {product.specs.storage}
                         </li>
                         <li className="spec-item">
-                          <span className="spec-icon"><AppWindow /></span> {product.specs.os}
+                          <span className="spec-icon">
+                            <AppWindow />
+                          </span>{" "}
+                          {product.specs.os}
                         </li>
                       </ul>
                     </div>
@@ -1146,9 +1223,18 @@ export default function Produk() {
       </main>
 
       {isModalOpen && selectedProduct && (
-        <div className={`modal-overlay ${isClosing ? 'fade-out' : ''}`} onClick={closeModal}>
-          {console.log("Rendering modal-overlay with class:", isClosing ? 'fade-out' : 'none')}
-          <div className={`modal-content ${isClosing ? 'fade-out' : ''}`} onClick={(e) => e.stopPropagation()}>
+        <div
+          className={`modal-overlay ${isClosing ? "fade-out" : ""}`}
+          onClick={closeModal}
+        >
+          {console.log(
+            "Rendering modal-overlay with class:",
+            isClosing ? "fade-out" : "none",
+          )}
+          <div
+            className={`modal-content ${isClosing ? "fade-out" : ""}`}
+            onClick={(e) => e.stopPropagation()}
+          >
             <div className="closeModalButton">
               {isMobile && (
                 <button className="close-button" onClick={closeModal}>
@@ -1158,14 +1244,17 @@ export default function Produk() {
             </div>
             <div className="modal-image-container">
               {!isMobile && (
-                <button 
+                <button
                   className="nav-button"
-                  onClick={(e) => { e.stopPropagation(); goToPreviousImage(); }}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    goToPreviousImage();
+                  }}
                 >
                   <img src={PrevIcon} alt="Previous" />
                 </button>
               )}
-              
+
               <img
                 src={selectedProduct.images[currentImageIndex] || ""}
                 alt={selectedProduct.name}
@@ -1173,43 +1262,61 @@ export default function Produk() {
                   slideDirection === "right"
                     ? "slide-in-right"
                     : slideDirection === "left"
-                    ? "slide-in-left"
-                    : ""
+                      ? "slide-in-left"
+                      : ""
                 }`}
                 onTouchStart={handleTouchStart}
                 onTouchMove={handleTouchMove}
                 onTouchEnd={handleTouchEnd}
                 onAnimationEnd={() => setSlideDirection(null)}
               />
-              
+
               {!isMobile && (
-                <button 
+                <button
                   className="nav-button"
-                  onClick={(e) => { e.stopPropagation(); goToNextImage(); }}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    goToNextImage();
+                  }}
                 >
                   <img src={NextIcon} alt="Next" />
                 </button>
               )}
             </div>
-            
+
             <h3 className="modal-title">{selectedProduct.name}</h3>
             <div className="modal-brand">Brand: {selectedProduct.brand}</div>
-            
+
             <div className="modal-specs">
               <div className="modal-spec-item">
-                <span className="spec-icon"><Cpu /></span> {selectedProduct.specs.cpu}
+                <span className="spec-icon">
+                  <Cpu />
+                </span>{" "}
+                {selectedProduct.specs.cpu}
               </div>
               <div className="modal-spec-item">
-                <span className="spec-icon"><Gpu /></span> {selectedProduct.specs.gpu}
+                <span className="spec-icon">
+                  <Gpu />
+                </span>{" "}
+                {selectedProduct.specs.gpu}
               </div>
               <div className="modal-spec-item">
-                <span className="spec-icon"><MemoryStick /></span> {selectedProduct.specs.ram}
+                <span className="spec-icon">
+                  <MemoryStick />
+                </span>{" "}
+                {selectedProduct.specs.ram}
               </div>
               <div className="modal-spec-item">
-                <span className="spec-icon"><HardDrive /></span> {selectedProduct.specs.storage}
+                <span className="spec-icon">
+                  <HardDrive />
+                </span>{" "}
+                {selectedProduct.specs.storage}
               </div>
               <div className="modal-spec-item">
-                <span className="spec-icon"><AppWindow /></span> {selectedProduct.specs.os}
+                <span className="spec-icon">
+                  <AppWindow />
+                </span>{" "}
+                {selectedProduct.specs.os}
               </div>
             </div>
           </div>

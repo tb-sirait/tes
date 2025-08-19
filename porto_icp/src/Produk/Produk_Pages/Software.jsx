@@ -1,15 +1,10 @@
 import React, { useState, useEffect } from "react";
 import softwareData from "../software.json";
 import "./Laptop.css";
-import {
-  Search,
-  X,
-  MessageCircle,
-} from "lucide-react";
+import { Search, X, MessageCircle } from "lucide-react";
 import "./Laptop.css";
 import Navbar from "../../Navigation/Navbar.jsx";
 import Footer from "../../Navigation/footer.jsx";
-
 
 // Import images explicitly
 import microsoft1 from "../../assets/software/microsoft/1.png";
@@ -53,7 +48,8 @@ const imageMap = {
   "Heimdal EPDR Plus & Ransomware Encryption Protection": heimdal1,
   "PDF Exchange Pro": pdf1,
   "AutoCAD LT 2024 Commercial New Single-user": autocad1,
-  "AutoCAD LT 2026 Commercial New Single-user ELD Annual Subscription": autocad2,
+  "AutoCAD LT 2026 Commercial New Single-user ELD Annual Subscription":
+    autocad2,
   "Thinkcell Annual Subscription": thinkcell1,
   "Software SketchUp Pro For Professional Use, ANN TRM CTR": sketchup1,
   "Software Enscape Fixed Seat License": enscape1,
@@ -68,7 +64,7 @@ const imageMap = {
   "Windows Server 2025 Standard": microsoft4,
   "SQL Server Standard Edition": sql2,
   "Vmware Cloud Foundation 5": vmware1,
-  "FortiToken": fortitoken1,
+  FortiToken: fortitoken1,
   "Canva PRO": canva1,
 };
 
@@ -84,7 +80,11 @@ const ProductCard = ({ product, onViewDetails }) => {
       </div>
       <div className="product-info">
         <h3>{product.name}</h3>
-        {product.usage && <p style={{ fontSize: "13px",color: "#f1f2e2" }}>Penggunaan: {product.usage}</p>}
+        {product.usage && (
+          <p style={{ fontSize: "13px", color: "#f1f2e2" }}>
+            Penggunaan: {product.usage}
+          </p>
+        )}
       </div>
     </div>
   );
@@ -103,20 +103,24 @@ const ProductModal = ({ product, isOpen, onClose }) => {
         </button>
         <div className="modal-body">
           <div className="modal-image">
-            <img
-              src={imgSrc}
-              alt={product.name}
-            />
+            <img src={imgSrc} alt={product.name} />
           </div>
           <div className="modal-details">
             <h2>{product.name}</h2>
             {product.usage && <p>Penggunaan: {product.usage}</p>}
             <div className="modal-actions">
-              <a className="contact-button"
-              href={`https://wa.me/6285545031039?text=${encodeURIComponent(`Saya berminat pada unit produk ${product.name} untuk perusahaan saya. Bisa diskusi untuk produknya?`)}`}><MessageCircle className="chat-icon" /> Hubungi Kami</a>
+              <a
+                className="contact-button"
+                href={`https://wa.me/6285545031039?text=${encodeURIComponent(`Saya berminat pada unit produk ${product.name} untuk perusahaan saya. Bisa diskusi untuk produknya?`)}`}
+              >
+                <MessageCircle className="chat-icon" /> Hubungi Kami
+              </a>
             </div>
             <div className="extra-info">
-              <p><strong>✨ Penawaran spesial:</strong> Gratis konsultasi dan bantuan instalasi produk.</p>
+              <p>
+                <strong>✨ Penawaran spesial:</strong> Gratis konsultasi dan
+                bantuan instalasi produk.
+              </p>
             </div>
           </div>
         </div>
@@ -137,12 +141,13 @@ const ProductHeader = ({
       <div className="header-text">
         <h1>Produk Software</h1>
         <p>
-          Temukan berbagai pilihan software yang sesuai dengan kebutuhan perushaan Anda.
+          Temukan berbagai pilihan software yang sesuai dengan kebutuhan
+          perushaan Anda.
         </p>
       </div>
 
       <div className="search-filter-bar">
-        <h5 style={{marginRight: "0px",color: "#1434a4"}}>Cari:</h5>
+        <h5 style={{ marginRight: "0px", color: "#1434a4" }}>Cari:</h5>
         <input
           type="text"
           placeholder="Cari software..."
@@ -157,7 +162,9 @@ const ProductHeader = ({
         >
           <option value="">Opsi Penggunaan</option>
           {usageOptions.map((usage, idx) => (
-            <option key={idx} value={usage}>{usage}</option>
+            <option key={idx} value={usage}>
+              {usage}
+            </option>
           ))}
         </select>
       </div>
@@ -172,20 +179,26 @@ const Software = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
 
   useEffect(() => {
-    const sortedProducts = softwareData.sort((a, b) => a.name.localeCompare(b.name));
+    const sortedProducts = softwareData.sort((a, b) =>
+      a.name.localeCompare(b.name),
+    );
     // Map images from imageMap to products
-    const productsWithImages = sortedProducts.map(product => ({
+    const productsWithImages = sortedProducts.map((product) => ({
       ...product,
-      image: imageMap[product.name] || product.image || ""
+      image: imageMap[product.name] || product.image || "",
     }));
     setProducts(productsWithImages);
   }, []);
 
   // Extract unique usage options from products
-  const usageOptions = Array.from(new Set(products.map(p => p.usage).filter(Boolean)));
+  const usageOptions = Array.from(
+    new Set(products.map((p) => p.usage).filter(Boolean)),
+  );
 
-  const filteredProducts = products.filter(product => {
-    const matchesSearch = !searchQuery || product.name.toLowerCase().includes(searchQuery.toLowerCase());
+  const filteredProducts = products.filter((product) => {
+    const matchesSearch =
+      !searchQuery ||
+      product.name.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesUsage = !selectedUsage || product.usage === selectedUsage;
     return matchesSearch && matchesUsage;
   });
@@ -200,9 +213,13 @@ const Software = () => {
         onUsageChange={(e) => setSelectedUsage(e.target.value)}
         usageOptions={usageOptions}
       />
-      <div className="product-grid" style={{ marginTop: '30px' }}>
-        {filteredProducts.map(product => (
-          <ProductCard key={product.name} product={product} onViewDetails={setSelectedProduct} />
+      <div className="product-grid" style={{ marginTop: "30px" }}>
+        {filteredProducts.map((product) => (
+          <ProductCard
+            key={product.name}
+            product={product}
+            onViewDetails={setSelectedProduct}
+          />
         ))}
       </div>
 

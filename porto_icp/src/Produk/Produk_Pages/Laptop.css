@@ -1,6 +1,6 @@
 /* Layout utama */
 .laptop-page {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   background-color: #f5f7fa;
   color: #333;
   padding: 0;
@@ -23,7 +23,8 @@
 }
 
 @keyframes moveGradient {
-  0%, 100% {
+  0%,
+  100% {
     transform: translate(0, 0);
   }
   50% {
@@ -74,7 +75,6 @@
   gap: 0px;
   z-index: 1;
 }
-
 
 @media (min-width: 768px) {
   .search-filter-bar {
@@ -219,7 +219,7 @@
   background-color: #fff;
   color: #333;
   transition: 0.3s ease all;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 .search-input {
@@ -307,10 +307,8 @@
 }
 
 .chat-icon:hover {
-  stroke: rgb(108, 251, 184); ;
+  stroke: rgb(108, 251, 184);
 }
-
-
 
 /* Informasi Produk */
 .product-info {
@@ -348,7 +346,7 @@
   margin-bottom: 6px;
 }
 
-.modal-details svg{
+.modal-details svg {
   width: 20px;
   height: 20px;
   color: #1434a4;
@@ -383,7 +381,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   z-index: 1000;
   display: flex;
   align-items: center;
@@ -402,8 +400,10 @@
   border-radius: 16px;
   padding: 30px 30px 40px 30px;
   position: relative;
-  box-shadow: 0 12px 40px rgba(0,0,0,0.25);
-  transition: box-shadow 0.4s ease, transform 0.4s ease;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+  transition:
+    box-shadow 0.4s ease,
+    transform 0.4s ease;
   transform: translateY(-30px);
   opacity: 0;
   animation: popupIn 0.4s forwards 0.2s;
@@ -416,12 +416,12 @@
   }
 }
 
-.modal-content img{
+.modal-content img {
   width: 100%;
   height: auto;
   border-radius: 12px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
-} 
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
 
 .laptop-page .close-button {
   background: transparent;
@@ -448,12 +448,12 @@
   width: 320px;
   height: auto;
   border-radius: 12px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
   transition: box-shadow 0.3s ease;
 }
 
 .laptop-page .modal-image img:hover {
-  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 }
 
 .laptop-page .modal-details {
@@ -493,7 +493,7 @@
 /* Tombol Kontak */
 .contact-button {
   background-color: #198754;
-  color: rgb(255, 255, 255); 
+  color: rgb(255, 255, 255);
   border: none;
   padding: 12px 18px;
   border-radius: 8px;
@@ -505,7 +505,9 @@
   width: 30%;
   font-weight: 600;
   box-shadow: 0 4px 12px rgba(25, 135, 84, 0.4);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .contact-button svg {
@@ -517,7 +519,7 @@
 .contact-button:hover {
   background-color: #146c43;
   box-shadow: 0 6px 16px rgba(20, 108, 67, 0.6);
-  color: rgb(108, 251, 184); 
+  color: rgb(108, 251, 184);
 }
 
 /* Opsi Kontak */
@@ -556,6 +558,6 @@
   margin-right: 6px;
 }
 
-Footer{
+Footer {
   width: 100vw;
 }

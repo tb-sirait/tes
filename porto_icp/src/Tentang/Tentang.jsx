@@ -1,5 +1,13 @@
 import React, { useEffect } from "react";
-import { FaEnvelope, FaWhatsapp, FaPhone, FaMapMarkerAlt, FaUsers, FaHandshake, FaTrophy } from 'react-icons/fa';
+import {
+  FaEnvelope,
+  FaWhatsapp,
+  FaPhone,
+  FaMapMarkerAlt,
+  FaUsers,
+  FaHandshake,
+  FaTrophy,
+} from "react-icons/fa";
 import FAQ from "./faq";
 import Navbar from "../Navigation/Navbar";
 import Footer from "../Navigation/footer";
@@ -45,32 +53,32 @@ function Tentang() {
     { src: hpLogo, alt: "HP" },
     { src: appleLogo, alt: "Apple" },
     { src: wdLogo, alt: "WD" },
-    { src: infocusLogo, alt: "InFocus" }
+    { src: infocusLogo, alt: "InFocus" },
   ];
 
   const partnerLogos = [
     { src: pertaminaLogo, alt: "Pertamina" },
     { src: telkomLogo, alt: "Telkom Indonesia" },
     { src: tmLogo, alt: "TM" },
-    { src: plnLogo, alt: "PLN" }
+    { src: plnLogo, alt: "PLN" },
   ];
 
   const achievements = [
     {
       icon: <FaTrophy />,
       title: "29+ Tahun Pengalaman",
-      description: "Melayani sejak 1995 hingga kini"
+      description: "Melayani sejak 1995 hingga kini",
     },
     {
       icon: <FaUsers />,
       title: "100+ Klien Terpercaya",
-      description: "Perusahaan besar di Indonesia"
+      description: "Perusahaan besar di Indonesia",
     },
     {
       icon: <FaHandshake />,
       title: "Layanan 24/7",
-      description: "Support dan konsultasi penuh"
-    }
+      description: "Support dan konsultasi penuh",
+    },
   ];
 
   return (
@@ -79,8 +87,10 @@ function Tentang() {
       <div className="tentang">
         {/* Hero Section */}
         <section className="hero-section-ttg">
-              <h1 className="hero-title-ttg">PT. Infoduta Computindo Perkasa</h1>
-              <p className="hero-subtitle-ttg">"Solusi Kebutuhan Hardware dan Software Pilihan Anda"</p>
+          <h1 className="hero-title-ttg">PT. Infoduta Computindo Perkasa</h1>
+          <p className="hero-subtitle-ttg">
+            "Solusi Kebutuhan Hardware dan Software Pilihan Anda"
+          </p>
           <div className="hero-content-ttg">
             <div className="hero-text-ttg">
               <div className="hero-stats-ttg">
@@ -88,7 +98,9 @@ function Tentang() {
                   <div key={index} className="stat-item">
                     <div className="stat-icon">{achievement.icon}</div>
                     <div className="stat-content">
-                      <h3 style={{color: "#ffffffff"}}>{achievement.title}</h3>
+                      <h3 style={{ color: "#ffffffff" }}>
+                        {achievement.title}
+                      </h3>
                       <p>{achievement.description}</p>
                     </div>
                   </div>
@@ -97,7 +109,10 @@ function Tentang() {
             </div>
             <div className="hero-image-ttg">
               <div className="image-container">
-                <img src={kantorImage} alt="Kantor PT Infoduta Computindo Perkasa" />
+                <img
+                  src={kantorImage}
+                  alt="Kantor PT Infoduta Computindo Perkasa"
+                />
                 <div className="image-overlay"></div>
               </div>
             </div>
@@ -115,17 +130,34 @@ function Tentang() {
               <div className="about-text">
                 <div className="text-block">
                   <p className="teks-konten">
-                    <strong>PT Infoduta Computindo Perkasa</strong> adalah perusahaan yang bergerak di bidang Teknologi Informasi (IT) untuk memenuhi kebutuhan hardware dan software yang dimiliki oleh perusahaan-perusahaan di Indonesia, serta memberikan solusi untuk memenuhi kebutuhan alat IT pada perusahaan-perusahaan tersebut.
+                    <strong>PT Infoduta Computindo Perkasa</strong> adalah
+                    perusahaan yang bergerak di bidang Teknologi Informasi (IT)
+                    untuk memenuhi kebutuhan hardware dan software yang dimiliki
+                    oleh perusahaan-perusahaan di Indonesia, serta memberikan
+                    solusi untuk memenuhi kebutuhan alat IT pada
+                    perusahaan-perusahaan tersebut.
                   </p>
                 </div>
                 <div className="text-block">
                   <p className="teks-konten">
-                    <strong>PT Infoduta Computindo Perkasa</strong> telah berdiri sejak tahun 1995 hingga saat ini, dan telah dipercaya sebagai mitra tetap produk IT di perusahaan besar di Indonesia seperti: Pertamina Group, Telkom Group, Telkom Malaysia, Perbankan, dan perusahaan-perusahaan swasta lainnya.
+                    <strong>PT Infoduta Computindo Perkasa</strong> telah
+                    berdiri sejak tahun 1995 hingga saat ini, dan telah
+                    dipercaya sebagai mitra tetap produk IT di perusahaan besar
+                    di Indonesia seperti: Pertamina Group, Telkom Group, Telkom
+                    Malaysia, Perbankan, dan perusahaan-perusahaan swasta
+                    lainnya.
                   </p>
                 </div>
                 <div className="text-block">
                   <p className="teks-konten">
-                    <strong>PT Infoduta Computindo Perkasa</strong> memiliki team solid yang selalu siap dalam memberikan layanan terbaik untuk mendukung setiap proses bisnis perusahaan Anda dengan orientasi solusi dan pelayanan maksimal. Kami menyediakan produk-produk dari brand high-end dengan harga yang sangat terjangkau. Kami menjual produk-produk IT seperti Laptop, PC, Printer, UPS, Server, Software, Hardware serta sparepart dari berbagai macam brand.
+                    <strong>PT Infoduta Computindo Perkasa</strong> memiliki
+                    team solid yang selalu siap dalam memberikan layanan terbaik
+                    untuk mendukung setiap proses bisnis perusahaan Anda dengan
+                    orientasi solusi dan pelayanan maksimal. Kami menyediakan
+                    produk-produk dari brand high-end dengan harga yang sangat
+                    terjangkau. Kami menjual produk-produk IT seperti Laptop,
+                    PC, Printer, UPS, Server, Software, Hardware serta sparepart
+                    dari berbagai macam brand.
                   </p>
                 </div>
               </div>
@@ -142,7 +174,11 @@ function Tentang() {
             </div>
           </div>
           <div className="struktur-container">
-            <img src={strukturImage} alt="Struktur Organisasi" className="struktur-image" />
+            <img
+              src={strukturImage}
+              alt="Struktur Organisasi"
+              className="struktur-image"
+            />
           </div>
         </section>
 
@@ -159,7 +195,11 @@ function Tentang() {
                   <h3>Visi</h3>
                 </div>
                 <div className="card-content">
-                  <p>Menjadi Perusahaan Vendor Produk Teknologi Informasi (IT) terbaik yang berguna dalam mendukung proses pengembangan bisnis perusahaan klien kami.</p>
+                  <p>
+                    Menjadi Perusahaan Vendor Produk Teknologi Informasi (IT)
+                    terbaik yang berguna dalam mendukung proses pengembangan
+                    bisnis perusahaan klien kami.
+                  </p>
                 </div>
               </div>
               <div className="misi-card">
@@ -168,9 +208,15 @@ function Tentang() {
                 </div>
                 <div className="card-content">
                   <ol>
-                    <li>Memberikan solusi serta pelayanan yang cepat, hangat dan proses transaksi dengan mudah.</li>
+                    <li>
+                      Memberikan solusi serta pelayanan yang cepat, hangat dan
+                      proses transaksi dengan mudah.
+                    </li>
                     <li>Jaminan layanan purna jual (After sales service).</li>
-                    <li>Memiliki Teknisi komputer professional yang selalu siap dalam memperbaiki produk IT yang bermasalah.</li>
+                    <li>
+                      Memiliki Teknisi komputer professional yang selalu siap
+                      dalam memperbaiki produk IT yang bermasalah.
+                    </li>
                   </ol>
                 </div>
               </div>

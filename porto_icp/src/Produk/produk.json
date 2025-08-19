@@ -23,9 +23,7 @@
     "name": "Optiplex 7010 PLUS SFF",
     "brand": "Dell",
     "jenis": "PC",
-    "images": [
-      "produk/Dell/Optiplex/7010_Plus_SFF/1.png"
-    ],
+    "images": ["produk/Dell/Optiplex/7010_Plus_SFF/1.png"],
     "specs": {
       "cpu": "Intel Core i7",
       "ram": "16GB",
@@ -40,9 +38,7 @@
     "name": "Precision Workstation 5490",
     "brand": "Dell",
     "jenis": "Workstation",
-    "images": [
-      "produk/Dell/Notebook/Precision/1.png"
-    ],
+    "images": ["produk/Dell/Notebook/Precision/1.png"],
     "specs": {
       "cpu": "Intel Xeon",
       "ram": "32GB",
@@ -57,9 +53,7 @@
     "name": "Latitude 3440 Laptop",
     "brand": "Dell",
     "jenis": "Laptop",
-    "images": [
-      "produk/Dell/Notebook/Latitude/3440_Laptop/1.png"
-    ],
+    "images": ["produk/Dell/Notebook/Latitude/3440_Laptop/1.png"],
     "specs": {
       "cpu": "Intel Core i5",
       "ram": "8GB",
@@ -74,9 +68,7 @@
     "name": "Notebook V14-IIL",
     "brand": "Lenovo",
     "jenis": "Laptop",
-    "images": [
-      "produk/Lenovo/Notebook_V14/1.png"
-    ],
+    "images": ["produk/Lenovo/Notebook_V14/1.png"],
     "specs": {
       "cpu": "AMD Ryzen 5",
       "ram": "8GB",
@@ -109,9 +101,7 @@
     "name": "Latitude 3420",
     "brand": "Dell",
     "jenis": "Laptop",
-    "images": [
-      "produk/Dell/Notebook/Latitude/3420/1.png"
-    ],
+    "images": ["produk/Dell/Notebook/Latitude/3420/1.png"],
     "specs": {
       "cpu": "Intel Core i7-1165G7",
       "ram": "16GB",
@@ -126,9 +116,7 @@
     "name": "Latitude 3440",
     "brand": "Dell",
     "jenis": "Laptop",
-    "images": [
-      "produk/Dell/Notebook/Latitude/3440_Laptop/1.png"
-    ],
+    "images": ["produk/Dell/Notebook/Latitude/3440_Laptop/1.png"],
     "specs": {
       "cpu": "Intel Core i5-1335U",
       "ram": "16GB",
@@ -143,9 +131,7 @@
     "name": "ThinkPad L14 Gen 4",
     "brand": "Lenovo",
     "jenis": "Laptop",
-    "images": [
-      "produk/Lenovo/L14/1.png"
-    ],
+    "images": ["produk/Lenovo/L14/1.png"],
     "specs": {
       "cpu": "Intel Core i5-1345U vPro",
       "ram": "16GB",
@@ -160,9 +146,7 @@
     "name": "TravelMate P214",
     "brand": "Acer",
     "jenis": "Laptop",
-    "images": [
-      "produk/Acer/TravelMate/1.png"
-    ],
+    "images": ["produk/Acer/TravelMate/1.png"],
     "specs": {
       "cpu": "Intel Core i5-1135G7",
       "ram": "8GB",
@@ -177,9 +161,7 @@
     "name": "Latitude 3390 2-in-1",
     "brand": "Dell",
     "jenis": "Laptop",
-    "images": [
-      "produk/Dell/Notebook/Latitude/3390/1.png"
-    ],
+    "images": ["produk/Dell/Notebook/Latitude/3390/1.png"],
     "specs": {
       "cpu": "Intel Core i5-8250U",
       "ram": "8GB",
@@ -194,9 +176,7 @@
     "name": "Latitude 3410",
     "brand": "Dell",
     "jenis": "Laptop",
-    "images": [
-      "produk/Dell/Notebook/Latitude/3410/1.png"
-    ],
+    "images": ["produk/Dell/Notebook/Latitude/3410/1.png"],
     "specs": {
       "cpu": "Intel Core i7-10510U",
       "ram": "8GB DDR4",
@@ -229,9 +209,7 @@
     "name": "XPS 15 (9510)",
     "brand": "Dell",
     "jenis": "Laptop",
-    "images": [
-      "produk/Dell/Notebook/XPS/9510/1.png"
-    ],
+    "images": ["produk/Dell/Notebook/XPS/9510/1.png"],
     "specs": {
       "cpu": "Intel Core i7-11800H",
       "ram": "16GB",
@@ -264,9 +242,7 @@
     "name": "Vostro 3400 i7-1165G7",
     "brand": "Dell",
     "jenis": "Laptop",
-    "images": [
-      "produk/Dell/Notebook/Vostro/3400/1.png"
-    ],
+    "images": ["produk/Dell/Notebook/Vostro/3400/1.png"],
     "specs": {
       "cpu": "Intel Core i7-1165G7",
       "ram": "8GB",
@@ -281,9 +257,7 @@
     "name": "Latitude 7310 CTO 8GB",
     "brand": "Dell",
     "jenis": "Laptop",
-    "images": [
-      "produk/Dell/Notebook/Latitude/7310/1.png"
-    ],
+    "images": ["produk/Dell/Notebook/Latitude/7310/1.png"],
     "specs": {
       "cpu": "Intel Core i7-10610U",
       "ram": "8GB Onboard",
@@ -298,9 +272,7 @@
     "name": "Latitude 7310 CTO 16GB",
     "brand": "Dell",
     "jenis": "Laptop",
-    "images": [
-      "produk/Dell/Notebook/Latitude/7310/1.png"
-    ],
+    "images": ["produk/Dell/Notebook/Latitude/7310/1.png"],
     "specs": {
       "cpu": "Intel Core i7-10610U",
       "ram": "16GB Non-ECC Integrated",
@@ -315,9 +287,7 @@
     "name": "Latitude 3420 i7-1165G7 16GB",
     "brand": "Dell",
     "jenis": "Laptop",
-    "images": [
-      "produk/Dell/Notebook/Latitude/3420/1.png"
-    ],
+    "images": ["produk/Dell/Notebook/Latitude/3420/1.png"],
     "specs": {
       "cpu": "Intel Core i7-1165G7",
       "ram": "16GB DDR4",
@@ -332,9 +302,7 @@
     "name": "Latitude 3420 i7-1165G7 256GB SSD",
     "brand": "Dell",
     "jenis": "Laptop",
-    "images": [
-      "produk/Dell/Notebook/Latitude/3420/1.png"
-    ],
+    "images": ["produk/Dell/Notebook/Latitude/3420/1.png"],
     "specs": {
       "cpu": "Intel Core i7-1165G7",
       "ram": "16GB DDR4",
@@ -349,9 +317,7 @@
     "name": "Notebook LENOVO V14-IIL (Intel Core I7-1065G1)",
     "brand": "Lenovo",
     "jenis": "Laptop",
-    "images": [
-      "produk/Lenovo/Notebook_V14/1.png"
-    ],
+    "images": ["produk/Lenovo/Notebook_V14/1.png"],
     "specs": {
       "cpu": "Intel Core I7-1065G1",
       "ram": "8GB (up max 20 GB)",
@@ -366,9 +332,7 @@
     "name": "Notebook LENOVO V14-IIL (Intel Core I5-1035G1)",
     "brand": "Lenovo",
     "jenis": "Laptop",
-    "images": [
-      "produk/Lenovo/Notebook_V14/1.png"
-    ],
+    "images": ["produk/Lenovo/Notebook_V14/1.png"],
     "specs": {
       "cpu": "Intel Core I5-1035G1",
       "ram": "8GB, 4Gx2, DDR4, (4GB OnBoard) max 20 GB",
@@ -383,9 +347,7 @@
     "name": "Notebook LENOVO V14-IIL (Intel Core I3-1005G1)",
     "brand": "Lenovo",
     "jenis": "Laptop",
-    "images": [
-      "produk/Lenovo/Notebook_V14/1.png"
-    ],
+    "images": ["produk/Lenovo/Notebook_V14/1.png"],
     "specs": {
       "cpu": "Intel Core I3-1005G1",
       "ram": "8GB, 4G DDR4, (4GB OnBoard) max 20 GB",
@@ -400,9 +362,7 @@
     "name": "Lenovo X12 Detachable Gen 2 (Type 21LK, 21LL)",
     "brand": "Lenovo",
     "jenis": "Laptop",
-    "images": [
-      "produk/Lenovo/X12/1.png"
-    ],
+    "images": ["produk/Lenovo/X12/1.png"],
     "specs": {
       "cpu": "Intel® Core™ Ultra 7 164U",
       "ram": "16GB LPD5X-7500 (onboard) not upgradable",
@@ -417,9 +377,7 @@
     "name": "Lenovo Think Pad E14 Gen 6",
     "brand": "Lenovo",
     "jenis": "Laptop",
-    "images": [
-      "produk/Lenovo/E14/1.png"
-    ],
+    "images": ["produk/Lenovo/E14/1.png"],
     "specs": {
       "cpu": "Intel® Core™ Ultra 5 125U 1.300GHz Processor",
       "ram": "16 GB DDR5-5600",
@@ -434,9 +392,7 @@
     "name": "Lenovo Thinkpad L13 Gen 5 Screen 13.3”",
     "brand": "Lenovo",
     "jenis": "Laptop",
-    "images": [
-      "produk/Lenovo/L13/1.png"
-    ],
+    "images": ["produk/Lenovo/L13/1.png"],
     "specs": {
       "cpu": "Intel® Core™ Ultra 5 135U",
       "ram": "16 GB DDR5",
@@ -451,7 +407,7 @@
     "name": "NB DELL LATITUDE 3390 2-in-1",
     "brand": "Dell",
     "jenis": "Laptop",
-    "images": [ "produk/Dell/Notebook/Latitude/3390/1.png" ],
+    "images": ["produk/Dell/Notebook/Latitude/3390/1.png"],
     "specs": {
       "cpu": "Intel Core i5-8250U",
       "ram": "8GB",
@@ -467,7 +423,7 @@
     "name": "Dell Latitude 3410",
     "brand": "Dell",
     "jenis": "Laptop",
-    "images": [ "produk/Dell/Notebook/Latitude/3410/1.png" ],
+    "images": ["produk/Dell/Notebook/Latitude/3410/1.png"],
     "specs": {
       "cpu": "Intel Core i7-10510U",
       "ram": "8GB DDR4",
@@ -572,9 +528,7 @@
     "name": "Optiplex 3000SFF",
     "brand": "Dell",
     "jenis": "PC",
-    "images": [
-      "produk/Dell/Optiplex/3000_SFF/1.png"
-    ],
+    "images": ["produk/Dell/Optiplex/3000_SFF/1.png"],
     "specs": {
       "cpu": "Intel Core i5-12500",
       "ram": "16GB DDR5",
@@ -589,9 +543,7 @@
     "name": "Optiplex 7000 Tower",
     "brand": "Dell",
     "jenis": "PC",
-    "images": [
-      "produk/Dell/Optiplex/7000_Tower/1.png"
-    ],
+    "images": ["produk/Dell/Optiplex/7000_Tower/1.png"],
     "specs": {
       "cpu": "Intel Core i5-12500",
       "ram": "16GB DDR5",
@@ -606,9 +558,7 @@
     "name": "Optiplex 7060 Micro",
     "brand": "Dell",
     "jenis": "PC",
-    "images": [
-      "produk/Dell/Optiplex/7060_Micro/1.png"
-    ],
+    "images": ["produk/Dell/Optiplex/7060_Micro/1.png"],
     "specs": {
       "cpu": "Intel Core i5-8400",
       "ram": "8GB DDR5",
@@ -623,9 +573,7 @@
     "name": "Optiplex 7010 Micro",
     "brand": "Dell",
     "jenis": "PC",
-    "images": [
-      "produk/Dell/Optiplex/7010_Micro/1.png"
-    ],
+    "images": ["produk/Dell/Optiplex/7010_Micro/1.png"],
     "specs": {
       "cpu": "Intel Core i5-13500",
       "ram": "8GB DDR5",
@@ -640,9 +588,7 @@
     "name": "Asus Zenbook 14",
     "brand": "Asus",
     "jenis": "Laptop",
-    "images": [
-      "produk/Asus/Zenbook/14/1.png"
-    ],
+    "images": ["produk/Asus/Zenbook/14/1.png"],
     "specs": {
       "cpu": "AMD Ryzen 7 8840HS",
       "ram": "16GB",
@@ -657,9 +603,7 @@
     "name": "Asus Vivobook 15",
     "brand": "Asus",
     "jenis": "Laptop",
-    "images": [
-      "produk/Asus/Vivobook/15/1.png"
-    ],
+    "images": ["produk/Asus/Vivobook/15/1.png"],
     "specs": {
       "cpu": "Intel Core i5-1335U",
       "ram": "8GB DDR4",
@@ -675,9 +619,7 @@
     "released": "new",
     "brand": "HP",
     "jenis": "Laptop",
-    "images": [
-      "produk/HP/240/G9/1.png"
-    ],
+    "images": ["produk/HP/240/G9/1.png"],
     "specs": {
       "cpu": "Intel Core i3-1315U",
       "ram": "8GB DDR4 3200",
@@ -692,9 +634,7 @@
     "name": "HP EliteBook 630 G10",
     "brand": "HP",
     "jenis": "Laptop",
-    "images": [
-      "produk/HP/EliteBook/630/G10/1.png"
-    ],
+    "images": ["produk/HP/EliteBook/630/G10/1.png"],
     "specs": {
       "cpu": "Intel Core i5-1335U",
       "ram": "16GB DDR4 3200",
@@ -709,9 +649,7 @@
     "name": "HP EliteBook 630 G10",
     "brand": "HP",
     "jenis": "Laptop",
-    "images": [
-      "produk/HP/EliteBook/630/G10/1.png"
-    ],
+    "images": ["produk/HP/EliteBook/630/G10/1.png"],
     "specs": {
       "cpu": "Intel Core i7-1355U",
       "ram": "16GB DDR4 3200",
@@ -727,9 +665,7 @@
     "released": "new",
     "brand": "HP",
     "jenis": "Laptop",
-    "images": [
-      "produk/HP/EliteBook/630/G11/1.png"
-    ],
+    "images": ["produk/HP/EliteBook/630/G11/1.png"],
     "specs": {
       "cpu": "Intel U5-125U",
       "ram": "16GB DDR5 5600",
@@ -744,9 +680,7 @@
     "name": "HP EliteBook 630 G11 Ultra",
     "brand": "HP",
     "jenis": "Laptop",
-    "images": [
-      "produk/HP/EliteBook/630/G11/1.png"
-    ],
+    "images": ["produk/HP/EliteBook/630/G11/1.png"],
     "specs": {
       "cpu": "Intel U7-155U",
       "ram": "16GB DDR5 5600",
@@ -761,9 +695,7 @@
     "name": "HP EliteBook x360 1040 G10",
     "brand": "HP",
     "jenis": "Laptop",
-    "images": [
-      "produk/HP/EliteBook/x360/1040/G10/1.png"
-    ],
+    "images": ["produk/HP/EliteBook/x360/1040/G10/1.png"],
     "specs": {
       "cpu": "Intel Core i7-1355U",
       "ram": "16GB (soldered)",
@@ -778,9 +710,7 @@
     "name": "HP EliteBook x360 1040 G11 Ultra",
     "brand": "HP",
     "jenis": "Laptop",
-    "images": [
-      "produk/HP/EliteBook/x360/1040/G11/1.png"
-    ],
+    "images": ["produk/HP/EliteBook/x360/1040/G11/1.png"],
     "specs": {
       "cpu": "Intel U7-155U",
       "ram": "32GB (soldered)",
@@ -796,9 +726,7 @@
     "brand": "HP",
     "released": "new",
     "jenis": "PC",
-    "images": [
-      "produk/HP/ProOne/240/G9/1.png"
-    ],
+    "images": ["produk/HP/ProOne/240/G9/1.png"],
     "specs": {
       "cpu": "Intel Core i7-1255U",
       "ram": "8GB DDR4 3200",
@@ -814,9 +742,7 @@
     "brand": "HP",
     "released": "new",
     "jenis": "PC",
-    "images": [
-      "produk/HP/ProOne/240/G10/1.png"
-    ],
+    "images": ["produk/HP/ProOne/240/G10/1.png"],
     "specs": {
       "cpu": "Intel U5-125U",
       "ram": "8GB DDR5 5600",
@@ -832,9 +758,7 @@
     "brand": "HP",
     "released": "new",
     "jenis": "PC",
-    "images": [
-      "produk/HP/ProOne/240/G10/1.png"
-    ],
+    "images": ["produk/HP/ProOne/240/G10/1.png"],
     "specs": {
       "cpu": "Intel U7-155U",
       "ram": "16GB DDR5 5600",
@@ -849,9 +773,7 @@
     "name": "HP Pro Tower 280 G9",
     "brand": "HP",
     "jenis": "PC",
-    "images": [
-      "produk/HP/Pro/Tower/280/G9/1.png"
-    ],
+    "images": ["produk/HP/Pro/Tower/280/G9/1.png"],
     "specs": {
       "cpu": "Intel Core i5-12400",
       "ram": "8GB DDR4 2933",
@@ -866,9 +788,7 @@
     "name": "HP Pro Tower 280 G9",
     "brand": "HP",
     "jenis": "PC",
-    "images": [
-      "produk/HP/Pro/Tower/280/G9/1.png"
-    ],
+    "images": ["produk/HP/Pro/Tower/280/G9/1.png"],
     "specs": {
       "cpu": "Intel Core i7-12700",
       "ram": "8GB DDR4 2933",
@@ -883,9 +803,7 @@
     "name": "HP Pro Tower 400 G9 MT",
     "brand": "HP",
     "jenis": "PC",
-    "images": [
-      "produk/HP/Pro/Tower/400/G9/1.png"
-    ],
+    "images": ["produk/HP/Pro/Tower/400/G9/1.png"],
     "specs": {
       "cpu": "Intel Core i7-12700",
       "ram": "16GB DDR4 3200",
@@ -900,9 +818,7 @@
     "name": "HP Pro Tower 400 G9",
     "brand": "HP",
     "jenis": "PC",
-    "images": [
-      "produk/HP/Pro/Tower/400/G9/1.png"
-    ],
+    "images": ["produk/HP/Pro/Tower/400/G9/1.png"],
     "specs": {
       "cpu": "Intel Core i7-12700",
       "ram": "16GB DDR4 3200",
@@ -917,9 +833,7 @@
     "name": "HP Pro Tower Maverick 280 G9",
     "brand": "HP",
     "jenis": "PC",
-    "images": [
-      "produk/HP/Pro/Tower/Maverick/280/G9/1.png"
-    ],
+    "images": ["produk/HP/Pro/Tower/Maverick/280/G9/1.png"],
     "specs": {
       "cpu": "Intel Core i5-12500",
       "ram": "16GB DDR4 3200",
@@ -934,9 +848,7 @@
     "name": "HP Pro Tower Maverick 280 G9",
     "brand": "HP",
     "jenis": "PC",
-    "images": [
-      "produk/HP/Pro/Tower/Maverick/280/G9/1.png"
-    ],
+    "images": ["produk/HP/Pro/Tower/Maverick/280/G9/1.png"],
     "specs": {
       "cpu": "Intel Core i7-12700",
       "ram": "16GB DDR4 3200",
@@ -951,9 +863,7 @@
     "name": "Asus Vivobook S3407CA-VIPS7112M",
     "brand": "Asus",
     "jenis": "Laptop",
-    "images": [
-      "produk/Asus/Vivobook/S14/S3407CA-VIPS7112M/1.png"
-    ],
+    "images": ["produk/Asus/Vivobook/S14/S3407CA-VIPS7112M/1.png"],
     "specs": {
       "cpu": "Intel Core i5-1235U",
       "ram": "8GB DDR4 3200",
@@ -968,9 +878,7 @@
     "name": "HP ProBook 440 G9",
     "brand": "HP",
     "jenis": "Laptop",
-    "images": [
-      "produk/HP/Probook/440/G9/1.png"
-    ],
+    "images": ["produk/HP/Probook/440/G9/1.png"],
     "specs": {
       "cpu": "Intel Core i7-1255U",
       "ram": "16GB DDR4 3200",
@@ -980,124 +888,110 @@
     },
     "deskripsi": "HP ProBook 440 G9 14 inch FHD laptop with Intel Core i7-1255U processor, 16GB DDR4 RAM, 512GB SSD storage, backlit keyboard, fingerprint reader, and 3/3/3 warranty."
   },
-    {
-      "id": 59,
-      "name": "Asus Vivobook S3407CA-VIPS7112M",
-      "brand": "Asus",
-      "jenis": "Laptop",
-      "images": [
-        "produk/Asus/Vivobook/S14/S3407CA-VIPS7112M/1.png"
-      ],
-      "specs": {
-        "cpu": "Intel Core Ultra 7 Processor 255H 2.0 GHz (24MB Cache, up to 5.1 GHz, 16 cores, 16 Threads)",
-        "ram": "16GB DDR5",
-        "storage": "1TB M.2 NVMe PCIe 4.0 SSD",
-        "gpu": "Intel UHD Graphics",
-        "os": "Windows 11 Home"
-      },
-      "deskripsi": "ASUS Vivobook S14 with 14-inch WUXGA IPS display, Intel Core Ultra 7 processor, 16GB DDR5 RAM, 1TB SSD, aluminum build, Cool Silver color, backlit keyboard, FHD IR camera with Windows Hello, and US MIL-STD 810H military-grade standard."
+  {
+    "id": 59,
+    "name": "Asus Vivobook S3407CA-VIPS7112M",
+    "brand": "Asus",
+    "jenis": "Laptop",
+    "images": ["produk/Asus/Vivobook/S14/S3407CA-VIPS7112M/1.png"],
+    "specs": {
+      "cpu": "Intel Core Ultra 7 Processor 255H 2.0 GHz (24MB Cache, up to 5.1 GHz, 16 cores, 16 Threads)",
+      "ram": "16GB DDR5",
+      "storage": "1TB M.2 NVMe PCIe 4.0 SSD",
+      "gpu": "Intel UHD Graphics",
+      "os": "Windows 11 Home"
     },
-    {
-      "id": 60,
-      "name": "Asus Vivobook S3407CA-VIPS5111M",
-      "brand": "Asus",
-      "released": "new",
-      "jenis": "Laptop",
-      "images": [
-        "produk/Asus/Vivobook/S14/S3407CA-VIPS5111M/1.png"
-      ],
-      "specs": {
-        "cpu": "Intel Core Ultra 5 Processor 225H 1.7 GHz (18MB Cache, up to 4.9 GHz, 14 cores, 16 Threads)",
-        "ram": "16GB DDR5",
-        "storage": "1TB M.2 NVMe PCIe 4.0 SSD",
-        "gpu": "Intel UHD Graphics",
-        "os": "Windows 11 Home"
-      },
-      "deskripsi": "ASUS Vivobook S14 with 14-inch WUXGA IPS display, Intel Core Ultra 5 processor, 16GB DDR5 RAM, 1TB SSD, aluminum build, Matte Gray color, backlit keyboard, FHD IR camera with Windows Hello, and US MIL-STD 810H military-grade standard."
+    "deskripsi": "ASUS Vivobook S14 with 14-inch WUXGA IPS display, Intel Core Ultra 7 processor, 16GB DDR5 RAM, 1TB SSD, aluminum build, Cool Silver color, backlit keyboard, FHD IR camera with Windows Hello, and US MIL-STD 810H military-grade standard."
+  },
+  {
+    "id": 60,
+    "name": "Asus Vivobook S3407CA-VIPS5111M",
+    "brand": "Asus",
+    "released": "new",
+    "jenis": "Laptop",
+    "images": ["produk/Asus/Vivobook/S14/S3407CA-VIPS5111M/1.png"],
+    "specs": {
+      "cpu": "Intel Core Ultra 5 Processor 225H 1.7 GHz (18MB Cache, up to 4.9 GHz, 14 cores, 16 Threads)",
+      "ram": "16GB DDR5",
+      "storage": "1TB M.2 NVMe PCIe 4.0 SSD",
+      "gpu": "Intel UHD Graphics",
+      "os": "Windows 11 Home"
     },
-    {
-      "id": 61,
-      "name": "Asus Vivobook S3407CA-VIPS5112M",
-      "brand": "Asus",
-      "released": "new",
-      "jenis": "Laptop",
-      "images": [
-        "produk/Asus/Vivobook/S14/S3407CA-VIPS5112M/1.png"
-      ],
-      "specs": {
-        "cpu": "Intel Core Ultra 5 Processor 225H 1.7 GHz (18MB Cache, up to 4.9 GHz, 14 cores, 16 Threads)",
-        "ram": "16GB DDR5",
-        "storage": "1TB M.2 NVMe PCIe 4.0 SSD",
-        "gpu": "Intel UHD Graphics",
-        "os": "Windows 11 Home"
-      },
-      "deskripsi": "ASUS Vivobook S14 with 14-inch WUXGA IPS display, Intel Core Ultra 5 processor, 16GB DDR5 RAM, 1TB SSD, aluminum build, Cool Silver color, backlit keyboard, FHD IR camera with Windows Hello, and US MIL-STD 810H military-grade standard."
+    "deskripsi": "ASUS Vivobook S14 with 14-inch WUXGA IPS display, Intel Core Ultra 5 processor, 16GB DDR5 RAM, 1TB SSD, aluminum build, Matte Gray color, backlit keyboard, FHD IR camera with Windows Hello, and US MIL-STD 810H military-grade standard."
+  },
+  {
+    "id": 61,
+    "name": "Asus Vivobook S3407CA-VIPS5112M",
+    "brand": "Asus",
+    "released": "new",
+    "jenis": "Laptop",
+    "images": ["produk/Asus/Vivobook/S14/S3407CA-VIPS5112M/1.png"],
+    "specs": {
+      "cpu": "Intel Core Ultra 5 Processor 225H 1.7 GHz (18MB Cache, up to 4.9 GHz, 14 cores, 16 Threads)",
+      "ram": "16GB DDR5",
+      "storage": "1TB M.2 NVMe PCIe 4.0 SSD",
+      "gpu": "Intel UHD Graphics",
+      "os": "Windows 11 Home"
     },
-    {
-      "id": 62,
-      "name": "Asus Vivobook M1407KA-VIPS5151M",
-      "brand": "Asus",
-      "jenis": "Laptop",
-      "images": [
-        "produk/Asus/Vivobook/14/M1407KA-VIPS5151M/1.png"
-      ],
-      "specs": {
-        "cpu": "AMD Ryzen AI 5 340 Processor 2.0GHz (22MB Cache, up to 4.8GHz, 6 cores, 12 Threads)",
-        "ram": "16GB DDR5",
-        "storage": "512GB M.2 NVMe PCIe 4.0 SSD",
-        "gpu": "AMD Radeon Graphics",
-        "os": "Windows 11 Home"
-      },
-      "deskripsi": "ASUS Vivobook 14 with 14-inch WUXGA IPS display, AMD Ryzen AI 5 processor, 16GB DDR5 RAM, 512GB SSD, plastic build, Quiet Blue color, SonicMaster audio, backlit keyboard, FHD IR camera with Windows Hello, and US MIL-STD 810H military-grade standard."
+    "deskripsi": "ASUS Vivobook S14 with 14-inch WUXGA IPS display, Intel Core Ultra 5 processor, 16GB DDR5 RAM, 1TB SSD, aluminum build, Cool Silver color, backlit keyboard, FHD IR camera with Windows Hello, and US MIL-STD 810H military-grade standard."
+  },
+  {
+    "id": 62,
+    "name": "Asus Vivobook M1407KA-VIPS5151M",
+    "brand": "Asus",
+    "jenis": "Laptop",
+    "images": ["produk/Asus/Vivobook/14/M1407KA-VIPS5151M/1.png"],
+    "specs": {
+      "cpu": "AMD Ryzen AI 5 340 Processor 2.0GHz (22MB Cache, up to 4.8GHz, 6 cores, 12 Threads)",
+      "ram": "16GB DDR5",
+      "storage": "512GB M.2 NVMe PCIe 4.0 SSD",
+      "gpu": "AMD Radeon Graphics",
+      "os": "Windows 11 Home"
     },
-    {
-      "id": 63,
-      "name": "Asus Vivobook M1407KA-VIPS5152M",
-      "brand": "Asus",
-      "jenis": "Laptop",
-      "images": [
-        "produk/Asus/Vivobook/14/M1407KA-VIPS5152M/1.png"
-      ],
-      "specs": {
-        "cpu": "AMD Ryzen AI 5 340 Processor 2.0GHz (22MB Cache, up to 4.8GHz, 6 cores, 12 Threads)",
-        "ram": "16GB DDR5",
-        "storage": "512GB M.2 NVMe PCIe 4.0 SSD",
-        "gpu": "AMD Radeon Graphics",
-        "os": "Windows 11 Home"
-      },
-      "deskripsi": "ASUS Vivobook 14 with 14-inch WUXGA IPS display, AMD Ryzen AI 5 processor, 16GB DDR5 RAM, 512GB SSD, plastic build, Platinum Gold color, SonicMaster audio, backlit keyboard, FHD IR camera with Windows Hello, and US MIL-STD 810H military-grade standard."
+    "deskripsi": "ASUS Vivobook 14 with 14-inch WUXGA IPS display, AMD Ryzen AI 5 processor, 16GB DDR5 RAM, 512GB SSD, plastic build, Quiet Blue color, SonicMaster audio, backlit keyboard, FHD IR camera with Windows Hello, and US MIL-STD 810H military-grade standard."
+  },
+  {
+    "id": 63,
+    "name": "Asus Vivobook M1407KA-VIPS5152M",
+    "brand": "Asus",
+    "jenis": "Laptop",
+    "images": ["produk/Asus/Vivobook/14/M1407KA-VIPS5152M/1.png"],
+    "specs": {
+      "cpu": "AMD Ryzen AI 5 340 Processor 2.0GHz (22MB Cache, up to 4.8GHz, 6 cores, 12 Threads)",
+      "ram": "16GB DDR5",
+      "storage": "512GB M.2 NVMe PCIe 4.0 SSD",
+      "gpu": "AMD Radeon Graphics",
+      "os": "Windows 11 Home"
     },
-    {
-      "id": 64,
-      "name": "Asus Vivobook M1407KA-VIPS5153M",
-      "brand": "Asus",
-      "jenis": "Laptop",
-      "images": [
-        "produk/Asus/Vivobook/14/M1407KA-VIPS5153M/1.png"
-      ],
-      "specs": {
-        "cpu": "AMD Ryzen AI 5 340 Processor 2.0GHz (22MB Cache, up to 4.8GHz, 6 cores, 12 Threads)",
-        "ram": "16GB DDR5",
-        "storage": "512GB M.2 NVMe PCIe 4.0 SSD",
-        "gpu": "AMD Radeon Graphics",
-        "os": "Windows 11 Home"
-      },
-      "deskripsi": "ASUS Vivobook 14 with 14-inch WUXGA IPS display, AMD Ryzen AI 5 processor, 16GB DDR5 RAM, 512GB SSD, plastic build, Cool Silver color, SonicMaster audio, backlit keyboard, FHD IR camera with Windows Hello, and US MIL-STD 810H military-grade standard."
+    "deskripsi": "ASUS Vivobook 14 with 14-inch WUXGA IPS display, AMD Ryzen AI 5 processor, 16GB DDR5 RAM, 512GB SSD, plastic build, Platinum Gold color, SonicMaster audio, backlit keyboard, FHD IR camera with Windows Hello, and US MIL-STD 810H military-grade standard."
+  },
+  {
+    "id": 64,
+    "name": "Asus Vivobook M1407KA-VIPS5153M",
+    "brand": "Asus",
+    "jenis": "Laptop",
+    "images": ["produk/Asus/Vivobook/14/M1407KA-VIPS5153M/1.png"],
+    "specs": {
+      "cpu": "AMD Ryzen AI 5 340 Processor 2.0GHz (22MB Cache, up to 4.8GHz, 6 cores, 12 Threads)",
+      "ram": "16GB DDR5",
+      "storage": "512GB M.2 NVMe PCIe 4.0 SSD",
+      "gpu": "AMD Radeon Graphics",
+      "os": "Windows 11 Home"
     },
-    {
-      "id": 65,
-      "name": "Xiaomi Redmi Note 14 5G 8/256",
-      "brand": "Xiaomi",
-      "jenis": "Smartphone",
-      "images": [
-        "produk/xiaomi/Redmi/14/1.png"
-      ],
-      "specs": {
-        "cpu": "Mediatek Dimensity 7025 Ultra (6 nm), octa-core 2,5 GHz",
-        "ram": "8GB",
-        "gpu": "IMG BXM-8-256",
-        "storage": "256GB",
-        "os": "Xiaomi HyperOS"
+    "deskripsi": "ASUS Vivobook 14 with 14-inch WUXGA IPS display, AMD Ryzen AI 5 processor, 16GB DDR5 RAM, 512GB SSD, plastic build, Cool Silver color, SonicMaster audio, backlit keyboard, FHD IR camera with Windows Hello, and US MIL-STD 810H military-grade standard."
+  },
+  {
+    "id": 65,
+    "name": "Xiaomi Redmi Note 14 5G 8/256",
+    "brand": "Xiaomi",
+    "jenis": "Smartphone",
+    "images": ["produk/xiaomi/Redmi/14/1.png"],
+    "specs": {
+      "cpu": "Mediatek Dimensity 7025 Ultra (6 nm), octa-core 2,5 GHz",
+      "ram": "8GB",
+      "gpu": "IMG BXM-8-256",
+      "storage": "256GB",
+      "os": "Xiaomi HyperOS"
     },
     "deskripsi": "Xiaomi Redmi Note 14 with connectivity to 5G."
   },
@@ -1106,9 +1000,7 @@
     "name": "Notebook Lenovo Yoga 7 2-in-1 14ILL10 83JQ003UID",
     "brand": "Lenovo",
     "jenis": "Laptop",
-    "images": [
-      "produk/Lenovo/Yoga/7/1.png"
-    ],
+    "images": ["produk/Lenovo/Yoga/7/1.png"],
     "specs": {
       "cpu": "Intel Core Ultra 5 226V, 8C (4P + 4LPE) / 8T",
       "gpu": "AMD Radeon 680M Graphic",
@@ -1122,9 +1014,7 @@
     "name": "16-inch MacBook Pro M4 Pro",
     "brand": "Apple",
     "jenis": "Laptop",
-    "images": [
-      "produk/Apple/M4/1.png"
-    ],
+    "images": ["produk/Apple/M4/1.png"],
     "specs": {
       "cpu": "MBP M4 PRO 14 CORE ",
       "os": "macOS",
@@ -1138,9 +1028,7 @@
     "name": "Notebook Asus Expertbook P1403CVA-S63850WS",
     "brand": "Asus",
     "jenis": "Laptop",
-    "images": [
-      "produk/Asus/Expertbook/1.png"
-    ],
+    "images": ["produk/Asus/Expertbook/1.png"],
     "specs": {
       "cpu": "Intel Core i3-1315U",
       "ram": "8GB",
@@ -1154,9 +1042,7 @@
     "name": "Notebook HP EliteBook 630",
     "brand": "HP",
     "jenis": "Laptop",
-    "images": [
-      "produk/HP/EliteBook/630/1.png"
-    ],
+    "images": ["produk/HP/EliteBook/630/1.png"],
     "specs": {
       "cpu": "Intel U7-155U (12M Cache, up to 4.80 GHz)",
       "gpu": "Integrated Graphics",
@@ -1170,9 +1056,7 @@
     "name": "DELL LATITUDE 5450",
     "brand": "Dell",
     "jenis": "Laptop",
-    "images": [
-      "produk/Dell/Notebook/Latitude/5450/1.png"
-    ],
+    "images": ["produk/Dell/Notebook/Latitude/5450/1.png"],
     "specs": {
       "cpu": "Intel Core Ultra 7 165H vPro (24 MB cache, 16 cores, 22 threads, up to 5.0 GHz)",
       "ram": "16 GB: 1 x 16 GB, DDR5, 5600 MT/s (5200 MT/s with 13th Gen Intel Core processors)",
@@ -1182,7 +1066,3 @@
     }
   }
 ]
-
-
-
-

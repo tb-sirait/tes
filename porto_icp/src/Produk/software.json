@@ -60,7 +60,7 @@
     "image": "/src/assets/software/pdf/1.png"
   },
   {
-    "name":"AutoCAD LT 2024 Commercial New Single-user",
+    "name": "AutoCAD LT 2024 Commercial New Single-user",
     "usage": "Lisensi Seumur Hidup",
     "image": "/src/assets/software/autocad/1.png"
   },
@@ -96,7 +96,7 @@
   },
   {
     "name": "Figma Organization Dev Seat",
-    "usage":"Lisensi Seumur Hidup",
+    "usage": "Lisensi Seumur Hidup",
     "image": "/src/assets/software/figma/1.svg"
   },
   {
@@ -106,7 +106,7 @@
   },
   {
     "name": "Adobe Photoshop",
-    "usage": "Lisensi Seumur Hidup",  
+    "usage": "Lisensi Seumur Hidup",
     "image": "/src/assets/software/adobe/3.png"
   },
   {
@@ -141,7 +141,7 @@
   },
   {
     "name": "License Figma Full Seat",
-    "usage":"1 Tahun Berlangganan",
+    "usage": "1 Tahun Berlangganan",
     "image": "/src/assets/software/figma/1.svg"
   },
   {

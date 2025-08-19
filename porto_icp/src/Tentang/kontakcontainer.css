@@ -18,12 +18,13 @@
   margin-right: auto;
 }
 
-.map-box, .kontak-box {
+.map-box,
+.kontak-box {
   flex: 1;
   min-width: 500px;
 }
 
-h2{
+h2 {
   font-size: 2rem;
   font-weight: 700;
   color: #1434a4;
@@ -33,7 +34,6 @@ h2{
   padding: 10px 20px;
   border-radius: 12px;
 }
-
 
 .gmap_iframe {
   width: 100%;
@@ -76,84 +76,81 @@ h2{
   margin-top: 4px; /* penyesuaian agar sejajar dengan teks */
 }
 
-@media (max-width: 768px) {  
+@media (max-width: 768px) {
   .contact-container {
     grid-template-columns: 1fr;
     gap: 40px;
   }
-  
+
   .map-wrapper {
     height: 400px;
   }
-  
+
   .contact-item {
     padding: 20px;
     gap: 15px;
   }
-  
+
   .contact-icon {
     font-size: 1.6rem;
     min-width: 32px;
   }
-  
+
   .contact-value {
     font-size: 1rem;
   }
-  
+
   .contact-section {
     padding: 60px 0;
   }
-  
+
   .contact-container {
     gap: 30px;
   }
-  
+
   .map-wrapper {
     height: 300px;
   }
-  
+
   .contact-item {
     padding: 18px;
     gap: 12px;
   }
-  
+
   .contact-icon {
     font-size: 1.5rem;
     min-width: 28px;
   }
-  
+
   .contact-value {
     font-size: 0.95rem;
   }
-  
+
   .address-content {
     font-size: 0.9rem;
   }
 }
 
 @media (max-width: 520px) {
+  .gmap_iframe {
+    width: 90%;
+    height: 200px;
+    border: none;
+  }
 
-.gmap_iframe {
-  width: 90%;
-  height: 200px;
-  border: none;
-}
+  .map-box {
+    display: block;
+    padding: 0;
+    margin: 0;
+    min-width: 300px;
+  }
 
-
-.map-box {
-  display: block;
-  padding: 0;
-  margin: 0;
-  min-width: 300px;
-}
-
-.kontak-box {
-  min-width: none;
-  padding: 0;
-  margin: 0;
-  min-width: 80%;
-}
-
+  .kontak-box {
+    min-width: none;
+    padding: 0;
+    margin: 0;
+    min-width: 80%;
+  }
 }
 
 /* Modal styles */
@@ -163,7 +160,7 @@ h2{
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -174,7 +171,7 @@ h2{
   background-color: white;
   padding: 24px 32px;
   border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
   max-width: 400px;
   width: 90%;
   color: #333;

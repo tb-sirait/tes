@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 
@@ -29,7 +28,7 @@ function Karir() {
   const openModal = (title) => {
     setJobTitle(title);
     setModalOpen(true);
-    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    document.body.style.overflow = "hidden"; // Prevent background scrolling
   };
 
   const closeModal = () => {
@@ -41,7 +40,7 @@ function Karir() {
       cv: null,
     });
     setJobTitle("");
-    document.body.style.overflow = 'unset'; // Restore scrolling
+    document.body.style.overflow = "unset"; // Restore scrolling
   };
 
   useEffect(() => {
@@ -53,7 +52,7 @@ function Karir() {
     window.addEventListener("keydown", handleKeyDown);
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
-      document.body.style.overflow = 'unset'; // Cleanup on unmount
+      document.body.style.overflow = "unset"; // Cleanup on unmount
     };
   }, [modalOpen]);
 
@@ -83,7 +82,7 @@ function Karir() {
       alert("CV harus diupload.");
       return false;
     }
-    
+
     // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.from_email)) {
@@ -119,25 +118,31 @@ function Karir() {
 
     // Set the message field value to include name, phone, and CV file name
     if (formRef.current) {
-      const messageInput = formRef.current.querySelector('input[name="message"]');
+      const messageInput = formRef.current.querySelector(
+        'input[name="message"]',
+      );
       if (messageInput) {
-        messageInput.value = `Posisi: ${jobTitle}, Nama: ${formData.from_name}, Nomor Telpon: ${formData.from_phone}, File CV: ${formData.cv ? formData.cv.name : ''}`;
+        messageInput.value = `Posisi: ${jobTitle}, Nama: ${formData.from_name}, Nomor Telpon: ${formData.from_phone}, File CV: ${formData.cv ? formData.cv.name : ""}`;
       }
     }
 
     try {
       await sendForm(
-        "service_9e0ngq3", 
-        "template_rjxaunz", 
+        "service_9e0ngq3",
+        "template_rjxaunz",
         formRef.current,
-        "nYM60UZycO9ExRaZF"
+        "nYM60UZycO9ExRaZF",
       );
-      
-      alert("Lamaran berhasil terkirim! Terima kasih atas minat Anda. Tim HRD kami akan menghubungi Anda segera.");
+
+      alert(
+        "Lamaran berhasil terkirim! Terima kasih atas minat Anda. Tim HRD kami akan menghubungi Anda segera.",
+      );
       closeModal();
     } catch (error) {
       console.error("Gagal mengirim:", error);
-      alert("Gagal mengirim lamaran. Silakan periksa koneksi internet Anda dan coba lagi.");
+      alert(
+        "Gagal mengirim lamaran. Silakan periksa koneksi internet Anda dan coba lagi.",
+      );
     } finally {
       setIsLoading(false);
     }
@@ -155,9 +160,10 @@ function Karir() {
         "Luwes, cekatan, mampu bekerja sama dengan tim",
         "Bersedia bekerja dengan target dan dalam situasi yang dinamis",
         "Komunikatif dan memiliki kemampuan layanan pelanggan yang baik",
-        "Memiliki minat di dunia e-commerce dan pemasaran digital"
+        "Memiliki minat di dunia e-commerce dan pemasaran digital",
       ],
-      description: "Bergabunglah dengan tim marketing kami untuk mengembangkan strategi pemasaran digital yang inovatif."
+      description:
+        "Bergabunglah dengan tim marketing kami untuk mengembangkan strategi pemasaran digital yang inovatif.",
     },
     {
       title: "Customer Service",
@@ -168,10 +174,11 @@ function Karir() {
         "Mahir menggunakan komputer dan aplikasi office",
         "Mampu multitasking dan bekerja di bawah tekanan",
         "Memiliki kemampuan problem solving yang baik",
-        "Bersedia bekerja shift"
+        "Bersedia bekerja shift",
       ],
-      description: "Berikan pelayanan terbaik kepada pelanggan dan jadilah wajah perusahaan yang ramah."
-    }
+      description:
+        "Berikan pelayanan terbaik kepada pelanggan dan jadilah wajah perusahaan yang ramah.",
+    },
   ];
 
   return (
@@ -184,13 +191,14 @@ function Karir() {
           alt="Background"
         />
         <div className="blue-overlay"></div>
-        
+
         <main className="main-content">
           <div className="hero-section">
             <h1 className="page-title">Karir Bersama Infoduta</h1>
             <p className="page-description">
-              PT. Infoduta Computindo Perkasa membuka berbagai lowongan kerja untuk mengembangkan tim profesional, 
-              demi membangun masa depan yang lebih baik bersama-sama.
+              PT. Infoduta Computindo Perkasa membuka berbagai lowongan kerja
+              untuk mengembangkan tim profesional, demi membangun masa depan
+              yang lebih baik bersama-sama.
             </p>
           </div>
 
@@ -203,23 +211,37 @@ function Karir() {
                     <h3 className="job-title">{job.title}</h3>
                     <p className="job-description">{job.description}</p>
                   </div>
-                  
+
                   <div className="job-requirements">
                     <h4 className="requirements-title">Persyaratan:</h4>
                     <ul className="requirements-list">
                       {job.requirements.map((req, reqIndex) => (
-                        <li key={reqIndex} className="requirement-item">{req}</li>
+                        <li key={reqIndex} className="requirement-item">
+                          {req}
+                        </li>
                       ))}
                     </ul>
                   </div>
-                  
+
                   <button
                     onClick={() => openModal(job.title)}
                     className="apply-button"
                   >
                     <span>Lamar Sekarang</span>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M5 12H19M19 12L12 5M19 12L12 19"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
                     </svg>
                   </button>
                 </div>
@@ -227,31 +249,54 @@ function Karir() {
             </div>
           </div>
         </main>
-        
+
         <Footer />
 
         {modalOpen && (
           <div className="modal-backdrop" onClick={closeModal}>
-            <div className="modal-container" onClick={(e) => e.stopPropagation()}>
+            <div
+              className="modal-container"
+              onClick={(e) => e.stopPropagation()}
+            >
               <div className="modal-header">
                 <h2 className="modal-title">
                   Form Lamaran {jobTitle && `- ${jobTitle}`}
                 </h2>
-                <button 
+                <button
                   className="modal-close-btn"
                   onClick={closeModal}
                   type="button"
                 >
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M18 6L6 18M6 6L18 18"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
                   </svg>
                 </button>
               </div>
 
-              <form ref={formRef} onSubmit={handleSubmit} className="application-form">
+              <form
+                ref={formRef}
+                onSubmit={handleSubmit}
+                className="application-form"
+              >
                 <input type="hidden" name="message" value="" />
-                <input type="hidden" name="to_email" value="tbsintheworld@gmail.com" />
-                
+                <input
+                  type="hidden"
+                  name="to_email"
+                  value="tbsintheworld@gmail.com"
+                />
+
                 <div className="form-group">
                   <label htmlFor="from_name" className="form-label">
                     Nama Lengkap <span className="required">*</span>
@@ -315,10 +360,24 @@ function Karir() {
                       accept=".pdf,.doc,.docx"
                     />
                     <label htmlFor="cv" className="file-input-label">
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15M17 8L12 3M12 3L7 8M12 3V15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15M17 8L12 3M12 3L7 8M12 3V15"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
                       </svg>
-                      {formData.cv ? formData.cv.name : 'Pilih file CV (PDF, DOC, DOCX)'}
+                      {formData.cv
+                        ? formData.cv.name
+                        : "Pilih file CV (PDF, DOC, DOCX)"}
                     </label>
                   </div>
                   <small className="form-help">Maksimal ukuran file 5MB</small>
@@ -327,16 +386,16 @@ function Karir() {
                 {/* Removed reCAPTCHA component */}
 
                 <div className="form-actions">
-                  <button 
-                    type="button" 
-                    onClick={closeModal} 
+                  <button
+                    type="button"
+                    onClick={closeModal}
                     className="cancel-btn"
                     disabled={isLoading}
                   >
                     Batal
                   </button>
-                  <button 
-                    type="submit" 
+                  <button
+                    type="submit"
                     className="submit-btn"
                     disabled={isLoading}
                   >
@@ -346,7 +405,7 @@ function Karir() {
                         Mengirim...
                       </>
                     ) : (
-                      'Kirim Lamaran'
+                      "Kirim Lamaran"
                     )}
                   </button>
                 </div>

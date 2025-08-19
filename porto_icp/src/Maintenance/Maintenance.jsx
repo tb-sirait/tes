@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import { Wrench, Hammer, Mail, Phone, Clock } from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import { Wrench, Hammer, Mail, Phone, Clock } from "lucide-react";
 
 const MaintenancePage = () => {
-  const [currentTime, setCurrentTime] = useState('');
+  const [currentTime, setCurrentTime] = useState("");
 
   useEffect(() => {
     const updateTime = () => {
       const now = new Date();
-      const timeString = now.toLocaleString('id-ID', {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit'
+      const timeString = now.toLocaleString("id-ID", {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
       });
       setCurrentTime(timeString);
     };
@@ -24,18 +24,18 @@ const MaintenancePage = () => {
   }, []);
 
   const handleWarningSignHover = (e) => {
-    e.target.style.transform = 'rotate(45deg) scale(1.1)';
-    e.target.style.transition = 'transform 0.3s ease';
+    e.target.style.transform = "rotate(45deg) scale(1.1)";
+    e.target.style.transition = "transform 0.3s ease";
   };
 
   const handleWarningSignLeave = (e) => {
-    e.target.style.transform = 'rotate(45deg) scale(1)';
+    e.target.style.transform = "rotate(45deg) scale(1)";
   };
 
   return (
-    <div className="maintenance-page" style={{marginTop: '50px'}}>
+    <div className="maintenance-page" style={{ marginTop: "50px" }}>
       <div className="maintenance-container">
-        <div 
+        <div
           className="warning-sign"
           onMouseEnter={handleWarningSignHover}
           onMouseLeave={handleWarningSignLeave}
@@ -45,20 +45,21 @@ const MaintenancePage = () => {
             <Wrench className="wrench" size={35} />
           </div>
         </div>
-        
+
         <div className="maintenance-text">UNDER</div>
         <div className="main-title">CONSTRUCTION</div>
         <div className="subtitle">(halaman ini sedang dalam perbaikan)</div>
-        
+
         <div className="loading-bar">
           <div className="loading-progress"></div>
         </div>
-        
+
         <div className="description">
-          Kami sedang melakukan pemeliharaan dan perbaikan sistem untuk memberikan pengalaman yang lebih baik. 
-          Mohon maaf atas ketidaknyamanan ini dan terima kasih atas kesabaran Anda.
+          Kami sedang melakukan pemeliharaan dan perbaikan sistem untuk
+          memberikan pengalaman yang lebih baik. Mohon maaf atas ketidaknyamanan
+          ini dan terima kasih atas kesabaran Anda.
         </div>
-        
+
         <div className="contact-info">
           <h3>
             <Clock size={16} className="inline mr-2" />
@@ -74,9 +75,14 @@ const MaintenancePage = () => {
             Telepon: (021) 3983-1939
           </p>
         </div>
-        
+
         <div className="footer">
-          <div>2025 © <span className="company-name">ICP | Infoduta Computindo Perkasa</span></div>
+          <div>
+            2025 ©{" "}
+            <span className="company-name">
+              ICP | Infoduta Computindo Perkasa
+            </span>
+          </div>
           <div className="footer-subtitle">
             Kami akan segera kembali dengan layanan yang lebih baik
           </div>
@@ -87,10 +93,10 @@ const MaintenancePage = () => {
           )}
         </div>
       </div>
-      
+
       <style jsx>{`
         .maintenance-page {
-          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
           background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
           min-height: 100vh;
           display: flex;
@@ -113,19 +119,19 @@ const MaintenancePage = () => {
         }
 
         .maintenance-container::before {
-          content: '';
+          content: "";
           position: absolute;
           top: 0;
           left: 0;
           right: 0;
           height: 5px;
-          background: linear-gradient(90deg, #FFD700, #FFA500);
+          background: linear-gradient(90deg, #ffd700, #ffa500);
         }
 
         .warning-sign {
           width: 120px;
           height: 120px;
-          background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+          background: linear-gradient(135deg, #ffd700 0%, #ffa500 100%);
           border: 4px solid #333;
           border-radius: 15px;
           margin: 0 auto 30px;
@@ -139,7 +145,7 @@ const MaintenancePage = () => {
         }
 
         .warning-sign::before {
-          content: '';
+          content: "";
           position: absolute;
           inset: 8px;
           border: 2px solid #333;
@@ -196,7 +202,7 @@ const MaintenancePage = () => {
 
         .loading-progress {
           height: 100%;
-          background: linear-gradient(90deg, #FFD700, #FFA500);
+          background: linear-gradient(90deg, #ffd700, #ffa500);
           border-radius: 3px;
           animation: loading 3s infinite;
         }
@@ -206,7 +212,7 @@ const MaintenancePage = () => {
           padding: 20px;
           background: #f8f9fa;
           border-radius: 10px;
-          border-left: 4px solid #FFD700;
+          border-left: 4px solid #ffd700;
           text-align: left;
         }
 
@@ -261,14 +267,25 @@ const MaintenancePage = () => {
         }
 
         @keyframes pulse {
-          0%, 100% { transform: rotate(45deg) scale(1); }
-          50% { transform: rotate(45deg) scale(1.05); }
+          0%,
+          100% {
+            transform: rotate(45deg) scale(1);
+          }
+          50% {
+            transform: rotate(45deg) scale(1.05);
+          }
         }
 
         @keyframes loading {
-          0% { width: 0%; }
-          50% { width: 70%; }
-          100% { width: 100%; }
+          0% {
+            width: 0%;
+          }
+          50% {
+            width: 70%;
+          }
+          100% {
+            width: 100%;
+          }
         }
 
         @media (max-width: 768px) {
@@ -276,11 +293,11 @@ const MaintenancePage = () => {
             margin: 20px;
             padding: 30px 15px;
           }
-          
+
           .main-title {
             font-size: 28px;
           }
-          
+
           .warning-sign {
             width: 100px;
             height: 100px;

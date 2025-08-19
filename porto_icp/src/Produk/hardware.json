@@ -252,7 +252,6 @@
     "description": "Logitech Zone 305 with receive yang dapat digunakan untuk panggilan video dan musik."
   },
   {
-
     "name": "Dell Pro Premium Compact Mouse - MS7421W (INDO)",
     "brand": "Dell",
     "type": "Mouse",
@@ -262,14 +261,14 @@
   {
     "name": "Ribbon color YMCK-500 image P/N : RT4F010P00308",
     "brand": "Evolis",
-    "type":"Tinta & Toner",
+    "type": "Tinta & Toner",
     "images": "/src/assets/produk/hardware/evolis/1.png",
     "description": "Ribbon color YMCK-500 image P/N : RT4F010P00308 yang dapat digunakan untuk berbagai keperluan."
   },
   {
     "name": "Ribbon Film-500 image P/N : RTCL009P00308",
     "brand": "Evolis",
-    "type":"Tinta & Toner",
+    "type": "Tinta & Toner",
     "images": "/src/assets/produk/hardware/evolis/2.png",
     "description": "Ribbon Film-500 image P/N : RTCL009P00308 yang dapat digunakan untuk berbagai keperluan."
   },

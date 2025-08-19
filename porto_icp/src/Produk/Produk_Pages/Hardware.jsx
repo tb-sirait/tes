@@ -1,19 +1,24 @@
 import React, { useState, useEffect } from "react";
 import produkData from "../hardware.json";
 import "./Laptop.css";
-import {
-  X,
-  Search,
-  MessageCircle,
-} from "lucide-react";
+import { X, Search, MessageCircle } from "lucide-react";
 import "./Laptop.css";
 import Navbar from "../../Navigation/Navbar.jsx";
 import Footer from "../../Navigation/footer.jsx";
 
 // Dynamically import all images from assets folder using Vite's import.meta.glob
-const images = import.meta.glob('../../assets/produk/hardware/**/*.{png,jpg,jpeg,svg}', { eager: true, as: 'url' });
-const hpInkImages = import.meta.glob('../../assets/produk/hp_ink/*.{png,jpg,jpeg,svg}', { eager: true, as: 'url' });
-const hpTonerImages = import.meta.glob('../../assets/produk/hp_toner/*.{png,jpg,jpeg,svg}', { eager: true, as: 'url' });
+const images = import.meta.glob(
+  "../../assets/produk/hardware/**/*.{png,jpg,jpeg,svg}",
+  { eager: true, as: "url" },
+);
+const hpInkImages = import.meta.glob(
+  "../../assets/produk/hp_ink/*.{png,jpg,jpeg,svg}",
+  { eager: true, as: "url" },
+);
+const hpTonerImages = import.meta.glob(
+  "../../assets/produk/hp_toner/*.{png,jpg,jpeg,svg}",
+  { eager: true, as: "url" },
+);
 
 // Merge all images into one object
 const allImages = { ...images, ...hpInkImages, ...hpTonerImages };
@@ -23,7 +28,7 @@ const getImageUrl = (imagePath) => {
   // The imagePath in JSON is like "/src/assets/produk/hp_toner/1.png"
   // We need to convert it to relative path from this file to match keys in allImages
   // Remove leading "/src/" from path
-  const relativePath = imagePath.replace(/^\/src\//, '../../');
+  const relativePath = imagePath.replace(/^\/src\//, "../../");
   return allImages[relativePath] || "/api/placeholder/200/150";
 };
 
@@ -33,9 +38,7 @@ const HardwareCard = ({ product, onViewDetails }) => {
   return (
     <div className="product-card" onClick={() => onViewDetails(product)}>
       <div className="product-image">
-        <img src={imgSrc}
-        alt={product.name}
-        />
+        <img src={imgSrc} alt={product.name} />
       </div>
       <div className="product-info">
         <h3>{product.name}</h3>
@@ -60,12 +63,13 @@ const ProductHeader = ({
       <div className="header-text">
         <h1>Produk Hardware</h1>
         <p>
-          Temukan berbagai pilihan Hardware dengan spesifikasi terbaik yang sesuai dengan kebutuhan perusahaan Anda.
+          Temukan berbagai pilihan Hardware dengan spesifikasi terbaik yang
+          sesuai dengan kebutuhan perusahaan Anda.
         </p>
       </div>
 
       <div className="search-filter-bar">
-        <h5 style={{marginRight: "10px",color: "#1434a4"}}>Cari:</h5>
+        <h5 style={{ marginRight: "10px", color: "#1434a4" }}>Cari:</h5>
         <input
           type="text"
           placeholder="Cari barang..."
@@ -80,7 +84,9 @@ const ProductHeader = ({
         >
           <option value="">Semua Merek</option>
           {brandOptions.map((brand, idx) => (
-            <option key={idx} value={brand}>{brand}</option>
+            <option key={idx} value={brand}>
+              {brand}
+            </option>
           ))}
         </select>
       </div>
@@ -112,17 +118,23 @@ const HardwareModal = ({ product, isOpen, onClose }) => {
             <p className="product-description">{product.description}</p>
             <div className="modal-actions">
               <div className="contact-options">
-                <a 
+                <a
                   className="contact-button"
                   href={`https://wa.me/6285545031039?text=${encodeURIComponent(`Saya berminat pada unit produk ${product.name} untuk perusahaan saya. Bisa diskusi untuk produknya?`)}`}
                 >
-                  <MessageCircle className="chat-icon"/> 
+                  <MessageCircle className="chat-icon" />
                   Hubungi Kami
                 </a>
               </div>
               <div className="extra-info">
-                <p><strong>✨ Penawaran spesial:</strong> Gratis konsultasi dan bantuan instalasi produk.</p>
-                <p><strong>🚚 Pesan Antar:</strong> Tersedia antar barang untuk Jakarta dan Sekitarnya</p>
+                <p>
+                  <strong>✨ Penawaran spesial:</strong> Gratis konsultasi dan
+                  bantuan instalasi produk.
+                </p>
+                <p>
+                  <strong>🚚 Pesan Antar:</strong> Tersedia antar barang untuk
+                  Jakarta dan Sekitarnya
+                </p>
               </div>
             </div>
           </div>
@@ -133,8 +145,8 @@ const HardwareModal = ({ product, isOpen, onClose }) => {
 };
 
 const Hardware = () => {
-  const [selectedBrand, setSelectedBrand] = useState('');
-  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedBrand, setSelectedBrand] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
   const [products, setProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
 
@@ -142,9 +154,11 @@ const Hardware = () => {
     setProducts(produkData.sort((a, b) => a.name.localeCompare(b.name)));
   }, []);
 
-  const filteredProducts = products.filter(product => {
+  const filteredProducts = products.filter((product) => {
     const brandMatch = !selectedBrand || product.brand === selectedBrand;
-    const nameMatch = !searchQuery || product.name.toLowerCase().includes(searchQuery.toLowerCase());
+    const nameMatch =
+      !searchQuery ||
+      product.name.toLowerCase().includes(searchQuery.toLowerCase());
     return brandMatch && nameMatch;
   });
 
@@ -156,11 +170,16 @@ const Hardware = () => {
         onSearchChange={(e) => setSearchQuery(e.target.value)}
         selectedBrand={selectedBrand}
         onBrandChange={(e) => setSelectedBrand(e.target.value)}
-        brandOptions={[...new Set(products.map(p => p.brand))].sort()}/>
+        brandOptions={[...new Set(products.map((p) => p.brand))].sort()}
+      />
 
-      <div className="product-grid" style={{ marginTop: '30px' }}>
-        {filteredProducts.map(product => (
-          <HardwareCard key={product.name} product={product} onViewDetails={setSelectedProduct} />
+      <div className="product-grid" style={{ marginTop: "30px" }}>
+        {filteredProducts.map((product) => (
+          <HardwareCard
+            key={product.name}
+            product={product}
+            onViewDetails={setSelectedProduct}
+          />
         ))}
       </div>
 

@@ -1,5 +1,5 @@
 body {
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
   color: #1434a4;
   height: max-content;
   margin: 0;
@@ -8,7 +8,7 @@ body {
 }
 
 .navbar {
-  background: #EEEDED;
+  background: #eeeded;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -27,7 +27,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%; 
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   gap: 5px;
@@ -72,7 +72,7 @@ body {
 }
 
 .item-navbar:hover {
-  background-color: #EEEDED;
+  background-color: #eeeded;
   cursor: pointer;
 }
 
@@ -120,7 +120,7 @@ body {
   left: 0;
   background-color: white;
   border-radius: 6px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   opacity: 0;
   visibility: hidden;
   transform: translateY(-10px);
@@ -146,7 +146,9 @@ body {
   color: #3d3d3d;
   font-weight: normal;
   display: block;
-  transition: background 0.2s, padding-left 0.2s;
+  transition:
+    background 0.2s,
+    padding-left 0.2s;
   text-decoration: none;
   padding: 0.5rem 1rem;
 }
@@ -198,7 +200,6 @@ body {
   display: none;
 }
 
-
 .menu-button:focus {
   outline: 2px solid #1433a486;
 }
@@ -210,7 +211,6 @@ body {
   }
 }
 
-
 @media (max-width: 831px) {
   .navbar {
     padding: 1px 5px;
@@ -219,25 +219,25 @@ body {
   .logo-with-text {
     margin-left: 10px;
   }
-  
+
   .menu-button {
     display: block;
     margin-left: auto;
   }
-  
+
   .container {
     flex-direction: row;
     align-items: flex-start;
     gap: 3px;
     width: 100%;
   }
-  
+
   .item-navbar {
     padding: 3px 35px;
     font-size: 16px;
     /*margin: 2px 0;*/
   }
-  
+
   .logo-with-text img {
     width: 35px;
     height: 35px;
@@ -256,10 +256,10 @@ body {
     top: 72px;
     right: -10px;
     left: -10px;
-    background: #EEEDED;
+    background: #eeeded;
     flex-direction: column;
-    width: 100%; 
-    height:auto;
+    width: 100%;
+    height: auto;
     border-radius: 5px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     padding: 10px 0;
@@ -287,7 +287,7 @@ body {
   }
 
   .dropdown-menu li {
-    transform: translateX(10px); 
+    transform: translateX(10px);
   }
 }
 
@@ -297,4 +297,3 @@ body {
     display: none;
   }
 }
-
