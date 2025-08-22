@@ -38,7 +38,7 @@ function Footer() {
             <p style={{ fontSize: "11px" }}>
               <i>
                 *Beberapa gambar pada website ini merupakan hasil ilustrasi
-                digital berbasis AI dan digunakan untuk tujuan visualisasi.
+                digital berbasis AI dan digunakan untuk tujuan visualisasi.
               </i>
             </p>
           </div>
@@ -113,7 +113,7 @@ function Footer() {
               </div>
             </a>
             <a
-              href="https://instagram.com/infodutacp.official"
+              href="https://instagram.com/infoduta_computindo"
               className="social-link instagram"
               target="_blank"
               rel="noopener noreferrer"
@@ -130,7 +130,7 @@ function Footer() {
               </div>
               <div className="social-text">
                 <span className="social-name">Instagram</span>
-                <span className="social-username">@infodutacp.official</span>
+                <span className="social-username">@infoduta_computindo</span>
               </div>
             </a>
             <a
@@ -157,7 +157,7 @@ function Footer() {
               </div>
             </a>
             <a
-              href="https://youtube.com/@infodutacp.official"
+              href="https://youtube.com/@infoduta_computindo"
               className="social-link youtube"
               target="_blank"
               rel="noopener noreferrer"
@@ -180,7 +180,7 @@ function Footer() {
               </div>
             </a>
             <a
-              href="https://tiktok.com/@infodutacp.official"
+              href="https://tiktok.com/@infoduta_computind0"
               className="social-link tiktok"
               target="_blank"
               rel="noopener noreferrer"
@@ -197,7 +197,7 @@ function Footer() {
               </div>
               <div className="social-text">
                 <span className="social-name">TikTok</span>
-                <span className="social-username">@infodutacp.official</span>
+                <span className="social-username">@infoduta_computind0</span>
               </div>
             </a>
             <a
@@ -229,8 +229,7 @@ function Footer() {
       <div className="footer-bottom">
         <div className="footer-bottom-content">
           <p className="copyright">
-            &copy; 2025 ICP | Powered by Infoduta Computindo Perkasa. All rights
-            reserved.
+            &copy; 2025 | PT Infoduta Computindo Perkasa
           </p>
           <div className="footer-bottom-links">
             <a href="/layanan">Terms of Service</a>
