@@ -362,5 +362,26 @@
     "type": "External Port",
     "images": "/src/assets/produk/hardware/dell/4.png",
     "description": "Dell Thunderbolt Dock untuk keperluan sambungan koneksi Anda."
+  },
+  {
+    "name": "Projector Infocus IN 114AA",
+    "brand": "Infocus",
+    "type": "Projector",
+    "images": "/src/assets/produk/hardware/infocus/1.png",
+    "description": "Projector Infocus IN 114AA dengan teknologi DLP, resolusi XGA (1024x768), dan kecerahan 3800 lumens. Ideal untuk presentasi di ruang kelas atau ruang rapat kecil hingga sedang."
+  },
+  {
+    "name": "CCTV Ezviz Indoor TY1 PRO",
+    "brand": "Ezviz",
+    "type": "Kamera Pengawas",
+    "images": "/src/assets/produk/hardware/Ezviz/1.png",
+    "description": "Kamera CCTV indoor Ezviz TY1 PRO dengan resolusi 2K, pan & tilt 360°, dan deteksi gerakan cerdas. Dilengkapi dengan fitur pelacakan otomatis, audio dua arah, dan penglihatan malam."
+  },
+  {
+    "name": "Webcam Logitech C270",
+    "brand": "Logitech",
+    "type": "Webcam",
+    "images": "/src/assets/produk/hardware/logitech/0.png",
+    "description": "Webcam Logitech C270 menawarkan video HD 720p pada 30fps. Dilengkapi dengan mikrofon peredam bising, koreksi cahaya otomatis, dan pemasangan universal yang mudah."
   }
 ]

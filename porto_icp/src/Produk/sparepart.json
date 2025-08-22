@@ -35,6 +35,48 @@
     "description": "Supermicro PWS-920P-SQ power supply unit for reliable server power delivery."
   },
   {
+    "name": "HDD Synology HAT3300-12T",
+    "jenis": "Hard Drive",
+    "brand": "Synology",
+    "images": ["/assets/produk/sparepart/synology/4.png"],
+    "description": "Synology HAT3300-12T is a high-capacity 12TB hard drive designed for Synology NAS systems."
+  },
+  {
+    "name": "HDD Seagate Exos X18 16TB",
+    "jenis": "Hard Drive",
+    "brand": "Seagate",
+    "images": ["/assets/produk/sparepart/seagate/4.png"],
+    "description": "Seagate Exos X18 16TB hard drive optimized for enterprise storage solutions."
+  },
+  {
+    "name": "HDD Synology HAT3310-8T",
+    "jenis": "Hard Drive",
+    "brand": "Synology",
+    "images": ["/assets/produk/sparepart/synology/3.png"],
+    "description": "Synology HAT3310-8T adalah hard drive NAS seri Plus 8TB yang dirancang khusus untuk lingkungan Synology NAS, menawarkan keandalan dan kinerja yang konsisten."
+  },
+  {
+    "name": "Seagate IronWolf 10TB NAS Hard Drive (ST10000VN0004)",
+    "jenis": "Hard Drive",
+    "brand": "Seagate",
+    "images": ["/assets/produk/sparepart/seagate/3.png"],
+    "description": "Seagate IronWolf 10TB (ST10000VN0004) adalah hard drive 3.5 inci yang dirancang khusus untuk lingkungan NAS, menawarkan kapasitas besar dan performa 7200RPM untuk alur kerja multi-pengguna yang menuntut."
+  },
+  {
+    "name": "UGreen 50922 USB 3.0 Gigabit Ethernet Adapter",
+    "jenis": "Konektor Jaringan",
+    "brand": "UGreen",
+    "images": ["/assets/produk/sparepart/ugreen/2.png"],
+    "description": "UGreen 50922 adalah adaptor USB 3.0 ke Gigabit Ethernet yang memungkinkan Anda menghubungkan perangkat USB ke jaringan kabel dengan kecepatan 10/100/1000Mbps, ideal untuk laptop tanpa port LAN."
+  },
+  {
+    "name": "UGreen 60718 USB-C Multi-function Hub",
+    "jenis": "Konektor Jaringan dan Hub",
+    "brand": "UGreen",
+    "images": ["/assets/produk/sparepart/ugreen/3.png"],
+    "description": "UGreen 60718 adalah hub multiport USB-C yang dilengkapi dengan port Gigabit Ethernet (RJ45), port USB 3.0, dan output video, menjadikannya solusi multifungsi untuk laptop dengan port USB-C."
+  },
+  {
     "name": "MEMORY 8GB 2RX8 PC3L 12800R",
     "jenis": "Memory",
     "brand": "Micron/Hynix",
