@@ -60,7 +60,7 @@ export default function BioLinks() {
     },
     {
       name: "TikTok",
-      url: "https://tiktok.com/@infoduta_computindo",
+      url: "https://tiktok.com/@infoduta_computind0",
       icon: <FaTiktok />,
       color: "#000000",
     },
