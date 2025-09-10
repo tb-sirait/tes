@@ -12,6 +12,7 @@ import Layanan from "./Layanan/Layanan";
 import Produk from "./Produk/Produk";
 import Tentang from "./Tentang/Tentang";
 import Karir from "./Karir/Karir";
+import BioLinks from "./BioLink/BioLink";
 
 import Computer from "./Produk/Produk_Pages/Computer";
 import Hardware from "./Produk/Produk_Pages/Hardware";
@@ -31,17 +32,15 @@ function TrackVisitorActivity() {
 
   useEffect(() => {
     async function fetchAndPushVisitorData() {
-      // Get current date and time in "DD-MM-YYYY HH:mm:ss" format
       const now = new Date();
       const day = String(now.getDate()).padStart(2, "0");
-      const month = String(now.getMonth() + 1).padStart(2, "0"); // Months are zero-based
+      const month = String(now.getMonth() + 1).padStart(2, "0");
       const year = now.getFullYear();
       const hours = String(now.getHours()).padStart(2, "0");
       const minutes = String(now.getMinutes()).padStart(2, "0");
       const seconds = String(now.getSeconds()).padStart(2, "0");
       const formattedDateTime = `${day}-${month}-${year} ${hours}:${minutes}:${seconds}`;
 
-      // Fetch visitor IP address from public API
       let ipAddress = "unknown";
       try {
         const response = await fetch("https://api.ipify.org?format=json");
@@ -50,7 +49,7 @@ function TrackVisitorActivity() {
           ipAddress = data.ip || "unknown";
         }
       } catch {
-        // Ignore errors and keep ipAddress as "unknown"
+        console.warn("Failed to fetch IP address");
       }
 
       const visitorData = {
@@ -71,25 +70,16 @@ function TrackVisitorActivity() {
   return null;
 }
 
-function App() {
-  useEffect(() => {
-    const visitorCountRef = ref(database, "visitorCount");
-
-    // Increment visitor count once per visit
-    runTransaction(visitorCountRef, (currentCount) => {
-      return (currentCount || 0) + 1;
-    });
-  }, []);
+function AppContent() {
+  const location = useLocation();
 
   return (
-    <Router>
+    <>
       <ScrollToTop />
       <TrackVisitorActivity />
-      <Navbar />
-      {/* Visitor count display hidden as per user request */}
-      {/* <div style={{ position: "fixed", top: 10, right: 10, backgroundColor: "#eee", padding: "5px 10px", borderRadius: "5px", zIndex: 1000 }}>
-        Visitors: {visitorCount}
-      </div> */}
+      {/* Kondisi: Navbar hanya muncul kalau bukan di /telusuri-kami */}
+      {location.pathname !== "/telusuri-kami" && <Navbar />}
+
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/produk" element={<Produk />} />
@@ -103,9 +93,27 @@ function App() {
         <Route path="/smartphone" element={<Smartphone />} />
         <Route path="/laptop" element={<Laptop />} />
         <Route path="/server" element={<Server />} />
+        <Route path="/telusuri-kami" element={<BioLinks />} />
         <Route path="*" element={<Homepage />} />
       </Routes>
+
+      {/* CookieConsent tetap muncul di semua halaman */}
       <CookieConsent />
+    </>
+  );
+}
+
+function App() {
+  useEffect(() => {
+    const visitorCountRef = ref(database, "visitorCount");
+    runTransaction(visitorCountRef, (currentCount) => {
+      return (currentCount || 0) + 1;
+    });
+  }, []);
+
+  return (
+    <Router>
+      <AppContent />
     </Router>
   );
 }

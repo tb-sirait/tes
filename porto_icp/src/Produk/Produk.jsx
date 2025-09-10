@@ -91,10 +91,8 @@ export default function Produk() {
   const [isClosing, setIsClosing] = useState(false);
 
   const closeModal = () => {
-    console.log("closeModal called, starting fade-out animation");
     setIsClosing(true);
     setTimeout(() => {
-      console.log("fade-out animation ended, closing modal");
       setIsModalOpen(false);
       setSelectedProduct(null);
       setIsClosing(false);
@@ -1227,10 +1225,6 @@ export default function Produk() {
           className={`modal-overlay ${isClosing ? "fade-out" : ""}`}
           onClick={closeModal}
         >
-          {console.log(
-            "Rendering modal-overlay with class:",
-            isClosing ? "fade-out" : "none",
-          )}
           <div
             className={`modal-content ${isClosing ? "fade-out" : ""}`}
             onClick={(e) => e.stopPropagation()}
