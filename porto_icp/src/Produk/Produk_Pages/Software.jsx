@@ -70,15 +70,15 @@ const imageMap = {
 
 const ProductCard = ({ product, onViewDetails }) => {
   return (
-    <div className="product-card" onClick={() => onViewDetails(product)}>
-      <div className="product-image">
+    <div className="filter-product-card" onClick={() => onViewDetails(product)}>
+      <div className="filter-product-image">
         <img
           src={product.image || ""}
           alt={product.name}
           style={{ width: "100%", height: "150px", objectFit: "contain" }}
         />
       </div>
-      <div className="product-info">
+      <div className="filter-product-info">
         <h3>{product.name}</h3>
         {product.usage && (
           <p style={{ fontSize: "13px", color: "#f1f2e2" }}>
@@ -96,19 +96,22 @@ const ProductModal = ({ product, isOpen, onClose }) => {
   const imgSrc = product.image || "/api/placeholder/200/150";
 
   return (
-    <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+    <div className="filter-modal-overlay" onClick={onClose}>
+      <div
+        className="filter-modal-content"
+        onClick={(e) => e.stopPropagation()}
+      >
         <button className="close-button" onClick={onClose}>
           <X />
         </button>
-        <div className="modal-body">
-          <div className="modal-image">
+        <div className="filter-modal-body">
+          <div className="filter-modal-image">
             <img src={imgSrc} alt={product.name} />
           </div>
-          <div className="modal-details">
+          <div className="filter-modal-details">
             <h2>{product.name}</h2>
             {product.usage && <p>Penggunaan: {product.usage}</p>}
-            <div className="modal-actions">
+            <div className="filter-modal-actions">
               <a
                 className="contact-button"
                 href={`https://wa.me/6285545031039?text=${encodeURIComponent(`Saya berminat pada unit produk ${product.name} untuk perusahaan saya. Bisa diskusi untuk produknya?`)}`}
@@ -137,7 +140,7 @@ const ProductHeader = ({
   usageOptions,
 }) => {
   return (
-    <div className="product-header">
+    <div className="filter-product-header">
       <div className="header-text">
         <h1>Produk Software</h1>
         <p>
@@ -146,14 +149,14 @@ const ProductHeader = ({
         </p>
       </div>
 
-      <div className="search-filter-bar">
+      <div className="laptop-search-filter-bar">
         <h5 style={{ marginRight: "0px", color: "#1434a4" }}>Cari:</h5>
         <input
           type="text"
           placeholder="Cari software..."
           value={searchQuery}
           onChange={onSearchChange}
-          className="search-input"
+          className="laptop-search-input"
         />
         <select
           value={selectedUsage}
@@ -213,7 +216,7 @@ const Software = () => {
         onUsageChange={(e) => setSelectedUsage(e.target.value)}
         usageOptions={usageOptions}
       />
-      <div className="product-grid" style={{ marginTop: "30px" }}>
+      <div className="filter-product-grid" style={{ marginTop: "30px" }}>
         {filteredProducts.map((product) => (
           <ProductCard
             key={product.name}

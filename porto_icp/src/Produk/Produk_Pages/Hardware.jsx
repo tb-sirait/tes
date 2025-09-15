@@ -36,13 +36,13 @@ const HardwareCard = ({ product, onViewDetails }) => {
   const imgSrc = getImageUrl(product.images);
 
   return (
-    <div className="product-card" onClick={() => onViewDetails(product)}>
-      <div className="product-image">
+    <div className="filter-product-card" onClick={() => onViewDetails(product)}>
+      <div className="filter-product-image">
         <img src={imgSrc} alt={product.name} />
       </div>
-      <div className="product-info">
+      <div className="filter-product-info">
         <h3>{product.name}</h3>
-        <div className="product-meta">
+        <div className="filter-product-meta">
           <span className="brand">{product.brand}</span>
           <span className="type">{product.type}</span>
         </div>
@@ -59,7 +59,7 @@ const ProductHeader = ({
   brandOptions,
 }) => {
   return (
-    <div className="product-header">
+    <div className="filter-product-header">
       <div className="header-text">
         <h1>Produk Hardware</h1>
         <p>
@@ -68,14 +68,14 @@ const ProductHeader = ({
         </p>
       </div>
 
-      <div className="search-filter-bar">
+      <div className="laptop-search-filter-bar">
         <h5 style={{ marginRight: "10px", color: "#1434a4" }}>Cari:</h5>
         <input
           type="text"
           placeholder="Cari barang..."
           value={searchQuery}
           onChange={onSearchChange}
-          className="search-input"
+          className="laptop-search-input"
         />
         <select
           value={selectedBrand}
@@ -99,24 +99,27 @@ const HardwareModal = ({ product, isOpen, onClose }) => {
   const imgSrc = getImageUrl(product.images);
 
   return (
-    <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+    <div className="filter-modal-overlay" onClick={onClose}>
+      <div
+        className="filter-modal-content"
+        onClick={(e) => e.stopPropagation()}
+      >
         <button className="close-button" onClick={onClose}>
           <X />
         </button>
-        <div className="modal-body">
-          <div className="modal-image">
+        <div className="filter-modal-body">
+          <div className="filter-modal-image">
             <img src={imgSrc} alt={product.name} />
           </div>
-          <div className="modal-details">
+          <div className="filter-modal-details">
             <h2>{product.name}</h2>
             <div className="meta">
               <span className="brand-tag">{product.brand}</span>
               <span> | </span>
               <span className="type-tag">{product.type}</span>
             </div>
-            <p className="product-description">{product.description}</p>
-            <div className="modal-actions">
+            <p className="filter-product-description">{product.description}</p>
+            <div className="filter-modal-actions">
               <div className="contact-options">
                 <a
                   className="contact-button"
@@ -173,7 +176,7 @@ const Hardware = () => {
         brandOptions={[...new Set(products.map((p) => p.brand))].sort()}
       />
 
-      <div className="product-grid" style={{ marginTop: "30px" }}>
+      <div className="filter-product-grid" style={{ marginTop: "30px" }}>
         {filteredProducts.map((product) => (
           <HardwareCard
             key={product.name}

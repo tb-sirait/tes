@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
+
 import Navbar from "../Navigation/Navbar";
 import Footer from "../Navigation/footer";
 import produkData from "./produk.json";
@@ -59,15 +60,22 @@ export default function Produk() {
     }));
   }
 
-  const products = importImagesFromJson(produkData);
+  // simpan hasil import sekali saja
+  const products = useMemo(() => importImagesFromJson(produkData), []);
 
-  const filteredProducts = products.filter((product) => {
-    const matchesBrand = !selectedBrand || product.brand === selectedBrand;
-    const matchesSearch = product.name
-      .toLowerCase()
-      .includes(searchQuery.toLowerCase());
-    return matchesBrand && matchesSearch;
-  });
+  const [filteredProducts, setFilteredProducts] = useState(products);
+
+  const handleSearchSubmit = (e) => {
+    e.preventDefault(); // cegah reload halaman
+    const results = products.filter((product) => {
+      const matchesBrand = !selectedBrand || product.brand === selectedBrand;
+      const matchesSearch = product.name
+        .toLowerCase()
+        .includes(searchQuery.toLowerCase());
+      return matchesBrand && matchesSearch;
+    });
+    setFilteredProducts(results);
+  };
 
   const brands = [
     { name: "Dell", logo: DellLogoWhite },
@@ -154,48 +162,52 @@ export default function Produk() {
     selectedBrand,
     onBrandChange,
     brandOptions,
+    onSearchSubmit,
   }) => {
     return (
-      <>
-        <div className="header-product">
-          <div className="header-content">
-            <div className="header-text">
-              <h1>Produk</h1>
-              <p>
-                Temukan berbagai pilihan Komputer, Laptop, Smartphone, dan
-                berbagai barang IT lainnya dengan spesifikasi terbaik yang
-                sesuai dengan kebutuhan perusahaan Anda.
-              </p>
-            </div>
-
-            <div className="search-filter-container">
-              <div className="search-wrapper">
-                <FaSearch className="search-icon" />
-                <input
-                  type="text"
-                  placeholder="Cari produk yang Anda butuhkan..."
-                  value={searchQuery}
-                  onChange={onSearchChange}
-                  className="search-input"
-                />
-              </div>
-
-              <select
-                value={selectedBrand}
-                onChange={onBrandChange}
-                className="brand-select"
-              >
-                <option value="">🏷️ Semua Merek</option>
-                {brandOptions.map((brand, idx) => (
-                  <option key={idx} value={brand}>
-                    {brand}
-                  </option>
-                ))}
-              </select>
-            </div>
+      <div className="header-product">
+        <div className="header-content">
+          <div className="header-text">
+            <h1>Produk</h1>
+            <p>
+              Temukan berbagai pilihan Komputer, Laptop, Smartphone, dan
+              berbagai barang IT lainnya dengan spesifikasi terbaik yang sesuai
+              dengan kebutuhan perusahaan Anda.
+            </p>
           </div>
+
+          {/* Form Search */}
+          <form onSubmit={onSearchSubmit} className="search-filter-container">
+            <div className="search-wrapper">
+              <FaSearch className="search-icon" />
+              <input
+                type="text"
+                placeholder="Cari produk yang Anda butuhkan..."
+                value={searchQuery}
+                onChange={onSearchChange}
+                className="search-input"
+              />
+            </div>
+
+            <select
+              value={selectedBrand}
+              onChange={onBrandChange}
+              className="brand-select"
+            >
+              <option value="">🏷️ Semua Merek</option>
+              {brandOptions.map((brand, idx) => (
+                <option key={idx} value={brand}>
+                  {brand}
+                </option>
+              ))}
+            </select>
+
+            <button type="submit" className="btn-search">
+              Cari
+            </button>
+          </form>
         </div>
-      </>
+      </div>
     );
   };
 
@@ -210,6 +222,7 @@ export default function Produk() {
             selectedBrand={selectedBrand}
             onBrandChange={(e) => setSelectedBrand(e.target.value)}
             brandOptions={brands.map((brand) => brand.name)}
+            onSearchSubmit={handleSearchSubmit}
           />
 
           <h2 className="product-section-title">
@@ -385,7 +398,7 @@ export default function Produk() {
           >
             <div className="closeModalButton">
               {isMobile && (
-                <button className="close-button" onClick={closeModal}>
+                <button className="product-close-button" onClick={closeModal}>
                   <X />
                 </button>
               )}
