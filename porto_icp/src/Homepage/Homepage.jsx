@@ -463,9 +463,9 @@ function Homepage() {
       {/* Hero Section */}
       <section style={styles.heroSection}>
         <img
-          alt="Modern office building representing our company headquarters"
+          alt="HR Building Wahid Hasyim"
           style={styles.heroImage}
-          src={KantorImage}
+          src={KantorImage} 
         />
         <div style={styles.heroOverlay}></div>
 
