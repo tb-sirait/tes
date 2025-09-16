@@ -5,6 +5,8 @@ import { X, MessageCircle } from "lucide-react";
 import Navbar from "../../Navigation/Navbar.jsx";
 import Footer from "../../Navigation/footer.jsx";
 
+import { useNavigate, useParams } from "react-router-dom";
+
 // Dynamically import all images from assets folder using Vite's import.meta.glob
 const images = import.meta.glob(
   "../../assets/produk/sparepart/**/*.{png,jpg,jpeg,svg}",
@@ -27,12 +29,6 @@ const getImageUrl = (imagePath) => {
 };
 
 const ProductCard = ({ product, onViewDetails }) => {
-  console.log(
-    "ProductCard product.images:",
-    product.images,
-    "product.images[0]:",
-    product.images && product.images.length > 0 ? product.images[0] : null,
-  );
   const imgSrc = getImageUrl(
     product.images && product.images.length > 0 ? product.images[0] : "",
   );
@@ -54,6 +50,28 @@ const ProductCard = ({ product, onViewDetails }) => {
 };
 
 const ProductModal = ({ product, isOpen, onClose }) => {
+  useEffect(() => {
+      const handleEsc = (event) => {
+        if (event.key === "Escape") {
+          onClose();
+        }
+      };
+      window.addEventListener("keydown", handleEsc);
+      return () => {
+        window.removeEventListener("keydown", handleEsc);
+      };
+    }, [onClose]);
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isOpen]);
+
   if (!isOpen || !product) return null;
 
   // Use getImageUrl to get image src instead of imageMap which is undefined
@@ -159,6 +177,8 @@ const Sparepart = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [products, setProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const navigate = useNavigate();
+  const { id } = useParams();
 
   useEffect(() => {
     const sparepartProducts = produkData.sort((a, b) =>
@@ -166,6 +186,29 @@ const Sparepart = () => {
     );
     setProducts(sparepartProducts);
   }, []);
+
+  const handleOpenModal = (product) => {
+    setSelectedProduct(product);
+    navigate(`/produk/sparepart/${product.id}`);
+  }
+
+  const handleCloseModal = () => {
+    setSelectedProduct(null);
+    navigate("/produk/sparepart");
+  };
+
+  useEffect(() => {
+    if (id && products.length > 0) {
+      const prod = products.find((p) => p.id === parseInt(id));
+      if (prod) {
+        setSelectedProduct(prod);
+      } else {
+        setSelectedProduct(null);
+      }
+    } else {
+      setSelectedProduct(null);
+    }
+  }, [id, products]);
 
   const filteredProducts = products.filter((product) => {
     const brandMatch = !selectedBrand || product.brand === selectedBrand;
@@ -191,7 +234,7 @@ const Sparepart = () => {
           <ProductCard
             key={product.name}
             product={product}
-            onViewDetails={setSelectedProduct}
+            onViewDetails={handleOpenModal}
           />
         ))}
       </div>
@@ -199,7 +242,7 @@ const Sparepart = () => {
       <ProductModal
         product={selectedProduct}
         isOpen={!!selectedProduct}
-        onClose={() => setSelectedProduct(null)}
+        onClose={handleCloseModal}
       />
 
       <Footer />

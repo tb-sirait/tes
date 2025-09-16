@@ -1,5 +1,6 @@
 [
   {
+    "id": 1,
     "name": "Nvidia A100 80GB PCIE",
     "jenis": "GPU",
     "brand": "NVIDIA",
@@ -7,6 +8,7 @@
     "description": "High-performance Nvidia A100 80GB PCIe GPU designed for AI and HPC workloads."
   },
   {
+    "id": 2,
     "name": "Nvidia Tesla V100 32GB PCIe 3.0 GPU",
     "jenis": "GPU",
     "brand": "NVIDIA",
@@ -14,6 +16,7 @@
     "description": "Nvidia Tesla V100 32GB PCIe GPU optimized for deep learning and scientific computing."
   },
   {
+    "id": 3,
     "name": "NVIDIA L40S Passive PCIE 48GB",
     "jenis": "GPU",
     "brand": "NVIDIA",
@@ -21,6 +24,7 @@
     "description": "NVIDIA L40S Passive PCIe 48GB GPU suitable for professional visualization and AI."
   },
   {
+    "id": 4,
     "name": "BACKPLANE DAUGHTER CARD BPN-SAS3-216EL (Brand Supermicro)",
     "jenis": "Backplane",
     "brand": "Supermicro",
@@ -28,6 +32,7 @@
     "description": "Supermicro backplane daughter card BPN-SAS3-216EL for SAS3 storage expansion."
   },
   {
+    "id": 5,
     "name": "POWER SUPPLY PWS-920P-SQ",
     "jenis": "Power Supply",
     "brand": "Supermicro",
@@ -35,6 +40,7 @@
     "description": "Supermicro PWS-920P-SQ power supply unit for reliable server power delivery."
   },
   {
+    "id": 6,
     "name": "HDD Synology HAT3300-12T",
     "jenis": "Hard Drive",
     "brand": "Synology",
@@ -42,6 +48,7 @@
     "description": "Synology HAT3300-12T is a high-capacity 12TB hard drive designed for Synology NAS systems."
   },
   {
+    "id": 7,
     "name": "HDD Seagate Exos X18 16TB",
     "jenis": "Hard Drive",
     "brand": "Seagate",
@@ -49,6 +56,7 @@
     "description": "Seagate Exos X18 16TB hard drive optimized for enterprise storage solutions."
   },
   {
+    "id": 8,
     "name": "HDD Synology HAT3310-8T",
     "jenis": "Hard Drive",
     "brand": "Synology",
@@ -56,6 +64,7 @@
     "description": "Synology HAT3310-8T adalah hard drive NAS seri Plus 8TB yang dirancang khusus untuk lingkungan Synology NAS, menawarkan keandalan dan kinerja yang konsisten."
   },
   {
+    "id": 9,
     "name": "Seagate IronWolf 10TB NAS Hard Drive (ST10000VN0004)",
     "jenis": "Hard Drive",
     "brand": "Seagate",
@@ -63,6 +72,7 @@
     "description": "Seagate IronWolf 10TB (ST10000VN0004) adalah hard drive 3.5 inci yang dirancang khusus untuk lingkungan NAS, menawarkan kapasitas besar dan performa 7200RPM untuk alur kerja multi-pengguna yang menuntut."
   },
   {
+    "id": 10,
     "name": "UGreen 50922 USB 3.0 Gigabit Ethernet Adapter",
     "jenis": "Konektor Jaringan",
     "brand": "UGreen",
@@ -70,6 +80,7 @@
     "description": "UGreen 50922 adalah adaptor USB 3.0 ke Gigabit Ethernet yang memungkinkan Anda menghubungkan perangkat USB ke jaringan kabel dengan kecepatan 10/100/1000Mbps, ideal untuk laptop tanpa port LAN."
   },
   {
+    "id": 11,
     "name": "UGreen 60718 USB-C Multi-function Hub",
     "jenis": "Konektor Jaringan dan Hub",
     "brand": "UGreen",
@@ -77,6 +88,7 @@
     "description": "UGreen 60718 adalah hub multiport USB-C yang dilengkapi dengan port Gigabit Ethernet (RJ45), port USB 3.0, dan output video, menjadikannya solusi multifungsi untuk laptop dengan port USB-C."
   },
   {
+    "id": 12,
     "name": "MEMORY 8GB 2RX8 PC3L 12800R",
     "jenis": "Memory",
     "brand": "Micron/Hynix",
@@ -84,6 +96,7 @@
     "description": "8GB DDR3L 12800R registered memory module from Micron/Hynix for server applications."
   },
   {
+    "id": 13,
     "name": "SUPERMICRO SAS2-216EL SAS DAUGHTER CARD 2PORT EXPANDER FOR SAS2-216EB BACKPLANE",
     "jenis": "Expander Card",
     "brand": "Supermicro",
@@ -91,6 +104,7 @@
     "description": "Supermicro SAS2-216EL SAS daughter card 2-port expander for SAS2-216EB backplane."
   },
   {
+    "id": 14,
     "name": "SUPERMICRO X9DRi-LN4F+REV 1.20A System board",
     "jenis": "System Board",
     "brand": "Supermicro",
@@ -98,6 +112,7 @@
     "description": "Supermicro X9DRi-LN4F+REV 1.20A system board for high-performance server builds."
   },
   {
+    "id": 15,
     "name": "Motherboard Gigabyte H610MK DDR4 Socket LGA 1700",
     "jenis": "Motherboard",
     "brand": "Gigabyte",
@@ -105,6 +120,7 @@
     "description": "Gigabyte H610MK DDR4 motherboard with LGA 1700 socket for Intel processors."
   },
   {
+    "id": 16,
     "name": "Processor Intel Core i5-12400 LGA 1700",
     "jenis": "Processor",
     "brand": "Intel",
@@ -112,6 +128,7 @@
     "description": "Intel Core i5-12400 processor with LGA 1700 socket, suitable for mid-range desktops."
   },
   {
+    "id": 17,
     "name": "Memory RAM V-GEN Longdimm Platinum 8GB DDR4 2666Mhz (PC-21300)",
     "jenis": "Memory",
     "brand": "V-GEN",
@@ -119,6 +136,7 @@
     "description": "V-GEN Longdimm Platinum 8GB DDR4 2666MHz RAM module for desktop and server use."
   },
   {
+    "id": 18,
     "name": "Modem orbit Telkomsel Orbit 5G Z1 Modem WiFi 5G",
     "jenis": "Modem",
     "brand": "Telkomsel",
@@ -126,6 +144,7 @@
     "description": "Telkomsel Orbit 5G Z1 modem providing high-speed 5G WiFi connectivity."
   },
   {
+    "id": 19,
     "name": "Samsung SSD NVME PM9A1 512GB",
     "jenis": "Storage",
     "brand": "Samsung",
@@ -133,6 +152,7 @@
     "description": "Samsung PM9A1 512GB NVMe SSD offering fast storage performance."
   },
   {
+    "id": 20,
     "name": "UGREEN Kabel HDMI To VGA Converter",
     "jenis": "Cable/Converter",
     "brand": "UGREEN",
@@ -140,6 +160,7 @@
     "description": "UGREEN HDMI to VGA converter cable for connecting HDMI devices to VGA displays."
   },
   {
+    "id": 21,
     "name": "CABLE UTP 1000FT/ROLL CAT5E BELDEN 1583A",
     "jenis": "Cable",
     "brand": "Belden",
@@ -147,6 +168,7 @@
     "description": "Belden CAT5E UTP cable, 1000 feet per roll, suitable for network installations."
   },
   {
+    "id": 22,
     "name": "Mikrotik RB750GR3",
     "jenis": "Router",
     "brand": "Mikrotik",
@@ -154,6 +176,7 @@
     "description": "Mikrotik RB750GR3 router offering reliable and flexible networking solutions."
   },
   {
+    "id": 23,
     "name": "Dlink DGS 1016D/C",
     "jenis": "Switch",
     "brand": "Dlink",
@@ -161,6 +184,7 @@
     "description": "Dlink DGS 1016D/C switch with 16 ports for efficient network management."
   },
   {
+    "id": 24,
     "name": "Ruijie RG-EW1200G PRO",
     "jenis": "Router",
     "brand": "Ruijie",
@@ -168,6 +192,7 @@
     "description": "Ruijie RG-EW1200G PRO router designed for high-performance wireless networking."
   },
   {
+    "id": 25,
     "name": "USB Flash Drives SDCZ50-032G-B35 SanDisk Cruzer Blade USB Flash Drive 32GB 2.0",
     "jenis": "USB Flash Drive",
     "brand": "SanDisk",
@@ -175,6 +200,7 @@
     "description": "SanDisk Cruzer Blade 32GB USB 2.0 flash drive for portable data storage."
   },
   {
+    "id": 26,
     "name": "USB Flash Drives SDCZ50-064G-B35 SanDisk Cruzer Blade USB Flash Drive 64GB 2.0",
     "jenis": "USB Flash Drive",
     "brand": "SanDisk",
@@ -182,6 +208,7 @@
     "description": "SanDisk Cruzer Blade 64GB USB 2.0 flash drive for reliable portable storage."
   },
   {
+    "id": 27,
     "name": "Kabel HDMI Vention B02 5m High Speed 4K FHD 1080p 3D HDR - B02  (HDMI Male to Male Cable)",
     "jenis": "Cable",
     "brand": "Vention",
@@ -189,6 +216,7 @@
     "description": "Vention B02 5m high-speed HDMI male-to-male cable supporting 4K and HDR."
   },
   {
+    "id": 28,
     "name": "Tape Cartridge 38L7302 ULTRIUM LTO 7",
     "jenis": "Data Storage",
     "brand": "IBM",
@@ -196,6 +224,7 @@
     "description": "IBM ULTRIUM LTO 7 tape cartridge 38L7302 for high-capacity data storage."
   },
   {
+    "id": 29,
     "name": "RJ45 Comscope CAT6",
     "jenis": "LAN",
     "brand": "Comscope",
@@ -203,6 +232,7 @@
     "description": "Comscope CAT6 RJ45 connectors for high-speed network connections."
   },
   {
+    "id": 30,
     "name": "ATEN UC232A",
     "jenis": "Kabel",
     "brand": "ATEN",
@@ -210,6 +240,7 @@
     "description": "ATEN UC232A USB cable for reliable and high-speed data transfer."
   },
   {
+    "id": 31,
     "name": "Telkomsel Orbit Max H2 Modem WiFi 4G",
     "jenis": "Modem",
     "brand": "Telkomsel",
@@ -217,6 +248,7 @@
     "description": "Telkomsel Orbit 5G Z1 modem providing high-speed 4G WiFi connectivity."
   },
   {
+    "id": 32,
     "name": "Prolink DL-7303 4G+ Cat6 Fixed Wi-Fi Router",
     "jenis": "Router",
     "brand": "Prolink",

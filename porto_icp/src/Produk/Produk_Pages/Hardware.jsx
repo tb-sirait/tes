@@ -6,6 +6,8 @@ import "./Laptop.css";
 import Navbar from "../../Navigation/Navbar.jsx";
 import Footer from "../../Navigation/footer.jsx";
 
+import { useNavigate, useParams } from "react-router-dom";
+
 // Dynamically import all images from assets folder using Vite's import.meta.glob
 const images = import.meta.glob(
   "../../assets/produk/hardware/**/*.{png,jpg,jpeg,svg}",
@@ -95,7 +97,30 @@ const ProductHeader = ({
 };
 
 const HardwareModal = ({ product, isOpen, onClose }) => {
-  if (!isOpen || !product) return null;
+  useEffect(() => {
+      const handleEsc = (event) => {
+        if (event.key === "Escape") {
+          onClose();
+        }
+      };
+      window.addEventListener("keydown", handleEsc);
+      return () => {
+        window.removeEventListener("keydown", handleEsc);
+      };
+    }, [onClose]);
+  useEffect(() => {
+      if (isOpen) {
+        document.documentElement.style.overflow = "hidden"; // kunci scroll
+      } else {
+        document.documentElement.style.overflow = "auto"; // hidupkan lagi
+      }
+  
+      return () => {
+        document.documentElement.style.overflow = "auto"; // cleanup
+      };
+    }, [isOpen]);
+  
+    if (!isOpen) return null;
   const imgSrc = getImageUrl(product.images);
 
   return (
@@ -152,6 +177,19 @@ const Hardware = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [products, setProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const navigate = useNavigate();
+
+  const handleOpenModal = (product) => {
+    setSelectedProduct(product);
+    // Update URL tanpa reload halaman
+    navigate(`/produk/hardware/${product.brand}/${product.id}`);
+  };
+  
+  const handleCloseModal = () => { 
+    setSelectedProduct(null);
+    // Kembalikan URL ke /produk tanpa reload halaman
+    navigate('/produk/hardware');
+  };
 
   useEffect(() => {
     setProducts(produkData.sort((a, b) => a.name.localeCompare(b.name)));
@@ -164,6 +202,20 @@ const Hardware = () => {
       product.name.toLowerCase().includes(searchQuery.toLowerCase());
     return brandMatch && nameMatch;
   });
+
+  const { id } = useParams();
+
+useEffect(() => {
+  if (id && products.length > 0) {
+    const found = products.find((p) => String(p.id) === id);
+    if (found) {
+      setSelectedProduct(found);
+    }
+  } else {
+    setSelectedProduct(null);
+  }
+}, [id, products]);
+
 
   return (
     <div className="laptop-page">
@@ -181,7 +233,7 @@ const Hardware = () => {
           <HardwareCard
             key={product.name}
             product={product}
-            onViewDetails={setSelectedProduct}
+            onViewDetails={handleOpenModal}
           />
         ))}
       </div>
@@ -189,7 +241,7 @@ const Hardware = () => {
       <HardwareModal
         product={selectedProduct}
         isOpen={!!selectedProduct}
-        onClose={() => setSelectedProduct(null)}
+        onClose={handleCloseModal}
       />
 
       <Footer />

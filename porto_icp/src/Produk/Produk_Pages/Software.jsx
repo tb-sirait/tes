@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import softwareData from "../software.json";
 import "./Laptop.css";
 import { Search, X, MessageCircle } from "lucide-react";
+import { useNavigate, useParams } from "react-router-dom";
 import "./Laptop.css";
 import Navbar from "../../Navigation/Navbar.jsx";
 import Footer from "../../Navigation/footer.jsx";
@@ -91,6 +92,29 @@ const ProductCard = ({ product, onViewDetails }) => {
 };
 
 const ProductModal = ({ product, isOpen, onClose }) => {
+  useEffect(() => {
+    const handleEsc = (event) => {
+      if (event.key === "Escape") {
+        onClose();
+      }
+    };
+    window.addEventListener("keydown", handleEsc);
+    return () => {
+      window.removeEventListener("keydown", handleEsc);
+    };
+  }, [onClose]);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isOpen]);
+
   if (!isOpen || !product) return null;
 
   const imgSrc = product.image || "/api/placeholder/200/150";
@@ -180,6 +204,18 @@ const Software = () => {
   const [products, setProducts] = useState([]);
   const [selectedUsage, setSelectedUsage] = useState("");
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const navigate = useNavigate();
+  const { id } = useParams();
+
+  const handleOpenModal = (product) => {
+    setSelectedProduct(product);
+    navigate(`/produk/software/${product.id}`);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedProduct(null);
+    navigate("/produk/software");
+  };
 
   useEffect(() => {
     const sortedProducts = softwareData.sort((a, b) =>
@@ -206,6 +242,15 @@ const Software = () => {
     return matchesSearch && matchesUsage;
   });
 
+  useEffect(() => {
+    if (id && products.length > 0) {
+      const found = products.find((p) => String(p.id) === id);
+      if (found) {
+        setSelectedProduct(found);
+      }
+    }
+  }, [id, products]);
+
   return (
     <div className="laptop-page">
       <Navbar />
@@ -221,7 +266,7 @@ const Software = () => {
           <ProductCard
             key={product.name}
             product={product}
-            onViewDetails={setSelectedProduct}
+            onViewDetails={handleOpenModal}
           />
         ))}
       </div>
@@ -229,7 +274,7 @@ const Software = () => {
       <ProductModal
         product={selectedProduct}
         isOpen={!!selectedProduct}
-        onClose={() => setSelectedProduct(null)}
+        onClose={handleCloseModal}
       />
       <Footer />
     </div>

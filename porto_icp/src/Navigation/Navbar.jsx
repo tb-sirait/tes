@@ -65,25 +65,25 @@ function Navbar() {
               </a>
               <ul className={`dropdown-menu ${dropdownVisible ? "show" : ""}`}>
                 <li>
-                  <a href="/software">Software</a>
+                  <a href="/produk/software">Software</a>
                 </li>
                 <li>
-                  <a href="/hardware">Hardware</a>
+                  <a href="/produk/hardware">Hardware</a>
                 </li>
                 <li>
-                  <a href="/sparepart">Sparepart</a>
+                  <a href="/produk/sparepart">Sparepart</a>
                 </li>
                 <li>
-                  <a href="/Computer">Komputer</a>
+                  <a href="/produk/Computer">Komputer</a>
                 </li>
                 <li>
-                  <a href="/laptop">Laptop</a>
+                  <a href="/produk/laptop">Laptop</a>
                 </li>
                 <li>
-                  <a href="/smartphone">Smartphone</a>
+                  <a href="/produk/smartphone">Smartphone</a>
                 </li>
                 <li>
-                  <a href="/server">Server</a>
+                  <a href="/produk/server">Server</a>
                 </li>
               </ul>
             </li>

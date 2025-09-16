@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route, useNavigate, useParams } from "react-router-dom";
 import produkData from "../produk.json";
 import "./Laptop.css";
 import {
@@ -121,14 +122,14 @@ const ProductHeader = ({
         </p>
       </div>
 
-      <div className="search-filter-bar">
+      <div className="laptop-search-filter-bar">
         <h5 style={{ marginRight: "10px", color: "#1434a4" }}>Cari:</h5>
         <input
           type="text"
           placeholder="Cari barang..."
           value={searchQuery}
           onChange={onSearchChange}
-          className="search-input"
+          className="laptop-search-input"
         />
         <select
           value={selectedBrand}
@@ -149,8 +150,30 @@ const ProductHeader = ({
 
 const ProductModal = ({ product, isOpen, onClose }) => {
   const [imgError, setImgError] = React.useState(false);
+  useEffect(() => {
+      const handleEsc = (event) => {
+        if (event.key === "Escape") {
+          onClose();
+        }
+      };
+      window.addEventListener("keydown", handleEsc);
+      return () => {
+        window.removeEventListener("keydown", handleEsc);
+      };
+    }, [onClose]);
+  useEffect(() => {
+    if (isOpen) {
+      document.documentElement.style.overflow = "hidden"; // kunci scroll
+    } else {
+      document.documentElement.style.overflow = "auto"; // hidupkan lagi
+    }
 
-  if (!isOpen || !product) return null;
+    return () => {
+      document.documentElement.style.overflow = "auto"; // cleanup
+    };
+  }, [isOpen]);
+
+  if (!isOpen) return null;
 
   // Use first image path from product.images to get image src from imageMap
   const firstImagePath =
@@ -251,7 +274,9 @@ const Computer = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [products, setProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
-  // const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const navigate = useNavigate();
+  const { id } = useParams();      // <-- ambil param dari URL
 
   useEffect(() => {
     const pcProducts = produkData
@@ -260,6 +285,16 @@ const Computer = () => {
     setProducts(pcProducts);
   }, []);
 
+  // kalau ada params, buka modal produk sesuai id
+  useEffect(() => {
+    if (id && products.length > 0) {
+      const found = products.find((p) => String(p.id) === id);
+      if (found) {
+        setSelectedProduct(found);
+      }
+    }
+  }, [id, products]);
+
   const filteredProducts = products.filter((product) => {
     const brandMatch = !selectedBrand || product.brand === selectedBrand;
     const nameMatch =
@@ -267,6 +302,16 @@ const Computer = () => {
       product.name.toLowerCase().includes(searchQuery.toLowerCase());
     return brandMatch && nameMatch;
   });
+
+  const handleOpenModal = (product) => {
+    setSelectedProduct(product);
+    navigate(`/produk/computer/${product.brand}/${product.id}`); // <-- update URL
+  };
+
+  const handleCloseModal = () => {
+    setSelectedProduct(null);
+    navigate("/produk/computer"); // <-- reset URL ke /computer
+  };
 
   return (
     <div className="laptop-page">
@@ -284,7 +329,7 @@ const Computer = () => {
           <ProductCard
             key={product.name}
             product={product}
-            onViewDetails={setSelectedProduct}
+            onViewDetails={handleOpenModal}
           />
         ))}
       </div>
@@ -292,7 +337,7 @@ const Computer = () => {
       <ProductModal
         product={selectedProduct}
         isOpen={!!selectedProduct}
-        onClose={() => setSelectedProduct(null)}
+        onClose={handleCloseModal}
       />
 
       <Footer />

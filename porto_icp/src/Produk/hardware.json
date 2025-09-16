@@ -1,5 +1,6 @@
 [
   {
+    "id": 1,
     "name": "Toner HP 119 A Black",
     "brand": "HP",
     "type": "Tinta & Toner",
@@ -7,6 +8,7 @@
     "description": "Toner hitam berkualitas tinggi untuk printer HP 119 A. Cocok untuk printer tipe: HP Color Laser 150a, HP Color Laser 150nw, HP Color Laser MFP 178nw, HP Color Laser 179nw, HP Color Laser MFP 178nwg, HP Color Laser MFP 179fnw, dan HP Color Laser MFP 179fwg."
   },
   {
+    "id": 2,
     "name": "Toner HP 119 A Cyan",
     "brand": "HP",
     "type": "Tinta & Toner",
@@ -14,6 +16,7 @@
     "description": "Toner cyan untuk printer HP Color Laser 150a, HP Color Laser 150nw, HP Color Laser MFP 178nw, HP Color Laser 179nw, HP Color Laser MFP 178nwg, HP Color Laser MFP 179fnw, dan HP Color Laser MFP 179fwg, menghasilkan warna yang cerah dan akurat."
   },
   {
+    "id": 3,
     "name": "Toner HP 119 A Magenta",
     "brand": "HP",
     "type": "Tinta & Toner",
@@ -21,6 +24,7 @@
     "description": "Toner magenta berkualitas untuk printer HP Color Laser 150a, HP Color Laser 150nw, HP Color Laser MFP 178nw, HP Color Laser 179nw, HP Color Laser MFP 178nwg, HP Color Laser MFP 179fnw, dan HP Color Laser MFP 179fwg, memberikan warna yang hidup dan konsisten."
   },
   {
+    "id": 4,
     "name": "Toner HP 119 A Yellow",
     "brand": "HP",
     "type": "Tinta & Toner",
@@ -28,6 +32,7 @@
     "description": "Toner kuning untuk printer HP Color Laser 150a, HP Color Laser 150nw, HP Color Laser MFP 178nw, HP Color Laser 179nw, HP Color Laser MFP 178nwg, HP Color Laser MFP 179fnw, dan HP Color Laser MFP 179fwg, memastikan hasil cetak yang cerah dan tahan lama."
   },
   {
+    "id": 5,
     "name": "Tinta HP GT53 Black",
     "brand": "HP",
     "type": "Tinta & Toner",
@@ -35,6 +40,7 @@
     "description": "Tinta hitam HP GT53 dengan kualitas tinggi untuk hasil cetak yang tajam dan jelas. Cocok untuk printer tipe: HP DeskJet GT 5810 All-in-One Printer dan HP DeskJet GT 5820 All-in-One Printer"
   },
   {
+    "id": 6,
     "name": "Tinta HP GT52 Cyan",
     "brand": "HP",
     "type": "Tinta & Toner",
@@ -42,6 +48,7 @@
     "description": "Tinta cyan HP GT52 yang menghasilkan warna cerah dan akurat. Cocok untuk printer tipe: HP DeskJet GT 5810 All-in-One Printer dan HP DeskJet GT 5820 All-in-One Printer"
   },
   {
+    "id": 7,
     "name": "Tinta HP GT52 Magenta",
     "brand": "HP",
     "type": "Tinta & Toner",
@@ -49,6 +56,7 @@
     "description": "Tinta magenta HP GT52 berkualitas tinggi untuk warna yang hidup dan konsisten. Cocok untuk printer tipe: HP DeskJet GT 5810 All-in-One Printer dan HP DeskJet GT 5820 All-in-One Printer"
   },
   {
+    "id": 8,
     "name": "Tinta HP GT52 Yellow",
     "brand": "HP",
     "type": "Tinta & Toner",
@@ -56,6 +64,7 @@
     "description": "Tinta kuning HP GT52 yang memastikan hasil cetak cerah dan tahan lama. Cocok untuk printer tipe: HP DeskJet GT 5810 All-in-One Printer dan HP DeskJet GT 5820 All-in-One Printer"
   },
   {
+    "id": 9,
     "name": "K400 Plus Wireless Touch Keyboard",
     "brand": "Logitech",
     "type": "Keyboard",
@@ -63,6 +72,7 @@
     "description": "Keyboard nirkabel Logitech K400 Plus dengan touchpad terintegrasi, nyaman untuk penggunaan sehari-hari."
   },
   {
+    "id": 10,
     "name": "HDD 16TB Seagate Iron Wolf Pro ST16000NT001",
     "brand": "Seagate",
     "type": "HDD",
@@ -70,6 +80,7 @@
     "description": "Hard drive Seagate Iron Wolf Pro 16TB dengan performa tinggi dan keandalan untuk penyimpanan data besar."
   },
   {
+    "id": 11,
     "name": "UPS APC BV1000IMS",
     "brand": "APC",
     "type": "UPS",
@@ -77,6 +88,7 @@
     "description": "UPS APC BV1000IMS memberikan perlindungan daya yang handal untuk perangkat elektronik Anda."
   },
   {
+    "id": 12,
     "name": "TP Link - SG2008",
     "brand": "TP Link",
     "type": "Switch",
@@ -84,6 +96,7 @@
     "description": "Switch TP Link SG2008 dengan 8 port gigabit untuk konektivitas jaringan yang cepat dan stabil."
   },
   {
+    "id": 13,
     "name": "Scanner Canon Lide 300",
     "brand": "Canon",
     "type": "Scanner",
@@ -91,6 +104,7 @@
     "description": "Scanner Canon Lide 300 dengan resolusi tinggi untuk pemindaian dokumen yang jelas dan detail."
   },
   {
+    "id": 14,
     "name": "Monitor LG 24MR400-B 24” FULL HD DISPLAY WITH AMD FREESYNC 100HZ",
     "brand": "LG",
     "type": "Monitor",
@@ -98,6 +112,7 @@
     "description": "Monitor LG 24MR400-B 24 inci dengan resolusi Full HD dan teknologi AMD FreeSync untuk tampilan yang halus."
   },
   {
+    "id": 15,
     "name": "Printer Epson L3210",
     "brand": "Epson",
     "type": "Printer",
@@ -105,6 +120,7 @@
     "description": "Printer Epson L3210 dengan fitur cetak, scan, dan copy yang efisien untuk kebutuhan kantor."
   },
   {
+    "id": 16,
     "name": "Projector BenQ MX560 4000 lumens, XGA, DLP",
     "brand": "BenQ",
     "type": "Projector",
@@ -112,6 +128,7 @@
     "description": "Proyektor BenQ MX560 dengan kecerahan 4000 lumens dan teknologi DLP untuk presentasi yang jelas."
   },
   {
+    "id": 17,
     "name": "Apple Magic Mouse Black Multitouch",
     "brand": "Apple",
     "type": "Mouse",
@@ -119,6 +136,7 @@
     "description": "Apple Magic Mouse hitam dengan fitur multitouch untuk navigasi yang intuitif."
   },
   {
+    "id": 18,
     "name": "Apple Adapter 20W USB-C",
     "brand": "Apple",
     "type": "charger",
@@ -126,6 +144,7 @@
     "description": "Adaptor Apple 20W USB-C untuk pengisian daya cepat perangkat Apple Anda."
   },
   {
+    "id": 19,
     "name": "Seagate 2TB onetouch 2,5” HDD External",
     "brand": "Seagate",
     "type": "HDD",
@@ -133,6 +152,7 @@
     "description": "Seagate OneTouch 2TB HDD eksternal 2,5 inci untuk penyimpanan data portabel yang mudah dibawa."
   },
   {
+    "id": 20,
     "name": "TP Link EAP245 AC1750 Wireless",
     "brand": "TP Link",
     "type": "Access Point",
@@ -140,6 +160,7 @@
     "description": "Access Point TP Link EAP245 AC1750 Wireless untuk koneksi Wi-Fi yang cepat dan stabil di area luas."
   },
   {
+    "id": 21,
     "name": "Epson L121",
     "brand": "Epson",
     "type": "Printer",
@@ -147,6 +168,7 @@
     "description": "Printer Epson L121 dengan sistem tangki tinta untuk cetak dokumen berkualitas tinggi dan efisien."
   },
   {
+    "id": 22,
     "name": "Epson L3250",
     "brand": "Epson",
     "type": "Printer",
@@ -154,6 +176,7 @@
     "description": "Printer Epson L3250 dengan sistem tangki tinta untuk cetak dokumen berkualitas tinggi dan efisien."
   },
   {
+    "id": 23,
     "name": "Mikrotik RB450GX4",
     "brand": "Mikrotik",
     "type": "Router",
@@ -161,6 +184,7 @@
     "description": "Router Mikrotik RB450GX4 dengan performa tinggi dan fitur lengkap untuk manajemen jaringan yang efisien."
   },
   {
+    "id": 24,
     "name": "Contex HD ULTRA X 4250",
     "brand": "Contex",
     "type": "Scanner",
@@ -168,6 +192,7 @@
     "description": "Scanner Contex HD ULTRA X 4250 dengan resolusi tinggi untuk pemindaian dokumen besar dan detail."
   },
   {
+    "id": 25,
     "name": "LG Monitor Curved 32Mr50C 32\" FHD",
     "brand": "LG",
     "type": "Monitor",
@@ -175,6 +200,7 @@
     "description": "Monitor LG Curved 32MR50C 32 inci dengan resolusi Full HD untuk pengalaman menonton yang imersif."
   },
   {
+    "id": 26,
     "name": "Monitor Xiaomi Curved G34WQi 34\" WQHD",
     "brand": "Xiaomi",
     "type": "Monitor",
@@ -182,6 +208,7 @@
     "description": "Monitor Xiaomi Curved G34WQi 34 inci dengan resolusi WQHD untuk tampilan yang luas dan detail."
   },
   {
+    "id": 27,
     "name": "Unifi UDR7 (15W)",
     "brand": "Unifi",
     "type": "Router",
@@ -189,6 +216,7 @@
     "description": "Router Unifi UDR7 dengan daya 15W, dirancang untuk konektivitas jaringan yang handal dan cepat."
   },
   {
+    "id": 28,
     "name": "Unifi U7 Pro",
     "brand": "Unifi",
     "type": "Router",
@@ -196,6 +224,7 @@
     "description": "Router Unifi U7 Pro dengan performa tinggi untuk jaringan yang stabil dan cepat, ideal untuk penggunaan di rumah atau kantor."
   },
   {
+    "id": 29,
     "name": "Starlink V4 Gen 3 Satellite kit (6 Router Antenna)",
     "brand": "Starlink",
     "type": "Satellite Kit",
@@ -203,6 +232,7 @@
     "description": "Starlink V4 Gen 3 Satellite kit dengan 6 router antenna untuk koneksi internet satelit yang cepat dan andal di lokasi terpencil."
   },
   {
+    "id": 30,
     "name": "Logitech H151 Stereo Headset",
     "brand": "Logitech",
     "type": "Headset",
@@ -210,6 +240,7 @@
     "description": "Logitech H151 Stereo Headset dengan suara stereo yang jernih dan mikrofon yang dapat disesuaikan, ideal untuk panggilan video dan musik."
   },
   {
+    "id": 31,
     "name": "MX Keys Mini Logitech",
     "brand": "Logitech",
     "type": "Keyboard",
@@ -217,6 +248,7 @@
     "description": "MX Keys Mini Logitech dengan desain minimalis dan fungsionalitas lengkap."
   },
   {
+    "id": 32,
     "name": "Jabra Evolve2 65 link380c MS Stereo",
     "brand": "Jabra",
     "type": "Headset",
@@ -224,6 +256,7 @@
     "description": "Headset Jabra Evolve2 dengan fungsi busylight."
   },
   {
+    "id": 33,
     "name": "Dell Mobile Wireless Mouse MS3320W",
     "brand": "Dell",
     "type": "Mouse",
@@ -231,6 +264,7 @@
     "description": "Dell Mobile Wireless Mouse MS3320W dengan desain ringan."
   },
   {
+    "id": 34,
     "name": "Dell EcoLoop Pro Slim Backpack - CP5724S (INDO)",
     "brand": "Dell",
     "type": "Lainnya",
@@ -238,6 +272,7 @@
     "description": "Dell Ecoloop Pro Slim Backpack for all your carrying needs."
   },
   {
+    "id": 35,
     "name": "MK270R Keyboard Mouse Logitech",
     "brand": "Logitech",
     "type": "Keyboard",
@@ -245,6 +280,7 @@
     "description": "MK270R Keyboard Mouse Logitech yang praktis dengan paket keyboard dan mouse."
   },
   {
+    "id": 36,
     "name": "Logitech Zone 305 with receive",
     "brand": "Logitech",
     "type": "Headset",
@@ -252,6 +288,7 @@
     "description": "Logitech Zone 305 with receive yang dapat digunakan untuk panggilan video dan musik."
   },
   {
+    "id": 37,
     "name": "Dell Pro Premium Compact Mouse - MS7421W (INDO)",
     "brand": "Dell",
     "type": "Mouse",
@@ -259,6 +296,7 @@
     "description": "Dell Pro Premium Compact Mouse - MS7421W yang dapat digunakan untuk berbagai keperluan."
   },
   {
+    "id": 38,
     "name": "Ribbon color YMCK-500 image P/N : RT4F010P00308",
     "brand": "Evolis",
     "type": "Tinta & Toner",
@@ -266,6 +304,7 @@
     "description": "Ribbon color YMCK-500 image P/N : RT4F010P00308 yang dapat digunakan untuk berbagai keperluan."
   },
   {
+    "id": 39,
     "name": "Ribbon Film-500 image P/N : RTCL009P00308",
     "brand": "Evolis",
     "type": "Tinta & Toner",
@@ -273,6 +312,7 @@
     "description": "Ribbon Film-500 image P/N : RTCL009P00308 yang dapat digunakan untuk berbagai keperluan."
   },
   {
+    "id": 40,
     "name": "BROTHER SCANNER ADS-3300W",
     "brand": "Brother",
     "type": "Scanner",
@@ -280,6 +320,7 @@
     "description": "BROTHER SCANNER ADS-3300W memiliki kemampuan scan yang kuat."
   },
   {
+    "id": 41,
     "name": "PRINTER DCP-T720DW BROTHER",
     "brand": "Brother",
     "type": "Printer",
@@ -287,6 +328,7 @@
     "description": "PRINTER DCP-T720DW BROTHER multifungsi dengan kemampuan printing dua sisi."
   },
   {
+    "id": 42,
     "name": "UPS APC BVX900LI-MS 480watt",
     "brand": "APC",
     "type": "UPS",
@@ -294,6 +336,7 @@
     "description": "UPS APC BVX900LI-MS 480watt memberikan perlindungan daya yang handal untuk perangkat elektronik Anda."
   },
   {
+    "id": 43,
     "name": "Logitech mouse wireless bluetooth silent M240",
     "brand": "Logitech",
     "type": "Mouse",
@@ -301,6 +344,7 @@
     "description": "Mouse tanpa suara dari Logitech yang dapat digunakan untuk berbagai keperluan."
   },
   {
+    "id": 44,
     "name": "Ubiquiti POE injector U-POE-AT",
     "brand": "Ubiquiti",
     "type": "Router",
@@ -308,6 +352,7 @@
     "description": "Ubiquiti POE injector U-POE-AT yang dapat digunakan untuk berbagai keperluan."
   },
   {
+    "id": 45,
     "name": "Printer HP Laserjet 108w",
     "brand": "HP",
     "type": "Printer",
@@ -315,6 +360,7 @@
     "description": "Printer HP Laserjet 108w untuk keperluan printing Anda."
   },
   {
+    "id": 46,
     "name": "Seagate Skyhawk 6TB 3.5HDD",
     "brand": "Seagate",
     "type": "HDD",
@@ -322,6 +368,7 @@
     "description": "Seagate Skyhawk 6TB 3.5HDD dengan penyimpanan besar."
   },
   {
+    "id": 47,
     "name": "D-Link DGS-f1010P",
     "brand": "Dlink",
     "type": "Router",
@@ -329,6 +376,7 @@
     "description": "D-Link untuk berbagai konseksi sesuai kebutuhan Anda."
   },
   {
+    "id": 48,
     "name": "Ubiquiti UNVR",
     "brand": "Ubiquiti",
     "type": "Network",
@@ -336,6 +384,7 @@
     "description": "Ubiquiti UNVR yang dapat digunakan untuk berbagai keperluan merekam Anda."
   },
   {
+    "id": 49,
     "name": "Proyektor Epson EB-W51 (4,000 lm)",
     "brand": "Epson",
     "type": "Projector",
@@ -343,6 +392,7 @@
     "description": "Proyektor Epson EB-W51 (4,000 lm) dengan kemampuan proyeksi yang kuat."
   },
   {
+    "id": 50,
     "name": "LG Projector UST Laser CineBeam HU715Q - 2500 ANSI LUMEN - 4K UHD",
     "brand": "LG",
     "type": "Projector",
@@ -350,6 +400,7 @@
     "description": "LG Projector UST Laser CineBeam HU715Q dengan tampilan 4K UHD."
   },
   {
+    "id": 51,
     "name": "BenQ Gaming Projector X300G 4K HDR 84% DCI-P3 LED 2000lm 4ms Zero Latency",
     "brand": "BenQ",
     "type": "Projector",
@@ -357,6 +408,7 @@
     "description": "BenQ Gaming Projector X300G untuk proyeksi tambilan 4K HDR."
   },
   {
+    "id": 52,
     "name": "Dell Thunderbolt Dock - WD22TB4 (EURO)",
     "brand": "Dell",
     "type": "External Port",
@@ -364,6 +416,7 @@
     "description": "Dell Thunderbolt Dock untuk keperluan sambungan koneksi Anda."
   },
   {
+    "id": 53,
     "name": "Projector Infocus IN 114AA",
     "brand": "Infocus",
     "type": "Projector",
@@ -371,6 +424,7 @@
     "description": "Projector Infocus IN 114AA dengan teknologi DLP, resolusi XGA (1024x768), dan kecerahan 3800 lumens. Ideal untuk presentasi di ruang kelas atau ruang rapat kecil hingga sedang."
   },
   {
+    "id": 54,
     "name": "CCTV Ezviz Indoor TY1 PRO",
     "brand": "Ezviz",
     "type": "Kamera Pengawas",
@@ -378,6 +432,7 @@
     "description": "Kamera CCTV indoor Ezviz TY1 PRO dengan resolusi 2K, pan & tilt 360°, dan deteksi gerakan cerdas. Dilengkapi dengan fitur pelacakan otomatis, audio dua arah, dan penglihatan malam."
   },
   {
+    "id": 55,
     "name": "Webcam Logitech C270",
     "brand": "Logitech",
     "type": "Webcam",

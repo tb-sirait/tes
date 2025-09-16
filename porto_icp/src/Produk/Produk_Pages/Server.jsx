@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import serverData from "../server.json";
 import "./laptop.css";
+
+import { useNavigate, useParams } from "react-router-dom";
+
 import {
   Search,
   Filter,
@@ -148,7 +151,30 @@ const ProductHeader = ({
 };
 
 const ProductModal = ({ product, isOpen, onClose }) => {
-  if (!isOpen || !product) return null;
+  useEffect(() => {
+      const handleEsc = (event) => {
+        if (event.key === "Escape") {
+          onClose();
+        }
+      };
+      window.addEventListener("keydown", handleEsc);
+      return () => {
+        window.removeEventListener("keydown", handleEsc);
+      };
+    }, [onClose]);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isOpen]);
+
+  if (!isOpen) return null;
 
   const storageValue = Array.isArray(product.storage)
     ? product.storage.join(", ")
@@ -260,6 +286,20 @@ const Server = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [products, setProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const navigate = useNavigate();
+  const { id } = useParams();
+
+  const handleOpenModal = (product) => {
+    setSelectedProduct(product);
+    // Update URL tanpa reload halaman
+    navigate(`/produk/server/${product.brand}/${product.id}`);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedProduct(null);
+    // Kembalikan URL ke /produk tanpa reload halaman
+    navigate("/produk/server");
+  };
 
   useEffect(() => {
     const sortedServers = serverData.sort((a, b) =>
@@ -275,6 +315,15 @@ const Server = () => {
       product.name.toLowerCase().includes(searchQuery.toLowerCase());
     return brandMatch && nameMatch;
   });
+
+  useEffect(() => {
+    if (id && products.length > 0) {
+      const found = products.find((p) => String(p.id) === id);
+      if (found) {
+        setSelectedProduct(found);
+      }
+    }
+  }, [id, products]);
 
   return (
     <div className="laptop-page">
@@ -292,7 +341,7 @@ const Server = () => {
           <ProductCard
             key={product.id}
             product={product}
-            onViewDetails={setSelectedProduct}
+            onViewDetails={handleOpenModal}
           />
         ))}
       </div>
@@ -300,7 +349,7 @@ const Server = () => {
       <ProductModal
         product={selectedProduct}
         isOpen={!!selectedProduct}
-        onClose={() => setSelectedProduct(null)}
+        onClose={handleCloseModal}
       />
 
       <Footer />

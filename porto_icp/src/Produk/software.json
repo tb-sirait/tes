@@ -1,155 +1,217 @@
 [
   {
+    "id": 1,
+    "brand": "Microsoft",
     "name": "Microsoft Office 365 Family",
     "usage": "1 Tahun Berlangganan",
     "image": "/src/assets/software/microsoft/1.png"
   },
   {
+    "id": 2,
+    "brand": "Microsoft",
     "name": "Microsoft Office 365 Personal",
     "usage": "1 Tahun Berlangganan",
     "image": "/src/assets/software/microsoft/2.png"
   },
   {
+    "id": 3,
+    "brand": "Microsoft",
     "name": "Microsoft Office 2024 Home and Student",
     "usage": "Lisensi Seumur Hidup",
     "image": "/src/assets/software/microsoft/3.png"
   },
   {
+    "id": 4,
+    "brand": "Microsoft",
     "name": "Microsoft Office 2024 Home and Business",
     "usage": "Lisensi Seumur Hidup",
     "image": "/src/assets/software/microsoft/4.png"
   },
   {
+    "id": 5,
+    "brand": "Microsoft",
     "name": "Microsoft Office Professional Plus 2024",
     "usage": "Lisensi Seumur Hidup",
     "image": "/src/assets/software/microsoft/6.png"
   },
   {
+    "id": 6,
+    "brand": "Microsoft",
     "name": "Microsoft Office Standard 2024",
     "usage": "Lisensi Seumur Hidup",
     "image": "/src/assets/software/microsoft/5.png"
   },
   {
+    "id": 7,
+    "brand": "Microsoft",
     "name": "Windows 11 Pro",
     "usage": "Lisensi Seumur Hidup",
     "image": "/src/assets/software/windows/1.png"
   },
   {
+    "id": 8,
+    "brand": "Adobe",
     "name": "Acrobat Pro for teams Subscription New",
     "usage": "1 Tahun Berlangganan",
     "image": "/src/assets/software/adobe/1.png"
   },
   {
+    "id": 9,
+    "brand": "Microsoft",
     "name": "Windows Server 2025 Standard - 16 Core License Pack",
     "usage": "Lisensi Seumur Hidup",
     "image": "/src/assets/software/microsoft/2.png"
   },
   {
+    "id": 10,
+    "brand": "Microsoft",
     "name": "Microsoft SQL Server 2022 Standard Edition",
     "usage": "Lisensi Seumur Hidup",
     "image": "/src/assets/software/sql/1.png"
   },
   {
+    "id": 11,
+    "brand": "Heimdal",
     "name": "Heimdal EPDR Plus & Ransomware Encryption Protection",
     "usage": "Lisensi Seumur Hidup",
     "image": "/src/assets/software/heimdal/1.png"
   },
   {
+    "id": 12,
+    "brand": "PDF Exchange",
     "name": "PDF Exchange Pro",
     "usage": "1 Tahun Berlangganan",
     "image": "/src/assets/software/pdf/1.png"
   },
   {
+    "id": 13,
+    "brand": "Autodesk",
     "name": "AutoCAD LT 2024 Commercial New Single-user",
     "usage": "Lisensi Seumur Hidup",
     "image": "/src/assets/software/autocad/1.png"
   },
   {
+    "id": 14,
+    "brand": "Thinkcell",
     "name": "Thinkcell Annual Subscription",
     "usage": "1 Tahun Berlangganan",
     "image": "/src/assets/software/thinkcell/1.png"
   },
   {
+    "id": 15,
+    "brand": "SketchUp",
     "name": "Software SketchUp Pro For Professional Use, ANN TRM CTR",
     "usage": "Lisensi Seumur Hidup",
     "image": "/src/assets/software/sketchup/1.png"
   },
   {
+    "id": 16,
+    "brand": "Enscape",
     "name": "Software Enscape Fixed Seat License",
     "usage": "Lisensi Seumur Hidup",
     "image": "/src/assets/software/enscape/1.png"
   },
   {
+    "id": 17,
+    "brand": "ChatGPT",
     "name": "ChatGPT Team",
     "usage": "1 Tahun Berlangganan",
     "image": "/src/assets/software/chatgpt/1.png"
   },
   {
+    "id": 18,
+    "brand": "Hootsuite",
     "name": "Hootsuite Professional",
     "usage": "1 Tahun Berlangganan",
     "image": "/src/assets/software/hootsuite/1.png"
   },
   {
+    "id": 19,
+    "brand": "S.id",
     "name": "S.id – Pro",
     "usage": "1 Tahun Berlangganan",
     "image": "/src/assets/software/sid/1.png"
   },
   {
+    "id": 20,
+    "brand": "Canva",
     "name": "Figma Organization Dev Seat",
     "usage": "Lisensi Seumur Hidup",
     "image": "/src/assets/software/figma/1.svg"
   },
   {
+    "id": 21,
+    "brand": "Adobe",
     "name": "Adobe Illustrator",
     "usage": "Lisensi Seumur Hidup",
     "image": "/src/assets/software/adobe/2.png"
   },
   {
+    "id": 22,
+    "brand": "Adobe",
     "name": "Adobe Photoshop",
     "usage": "Lisensi Seumur Hidup",
     "image": "/src/assets/software/adobe/3.png"
   },
   {
+    "id": 23,
+    "brand": "Microsoft",
     "name": "Windows Server 2025  - CAL",
     "usage": "Lisensi Seumur Hidup",
     "image": "/src/assets/software/microsoft/3.png"
   },
   {
+    "id": 24,
+    "brand": "Microsoft",
     "name": "Windows Server 2025 Standard",
     "usage": "Lisensi Seumur Hidup",
     "image": "/src/assets/software/microsoft/4.png"
   },
   {
+    "id": 25,
+    "brand": "Microsoft",
     "name": "SQL Server Standard Edition",
     "usage": "Lisensi Seumur Hidup",
     "image": "/src/assets/software/sql/2.png"
   },
   {
+    "id": 26,
+    "brand": "VMware",
     "name": "Vmware Cloud Foundation 5",
     "usage": "Lisensi Seumur Hidup",
     "image": "/src/assets/software/vmware/1.png"
   },
   {
+    "id": 27,
+    "brand": "VMware",
     "name": "FortiToken",
     "usage": "Lisensi Seumur Hidup",
     "image": "/src/assets/software/fortitoken/1.svg"
   },
   {
+    "id": 28,
+    "brand": "Adobe",
     "name": "Canva PRO",
     "usage": "1 Tahun Berlangganan",
     "image": "/src/assets/software/canva/1.svg"
   },
   {
+    "id": 29,
+    "brand": "Figma",
     "name": "License Figma Full Seat",
     "usage": "1 Tahun Berlangganan",
     "image": "/src/assets/software/figma/1.svg"
   },
   {
+    "id": 30,
+    "brand": "Autodesk",
     "name": "AutoCAD LT 2026 Commercial New Single-user ELD Annual Subscription",
     "usage": "1 Tahun Berlangganan",
     "image": "/src/assets/software/autocad/2.png"
   },
   {
+    "id": 31,
+    "brand": "Autodesk",
     "name": "SketchUp Pro For Professional Use",
     "usage": "1 Tahun Berlangganan",
     "image": "/src/assets/software/sketchup/1.png"

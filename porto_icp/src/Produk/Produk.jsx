@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useMemo } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 
 import Navbar from "../Navigation/Navbar";
 import Footer from "../Navigation/footer";
@@ -33,6 +34,9 @@ export default function Produk() {
   const [slideDirection, setSlideDirection] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
+  const { brand, id } = useParams();
+  const navigate = useNavigate();
+
   useEffect(() => {
     window.scrollTo(0, 0);
     const handleResize = () => {
@@ -43,12 +47,25 @@ export default function Produk() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Function to import images dynamically from JSON references
+  useEffect(() => {
+  if (isModalOpen) {
+    document.documentElement.style.overflow = "hidden";   // kunci scroll di <html>
+  } else {
+    document.documentElement.style.overflow = "auto";     // hidupkan scroll lagi
+  }
+
+  // cleanup
+  return () => {
+    document.documentElement.style.overflow = "auto";
+  };
+}, [isModalOpen]);
+
+
+  // Import gambar dari JSON
   function importImagesFromJson(jsonData) {
-    const images = import.meta.glob(
-      "../assets/produk/**/*.{png,jpg,jpeg,svg}",
-      { eager: true },
-    );
+    const images = import.meta.glob("../assets/produk/**/*.{png,jpg,jpeg,svg}", {
+      eager: true,
+    });
     const imageMap = {};
     for (const path in images) {
       const key = path.replace("../assets/", "");
@@ -60,13 +77,12 @@ export default function Produk() {
     }));
   }
 
-  // simpan hasil import sekali saja
   const products = useMemo(() => importImagesFromJson(produkData), []);
-
   const [filteredProducts, setFilteredProducts] = useState(products);
 
+  // Filter produk
   const handleSearchSubmit = (e) => {
-    e.preventDefault(); // cegah reload halaman
+    e.preventDefault();
     const results = products.filter((product) => {
       const matchesBrand = !selectedBrand || product.brand === selectedBrand;
       const matchesSearch = product.name
@@ -90,13 +106,33 @@ export default function Produk() {
     { name: "Xiaomi", logo: XiaomiLogo },
   ];
 
+  // === ROUTE SYNC ===
+  useEffect(() => {
+    if (brand && id) {
+      const found = products.find(
+        (p) =>
+          p.id.toString() === id &&
+          p.brand.toLowerCase() === brand.toLowerCase()
+      );
+      if (found) {
+        setSelectedProduct(found);
+        setCurrentImageIndex(0);
+        setIsModalOpen(true);
+      }
+    } else {
+      setIsModalOpen(false);
+      setSelectedProduct(null);
+    }
+  }, [brand, id, products]);
+
+  const [isClosing, setIsClosing] = useState(false);
+
   const openModal = (product) => {
     setSelectedProduct(product);
     setCurrentImageIndex(0);
     setIsModalOpen(true);
+    navigate(`/produk/${product.brand}/${product.id}`);
   };
-
-  const [isClosing, setIsClosing] = useState(false);
 
   const closeModal = () => {
     setIsClosing(true);
@@ -104,20 +140,21 @@ export default function Produk() {
       setIsModalOpen(false);
       setSelectedProduct(null);
       setIsClosing(false);
-    }, 300); // match animation duration
+      navigate("/produk");
+    }, 300);
   };
 
   const goToPreviousImage = () => {
     setSlideDirection("left");
     setCurrentImageIndex((prevIndex) =>
-      prevIndex === 0 ? selectedProduct.images.length - 1 : prevIndex - 1,
+      prevIndex === 0 ? selectedProduct.images.length - 1 : prevIndex - 1
     );
   };
 
   const goToNextImage = () => {
     setSlideDirection("right");
     setCurrentImageIndex((prevIndex) =>
-      prevIndex === selectedProduct.images.length - 1 ? 0 : prevIndex + 1,
+      prevIndex === selectedProduct.images.length - 1 ? 0 : prevIndex + 1
     );
   };
 
@@ -144,18 +181,19 @@ export default function Produk() {
     if (distance > minSwipeDistance) {
       setSlideDirection("right");
       setCurrentImageIndex((prevIndex) =>
-        prevIndex === selectedProduct.images.length - 1 ? 0 : prevIndex + 1,
+        prevIndex === selectedProduct.images.length - 1 ? 0 : prevIndex + 1
       );
     } else if (distance < -minSwipeDistance) {
       setSlideDirection("left");
       setCurrentImageIndex((prevIndex) =>
-        prevIndex === 0 ? selectedProduct.images.length - 1 : prevIndex - 1,
+        prevIndex === 0 ? selectedProduct.images.length - 1 : prevIndex - 1
       );
     }
     touchStartX.current = null;
     touchEndX.current = null;
   };
 
+  // HEADER
   const ProductHeader = ({
     searchQuery,
     onSearchChange,
@@ -170,19 +208,16 @@ export default function Produk() {
           <div className="header-text">
             <h1>Produk</h1>
             <p>
-              Temukan berbagai pilihan Komputer, Laptop, Smartphone, dan
-              berbagai barang IT lainnya dengan spesifikasi terbaik yang sesuai
-              dengan kebutuhan perusahaan Anda.
+              Temukan berbagai pilihan Komputer, Laptop, Smartphone, dan barang IT lainnya.
             </p>
           </div>
 
-          {/* Form Search */}
           <form onSubmit={onSearchSubmit} className="search-filter-container">
             <div className="search-wrapper">
               <FaSearch className="search-icon" />
               <input
                 type="text"
-                placeholder="Cari produk yang Anda butuhkan..."
+                placeholder="Cari produk..."
                 value={searchQuery}
                 onChange={onSearchChange}
                 className="search-input"
@@ -245,141 +280,7 @@ export default function Produk() {
                       className={`product-image ${fade ? "fade" : ""}`}
                     />
                     <h4 className="product-title">{product.name}</h4>
-                    {(() => {
-                      const brandObj = brands.find(
-                        (b) => b.name === product.brand,
-                      );
-                      if (brandObj && brandObj.logo) {
-                        if (product.brand === "Dell") {
-                          return (
-                            <img
-                              src={DellLogoWhite}
-                              alt={product.brand}
-                              className="product-brand-logo"
-                            />
-                          );
-                        } else if (product.brand === "HP") {
-                          return (
-                            <img
-                              src={HpLogoWhite}
-                              alt={product.brand}
-                              className="product-brand-logo"
-                            />
-                          );
-                        } else if (product.brand === "Asus") {
-                          return (
-                            <img
-                              src={AsusLogoWhite}
-                              alt={product.brand}
-                              className="product-brand-logo"
-                            />
-                          );
-                        } else if (product.brand === "Acer") {
-                          return (
-                            <img
-                              src={AcerLogo}
-                              alt={product.brand}
-                              className="product-brand-logo"
-                            />
-                          );
-                        } else if (product.brand === "Xiaomi") {
-                          return (
-                            <img
-                              src={XiaomiLogo}
-                              alt={product.brand}
-                              className="product-brand-logo"
-                            />
-                          );
-                        } else {
-                          return (
-                            <img
-                              src={brandObj.logo}
-                              alt={product.brand}
-                              className="product-brand-logo"
-                            />
-                          );
-                        }
-                      } else {
-                        return (
-                          <div className="product-brand-text">
-                            {product.brand}
-                          </div>
-                        );
-                      }
-                    })()}
-
-                    {isMobile && (
-                      <div className="mobile-specs">
-                        <div className="mobile-spec-item">
-                          <span className="spec-icon">
-                            <Cpu />
-                          </span>{" "}
-                          {product.specs.cpu}
-                        </div>
-                        <div className="mobile-spec-item">
-                          <span className="spec-icon">
-                            <Gpu />
-                          </span>{" "}
-                          {product.specs.gpu}
-                        </div>
-                        <div className="mobile-spec-item">
-                          <span className="spec-icon">
-                            <MemoryStick />
-                          </span>{" "}
-                          {product.specs.ram}
-                        </div>
-                        <div className="mobile-spec-item">
-                          <span className="spec-icon">
-                            <HardDrive />
-                          </span>{" "}
-                          {product.specs.storage}
-                        </div>
-                        <div className="mobile-spec-item">
-                          <span className="spec-icon">
-                            <AppWindow />
-                          </span>{" "}
-                          {product.specs.os}
-                        </div>
-                      </div>
-                    )}
                   </div>
-
-                  {!isMobile && (
-                    <div className="product-specs">
-                      <ul className="specs-list">
-                        <li className="spec-item">
-                          <span className="spec-icon">
-                            <Cpu />
-                          </span>{" "}
-                          {product.specs.cpu}
-                        </li>
-                        <li className="spec-item">
-                          <span className="spec-icon">
-                            <Gpu />
-                          </span>{" "}
-                          {product.specs.gpu}
-                        </li>
-                        <li className="spec-item">
-                          <span className="spec-icon">
-                            <MemoryStick />
-                          </span>{" "}
-                          {product.specs.ram}
-                        </li>
-                        <li className="spec-item">
-                          <span className="spec-icon">
-                            <HardDrive />
-                          </span>{" "}
-                          {product.specs.storage}
-                        </li>
-                        <li className="spec-item">
-                          <span className="spec-icon">
-                            <AppWindow />
-                          </span>{" "}
-                          {product.specs.os}
-                        </li>
-                      </ul>
-                    </div>
-                  )}
                 </div>
               </div>
             ))}
@@ -423,8 +324,8 @@ export default function Produk() {
                   slideDirection === "right"
                     ? "slide-in-right"
                     : slideDirection === "left"
-                      ? "slide-in-left"
-                      : ""
+                    ? "slide-in-left"
+                    : ""
                 }`}
                 onTouchStart={handleTouchStart}
                 onTouchMove={handleTouchMove}

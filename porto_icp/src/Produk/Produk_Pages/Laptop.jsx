@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import produkData from "../produk.json";
+import { useNavigate, useParams } from "react-router-dom";
 
 import "./Laptop.css";
 
@@ -150,6 +151,29 @@ const SpecItem = ({ icon, label, value }) => (
 );
 
 const ProductModal = ({ product, isOpen, onClose }) => {
+  useEffect(() => {
+      const handleEsc = (event) => {
+        if (event.key === "Escape") {
+          onClose();
+        }
+      };
+      window.addEventListener("keydown", handleEsc);
+      return () => {
+        window.removeEventListener("keydown", handleEsc);
+      };
+    }, [onClose]);
+    
+  useEffect(() => {
+      if (isOpen) {
+          document.body.style.overflow = 'hidden';
+      } else {
+          document.body.style.overflow = 'auto';
+      }
+      return () => {
+          document.body.style.overflow = 'auto';
+      };
+  }, [isOpen]);
+
   if (!isOpen || !product) return null;
 
   // Use first image path from product.images to get image src from imageMap
@@ -248,7 +272,20 @@ const Laptop = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [products, setProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
-  // const [isModalOpen, setIsModalOpen] = useState(false);
+  const navigate = useNavigate();
+  const { id } = useParams();
+
+  const handleOpenModal = (product) => {
+    setSelectedProduct(product);
+    // Update URL tanpa reload halaman
+    navigate(`/produk/laptop/${product.brand}/${product.id}`);
+  }
+
+  const handleCloseModal = () => {
+    setSelectedProduct(null);
+    // Kembalikan URL ke /produk tanpa reload halaman
+    navigate('/produk/laptop');
+  }
 
   useEffect(() => {
     const laptopProducts = produkData
@@ -264,6 +301,16 @@ const Laptop = () => {
       product.name.toLowerCase().includes(searchQuery.toLowerCase());
     return brandMatch && nameMatch;
   });
+
+  // kalau ada params, buka modal produk sesuai id
+  useEffect(() => {
+    if (id && products.length > 0) {
+      const found = products.find((p) => String(p.id) === id);
+      if (found) {
+        setSelectedProduct(found);
+      }
+    }
+  }, [id, products]);
 
   return (
     <div className="laptop-page">
@@ -281,7 +328,7 @@ const Laptop = () => {
           <ProductCard
             key={product.id}
             product={product}
-            onViewDetails={setSelectedProduct}
+            onViewDetails={handleOpenModal}
           />
         ))}
       </div>
@@ -289,7 +336,7 @@ const Laptop = () => {
       <ProductModal
         product={selectedProduct}
         isOpen={!!selectedProduct}
-        onClose={() => setSelectedProduct(null)}
+        onClose={handleCloseModal}
       />
       <Footer />
     </div>
