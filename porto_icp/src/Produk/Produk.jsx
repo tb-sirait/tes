@@ -48,24 +48,38 @@ export default function Produk() {
   }, []);
 
   useEffect(() => {
-  if (isModalOpen) {
-    document.documentElement.style.overflow = "hidden";   // kunci scroll di <html>
-  } else {
-    document.documentElement.style.overflow = "auto";     // hidupkan scroll lagi
-  }
+    if (isModalOpen) {
+      document.documentElement.style.overflow = "hidden"; // kunci scroll di <html>
+    } else {
+      document.documentElement.style.overflow = "auto"; // hidupkan scroll lagi
+    }
 
-  // cleanup
-  return () => {
-    document.documentElement.style.overflow = "auto";
-  };
-}, [isModalOpen]);
+    // cleanup
+    return () => {
+      document.documentElement.style.overflow = "auto";
+    };
+  }, [isModalOpen]);
 
+  useEffect(() => {
+    const handleEsc = (event) => {
+      if (event.key === "Escape" && isModalOpen) {
+        closeModal();
+      }
+    };
+    window.addEventListener("keydown", handleEsc);
+    return () => {
+      window.removeEventListener("keydown", handleEsc);
+    };
+  }, [isModalOpen]);
 
   // Import gambar dari JSON
   function importImagesFromJson(jsonData) {
-    const images = import.meta.glob("../assets/produk/**/*.{png,jpg,jpeg,svg}", {
-      eager: true,
-    });
+    const images = import.meta.glob(
+      "../assets/produk/**/*.{png,jpg,jpeg,svg}",
+      {
+        eager: true,
+      },
+    );
     const imageMap = {};
     for (const path in images) {
       const key = path.replace("../assets/", "");
@@ -112,7 +126,7 @@ export default function Produk() {
       const found = products.find(
         (p) =>
           p.id.toString() === id &&
-          p.brand.toLowerCase() === brand.toLowerCase()
+          p.brand.toLowerCase() === brand.toLowerCase(),
       );
       if (found) {
         setSelectedProduct(found);
@@ -147,14 +161,14 @@ export default function Produk() {
   const goToPreviousImage = () => {
     setSlideDirection("left");
     setCurrentImageIndex((prevIndex) =>
-      prevIndex === 0 ? selectedProduct.images.length - 1 : prevIndex - 1
+      prevIndex === 0 ? selectedProduct.images.length - 1 : prevIndex - 1,
     );
   };
 
   const goToNextImage = () => {
     setSlideDirection("right");
     setCurrentImageIndex((prevIndex) =>
-      prevIndex === selectedProduct.images.length - 1 ? 0 : prevIndex + 1
+      prevIndex === selectedProduct.images.length - 1 ? 0 : prevIndex + 1,
     );
   };
 
@@ -181,12 +195,12 @@ export default function Produk() {
     if (distance > minSwipeDistance) {
       setSlideDirection("right");
       setCurrentImageIndex((prevIndex) =>
-        prevIndex === selectedProduct.images.length - 1 ? 0 : prevIndex + 1
+        prevIndex === selectedProduct.images.length - 1 ? 0 : prevIndex + 1,
       );
     } else if (distance < -minSwipeDistance) {
       setSlideDirection("left");
       setCurrentImageIndex((prevIndex) =>
-        prevIndex === 0 ? selectedProduct.images.length - 1 : prevIndex - 1
+        prevIndex === 0 ? selectedProduct.images.length - 1 : prevIndex - 1,
       );
     }
     touchStartX.current = null;
@@ -208,7 +222,8 @@ export default function Produk() {
           <div className="header-text">
             <h1>Produk</h1>
             <p>
-              Temukan berbagai pilihan Komputer, Laptop, Smartphone, dan barang IT lainnya.
+              Temukan berbagai pilihan Komputer, Laptop, Smartphone, dan barang
+              IT lainnya.
             </p>
           </div>
 
@@ -324,8 +339,8 @@ export default function Produk() {
                   slideDirection === "right"
                     ? "slide-in-right"
                     : slideDirection === "left"
-                    ? "slide-in-left"
-                    : ""
+                      ? "slide-in-left"
+                      : ""
                 }`}
                 onTouchStart={handleTouchStart}
                 onTouchMove={handleTouchMove}

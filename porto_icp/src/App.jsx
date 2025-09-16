@@ -83,24 +83,35 @@ function AppContent() {
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/produk" element={<Produk />} />
-        <Route path="/produk/:brand/:id" element={<Produk />} /> // route salah satu barang
+        <Route path="/produk/:brand/:id" element={<Produk />} /> // route salah
+        satu barang
         <Route path="/layanan" element={<Layanan />} />
         <Route path="/tentang" element={<Tentang />} />
         <Route path="/karir" element={<Karir />} />
         <Route path="/produk/software" element={<Software />} />
-        <Route path="/produk/software/:id" element={<Software />} /> // route salah satu barang
+        <Route path="/produk/software/:id" element={<Software />} /> // route
+        salah satu barang
         <Route path="/produk/hardware" element={<Hardware />} />
-        <Route path="/produk/hardware/:brand/:id" element={<Hardware />} /> // route salah satu barang
+        <Route path="/produk/hardware/:brand/:id" element={<Hardware />} /> //
+        route salah satu barang
         <Route path="/produk/sparepart" element={<Sparepart />} />
-        <Route path="/produk/sparepart/:id" element={<Sparepart />} /> // route salah satu barang
+        <Route path="/produk/sparepart/:id" element={<Sparepart />} /> // route
+        salah satu barang
         <Route path="/produk/computer" element={<Computer />} />
-        <Route path="/produk/computer/:brand/:id" element={<Computer />} /> // route salah satu barang
+        <Route path="/produk/computer/:brand/:id" element={<Computer />} /> //
+        route salah satu barang
         <Route path="/produk/smartphone" element={<Smartphone />} />
-        <Route path="/produk/smartphone/:brand/:id" element={<Smartphone />} /> // route salah satu barang
+        <Route
+          path="/produk/smartphone/:brand/:id"
+          element={<Smartphone />}
+        />{" "}
+        // route salah satu barang
         <Route path="/produk/laptop" element={<Laptop />} />
-        <Route path="/produk/laptop/:brand/:id" element={<Laptop />} /> // route salah satu barang
+        <Route path="/produk/laptop/:brand/:id" element={<Laptop />} /> // route
+        salah satu barang
         <Route path="/produk/server" element={<Server />} />
-        <Route path="/produk/server/:brand/:id" element={<Server />} /> // route salah satu barang
+        <Route path="/produk/server/:brand/:id" element={<Server />} /> // route
+        salah satu barang
         <Route path="/telusuri-kami" element={<BioLinks />} />
         <Route path="*" element={<Homepage />} />
       </Routes>

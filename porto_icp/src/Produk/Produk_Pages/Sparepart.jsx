@@ -51,16 +51,16 @@ const ProductCard = ({ product, onViewDetails }) => {
 
 const ProductModal = ({ product, isOpen, onClose }) => {
   useEffect(() => {
-      const handleEsc = (event) => {
-        if (event.key === "Escape") {
-          onClose();
-        }
-      };
-      window.addEventListener("keydown", handleEsc);
-      return () => {
-        window.removeEventListener("keydown", handleEsc);
-      };
-    }, [onClose]);
+    const handleEsc = (event) => {
+      if (event.key === "Escape") {
+        onClose();
+      }
+    };
+    window.addEventListener("keydown", handleEsc);
+    return () => {
+      window.removeEventListener("keydown", handleEsc);
+    };
+  }, [onClose]);
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -190,7 +190,7 @@ const Sparepart = () => {
   const handleOpenModal = (product) => {
     setSelectedProduct(product);
     navigate(`/produk/sparepart/${product.id}`);
-  }
+  };
 
   const handleCloseModal = () => {
     setSelectedProduct(null);

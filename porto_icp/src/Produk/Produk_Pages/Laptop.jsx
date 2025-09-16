@@ -152,26 +152,26 @@ const SpecItem = ({ icon, label, value }) => (
 
 const ProductModal = ({ product, isOpen, onClose }) => {
   useEffect(() => {
-      const handleEsc = (event) => {
-        if (event.key === "Escape") {
-          onClose();
-        }
-      };
-      window.addEventListener("keydown", handleEsc);
-      return () => {
-        window.removeEventListener("keydown", handleEsc);
-      };
-    }, [onClose]);
-    
-  useEffect(() => {
-      if (isOpen) {
-          document.body.style.overflow = 'hidden';
-      } else {
-          document.body.style.overflow = 'auto';
+    const handleEsc = (event) => {
+      if (event.key === "Escape") {
+        onClose();
       }
-      return () => {
-          document.body.style.overflow = 'auto';
-      };
+    };
+    window.addEventListener("keydown", handleEsc);
+    return () => {
+      window.removeEventListener("keydown", handleEsc);
+    };
+  }, [onClose]);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+    return () => {
+      document.body.style.overflow = "auto";
+    };
   }, [isOpen]);
 
   if (!isOpen || !product) return null;
@@ -279,13 +279,13 @@ const Laptop = () => {
     setSelectedProduct(product);
     // Update URL tanpa reload halaman
     navigate(`/produk/laptop/${product.brand}/${product.id}`);
-  }
+  };
 
   const handleCloseModal = () => {
     setSelectedProduct(null);
     // Kembalikan URL ke /produk tanpa reload halaman
-    navigate('/produk/laptop');
-  }
+    navigate("/produk/laptop");
+  };
 
   useEffect(() => {
     const laptopProducts = produkData

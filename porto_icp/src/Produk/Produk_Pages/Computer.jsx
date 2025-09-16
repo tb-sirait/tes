@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, useNavigate, useParams } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useNavigate,
+  useParams,
+} from "react-router-dom";
 import produkData from "../produk.json";
 import "./Laptop.css";
 import {
@@ -151,16 +157,16 @@ const ProductHeader = ({
 const ProductModal = ({ product, isOpen, onClose }) => {
   const [imgError, setImgError] = React.useState(false);
   useEffect(() => {
-      const handleEsc = (event) => {
-        if (event.key === "Escape") {
-          onClose();
-        }
-      };
-      window.addEventListener("keydown", handleEsc);
-      return () => {
-        window.removeEventListener("keydown", handleEsc);
-      };
-    }, [onClose]);
+    const handleEsc = (event) => {
+      if (event.key === "Escape") {
+        onClose();
+      }
+    };
+    window.addEventListener("keydown", handleEsc);
+    return () => {
+      window.removeEventListener("keydown", handleEsc);
+    };
+  }, [onClose]);
   useEffect(() => {
     if (isOpen) {
       document.documentElement.style.overflow = "hidden"; // kunci scroll
@@ -276,7 +282,7 @@ const Computer = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
 
   const navigate = useNavigate();
-  const { id } = useParams();      // <-- ambil param dari URL
+  const { id } = useParams(); // <-- ambil param dari URL
 
   useEffect(() => {
     const pcProducts = produkData

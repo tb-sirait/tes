@@ -98,29 +98,29 @@ const ProductHeader = ({
 
 const HardwareModal = ({ product, isOpen, onClose }) => {
   useEffect(() => {
-      const handleEsc = (event) => {
-        if (event.key === "Escape") {
-          onClose();
-        }
-      };
-      window.addEventListener("keydown", handleEsc);
-      return () => {
-        window.removeEventListener("keydown", handleEsc);
-      };
-    }, [onClose]);
-  useEffect(() => {
-      if (isOpen) {
-        document.documentElement.style.overflow = "hidden"; // kunci scroll
-      } else {
-        document.documentElement.style.overflow = "auto"; // hidupkan lagi
+    const handleEsc = (event) => {
+      if (event.key === "Escape") {
+        onClose();
       }
-  
-      return () => {
-        document.documentElement.style.overflow = "auto"; // cleanup
-      };
-    }, [isOpen]);
-  
-    if (!isOpen) return null;
+    };
+    window.addEventListener("keydown", handleEsc);
+    return () => {
+      window.removeEventListener("keydown", handleEsc);
+    };
+  }, [onClose]);
+  useEffect(() => {
+    if (isOpen) {
+      document.documentElement.style.overflow = "hidden"; // kunci scroll
+    } else {
+      document.documentElement.style.overflow = "auto"; // hidupkan lagi
+    }
+
+    return () => {
+      document.documentElement.style.overflow = "auto"; // cleanup
+    };
+  }, [isOpen]);
+
+  if (!isOpen) return null;
   const imgSrc = getImageUrl(product.images);
 
   return (
@@ -184,11 +184,11 @@ const Hardware = () => {
     // Update URL tanpa reload halaman
     navigate(`/produk/hardware/${product.brand}/${product.id}`);
   };
-  
-  const handleCloseModal = () => { 
+
+  const handleCloseModal = () => {
     setSelectedProduct(null);
     // Kembalikan URL ke /produk tanpa reload halaman
-    navigate('/produk/hardware');
+    navigate("/produk/hardware");
   };
 
   useEffect(() => {
@@ -205,17 +205,16 @@ const Hardware = () => {
 
   const { id } = useParams();
 
-useEffect(() => {
-  if (id && products.length > 0) {
-    const found = products.find((p) => String(p.id) === id);
-    if (found) {
-      setSelectedProduct(found);
+  useEffect(() => {
+    if (id && products.length > 0) {
+      const found = products.find((p) => String(p.id) === id);
+      if (found) {
+        setSelectedProduct(found);
+      }
+    } else {
+      setSelectedProduct(null);
     }
-  } else {
-    setSelectedProduct(null);
-  }
-}, [id, products]);
-
+  }, [id, products]);
 
   return (
     <div className="laptop-page">

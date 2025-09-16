@@ -1064,5 +1064,33 @@
       "gpu": "Integrated Intel graphics for Intel Core Ultra 7 155U processor",
       "os": "Windows 11 Pro, English"
     }
+  },
+  {
+    "id": 71,
+    "name": "DELL LATITUDE 3430",
+    "brand": "Dell",
+    "jenis": "Laptop",
+    "images": ["produk/Dell/Notebook/Latitude/3430/1.png"],
+    "specs": {
+      "cpu": "Intel Core i7-1255U",
+      "ram": "16 GB: 1 x 16 GB, DDR5, 5600 MT/s (5200 MT/s with 13th Gen Intel Core processors)",
+      "storage": "512 GB, M.2 2230, QLC, Gen 4 PCIe NVMe, SSD",
+      "gpu": "Intel Iris Xe Graphics",
+      "os": "Windows 11 Pro, English"
+    }
+  },
+  {
+    "id": 72,
+    "name": "DELL LATITUDE 5431",
+    "brand": "Dell",
+    "jenis": "Laptop",
+    "images": ["produk/Dell/Notebook/Latitude/5431/1.png"],
+    "specs": {
+      "cpu": "Intel Core i5-1250P",
+      "ram": "8 GB: 1 x 8 GB, DDR5, 5600 MT/s (5200 MT/s with 13th Gen Intel Core processors)",
+      "storage": "512 GB, M.2 2230, QLC, Gen 4 PCIe NVMe, SSD",
+      "gpu": "Intel Iris Xe Graphics",
+      "os": "Windows 11 Pro, English"
+    }
   }
 ]
