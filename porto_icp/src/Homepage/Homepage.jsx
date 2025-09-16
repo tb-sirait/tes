@@ -465,7 +465,7 @@ function Homepage() {
         <img
           alt="HR Building Wahid Hasyim"
           style={styles.heroImage}
-          src={KantorImage} 
+          src={KantorImage}
         />
         <div style={styles.heroOverlay}></div>
 
