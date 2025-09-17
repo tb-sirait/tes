@@ -13,6 +13,7 @@ import Produk from "./Produk/Produk";
 import Tentang from "./Tentang/Tentang";
 import Karir from "./Karir/Karir";
 import BioLinks from "./BioLink/BioLink";
+import Chatbot from "./Chatbot/Chatbot";
 
 import Computer from "./Produk/Produk_Pages/Computer";
 import Hardware from "./Produk/Produk_Pages/Hardware";
@@ -76,6 +77,7 @@ function AppContent() {
   return (
     <>
       <ScrollToTop />
+      <Chatbot/>
       <TrackVisitorActivity />
       {/* Kondisi: Navbar hanya muncul kalau bukan di /telusuri-kami */}
       {location.pathname !== "/telusuri-kami" && <Navbar />}
