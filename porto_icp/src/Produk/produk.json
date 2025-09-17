@@ -16,7 +16,8 @@
       "gpu": "Integrated Graphics",
       "os": "Windows 10"
     },
-    "deskripsi": "Dell OptiPlex 3000 Tower PC with Intel Core i5 CPU, 8GB RAM, 256GB SSD storage, integrated graphics, running Windows 10."
+    "deskripsi": "Dell OptiPlex 3000 Tower PC with Intel Core i5 CPU, 8GB RAM, 256GB SSD storage, integrated graphics, running Windows 10.",
+    "released_date": "2024-06-01"
   },
   {
     "id": 2,
@@ -31,7 +32,8 @@
       "gpu": "Integrated Graphics",
       "os": "Windows 10"
     },
-    "deskripsi": "Dell Optiplex 7010 PLUS SFF PC featuring Intel Core i7 processor, 16GB RAM, 512GB SSD, integrated graphics, and Windows 10 OS."
+    "deskripsi": "Dell Optiplex 7010 PLUS SFF PC featuring Intel Core i7 processor, 16GB RAM, 512GB SSD, integrated graphics, and Windows 10 OS.",
+    "released_date": "2024-06-01"
   },
   {
     "id": 3,
@@ -46,7 +48,8 @@
       "gpu": "NVIDIA Quadro",
       "os": "Windows 10 Pro"
     },
-    "deskripsi": "Dell Precision Workstation 5490 with powerful Intel Xeon CPU, 32GB RAM, 1TB SSD, NVIDIA Quadro GPU, and Windows 10 Pro."
+    "deskripsi": "Dell Precision Workstation 5490 with powerful Intel Xeon CPU, 32GB RAM, 1TB SSD, NVIDIA Quadro GPU, and Windows 10 Pro.",
+    "released_date": "2024-06-01"
   },
   {
     "id": 4,
@@ -61,7 +64,8 @@
       "gpu": "Integrated Graphics",
       "os": "Windows 10"
     },
-    "deskripsi": "Dell Latitude 3440 Laptop with Intel Core i5, 8GB RAM, 256GB SSD, integrated graphics, running Windows 10."
+    "deskripsi": "Dell Latitude 3440 Laptop with Intel Core i5, 8GB RAM, 256GB SSD, integrated graphics, running Windows 10.",
+    "released_date": "2024-06-01"
   },
   {
     "id": 5,
@@ -299,7 +303,7 @@
   },
   {
     "id": 20,
-    "name": "Latitude 3420 i7-1165G7 256GB SSD",
+    "name": "Latitude 3420",
     "brand": "Dell",
     "jenis": "Laptop",
     "images": ["produk/Dell/Notebook/Latitude/3420/1.png"],
