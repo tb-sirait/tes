@@ -61,7 +61,7 @@ function Footer() {
               <a href="/karir">Karir</a>
             </li>
             <li>
-              <a href="/kontak">Kontak</a>
+              <a href="/telusuri-kami">Telusuri Kami</a>
             </li>
           </ul>
         </div>

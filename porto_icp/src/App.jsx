@@ -81,50 +81,49 @@ function AppContent() {
       {location.pathname !== "/telusuri-kami" && <Navbar />}
 
       <Routes>
-  <Route path="/" element={<Homepage />} />
-  <Route path="/produk" element={<Produk />} />
+        <Route path="/" element={<Homepage />} />
+        <Route path="/produk" element={<Produk />} />
 
-  {/* Produk detail */}
-  <Route path="/produk/:brand/:id" element={<Produk />} />
+        {/* Produk detail */}
+        <Route path="/produk/:brand/:id" element={<Produk />} />
 
-  <Route path="/layanan" element={<Layanan />} />
-  <Route path="/tentang" element={<Tentang />} />
-  <Route path="/karir" element={<Karir />} />
+        <Route path="/layanan" element={<Layanan />} />
+        <Route path="/tentang" element={<Tentang />} />
+        <Route path="/karir" element={<Karir />} />
 
-  {/* Software */}
-  <Route path="/produk/software" element={<Software />} />
-  <Route path="/produk/software/:id" element={<Software />} />
+        {/* Software */}
+        <Route path="/produk/software" element={<Software />} />
+        <Route path="/produk/software/:id" element={<Software />} />
 
-  {/* Hardware */}
-  <Route path="/produk/hardware" element={<Hardware />} />
-  <Route path="/produk/hardware/:brand/:id" element={<Hardware />} />
+        {/* Hardware */}
+        <Route path="/produk/hardware" element={<Hardware />} />
+        <Route path="/produk/hardware/:brand/:id" element={<Hardware />} />
 
-  {/* Sparepart */}
-  <Route path="/produk/sparepart" element={<Sparepart />} />
-  <Route path="/produk/sparepart/:id" element={<Sparepart />} />
+        {/* Sparepart */}
+        <Route path="/produk/sparepart" element={<Sparepart />} />
+        <Route path="/produk/sparepart/:id" element={<Sparepart />} />
 
-  {/* Computer */}
-  <Route path="/produk/computer" element={<Computer />} />
-  <Route path="/produk/computer/:brand/:id" element={<Computer />} />
+        {/* Computer */}
+        <Route path="/produk/computer" element={<Computer />} />
+        <Route path="/produk/computer/:brand/:id" element={<Computer />} />
 
-  {/* Smartphone */}
-  <Route path="/produk/smartphone" element={<Smartphone />} />
-  <Route path="/produk/smartphone/:brand/:id" element={<Smartphone />} />
+        {/* Smartphone */}
+        <Route path="/produk/smartphone" element={<Smartphone />} />
+        <Route path="/produk/smartphone/:brand/:id" element={<Smartphone />} />
 
-  {/* Laptop */}
-  <Route path="/produk/laptop" element={<Laptop />} />
-  <Route path="/produk/laptop/:brand/:id" element={<Laptop />} />
+        {/* Laptop */}
+        <Route path="/produk/laptop" element={<Laptop />} />
+        <Route path="/produk/laptop/:brand/:id" element={<Laptop />} />
 
-  {/* Server */}
-  <Route path="/produk/server" element={<Server />} />
-  <Route path="/produk/server/:brand/:id" element={<Server />} />
+        {/* Server */}
+        <Route path="/produk/server" element={<Server />} />
+        <Route path="/produk/server/:brand/:id" element={<Server />} />
 
-  <Route path="/telusuri-kami" element={<BioLinks />} />
+        <Route path="/telusuri-kami" element={<BioLinks />} />
 
-  {/* fallback */}
-  <Route path="*" element={<Homepage />} />
-</Routes>
-
+        {/* fallback */}
+        <Route path="*" element={<Homepage />} />
+      </Routes>
 
       {/* CookieConsent tetap muncul di semua halaman */}
       <CookieConsent />
