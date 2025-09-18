@@ -77,7 +77,7 @@ function AppContent() {
   return (
     <>
       <ScrollToTop />
-      <Chatbot/>
+      <Chatbot />
       <TrackVisitorActivity />
       {/* Kondisi: Navbar hanya muncul kalau bukan di /telusuri-kami */}
       {location.pathname !== "/telusuri-kami" && <Navbar />}
