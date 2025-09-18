@@ -10,7 +10,7 @@ const ChatBot = () => {
     {
       id: 1,
       text: "Halo! Selamat datang di Website Infoduta. Bersama dengan saya DutaBot disini. Ada yang bisa saya bantu?",
-      sender: "bot",
+      sender: "DutaBot",
     },
   ]);
   const [inputMessage, setInputMessage] = useState("");
@@ -46,7 +46,7 @@ const ChatBot = () => {
           <>
             Silakan tanyakan barang melalui{" "}
             <a
-              href="https://wa.me/6281234567890"
+              href="https://wa.me/6285545031039"
               target="_blank"
               rel="noopener noreferrer"
               style={{ color: "#25D366", fontWeight: "bold" }}
@@ -209,7 +209,50 @@ const ChatBot = () => {
             </a>
           </>
         );
+      } else if (
+        inputMessage.toLowerCase().includes("tentang") ||
+        inputMessage.toLowerCase().includes("perusahaan") ||
+        inputMessage.toLowerCase().includes("info perusahaan") ||
+        inputMessage.toLowerCase().includes("profil") ||
+        inputMessage.toLowerCase().includes("profile") ||
+        inputMessage.toLowerCase().includes("about")
+      ) {
+        botText = (
+          <>
+            Kami adalah PT. Infoduta Cipta Persada, sebuah perusahaan yang
+            bergerak di bidang penyediaan solusi IT. Untuk informasi lebih
+            lengkap, silakan kunjungi{" "}
+            <a
+              href="/tentang"
+              style={{ color: "#2575fc", fontWeight: "bold" }}
+            >
+              halaman tentang kami
+            </a>
+          </>
+        );
+      } else if (
+        inputMessage.toLowerCase().includes("karir") ||
+        inputMessage.toLowerCase().includes("lowongan") || 
+        inputMessage.toLowerCase().includes("pekerjaan") ||
+        inputMessage.toLowerCase().includes("rekrutmen") ||
+        inputMessage.toLowerCase().includes("recruitment") ||
+        inputMessage.toLowerCase().includes("career")
+      ) {
+        botText = (
+          <>
+            Kami sering membuka kesempatan berkarir di perusahaan kami. Untuk
+            informasi lebih lengkap, silakan kunjungi{" "}
+            <a
+              href="/karir"
+              style={{ color: "#2575fc", fontWeight: "bold" }}
+            >
+              halaman karir
+            </a>
+          </>
+        );
       }
+
+      // Jika botText adalah elemen JSX, render sebagai elemen
 
       const botResponse = {
         id: messages.length + 2,
