@@ -63,7 +63,7 @@ const ChatBot = () => {
               href="/produk/software"
               style={{ color: "#2575fc", fontWeight: "bold" }}
             >
-              halaman produk/software
+              halaman Software
             </a>
           </>
         );
@@ -75,7 +75,7 @@ const ChatBot = () => {
               href="/produk/hardware"
               style={{ color: "#2575fc", fontWeight: "bold" }}
             >
-              halaman hardware
+              halaman Hardware
             </a>
           </>
         );
@@ -87,7 +87,7 @@ const ChatBot = () => {
               href="/produk/laptop"
               style={{ color: "#2575fc", fontWeight: "bold" }}
             >
-              halaman produk/laptop
+              halaman Laptop
             </a>
           </>
         );
@@ -104,7 +104,7 @@ const ChatBot = () => {
               href="/produk/smartphone"
               style={{ color: "#2575fc", fontWeight: "bold" }}
             >
-              halaman produk/smartphone
+              halaman Smartphone
             </a>
           </>
         );
@@ -120,7 +120,7 @@ const ChatBot = () => {
               href="/produk/computer"
               style={{ color: "#2575fc", fontWeight: "bold" }}
             >
-              halaman produk/computer
+              halaman Komputer
             </a>
           </>
         );
@@ -132,7 +132,7 @@ const ChatBot = () => {
               href="/produk/server"
               style={{ color: "#2575fc", fontWeight: "bold" }}
             >
-              halaman produk/server
+              halaman Server
             </a>
           </>
         );
@@ -148,7 +148,7 @@ const ChatBot = () => {
               href="/produk/sparepart"
               style={{ color: "#2575fc", fontWeight: "bold" }}
             >
-              halaman produk/sparepart
+              halaman Sparepart
             </a>
           </>
         );
