@@ -20,6 +20,8 @@ for (const path in images) {
   imageMap[normalizedPath] = images[path].default || images[path];
 }
 
+import { Helmet } from "react-helmet";
+
 import {
   Search,
   Filter,
@@ -313,6 +315,24 @@ const Laptop = () => {
   }, [id, products]);
 
   return (
+    <>
+    <Helmet>
+      <title>Laptop | Infoduta Cipta Pratama</title>
+      <meta
+        name="description"
+        content="Temukan berbagai pilihan Laptop dengan spesifikasi terbaik yang sesuai dengan kebutuhan perusahaan Anda."
+      />
+      <meta property="og:title" content="Laptop | Infoduta Cipta Pratama" />
+      <meta
+        property="og:description"
+        content="Temukan berbagai pilihan Laptop dengan spesifikasi terbaik yang sesuai dengan kebutuhan perusahaan Anda."
+      />
+      <meta property="og:image" content="/api/og-image?title=Laptop" />
+      <meta property="og:url" content="https://www.infoduta.com/produk/laptop" />
+      <meta property="og:type" content="website" />
+      <link rel="canonical" href="https://www.infoduta.com/produk/laptop" />
+      
+    </Helmet>
     <div className="laptop-page">
       <Navbar />
       <ProductHeader
@@ -340,6 +360,7 @@ const Laptop = () => {
       />
       <Footer />
     </div>
+    </>
   );
 };
 

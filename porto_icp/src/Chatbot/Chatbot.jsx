@@ -10,7 +10,7 @@ const ChatBot = () => {
     {
       id: 1,
       text: "Halo! Selamat datang di Website Infoduta. Bersama dengan saya DutaBot disini. Ada yang bisa saya bantu?",
-      sender: "DutaBot",
+      sender: "bot",
     },
   ]);
   const [inputMessage, setInputMessage] = useState("");
@@ -251,7 +251,7 @@ const ChatBot = () => {
           </>
         );
       }
-
+      
       // Jika botText adalah elemen JSX, render sebagai elemen
 
       const botResponse = {
@@ -296,7 +296,7 @@ const ChatBot = () => {
               />
             </div>
             <div>
-              <h3>DutaBot</h3>
+              <h3>DutaBot (Assistant)</h3>
               <span className="status">Online</span>
             </div>
           </div>
@@ -329,7 +329,7 @@ const ChatBot = () => {
             className="input-field"
           />
           <button className="send-btn" onClick={sendMessage}>
-            <Send classname="icon-logo" />
+            <Send className="icon-logo" />
           </button>
         </div>
       </div>

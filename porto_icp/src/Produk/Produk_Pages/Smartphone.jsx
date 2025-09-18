@@ -23,6 +23,8 @@ import "./Laptop.css";
 import Navbar from "../../Navigation/Navbar.jsx";
 import Footer from "../../Navigation/footer.jsx";
 
+import { Helmet } from "react-helmet";
+
 // Dynamically import all images under src/assets/produk
 const images = import.meta.glob("../../assets/produk/**/*.{png,jpg,jpeg,svg}", {
   eager: true,
@@ -311,6 +313,33 @@ const Laptop = () => {
   }, [id, products]);
 
   return (
+      <>
+      <Helmet>
+        <title>Smartphone | Infoduta Computindo Perkasa</title>
+        <meta
+          name="description"
+          content="Temukan berbagai pilihan Smartphone dengan spesifikasi terbaik yang sesuai dengan kebutuhan perusahaan Anda."
+        />
+        <meta
+          name="keywords"
+          content="Smartphone, Ponsel Bisnis, Perangkat Mobile, Smartphone Perusahaan, Telepon Pintar, Handphone Bisnis, Solusi Mobile, Perangkat Komunikasi, Smartphone Profesional, Gadget Bisnis"
+        />
+        <meta name="author" content="PT Infoduta Computindo Perkasa" />
+        <link rel="canonical" href="https://infoduta.co.id/produk/smartphone" />
+        <meta property="og:title" content="Smartphone | Infoduta Computindo Perkasa" />
+        <meta
+          property="og:description"
+          content="Temukan berbagai pilihan Smartphone dengan spesifikasi terbaik yang sesuai dengan kebutuhan perusahaan Anda."
+        />
+        <meta
+          property="og:image"
+          content="https://infoduta.co.id/assets/infoduta-share-image.png"
+        />
+        <meta property="og:url" content="https://infoduta.co.id/produk/smartphone" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Smartphone | Infoduta Computindo Perkasa" />
+      </Helmet>
     <div className="laptop-page">
       <Navbar />
       <ProductHeader
@@ -339,6 +368,7 @@ const Laptop = () => {
 
       <Footer />
     </div>
+    </>
   );
 };
 

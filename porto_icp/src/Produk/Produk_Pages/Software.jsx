@@ -7,6 +7,8 @@ import "./Laptop.css";
 import Navbar from "../../Navigation/Navbar.jsx";
 import Footer from "../../Navigation/footer.jsx";
 
+import { Helmet } from "react-helmet";
+
 // Import images explicitly
 import microsoft1 from "../../assets/software/microsoft/1.png";
 import microsoft2 from "../../assets/software/microsoft/2.png";
@@ -252,6 +254,29 @@ const Software = () => {
   }, [id, products]);
 
   return (
+    <>
+    <Helmet>
+      <title>Software | Infoduta Computindo Perkasa</title>
+      <meta
+        name="description"
+        content="Infoduta menyediakan berbagai pilihan software berkualitas untuk memenuhi kebutuhan bisnis Anda, mulai dari produktivitas hingga keamanan."
+      />
+      <meta
+        name="keywords"
+        content="Software IT, Lisensi Software, Aplikasi Bisnis, Software Produktivitas, Software Keamanan, Solusi Software, Perangkat Lunak Bisnis, Software Profesional, Software Terpercaya, Software untuk Perusahaan"
+      />
+      <meta name="author" content="PT Infoduta Computindo Perkasa" />
+      <link rel="canonical" href="https://infoduta.co.id/produk/software" />
+      <meta property="og:title" content="Software | Infoduta Computindo Perkasa" />
+      <meta
+        property="og:description"
+        content="Infoduta menyediakan berbagai pilihan software berkualitas untuk memenuhi kebutuhan bisnis Anda, mulai dari produktivitas hingga keamanan."
+      />
+      <meta property="og:image" content="/api/og-image/software" />
+      <meta property="og:url" content="https://infoduta.co.id/produk/software" />
+      <meta property="og:site_name" content="Infoduta Computindo Perkasa" />
+      <meta property="og:type" content="website" />
+    </Helmet>
     <div className="laptop-page">
       <Navbar />
       <ProductHeader
@@ -278,6 +303,7 @@ const Software = () => {
       />
       <Footer />
     </div>
+    </>
   );
 };
 

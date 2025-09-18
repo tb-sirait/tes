@@ -7,6 +7,7 @@ import {
   useParams,
 } from "react-router-dom";
 import produkData from "../produk.json";
+import { Helmet } from "react-helmet";
 import "./Laptop.css";
 import {
   Search,
@@ -53,52 +54,68 @@ const ProductCard = ({ product, onViewDetails }) => {
       "/api/placeholder/200/150";
 
   return (
+    <><Helmet>
+      <title>Komputer | Infoduta Cipta Pratama</title>
+      <meta
+        name="description"
+        content="Temukan berbagai pilihan Komputer dengan spesifikasi terbaik yang sesuai dengan kebutuhan perusahaan Anda." />
+      <meta
+        name="keywords"
+        content="Produk Komputer, PC, Desktop, Workstation, Infoduta Cipta Pratama, Solusi IT, Perangkat Keras, Hardware, Komputer Bisnis" />
+      <meta name="author" content="Infoduta Cipta Pratama" />
+      <meta property="og:title" content="Produk Komputer - Infoduta Cipta Pratama" />
+      <meta
+        property="og:description"
+        content="Temukan berbagai pilihan Komputer dengan spesifikasi terbaik yang sesuai dengan kebutuhan perusahaan Anda." />
+      <meta
+        property="og:image"
+        content="https://www.infoduta.com/og-image-produk-komputer.jpg" />
+      <meta property="og:url" content="https://www.infoduta.com/produk/computer" />
+      <meta property="og:type" content="website" />
+      <link rel="canonical" href="https://www.infoduta.com/produk/computer" />
+
+    </Helmet>
     <div className="filter-product-card" onClick={() => onViewDetails(product)}>
-      <div className="filter-product-image">
-        <img
-          src={imgSrc}
-          alt={product.name}
-          onError={() => setImgError(true)}
-        />
-      </div>
-      <div className="filter-product-info">
-        <h3>{product.name}</h3>
-        <div className="filter-product-meta">
-          <span className="brand">{product.brand}</span>
-          <span className="type">{product.jenis}</span>
+        <div className="filter-product-image">
+          <img
+            src={imgSrc}
+            alt={product.name}
+            onError={() => setImgError(true)} />
         </div>
-        <div className="filter-specs">
-          {product.specs?.cpu && (
-            <SpecItem
-              icon={<Cpu />}
-              label="Prosesor"
-              value={product.specs.cpu}
-            />
-          )}
-          {product.specs?.ram && (
-            <SpecItem
-              icon={<MemoryStick />}
-              label="RAM"
-              value={product.specs.ram}
-            />
-          )}
-          {product.specs?.storage && (
-            <SpecItem
-              icon={<HardDrive />}
-              label="Penyimpanan"
-              value={product.specs.storage}
-            />
-          )}
-          {product.specs?.gpu && (
-            <SpecItem
-              icon={<Monitor />}
-              label="GPU"
-              value={product.specs.gpu}
-            />
-          )}
+        <div className="filter-product-info">
+          <h3>{product.name}</h3>
+          <div className="filter-product-meta">
+            <span className="brand">{product.brand}</span>
+            <span className="type">{product.jenis}</span>
+          </div>
+          <div className="filter-specs">
+            {product.specs?.cpu && (
+              <SpecItem
+                icon={<Cpu />}
+                label="Prosesor"
+                value={product.specs.cpu} />
+            )}
+            {product.specs?.ram && (
+              <SpecItem
+                icon={<MemoryStick />}
+                label="RAM"
+                value={product.specs.ram} />
+            )}
+            {product.specs?.storage && (
+              <SpecItem
+                icon={<HardDrive />}
+                label="Penyimpanan"
+                value={product.specs.storage} />
+            )}
+            {product.specs?.gpu && (
+              <SpecItem
+                icon={<Monitor />}
+                label="GPU"
+                value={product.specs.gpu} />
+            )}
+          </div>
         </div>
-      </div>
-    </div>
+      </div></>
   );
 };
 

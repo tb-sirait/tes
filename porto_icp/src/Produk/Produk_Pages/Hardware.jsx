@@ -6,6 +6,8 @@ import "./Laptop.css";
 import Navbar from "../../Navigation/Navbar.jsx";
 import Footer from "../../Navigation/footer.jsx";
 
+import { Helmet } from "react-helmet";
+
 import { useNavigate, useParams } from "react-router-dom";
 
 // Dynamically import all images from assets folder using Vite's import.meta.glob
@@ -217,6 +219,30 @@ const Hardware = () => {
   }, [id, products]);
 
   return (
+    <>
+      <Helmet> 
+      <title>Hardware | Infoduta Computindo Perkasa</title>
+      <meta
+        name="description"
+        content="Temukan berbagai pilihan Hardware dengan spesifikasi terbaik yang sesuai dengan kebutuhan perusahaan Anda."
+      />
+      <meta
+        name="keywords"
+        content="Hardware IT, Perangkat Keras, Komputer, Laptop, Printer, Scanner, Monitor, Server, Storage, Networking, Aksesori IT, Perangkat Keras Bisnis, Solusi Perangkat Keras, Infrastruktur IT"
+      />
+      <meta name="author" content="PT Infoduta Computindo Perkasa" />
+      <meta property="og:title" content="Hardware | Infoduta Computindo Perkasa" />
+      <meta
+        property="og:description"
+        content="Temukan berbagai pilihan Hardware dengan spesifikasi terbaik yang sesuai dengan kebutuhan perusahaan Anda."
+      />
+      <meta property="og:image" content="/api/og-image/hardware" />
+      <meta property="og:url" content="https://infoduta.co.id/produk/hardware" />
+      <meta property="og:site_name" content="Infoduta Computindo Perkasa" />
+      <meta property="og:type" content="website" />
+      <link rel="canonical" href="https://infoduta.co.id/produk/hardware" />
+      </Helmet>
+    
     <div className="laptop-page">
       <Navbar />
       <ProductHeader
@@ -245,6 +271,7 @@ const Hardware = () => {
 
       <Footer />
     </div>
+    </>
   );
 };
 

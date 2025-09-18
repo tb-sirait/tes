@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { Helmet } from "react-helmet";
 import ReCAPTCHA from "react-google-recaptcha";
 
 import Navbar from "../Navigation/Navbar";
@@ -183,6 +184,19 @@ function Karir() {
 
   return (
     <>
+      <Helmet> 
+        <title>Karir | Infoduta Computindo Perkasa</title>
+        <meta
+          name="description"
+          content="Bergabunglah dengan tim profesional kami di PT. Infoduta Computindo Perkasa dan kembangkan karir Anda bersama kami."
+        />
+        <meta
+          name="keywords"
+          content="Karir, Lowongan Kerja, Peluang Karir, Tim Profesional, PT Infoduta Computindo Perkasa, Bergabung Bersama Kami"
+        />
+        <meta name="author" content="PT Infoduta Computindo Perkasa" />
+        <link rel="canonical" href="https://infoduta.co.id/karir" />
+      </Helmet>
       <Navbar />
       <div className="career-page">
         <img
@@ -382,8 +396,6 @@ function Karir() {
                   </div>
                   <small className="form-help">Maksimal ukuran file 5MB</small>
                 </div>
-
-                {/* Removed reCAPTCHA component */}
 
                 <div className="form-actions">
                   <button

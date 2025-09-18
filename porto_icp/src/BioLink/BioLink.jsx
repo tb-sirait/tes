@@ -4,6 +4,8 @@ import "./biolink.css";
 import logoICP from "../assets/infoduta.png";
 import kantorICP from "../assets/kantor_hr.webp";
 
+import { Helmet } from "react-helmet";
+
 // import icon dari react-icons
 import {
   AiFillInstagram,
@@ -91,6 +93,20 @@ export default function BioLinks() {
   ];
 
   return (
+    <>
+    <Helmet> 
+      <title>Telusuri Kami | Infoduta Computindo Perkasa</title>
+      <meta name="description" content="Kunjungi website dan sosial media resmi PT Infoduta Computindo Perkasa." />
+      <meta name="keywords" content="Infoduta, Infoduta Computindo Perkasa, BioLink Infoduta, Sosial Media Infoduta, Website Resmi Infoduta, Produk IT, Layanan IT, Karir IT, Tentang Infoduta" />
+      <meta name="author" content="PT Infoduta Computindo Perkasa" />
+      <link rel="canonical" href="https://infoduta.co.id/biolink" />
+      <meta property="og:title" content="BioLink | Infoduta Computindo Perkasa" />
+      <meta property="og:description" content="Kunjungi website dan sosial media resmi PT Infoduta Computindo Perkasa." />
+      <meta property="og:image" content="/api/og-image/biolink" />
+      <meta property="og:url" content="https://infoduta.co.id/biolink" />
+      <meta property="og:site_name" content="Infoduta Computindo Perkasa" />
+      <meta property="og:type" content="website" />
+    </Helmet>
     <div className="bio-wrapper">
       {/* Background with city overlay */}
       {/* Background with kantor ICP */}
@@ -211,5 +227,6 @@ export default function BioLinks() {
         </div>
       </div>
     </div>
+    </>
   );
 }

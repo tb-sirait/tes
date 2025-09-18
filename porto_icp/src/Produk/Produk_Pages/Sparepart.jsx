@@ -7,6 +7,8 @@ import Footer from "../../Navigation/footer.jsx";
 
 import { useNavigate, useParams } from "react-router-dom";
 
+import { Helmet } from "react-helmet";
+
 // Dynamically import all images from assets folder using Vite's import.meta.glob
 const images = import.meta.glob(
   "../../assets/produk/sparepart/**/*.{png,jpg,jpeg,svg}",
@@ -216,6 +218,32 @@ const Sparepart = () => {
   });
 
   return (
+    <>
+      <Helmet>
+        <title>Sparepart | Infoduta Computindo Perkasa</title>
+        <meta
+          name="description"
+          content="Temukan berbagai pilihan Sparepart yang sesuai dengan kebutuhan perusahaan Anda."
+        />
+        <meta
+          name="keywords"
+          content="Sparepart IT, Komponen Komputer, Aksesori IT, Perangkat Keras, Suku Cadang, Perbaikan Komputer, Upgrade Hardware, Sparepart Laptop, Sparepart Smartphone, Sparepart Server"
+        />
+        <meta name="author" content="PT Infoduta Computindo Perkasa" />
+        <link rel="canonical" href="https://infoduta.co.id/produk/sparepart" />
+        <meta property="og:title" content="Sparepart | Infoduta Computindo Perkasa" />
+        <meta
+          property="og:description"
+          content="Temukan berbagai pilihan Sparepart yang sesuai dengan kebutuhan perusahaan Anda."
+        />
+        <meta
+          property="og:url"
+          content="https://infoduta.co.id/produk/sparepart"
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Infoduta Computindo Perkasa" />
+        <meta property="og:image" content="/api/og-image/sparepart" />
+      </Helmet> 
     <div className="laptop-page">
       <Navbar />
       <ProductHeader
@@ -244,6 +272,7 @@ const Sparepart = () => {
 
       <Footer />
     </div>
+    </>
   );
 };
 

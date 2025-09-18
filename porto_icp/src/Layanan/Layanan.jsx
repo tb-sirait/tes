@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
+import { Helmet } from "react-helmet";
 import {
   FaCheck,
   FaCogs,
@@ -78,6 +79,20 @@ function Layanan() {
 
   return (
     <>
+      <Helmet>
+        <title>Layanan | Infoduta Computindo Perkasa</title>
+        <meta
+          name="description"
+          content="Infoduta hadir sebagai solusi untuk bisnis anda dengan melayani Pengadaan atau Penyewaan Produk IT."
+        />
+        <meta
+          name="keywords"
+          content="Layanan IT, Konsultasi IT, Hardware IT, Procurement IT, Service IT, Solusi Teknologi Informasi, Infrastruktur Bisnis, Perangkat Keras IT, Pengadaan Perangkat IT, Dukungan Teknis IT"
+        />
+        <meta name="author" content="PT Infoduta Computindo Perkasa" />
+        <link rel="canonical" href="https://infoduta.co.id/layanan" />
+      </Helmet>
+
       <Navbar />
       <div className="layanan-hero">
         <div></div>

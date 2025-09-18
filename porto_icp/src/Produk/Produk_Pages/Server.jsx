@@ -27,6 +27,8 @@ const images = import.meta.glob("../../assets/produk/**", {
   as: "url",
 });
 
+import { Helmet } from "react-helmet";
+
 const getImageUrl = (imagePath) => {
   // Normalize path to start with ../../assets/produk/
   const normalizedPath = imagePath.startsWith("assets/produk")
@@ -326,6 +328,19 @@ const Server = () => {
   }, [id, products]);
 
   return (
+    <>
+    <Helmet>
+      <title>Server | Infoduta Cipta Pratama</title>
+      <meta
+        name="description"
+        content="Temukan berbagai pilihan Server dengan spesifikasi terbaik yang sesuai dengan kebutuhan perusahaan Anda." />
+      <meta property="og:title" content="Server | Infoduta Cipta Pratama" />
+      <meta
+        property="og:description"
+        content="Temukan berbagai pilihan Server dengan spesifikasi terbaik yang sesuai dengan kebutuhan perusahaan Anda." />
+      <meta property="og:type" content="website" />
+      <link rel="canonical" href="https://www.infoduta.com/produk/server" />
+    </Helmet>
     <div className="laptop-page">
       <Navbar />
       <ProductHeader
@@ -354,6 +369,7 @@ const Server = () => {
 
       <Footer />
     </div>
+    </>
   );
 };
 
