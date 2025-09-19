@@ -56,7 +56,7 @@ const ProductCard = ({ product, onViewDetails }) => {
   return (
     <>
       <Helmet>
-        <title>Komputer | Infoduta Cipta Pratama</title>
+        <title>Komputer | Infoduta Computindo Perkasa</title>
         <meta
           name="description"
           content="Temukan berbagai pilihan Komputer dengan spesifikasi terbaik yang sesuai dengan kebutuhan perusahaan Anda."
@@ -65,10 +65,10 @@ const ProductCard = ({ product, onViewDetails }) => {
           name="keywords"
           content="Produk Komputer, PC, Desktop, Workstation, Infoduta Cipta Pratama, Solusi IT, Perangkat Keras, Hardware, Komputer Bisnis"
         />
-        <meta name="author" content="Infoduta Cipta Pratama" />
+        <meta name="author" content="Infoduta Computindo Perkasa" />
         <meta
           property="og:title"
-          content="Produk Komputer - Infoduta Cipta Pratama"
+          content="Produk Komputer - Infoduta Computindo Perkasa"
         />
         <meta
           property="og:description"

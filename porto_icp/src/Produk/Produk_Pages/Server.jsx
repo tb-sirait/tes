@@ -330,12 +330,12 @@ const Server = () => {
   return (
     <>
       <Helmet>
-        <title>Server | Infoduta Cipta Pratama</title>
+        <title>Server | Infoduta Computindo Perkasa</title>
         <meta
           name="description"
           content="Temukan berbagai pilihan Server dengan spesifikasi terbaik yang sesuai dengan kebutuhan perusahaan Anda."
         />
-        <meta property="og:title" content="Server | Infoduta Cipta Pratama" />
+        <meta property="og:title" content="Server | Infoduta Computindo Perkasa" />
         <meta
           property="og:description"
           content="Temukan berbagai pilihan Server dengan spesifikasi terbaik yang sesuai dengan kebutuhan perusahaan Anda."

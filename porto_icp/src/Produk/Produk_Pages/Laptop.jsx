@@ -317,12 +317,12 @@ const Laptop = () => {
   return (
     <>
       <Helmet>
-        <title>Laptop | Infoduta Cipta Pratama</title>
+        <title>Laptop | Infoduta Computindo Perkasa</title>
         <meta
           name="description"
           content="Temukan berbagai pilihan Laptop dengan spesifikasi terbaik yang sesuai dengan kebutuhan perusahaan Anda."
         />
-        <meta property="og:title" content="Laptop | Infoduta Cipta Pratama" />
+        <meta property="og:title" content="Laptop | Infoduta Computindo Perkasa" />
         <meta
           property="og:description"
           content="Temukan berbagai pilihan Laptop dengan spesifikasi terbaik yang sesuai dengan kebutuhan perusahaan Anda."

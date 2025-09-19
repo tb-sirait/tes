@@ -86,7 +86,7 @@ function Tentang() {
   return (
     <>
       <Helmet>
-        <title>Tentang Kami - PT Infoduta Computindo Perkasa</title>
+        <title>Tentang Kami | PT Infoduta Computindo Perkasa</title>
         <meta
           name="description"
           content="Pelajari lebih lanjut tentang PT Infoduta Computindo Perkasa, pengalaman kami, visi misi, dan layanan terbaik di bidang IT."
