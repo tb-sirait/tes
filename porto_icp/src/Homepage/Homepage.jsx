@@ -4,6 +4,7 @@ import Footer from "../Navigation/footer";
 import Navbar from "../Navigation/Navbar";
 
 // Mock components for demonstration - replace with your actual components
+import { Helmet } from "react-helmet";
 
 // Placeholder images - replace with your actual imports
 import KantorImage from "../assets/kantor_icp(landscape1).webp";
@@ -459,6 +460,32 @@ function Homepage() {
       </style>
 
       <Navbar />
+
+      <Helmet>
+        <title>Infoduta Computindo Perkasa | Solusi Software & Hardware Pilihan Anda</title>
+        <meta
+          name="description"
+          content="Temukan solusi teknologi terdepan untuk mengembangkan bisnis Anda bersama PT Infoduta Computindo Perkasa. Jelajahi produk dan layanan kami sekarang!"
+        />
+        <meta
+          name="keywords"
+          content="Infoduta, Infoduta Computindo Perkasa, Software, Hardware, Solusi IT, Produk IT, Layanan IT, Teknologi Bisnis, Infrastruktur IT, Perangkat Lunak, Perangkat Keras, Solusi Teknologi, Transformasi Digital"
+        />
+        <meta name="author" content="PT Infoduta Computindo Perkasa" />
+        <meta
+          property="og:title"
+          content="Infoduta Computindo Perkasa | Solusi Software & Hardware Pilihan Anda"
+        />
+        <meta
+          property="og:description"
+          content="Temukan solusi teknologi terdepan untuk mengembangkan bisnis Anda bersama PT Infoduta Computindo Perkasa. Jelajahi produk dan layanan kami sekarang!"
+        />
+        <meta property="og:image" content="/api/og-image/homepage" />
+        <meta property="og:url" content="https://infoduta.com/" />
+        <link rel="canonical" href="https://infoduta.com/" />
+        <meta property="og:site_name" content="Infoduta Computindo Perkasa" />
+        <meta property="og:type" content="website" />
+      </Helmet>
 
       {/* Hero Section */}
       <section style={styles.heroSection}>

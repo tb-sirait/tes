@@ -105,7 +105,7 @@ export default function BioLinks() {
           content="Infoduta, Infoduta Computindo Perkasa, BioLink Infoduta, Sosial Media Infoduta, Website Resmi Infoduta, Produk IT, Layanan IT, Karir IT, Tentang Infoduta"
         />
         <meta name="author" content="PT Infoduta Computindo Perkasa" />
-        <link rel="canonical" href="https://infoduta.co.id/biolink" />
+        <link rel="canonical" href="https://infoduta.com/biolink" />
         <meta
           property="og:title"
           content="BioLink | Infoduta Computindo Perkasa"
@@ -115,7 +115,7 @@ export default function BioLinks() {
           content="Kunjungi website dan sosial media resmi PT Infoduta Computindo Perkasa."
         />
         <meta property="og:image" content="/api/og-image/biolink" />
-        <meta property="og:url" content="https://infoduta.co.id/biolink" />
+        <meta property="og:url" content="https://infoduta.com/biolink" />
         <meta property="og:site_name" content="Infoduta Computindo Perkasa" />
         <meta property="og:type" content="website" />
       </Helmet>

@@ -266,7 +266,7 @@ const Software = () => {
           content="Software IT, Lisensi Software, Aplikasi Bisnis, Software Produktivitas, Software Keamanan, Solusi Software, Perangkat Lunak Bisnis, Software Profesional, Software Terpercaya, Software untuk Perusahaan"
         />
         <meta name="author" content="PT Infoduta Computindo Perkasa" />
-        <link rel="canonical" href="https://infoduta.co.id/produk/software" />
+        <link rel="canonical" href="https://infoduta.com/produk/software" />
         <meta
           property="og:title"
           content="Software | Infoduta Computindo Perkasa"
@@ -278,7 +278,7 @@ const Software = () => {
         <meta property="og:image" content="/api/og-image/software" />
         <meta
           property="og:url"
-          content="https://infoduta.co.id/produk/software"
+          content="https://infoduta.com/produk/software"
         />
         <meta property="og:site_name" content="Infoduta Computindo Perkasa" />
         <meta property="og:type" content="website" />

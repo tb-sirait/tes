@@ -242,11 +242,11 @@ const Hardware = () => {
         <meta property="og:image" content="/api/og-image/hardware" />
         <meta
           property="og:url"
-          content="https://infoduta.co.id/produk/hardware"
+          content="https://infoduta.com/produk/hardware"
         />
         <meta property="og:site_name" content="Infoduta Computindo Perkasa" />
         <meta property="og:type" content="website" />
-        <link rel="canonical" href="https://infoduta.co.id/produk/hardware" />
+        <link rel="canonical" href="https://infoduta.com/produk/hardware" />
       </Helmet>
 
       <div className="laptop-page">

@@ -325,7 +325,7 @@ const Laptop = () => {
           content="Smartphone, Ponsel Bisnis, Perangkat Mobile, Smartphone Perusahaan, Telepon Pintar, Handphone Bisnis, Solusi Mobile, Perangkat Komunikasi, Smartphone Profesional, Gadget Bisnis"
         />
         <meta name="author" content="PT Infoduta Computindo Perkasa" />
-        <link rel="canonical" href="https://infoduta.co.id/produk/smartphone" />
+        <link rel="canonical" href="https://infoduta.com/produk/smartphone" />
         <meta
           property="og:title"
           content="Smartphone | Infoduta Computindo Perkasa"
@@ -336,11 +336,11 @@ const Laptop = () => {
         />
         <meta
           property="og:image"
-          content="https://infoduta.co.id/assets/infoduta-share-image.png"
+          content="https://infoduta.com/assets/infoduta-share-image.png"
         />
         <meta
           property="og:url"
-          content="https://infoduta.co.id/produk/smartphone"
+          content="https://infoduta.com/produk/smartphone"
         />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />

@@ -230,7 +230,7 @@ const Sparepart = () => {
           content="Sparepart IT, Komponen Komputer, Aksesori IT, Perangkat Keras, Suku Cadang, Perbaikan Komputer, Upgrade Hardware, Sparepart Laptop, Sparepart Smartphone, Sparepart Server"
         />
         <meta name="author" content="PT Infoduta Computindo Perkasa" />
-        <link rel="canonical" href="https://infoduta.co.id/produk/sparepart" />
+        <link rel="canonical" href="https://infoduta.com/produk/sparepart" />
         <meta
           property="og:title"
           content="Sparepart | Infoduta Computindo Perkasa"
@@ -241,7 +241,7 @@ const Sparepart = () => {
         />
         <meta
           property="og:url"
-          content="https://infoduta.co.id/produk/sparepart"
+          content="https://infoduta.com/produk/sparepart"
         />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Infoduta Computindo Perkasa" />

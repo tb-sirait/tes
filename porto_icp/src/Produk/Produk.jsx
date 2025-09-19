@@ -276,7 +276,7 @@ export default function Produk() {
           content="Produk IT, Komputer, Laptop, Smartphone, Hardware, Software, Perangkat Keras, Perangkat Lunak, Teknologi Informasi, Penjualan IT, Penyewaan IT, Solusi Bisnis IT"
         />
         <meta name="author" content="PT Infoduta Computindo Perkasa" />
-        <link rel="canonical" href="https://infoduta.co.id/produk" />
+        <link rel="canonical" href="https://infoduta.com/produk" />
         <meta
           property="og:title"
           content="Produk | Infoduta Computindo Perkasa"
@@ -286,7 +286,7 @@ export default function Produk() {
           content="Temukan berbagai pilihan Komputer, Laptop, Smartphone, dan barang IT lainnya di Infoduta Computindo Perkasa."
         />
         <meta property="og:image" content="/api/og-image/produk" />
-        <meta property="og:url" content="https://infoduta.co.id/produk" />
+        <meta property="og:url" content="https://infoduta.com/produk" />
         <meta property="og:site_name" content="Infoduta Computindo Perkasa" />
         <meta property="og:type" content="website" />
       </Helmet>

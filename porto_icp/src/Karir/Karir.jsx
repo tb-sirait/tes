@@ -195,7 +195,7 @@ function Karir() {
           content="Karir, Lowongan Kerja, Peluang Karir, Tim Profesional, PT Infoduta Computindo Perkasa, Bergabung Bersama Kami"
         />
         <meta name="author" content="PT Infoduta Computindo Perkasa" />
-        <link rel="canonical" href="https://infoduta.co.id/karir" />
+        <link rel="canonical" href="https://infoduta.com/karir" />
       </Helmet>
       <Navbar />
       <div className="career-page">
