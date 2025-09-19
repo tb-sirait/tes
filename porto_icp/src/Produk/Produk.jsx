@@ -7,7 +7,7 @@ import produkData from "./produk.json";
 import { FaFilter, FaSearch } from "react-icons/fa";
 import "./Produk.css";
 
-import { Helmet } from "react-helmet"
+import { Helmet } from "react-helmet";
 
 import DellLogoWhite from "../assets/Dell_logo_white.png";
 import XiaomiLogo from "../assets/xiaomi_logo.webp";
@@ -277,7 +277,10 @@ export default function Produk() {
         />
         <meta name="author" content="PT Infoduta Computindo Perkasa" />
         <link rel="canonical" href="https://infoduta.co.id/produk" />
-        <meta property="og:title" content="Produk | Infoduta Computindo Perkasa" />
+        <meta
+          property="og:title"
+          content="Produk | Infoduta Computindo Perkasa"
+        />
         <meta
           property="og:description"
           content="Temukan berbagai pilihan Komputer, Laptop, Smartphone, dan barang IT lainnya di Infoduta Computindo Perkasa."

@@ -184,7 +184,7 @@ function Karir() {
 
   return (
     <>
-      <Helmet> 
+      <Helmet>
         <title>Karir | Infoduta Computindo Perkasa</title>
         <meta
           name="description"

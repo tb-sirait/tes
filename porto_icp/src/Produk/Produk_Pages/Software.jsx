@@ -255,54 +255,60 @@ const Software = () => {
 
   return (
     <>
-    <Helmet>
-      <title>Software | Infoduta Computindo Perkasa</title>
-      <meta
-        name="description"
-        content="Infoduta menyediakan berbagai pilihan software berkualitas untuk memenuhi kebutuhan bisnis Anda, mulai dari produktivitas hingga keamanan."
-      />
-      <meta
-        name="keywords"
-        content="Software IT, Lisensi Software, Aplikasi Bisnis, Software Produktivitas, Software Keamanan, Solusi Software, Perangkat Lunak Bisnis, Software Profesional, Software Terpercaya, Software untuk Perusahaan"
-      />
-      <meta name="author" content="PT Infoduta Computindo Perkasa" />
-      <link rel="canonical" href="https://infoduta.co.id/produk/software" />
-      <meta property="og:title" content="Software | Infoduta Computindo Perkasa" />
-      <meta
-        property="og:description"
-        content="Infoduta menyediakan berbagai pilihan software berkualitas untuk memenuhi kebutuhan bisnis Anda, mulai dari produktivitas hingga keamanan."
-      />
-      <meta property="og:image" content="/api/og-image/software" />
-      <meta property="og:url" content="https://infoduta.co.id/produk/software" />
-      <meta property="og:site_name" content="Infoduta Computindo Perkasa" />
-      <meta property="og:type" content="website" />
-    </Helmet>
-    <div className="laptop-page">
-      <Navbar />
-      <ProductHeader
-        searchQuery={searchQuery}
-        onSearchChange={(e) => setSearchQuery(e.target.value)}
-        selectedUsage={selectedUsage}
-        onUsageChange={(e) => setSelectedUsage(e.target.value)}
-        usageOptions={usageOptions}
-      />
-      <div className="filter-product-grid" style={{ marginTop: "30px" }}>
-        {filteredProducts.map((product) => (
-          <ProductCard
-            key={product.name}
-            product={product}
-            onViewDetails={handleOpenModal}
-          />
-        ))}
-      </div>
+      <Helmet>
+        <title>Software | Infoduta Computindo Perkasa</title>
+        <meta
+          name="description"
+          content="Infoduta menyediakan berbagai pilihan software berkualitas untuk memenuhi kebutuhan bisnis Anda, mulai dari produktivitas hingga keamanan."
+        />
+        <meta
+          name="keywords"
+          content="Software IT, Lisensi Software, Aplikasi Bisnis, Software Produktivitas, Software Keamanan, Solusi Software, Perangkat Lunak Bisnis, Software Profesional, Software Terpercaya, Software untuk Perusahaan"
+        />
+        <meta name="author" content="PT Infoduta Computindo Perkasa" />
+        <link rel="canonical" href="https://infoduta.co.id/produk/software" />
+        <meta
+          property="og:title"
+          content="Software | Infoduta Computindo Perkasa"
+        />
+        <meta
+          property="og:description"
+          content="Infoduta menyediakan berbagai pilihan software berkualitas untuk memenuhi kebutuhan bisnis Anda, mulai dari produktivitas hingga keamanan."
+        />
+        <meta property="og:image" content="/api/og-image/software" />
+        <meta
+          property="og:url"
+          content="https://infoduta.co.id/produk/software"
+        />
+        <meta property="og:site_name" content="Infoduta Computindo Perkasa" />
+        <meta property="og:type" content="website" />
+      </Helmet>
+      <div className="laptop-page">
+        <Navbar />
+        <ProductHeader
+          searchQuery={searchQuery}
+          onSearchChange={(e) => setSearchQuery(e.target.value)}
+          selectedUsage={selectedUsage}
+          onUsageChange={(e) => setSelectedUsage(e.target.value)}
+          usageOptions={usageOptions}
+        />
+        <div className="filter-product-grid" style={{ marginTop: "30px" }}>
+          {filteredProducts.map((product) => (
+            <ProductCard
+              key={product.name}
+              product={product}
+              onViewDetails={handleOpenModal}
+            />
+          ))}
+        </div>
 
-      <ProductModal
-        product={selectedProduct}
-        isOpen={!!selectedProduct}
-        onClose={handleCloseModal}
-      />
-      <Footer />
-    </div>
+        <ProductModal
+          product={selectedProduct}
+          isOpen={!!selectedProduct}
+          onClose={handleCloseModal}
+        />
+        <Footer />
+      </div>
     </>
   );
 };

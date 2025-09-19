@@ -220,57 +220,63 @@ const Hardware = () => {
 
   return (
     <>
-      <Helmet> 
-      <title>Hardware | Infoduta Computindo Perkasa</title>
-      <meta
-        name="description"
-        content="Temukan berbagai pilihan Hardware dengan spesifikasi terbaik yang sesuai dengan kebutuhan perusahaan Anda."
-      />
-      <meta
-        name="keywords"
-        content="Hardware IT, Perangkat Keras, Komputer, Laptop, Printer, Scanner, Monitor, Server, Storage, Networking, Aksesori IT, Perangkat Keras Bisnis, Solusi Perangkat Keras, Infrastruktur IT"
-      />
-      <meta name="author" content="PT Infoduta Computindo Perkasa" />
-      <meta property="og:title" content="Hardware | Infoduta Computindo Perkasa" />
-      <meta
-        property="og:description"
-        content="Temukan berbagai pilihan Hardware dengan spesifikasi terbaik yang sesuai dengan kebutuhan perusahaan Anda."
-      />
-      <meta property="og:image" content="/api/og-image/hardware" />
-      <meta property="og:url" content="https://infoduta.co.id/produk/hardware" />
-      <meta property="og:site_name" content="Infoduta Computindo Perkasa" />
-      <meta property="og:type" content="website" />
-      <link rel="canonical" href="https://infoduta.co.id/produk/hardware" />
+      <Helmet>
+        <title>Hardware | Infoduta Computindo Perkasa</title>
+        <meta
+          name="description"
+          content="Temukan berbagai pilihan Hardware dengan spesifikasi terbaik yang sesuai dengan kebutuhan perusahaan Anda."
+        />
+        <meta
+          name="keywords"
+          content="Hardware IT, Perangkat Keras, Komputer, Laptop, Printer, Scanner, Monitor, Server, Storage, Networking, Aksesori IT, Perangkat Keras Bisnis, Solusi Perangkat Keras, Infrastruktur IT"
+        />
+        <meta name="author" content="PT Infoduta Computindo Perkasa" />
+        <meta
+          property="og:title"
+          content="Hardware | Infoduta Computindo Perkasa"
+        />
+        <meta
+          property="og:description"
+          content="Temukan berbagai pilihan Hardware dengan spesifikasi terbaik yang sesuai dengan kebutuhan perusahaan Anda."
+        />
+        <meta property="og:image" content="/api/og-image/hardware" />
+        <meta
+          property="og:url"
+          content="https://infoduta.co.id/produk/hardware"
+        />
+        <meta property="og:site_name" content="Infoduta Computindo Perkasa" />
+        <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://infoduta.co.id/produk/hardware" />
       </Helmet>
-    
-    <div className="laptop-page">
-      <Navbar />
-      <ProductHeader
-        searchQuery={searchQuery}
-        onSearchChange={(e) => setSearchQuery(e.target.value)}
-        selectedBrand={selectedBrand}
-        onBrandChange={(e) => setSelectedBrand(e.target.value)}
-        brandOptions={[...new Set(products.map((p) => p.brand))].sort()}
-      />
 
-      <div className="filter-product-grid" style={{ marginTop: "30px" }}>
-        {filteredProducts.map((product) => (
-          <HardwareCard
-            key={product.name}
-            product={product}
-            onViewDetails={handleOpenModal}
-          />
-        ))}
+      <div className="laptop-page">
+        <Navbar />
+        <ProductHeader
+          searchQuery={searchQuery}
+          onSearchChange={(e) => setSearchQuery(e.target.value)}
+          selectedBrand={selectedBrand}
+          onBrandChange={(e) => setSelectedBrand(e.target.value)}
+          brandOptions={[...new Set(products.map((p) => p.brand))].sort()}
+        />
+
+        <div className="filter-product-grid" style={{ marginTop: "30px" }}>
+          {filteredProducts.map((product) => (
+            <HardwareCard
+              key={product.name}
+              product={product}
+              onViewDetails={handleOpenModal}
+            />
+          ))}
+        </div>
+
+        <HardwareModal
+          product={selectedProduct}
+          isOpen={!!selectedProduct}
+          onClose={handleCloseModal}
+        />
+
+        <Footer />
       </div>
-
-      <HardwareModal
-        product={selectedProduct}
-        isOpen={!!selectedProduct}
-        onClose={handleCloseModal}
-      />
-
-      <Footer />
-    </div>
     </>
   );
 };

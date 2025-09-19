@@ -316,50 +316,52 @@ const Laptop = () => {
 
   return (
     <>
-    <Helmet>
-      <title>Laptop | Infoduta Cipta Pratama</title>
-      <meta
-        name="description"
-        content="Temukan berbagai pilihan Laptop dengan spesifikasi terbaik yang sesuai dengan kebutuhan perusahaan Anda."
-      />
-      <meta property="og:title" content="Laptop | Infoduta Cipta Pratama" />
-      <meta
-        property="og:description"
-        content="Temukan berbagai pilihan Laptop dengan spesifikasi terbaik yang sesuai dengan kebutuhan perusahaan Anda."
-      />
-      <meta property="og:image" content="/api/og-image?title=Laptop" />
-      <meta property="og:url" content="https://www.infoduta.com/produk/laptop" />
-      <meta property="og:type" content="website" />
-      <link rel="canonical" href="https://www.infoduta.com/produk/laptop" />
-      
-    </Helmet>
-    <div className="laptop-page">
-      <Navbar />
-      <ProductHeader
-        searchQuery={searchQuery}
-        onSearchChange={(e) => setSearchQuery(e.target.value)}
-        selectedBrand={selectedBrand}
-        onBrandChange={(e) => setSelectedBrand(e.target.value)}
-        brandOptions={[...new Set(products.map((p) => p.brand))]}
-      />
+      <Helmet>
+        <title>Laptop | Infoduta Cipta Pratama</title>
+        <meta
+          name="description"
+          content="Temukan berbagai pilihan Laptop dengan spesifikasi terbaik yang sesuai dengan kebutuhan perusahaan Anda."
+        />
+        <meta property="og:title" content="Laptop | Infoduta Cipta Pratama" />
+        <meta
+          property="og:description"
+          content="Temukan berbagai pilihan Laptop dengan spesifikasi terbaik yang sesuai dengan kebutuhan perusahaan Anda."
+        />
+        <meta property="og:image" content="/api/og-image?title=Laptop" />
+        <meta
+          property="og:url"
+          content="https://www.infoduta.com/produk/laptop"
+        />
+        <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://www.infoduta.com/produk/laptop" />
+      </Helmet>
+      <div className="laptop-page">
+        <Navbar />
+        <ProductHeader
+          searchQuery={searchQuery}
+          onSearchChange={(e) => setSearchQuery(e.target.value)}
+          selectedBrand={selectedBrand}
+          onBrandChange={(e) => setSelectedBrand(e.target.value)}
+          brandOptions={[...new Set(products.map((p) => p.brand))]}
+        />
 
-      <div className="filter-product-grid" style={{ marginTop: "30px" }}>
-        {filteredProducts.map((product) => (
-          <ProductCard
-            key={product.id}
-            product={product}
-            onViewDetails={handleOpenModal}
-          />
-        ))}
+        <div className="filter-product-grid" style={{ marginTop: "30px" }}>
+          {filteredProducts.map((product) => (
+            <ProductCard
+              key={product.id}
+              product={product}
+              onViewDetails={handleOpenModal}
+            />
+          ))}
+        </div>
+
+        <ProductModal
+          product={selectedProduct}
+          isOpen={!!selectedProduct}
+          onClose={handleCloseModal}
+        />
+        <Footer />
       </div>
-
-      <ProductModal
-        product={selectedProduct}
-        isOpen={!!selectedProduct}
-        onClose={handleCloseModal}
-      />
-      <Footer />
-    </div>
     </>
   );
 };

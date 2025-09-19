@@ -329,46 +329,48 @@ const Server = () => {
 
   return (
     <>
-    <Helmet>
-      <title>Server | Infoduta Cipta Pratama</title>
-      <meta
-        name="description"
-        content="Temukan berbagai pilihan Server dengan spesifikasi terbaik yang sesuai dengan kebutuhan perusahaan Anda." />
-      <meta property="og:title" content="Server | Infoduta Cipta Pratama" />
-      <meta
-        property="og:description"
-        content="Temukan berbagai pilihan Server dengan spesifikasi terbaik yang sesuai dengan kebutuhan perusahaan Anda." />
-      <meta property="og:type" content="website" />
-      <link rel="canonical" href="https://www.infoduta.com/produk/server" />
-    </Helmet>
-    <div className="laptop-page">
-      <Navbar />
-      <ProductHeader
-        searchQuery={searchQuery}
-        onSearchChange={(e) => setSearchQuery(e.target.value)}
-        selectedBrand={selectedBrand}
-        onBrandChange={(e) => setSelectedBrand(e.target.value)}
-        brandOptions={[...new Set(products.map((p) => p.brand))].sort()}
-      />
+      <Helmet>
+        <title>Server | Infoduta Cipta Pratama</title>
+        <meta
+          name="description"
+          content="Temukan berbagai pilihan Server dengan spesifikasi terbaik yang sesuai dengan kebutuhan perusahaan Anda."
+        />
+        <meta property="og:title" content="Server | Infoduta Cipta Pratama" />
+        <meta
+          property="og:description"
+          content="Temukan berbagai pilihan Server dengan spesifikasi terbaik yang sesuai dengan kebutuhan perusahaan Anda."
+        />
+        <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://www.infoduta.com/produk/server" />
+      </Helmet>
+      <div className="laptop-page">
+        <Navbar />
+        <ProductHeader
+          searchQuery={searchQuery}
+          onSearchChange={(e) => setSearchQuery(e.target.value)}
+          selectedBrand={selectedBrand}
+          onBrandChange={(e) => setSelectedBrand(e.target.value)}
+          brandOptions={[...new Set(products.map((p) => p.brand))].sort()}
+        />
 
-      <div className="filter-product-grid" style={{ marginTop: "30px" }}>
-        {filteredProducts.map((product) => (
-          <ProductCard
-            key={product.id}
-            product={product}
-            onViewDetails={handleOpenModal}
-          />
-        ))}
+        <div className="filter-product-grid" style={{ marginTop: "30px" }}>
+          {filteredProducts.map((product) => (
+            <ProductCard
+              key={product.id}
+              product={product}
+              onViewDetails={handleOpenModal}
+            />
+          ))}
+        </div>
+
+        <ProductModal
+          product={selectedProduct}
+          isOpen={!!selectedProduct}
+          onClose={handleCloseModal}
+        />
+
+        <Footer />
       </div>
-
-      <ProductModal
-        product={selectedProduct}
-        isOpen={!!selectedProduct}
-        onClose={handleCloseModal}
-      />
-
-      <Footer />
-    </div>
     </>
   );
 };

@@ -231,7 +231,10 @@ const Sparepart = () => {
         />
         <meta name="author" content="PT Infoduta Computindo Perkasa" />
         <link rel="canonical" href="https://infoduta.co.id/produk/sparepart" />
-        <meta property="og:title" content="Sparepart | Infoduta Computindo Perkasa" />
+        <meta
+          property="og:title"
+          content="Sparepart | Infoduta Computindo Perkasa"
+        />
         <meta
           property="og:description"
           content="Temukan berbagai pilihan Sparepart yang sesuai dengan kebutuhan perusahaan Anda."
@@ -243,35 +246,35 @@ const Sparepart = () => {
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Infoduta Computindo Perkasa" />
         <meta property="og:image" content="/api/og-image/sparepart" />
-      </Helmet> 
-    <div className="laptop-page">
-      <Navbar />
-      <ProductHeader
-        searchQuery={searchQuery}
-        onSearchChange={(e) => setSearchQuery(e.target.value)}
-        selectedBrand={selectedBrand}
-        onBrandChange={(e) => setSelectedBrand(e.target.value)}
-        brandOptions={[...new Set(products.map((p) => p.brand))]}
-      />
+      </Helmet>
+      <div className="laptop-page">
+        <Navbar />
+        <ProductHeader
+          searchQuery={searchQuery}
+          onSearchChange={(e) => setSearchQuery(e.target.value)}
+          selectedBrand={selectedBrand}
+          onBrandChange={(e) => setSelectedBrand(e.target.value)}
+          brandOptions={[...new Set(products.map((p) => p.brand))]}
+        />
 
-      <div className="filter-product-grid" style={{ marginTop: "30px" }}>
-        {filteredProducts.map((product) => (
-          <ProductCard
-            key={product.name}
-            product={product}
-            onViewDetails={handleOpenModal}
-          />
-        ))}
+        <div className="filter-product-grid" style={{ marginTop: "30px" }}>
+          {filteredProducts.map((product) => (
+            <ProductCard
+              key={product.name}
+              product={product}
+              onViewDetails={handleOpenModal}
+            />
+          ))}
+        </div>
+
+        <ProductModal
+          product={selectedProduct}
+          isOpen={!!selectedProduct}
+          onClose={handleCloseModal}
+        />
+
+        <Footer />
       </div>
-
-      <ProductModal
-        product={selectedProduct}
-        isOpen={!!selectedProduct}
-        onClose={handleCloseModal}
-      />
-
-      <Footer />
-    </div>
     </>
   );
 };

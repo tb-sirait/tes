@@ -222,17 +222,14 @@ const ChatBot = () => {
             Kami adalah PT. Infoduta Cipta Persada, sebuah perusahaan yang
             bergerak di bidang penyediaan solusi IT. Untuk informasi lebih
             lengkap, silakan kunjungi{" "}
-            <a
-              href="/tentang"
-              style={{ color: "#2575fc", fontWeight: "bold" }}
-            >
+            <a href="/tentang" style={{ color: "#2575fc", fontWeight: "bold" }}>
               halaman tentang kami
             </a>
           </>
         );
       } else if (
         inputMessage.toLowerCase().includes("karir") ||
-        inputMessage.toLowerCase().includes("lowongan") || 
+        inputMessage.toLowerCase().includes("lowongan") ||
         inputMessage.toLowerCase().includes("pekerjaan") ||
         inputMessage.toLowerCase().includes("rekrutmen") ||
         inputMessage.toLowerCase().includes("recruitment") ||
@@ -242,16 +239,13 @@ const ChatBot = () => {
           <>
             Kami sering membuka kesempatan berkarir di perusahaan kami. Untuk
             informasi lebih lengkap, silakan kunjungi{" "}
-            <a
-              href="/karir"
-              style={{ color: "#2575fc", fontWeight: "bold" }}
-            >
+            <a href="/karir" style={{ color: "#2575fc", fontWeight: "bold" }}>
               halaman karir
             </a>
           </>
         );
       }
-      
+
       // Jika botText adalah elemen JSX, render sebagai elemen
 
       const botResponse = {

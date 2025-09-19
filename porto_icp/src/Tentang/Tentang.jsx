@@ -96,21 +96,21 @@ function Tentang() {
           content="Tentang PT Infoduta Computindo Perkasa, Visi Misi ICP, Layanan IT, Hardware dan Software, Partner ICP"
         />
         <meta name="author" content="PT Infoduta Computindo Perkasa" />
-        <link
-          rel="canonical"
-          href="https://www.infoduta.com/tentang"
+        <link rel="canonical" href="https://www.infoduta.com/tentang" />
+        <meta
+          property="og:title"
+          content="Tentang Kami | PT Infoduta Computindo Perkasa"
         />
-        <meta property="og:title" content="Tentang Kami - PT Infoduta Computindo Perkasa" />
         <meta
           property="og:description"
           content="Pelajari lebih lanjut tentang PT Infoduta Computindo Perkasa, pengalaman kami, visi misi, dan layanan terbaik di bidang IT."
         />
-        <meta
-          property="og:url"
-          content="https://www.infoduta.com/tentang"
-        />
+        <meta property="og:url" content="https://www.infoduta.com/tentang" />
         <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="PT Infoduta Computindo Perkasa" />
+        <meta
+          property="og:site_name"
+          content="PT Infoduta Computindo Perkasa"
+        />
       </Helmet>
       <Navbar />
       <div className="tentang">
