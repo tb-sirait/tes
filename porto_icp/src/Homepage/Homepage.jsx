@@ -462,7 +462,9 @@ function Homepage() {
       <Navbar />
 
       <Helmet>
-        <title>Infoduta Computindo Perkasa | Solusi Software & Hardware Pilihan Anda</title>
+        <title>
+          Infoduta Computindo Perkasa | Solusi Software & Hardware Pilihan Anda
+        </title>
         <meta
           name="description"
           content="Temukan solusi teknologi terdepan untuk mengembangkan bisnis Anda bersama PT Infoduta Computindo Perkasa. Jelajahi produk dan layanan kami sekarang!"

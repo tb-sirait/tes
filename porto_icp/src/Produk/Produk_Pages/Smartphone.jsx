@@ -276,6 +276,14 @@ const Laptop = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
+  useEffect(() => {
+    if (selectedProduct) {
+      document.title = `${selectedProduct.name} | Infoduta Computindo Perkasa`;
+    } else {
+      document.title = "Smartphone | Infoduta Computindo Perkasa";
+    }
+  }, [selectedProduct]);
+
   const handleOpenModal = (product) => {
     setSelectedProduct(product);
     // Update URL tanpa reload halaman
@@ -315,7 +323,6 @@ const Laptop = () => {
   return (
     <>
       <Helmet>
-        <title>Smartphone | Infoduta Computindo Perkasa</title>
         <meta
           name="description"
           content="Temukan berbagai pilihan Smartphone dengan spesifikasi terbaik yang sesuai dengan kebutuhan perusahaan Anda."

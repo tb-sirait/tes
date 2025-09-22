@@ -110,6 +110,7 @@ const HardwareModal = ({ product, isOpen, onClose }) => {
       window.removeEventListener("keydown", handleEsc);
     };
   }, [onClose]);
+
   useEffect(() => {
     if (isOpen) {
       document.documentElement.style.overflow = "hidden"; // kunci scroll
@@ -181,6 +182,14 @@ const Hardware = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    if (selectedProduct) {
+      document.title = `${selectedProduct.name} | Infoduta Computindo Perkasa`;
+    } else {
+      document.title = "Hardware | Infoduta Computindo Perkasa";
+    }
+  }, [selectedProduct]);
+
   const handleOpenModal = (product) => {
     setSelectedProduct(product);
     // Update URL tanpa reload halaman
@@ -221,7 +230,6 @@ const Hardware = () => {
   return (
     <>
       <Helmet>
-        <title>Hardware | Infoduta Computindo Perkasa</title>
         <meta
           name="description"
           content="Temukan berbagai pilihan Hardware dengan spesifikasi terbaik yang sesuai dengan kebutuhan perusahaan Anda."

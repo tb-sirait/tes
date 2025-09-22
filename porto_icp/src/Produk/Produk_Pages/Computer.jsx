@@ -55,36 +55,6 @@ const ProductCard = ({ product, onViewDetails }) => {
 
   return (
     <>
-      <Helmet>
-        <title>Komputer | Infoduta Computindo Perkasa</title>
-        <meta
-          name="description"
-          content="Temukan berbagai pilihan Komputer dengan spesifikasi terbaik yang sesuai dengan kebutuhan perusahaan Anda."
-        />
-        <meta
-          name="keywords"
-          content="Produk Komputer, PC, Desktop, Workstation, Infoduta Cipta Pratama, Solusi IT, Perangkat Keras, Hardware, Komputer Bisnis"
-        />
-        <meta name="author" content="Infoduta Computindo Perkasa" />
-        <meta
-          property="og:title"
-          content="Produk Komputer - Infoduta Computindo Perkasa"
-        />
-        <meta
-          property="og:description"
-          content="Temukan berbagai pilihan Komputer dengan spesifikasi terbaik yang sesuai dengan kebutuhan perusahaan Anda."
-        />
-        <meta
-          property="og:image"
-          content="https://www.infoduta.com/og-image-produk-komputer.jpg"
-        />
-        <meta
-          property="og:url"
-          content="https://www.infoduta.com/produk/computer"
-        />
-        <meta property="og:type" content="website" />
-        <link rel="canonical" href="https://www.infoduta.com/produk/computer" />
-      </Helmet>
       <div
         className="filter-product-card"
         onClick={() => onViewDetails(product)}
@@ -321,6 +291,14 @@ const Computer = () => {
   const { id } = useParams(); // <-- ambil param dari URL
 
   useEffect(() => {
+    if (selectedProduct) {
+      document.title = `${selectedProduct.name} | Infoduta Computindo Perkasa`;
+    } else {
+      document.title = "Komputer | Infoduta Computindo Perkasa";
+    }
+  }, [selectedProduct]);
+
+  useEffect(() => {
     const pcProducts = produkData
       .filter((p) => p.jenis?.toLowerCase() === "pc")
       .sort((a, b) => a.name.localeCompare(b.name));
@@ -356,34 +334,64 @@ const Computer = () => {
   };
 
   return (
-    <div className="laptop-page">
-      <Navbar />
-      <ProductHeader
-        searchQuery={searchQuery}
-        onSearchChange={(e) => setSearchQuery(e.target.value)}
-        selectedBrand={selectedBrand}
-        onBrandChange={(e) => setSelectedBrand(e.target.value)}
-        brandOptions={[...new Set(products.map((p) => p.brand))].sort()}
-      />
+    <>
+      <Helmet>
+        <meta
+          name="description"
+          content="Temukan berbagai pilihan Komputer dengan spesifikasi terbaik yang sesuai dengan kebutuhan perusahaan Anda."
+        />
+        <meta
+          name="keywords"
+          content="Produk Komputer, PC, Desktop, Workstation, Infoduta Cipta Pratama, Solusi IT, Perangkat Keras, Hardware, Komputer Bisnis"
+        />
+        <meta name="author" content="Infoduta Computindo Perkasa" />
+        <meta
+          property="og:title"
+          content="Produk Komputer - Infoduta Computindo Perkasa"
+        />
+        <meta
+          property="og:description"
+          content="Temukan berbagai pilihan Komputer dengan spesifikasi terbaik yang sesuai dengan kebutuhan perusahaan Anda."
+        />
+        <meta
+          property="og:image"
+          content="https://www.infoduta.com/og-image-produk-komputer.jpg"
+        />
+        <meta
+          property="og:url"
+          content="https://www.infoduta.com/produk/computer"
+        />
+        <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://www.infoduta.com/produk/computer" />
+      </Helmet>
+      <div className="laptop-page">
+        <Navbar />
+        <ProductHeader
+          searchQuery={searchQuery}
+          onSearchChange={(e) => setSearchQuery(e.target.value)}
+          selectedBrand={selectedBrand}
+          onBrandChange={(e) => setSelectedBrand(e.target.value)}
+          brandOptions={[...new Set(products.map((p) => p.brand))].sort()}
+        />
 
-      <div className="filter-product-grid" style={{ marginTop: "30px" }}>
-        {filteredProducts.map((product) => (
-          <ProductCard
-            key={product.name}
-            product={product}
-            onViewDetails={handleOpenModal}
-          />
-        ))}
+        <div className="filter-product-grid" style={{ marginTop: "30px" }}>
+          {filteredProducts.map((product) => (
+            <ProductCard
+              key={product.name}
+              product={product}
+              onViewDetails={handleOpenModal}
+            />
+          ))}
+        </div>
+
+        <ProductModal
+          product={selectedProduct}
+          isOpen={!!selectedProduct}
+          onClose={handleCloseModal}
+        />
+        <Footer />
       </div>
-
-      <ProductModal
-        product={selectedProduct}
-        isOpen={!!selectedProduct}
-        onClose={handleCloseModal}
-      />
-
-      <Footer />
-    </div>
+    </>
   );
 };
 

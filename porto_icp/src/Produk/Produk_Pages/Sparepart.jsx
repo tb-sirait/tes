@@ -180,6 +180,14 @@ const Sparepart = () => {
   const { id } = useParams();
 
   useEffect(() => {
+    if (selectedProduct) {
+      document.title = `${selectedProduct.name} | Infoduta Computindo Perkasa`;
+    } else {
+      document.title = "Spareparts | Infoduta Computindo Perkasa";
+    }
+  }, [selectedProduct]);
+
+  useEffect(() => {
     const sparepartProducts = produkData.sort((a, b) =>
       a.name.localeCompare(b.name),
     );
@@ -220,7 +228,6 @@ const Sparepart = () => {
   return (
     <>
       <Helmet>
-        <title>Sparepart | Infoduta Computindo Perkasa</title>
         <meta
           name="description"
           content="Temukan berbagai pilihan Sparepart yang sesuai dengan kebutuhan perusahaan Anda."

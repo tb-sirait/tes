@@ -277,6 +277,14 @@ const Laptop = () => {
   const navigate = useNavigate();
   const { id } = useParams();
 
+  useEffect(() => {
+    if (selectedProduct) {
+      document.title = `${selectedProduct.name} | Infoduta Computindo Perkasa`;
+    } else {
+      document.title = "Laptop | Infoduta Computindo Perkasa";
+    }
+  }, [selectedProduct]);
+
   const handleOpenModal = (product) => {
     setSelectedProduct(product);
     // Update URL tanpa reload halaman
@@ -317,12 +325,14 @@ const Laptop = () => {
   return (
     <>
       <Helmet>
-        <title>Laptop | Infoduta Computindo Perkasa</title>
         <meta
           name="description"
           content="Temukan berbagai pilihan Laptop dengan spesifikasi terbaik yang sesuai dengan kebutuhan perusahaan Anda."
         />
-        <meta property="og:title" content="Laptop | Infoduta Computindo Perkasa" />
+        <meta
+          property="og:title"
+          content="Laptop | Infoduta Computindo Perkasa"
+        />
         <meta
           property="og:description"
           content="Temukan berbagai pilihan Laptop dengan spesifikasi terbaik yang sesuai dengan kebutuhan perusahaan Anda."

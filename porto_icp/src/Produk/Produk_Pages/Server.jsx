@@ -291,6 +291,14 @@ const Server = () => {
   const navigate = useNavigate();
   const { id } = useParams();
 
+  useEffect(() => {
+    if (selectedProduct) {
+      document.title = `${selectedProduct.name} | Infoduta Computindo Perkasa`;
+    } else {
+      document.title = "Server | Infoduta Computindo Perkasa";
+    }
+  }, [selectedProduct]);
+
   const handleOpenModal = (product) => {
     setSelectedProduct(product);
     // Update URL tanpa reload halaman
@@ -330,12 +338,14 @@ const Server = () => {
   return (
     <>
       <Helmet>
-        <title>Server | Infoduta Computindo Perkasa</title>
         <meta
           name="description"
           content="Temukan berbagai pilihan Server dengan spesifikasi terbaik yang sesuai dengan kebutuhan perusahaan Anda."
         />
-        <meta property="og:title" content="Server | Infoduta Computindo Perkasa" />
+        <meta
+          property="og:title"
+          content="Server | Infoduta Computindo Perkasa"
+        />
         <meta
           property="og:description"
           content="Temukan berbagai pilihan Server dengan spesifikasi terbaik yang sesuai dengan kebutuhan perusahaan Anda."

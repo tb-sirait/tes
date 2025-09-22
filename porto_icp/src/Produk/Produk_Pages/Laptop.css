@@ -715,7 +715,7 @@
 }
 
 @media (max-width: 480px) {
-  .filter-product-header{
+  .filter-product-header {
     margin-top: 60px;
   }
   .filter-product-grid {
@@ -772,4 +772,3 @@
     font-size: 0.8rem;
   }
 }
-

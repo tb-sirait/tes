@@ -152,8 +152,14 @@ export default function Produk() {
   useEffect(() => {
     if (selectedProduct) {
       document.title = `${selectedProduct.name} | Infoduta Computindo Perkasa`;
-    } else {
-      document.title = "Produk | Infoduta Computindo Perkasa";
+
+      const metaDesc = document.querySelector("meta[name='description']");
+      if (metaDesc) {
+        metaDesc.setAttribute(
+          "content",
+          `Dapatkan ${selectedProduct.name} untuk meningkatkan kinerja dan performa bisnis Anda, hanya di Infoduta`,
+        );
+      }
     }
   }, [selectedProduct]);
 
@@ -337,7 +343,7 @@ export default function Produk() {
                         <span>NEW STOCK</span>
                       </div>
                     )}
-                    
+
                     <img
                       src={product.images?.[0] || ""}
                       alt={product.name}
@@ -364,7 +370,7 @@ export default function Produk() {
             <div className="closeModalButton">
               {isMobile && (
                 <button className="product-close-button" onClick={closeModal}>
-                  <X style={{fontSize:"20px"}} />
+                  <X style={{ fontSize: "20px" }} />
                 </button>
               )}
             </div>
@@ -420,7 +426,11 @@ export default function Produk() {
             <div className="modal-name-brand">
               <div className="modal-brand">{selectedProduct.brand}</div>
               <h3 className="modal-title">{selectedProduct.name}</h3>
-              <span>{"("}{selectedProduct.jenis}{")"}</span>
+              <span>
+                {"("}
+                {selectedProduct.jenis}
+                {")"}
+              </span>
             </div>
 
             <div className="modal-specs">
@@ -459,7 +469,7 @@ export default function Produk() {
               </div>
               <div className="action-button">
                 <span className="logo-icon">
-                    <FaWhatsapp />
+                  <FaWhatsapp />
                 </span>
                 <a
                   href={`https://wa.me/6285545031039?text=Saya%20tertarik%20dengan%20produk%20${encodeURIComponent(

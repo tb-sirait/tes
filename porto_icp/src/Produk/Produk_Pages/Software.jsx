@@ -209,6 +209,14 @@ const Software = () => {
   const navigate = useNavigate();
   const { id } = useParams();
 
+  useEffect(() => {
+    if (selectedProduct) {
+      document.title = `${selectedProduct.name} | Infoduta Computindo Perkasa`;
+    } else {
+      document.title = "Software | Infoduta Computindo Perkasa";
+    }
+  }, [selectedProduct]);
+
   const handleOpenModal = (product) => {
     setSelectedProduct(product);
     navigate(`/produk/software/${product.id}`);
@@ -256,7 +264,6 @@ const Software = () => {
   return (
     <>
       <Helmet>
-        <title>Software | Infoduta Computindo Perkasa</title>
         <meta
           name="description"
           content="Infoduta menyediakan berbagai pilihan software berkualitas untuk memenuhi kebutuhan bisnis Anda, mulai dari produktivitas hingga keamanan."
