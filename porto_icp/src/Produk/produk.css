@@ -361,33 +361,15 @@
 }
 
 .product-close-button {
-  font-size: 1.5rem;
-  font-weight: bold;
-  background: transparent;
-  color: #000000;
+  right: 0rem;
+  background: none;
   border: none;
-  border-radius: 50%;
-  width: 42px;
-  height: 42px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-size: 1.5rem;
+  color: #008000;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  backdrop-filter: blur(8px);
+  transition: color 0.3s ease;
 }
 
-.product-close-button:hover {
-  background: rgba(239, 68, 68, 0.9);
-  color: #ffffff;
-  transform: scale(1.1);
-  box-shadow: 0 6px 20px rgba(239, 68, 68, 0.3);
-}
-
-.product-close-button:active {
-  transform: scale(0.95);
-}
 
 .modal-image-container {
   display: flex;
@@ -436,6 +418,17 @@
   filter: brightness(0) invert(1);
 }
 
+.modal-name-brand {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.modal-name-brand span {
+  font-size: 1rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
 .modal-title {
   text-align: center;
   font-size: 1.8rem;
@@ -446,12 +439,14 @@
 
 .modal-brand {
   text-align: center;
+  width: fit-content;
   background: linear-gradient(45deg, #667eea, #764ba2);
   color: white;
   padding: 0.5rem 1.5rem;
+  font-size: 0.9rem;
   border-radius: 25px;
   font-weight: 600;
-  margin: 0 auto 1.5rem auto;
+  margin-bottom: 0.5rem;
   display: inline-block;
   box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
 }
@@ -509,6 +504,49 @@
     opacity: 1;
   }
 }
+
+.modal-product-description {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #334155;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.action-button {
+  background: linear-gradient(45deg, #25d366, #008000);
+  width: fit-content;
+  color: white;
+  margin: 0 auto;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+}
+.action-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(102, 126, 234, 0.4);
+}
+.action-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 6px 15px rgba(102, 126, 234, 0.2);
+}
+.action-button a{
+  color: white;
+  text-decoration: none;
+}
+
+.logo-icon {
+  margin-right: 8px;
+  font-size: 1.2rem;
+  vertical-align: middle;
+}
+
+
 
 /* Responsive Design - Enhanced */
 @media (max-width: 1024px) {
@@ -682,3 +720,97 @@
 .modal-content {
   scroll-behavior: smooth;
 }
+
+/* NEW STOCK Badge Styles */
+.new-stock-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(255, 107, 107, 0.3);
+  animation: pulse-badge 2s infinite;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.new-stock-badge span {
+  display: block;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Badge animation */
+@keyframes pulse-badge {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 2px 8px rgba(255, 107, 107, 0.3);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(255, 107, 107, 0.5);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 2px 8px rgba(255, 107, 107, 0.3);
+  }
+}
+
+/* Modal NEW STOCK Badge */
+.modal-new-stock-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  z-index: 15;
+  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.4);
+  animation: pulse-badge 2s infinite;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.modal-new-stock-badge span {
+  display: block;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Ensure product-image-section has relative positioning for absolute badge positioning */
+.product-image-section {
+  position: relative;
+}
+
+.modal-image-container {
+  position: relative;
+}
+
+/* Responsive adjustments for badge */
+@media (max-width: 768px) {
+  .new-stock-badge {
+    top: 6px;
+    right: 6px;
+    padding: 3px 6px;
+    font-size: 9px;
+    border-radius: 10px;
+  }
+  
+  .modal-new-stock-badge {
+    top: 12px;
+    right: 12px;
+    padding: 5px 10px;
+    font-size: 11px;
+    border-radius: 14px;
+  }
+}
+
+

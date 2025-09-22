@@ -1,7 +1,6 @@
 [
   {
     "id": 1,
-    "released": "new",
     "name": "OptiPlex 3000 Tower",
     "brand": "Dell",
     "jenis": "PC",
@@ -17,7 +16,7 @@
       "os": "Windows 10"
     },
     "deskripsi": "Dell OptiPlex 3000 Tower PC with Intel Core i5 CPU, 8GB RAM, 256GB SSD storage, integrated graphics, running Windows 10.",
-    "released_date": "2024-06-01"
+    "released_date": "2022-01-01"
   },
   {
     "id": 2,
@@ -33,7 +32,7 @@
       "os": "Windows 10"
     },
     "deskripsi": "Dell Optiplex 7010 PLUS SFF PC featuring Intel Core i7 processor, 16GB RAM, 512GB SSD, integrated graphics, and Windows 10 OS.",
-    "released_date": "2024-06-01"
+    "released_date": "2024-01-01"
   },
   {
     "id": 3,
@@ -49,7 +48,7 @@
       "os": "Windows 10 Pro"
     },
     "deskripsi": "Dell Precision Workstation 5490 with powerful Intel Xeon CPU, 32GB RAM, 1TB SSD, NVIDIA Quadro GPU, and Windows 10 Pro.",
-    "released_date": "2024-06-01"
+    "released_date": "2024-01-01"
   },
   {
     "id": 4,
@@ -65,7 +64,7 @@
       "os": "Windows 10"
     },
     "deskripsi": "Dell Latitude 3440 Laptop with Intel Core i5, 8GB RAM, 256GB SSD, integrated graphics, running Windows 10.",
-    "released_date": "2024-06-01"
+    "released_date": "2023-01-01"
   },
   {
     "id": 5,
@@ -80,7 +79,8 @@
       "gpu": "Integrated Graphics",
       "os": "Windows 10"
     },
-    "deskripsi": "Lenovo Notebook V14-IIL Laptop with AMD Ryzen 5 CPU, 8GB RAM, 512GB SSD, integrated graphics, and Windows 10 OS."
+    "deskripsi": "Lenovo Notebook V14-IIL Laptop with AMD Ryzen 5 CPU, 8GB RAM, 512GB SSD, integrated graphics, and Windows 10 OS.",
+    "released_date": "2020-01-01"
   },
   {
     "id": 6,
@@ -98,7 +98,8 @@
       "gpu": "Integrated Graphics",
       "os": "Windows 10 Pro edition"
     },
-    "deskripsi": "Dell XPS 9310 Laptop with Intel Core i7-1185G7, 16GB RAM, 1TB SSD, integrated graphics, running Windows 10 Pro edition."
+    "deskripsi": "Dell XPS 9310 Laptop with Intel Core i7-1185G7, 16GB RAM, 1TB SSD, integrated graphics, running Windows 10 Pro edition.",
+    "released_date": "2020-10-01"
   },
   {
     "id": 7,
@@ -113,7 +114,8 @@
       "gpu": "NVIDIA GeForce MX450",
       "os": "Windows 10 Pro"
     },
-    "deskripsi": "Dell Latitude 3420 Laptop with Intel Core i7-1165G7, 16GB RAM, 512GB SSD, NVIDIA GeForce MX450 GPU, and Windows 10 Pro."
+    "deskripsi": "Dell Latitude 3420 Laptop with Intel Core i7-1165G7, 16GB RAM, 512GB SSD, NVIDIA GeForce MX450 GPU, and Windows 10 Pro.",
+    "released_date": "2021-01-01"
   },
   {
     "id": 8,
@@ -128,7 +130,8 @@
       "gpu": "Intel Iris Xe Graphics",
       "os": "Windows 11 Pro"
     },
-    "deskripsi": "Dell Latitude 3440 Laptop featuring Intel Core i5-1335U, 16GB RAM, 256GB SSD, Intel Iris Xe Graphics, and Windows 11 Pro."
+    "deskripsi": "Dell Latitude 3440 Laptop featuring Intel Core i5-1335U, 16GB RAM, 256GB SSD, Intel Iris Xe Graphics, and Windows 11 Pro.",
+    "released_date": "2023-01-01"
   },
   {
     "id": 9,
@@ -143,7 +146,8 @@
       "gpu": "Intel Iris Xe Graphics",
       "os": "Windows 11 Pro"
     },
-    "deskripsi": "Lenovo ThinkPad L14 Gen 4 Laptop with Intel Core i5-1345U vPro, 16GB RAM, 512GB SSD, Intel Iris Xe Graphics, and Windows 11 Pro."
+    "deskripsi": "Lenovo ThinkPad L14 Gen 4 Laptop with Intel Core i5-1345U vPro, 16GB RAM, 512GB SSD, Intel Iris Xe Graphics, and Windows 11 Pro.",
+    "released_date": "2023-01-01"
   },
   {
     "id": 10,
@@ -158,7 +162,8 @@
       "gpu": "Integrated Graphics",
       "os": "Windows 11 Pro"
     },
-    "deskripsi": "Acer TravelMate P214 Laptop with Intel Core i5-1135G7, 8GB RAM, 256GB SSD, integrated graphics, and Windows 11 Pro."
+    "deskripsi": "Acer TravelMate P214 Laptop with Intel Core i5-1135G7, 8GB RAM, 256GB SSD, integrated graphics, and Windows 11 Pro.",
+    "released_date": "2021-01-01"
   },
   {
     "id": 11,
@@ -173,7 +178,8 @@
       "gpu": "Integrated Graphics",
       "os": "Windows 10 Pro"
     },
-    "deskripsi": "Dell Latitude 3390 2-in-1 Laptop with Intel Core i5-8250U, 8GB RAM, 256GB SSD, integrated graphics, running Windows 10 Pro."
+    "deskripsi": "Dell Latitude 3390 2-in-1 Laptop with Intel Core i5-8250U, 8GB RAM, 256GB SSD, integrated graphics, running Windows 10 Pro.",
+    "released_date": "2018-01-01"
   },
   {
     "id": 12,
@@ -188,7 +194,8 @@
       "gpu": "Integrated Graphics",
       "os": "Windows 10 Home"
     },
-    "deskripsi": "Dell Latitude 3410 Laptop with Intel Core i7-10510U, 8GB DDR4 RAM, 512GB SSD, integrated graphics, and Windows 10 Home."
+    "deskripsi": "Dell Latitude 3410 Laptop with Intel Core i7-10510U, 8GB DDR4 RAM, 512GB SSD, integrated graphics, and Windows 10 Home.",
+    "released_date": "2020-01-01"
   },
   {
     "id": 13,
@@ -206,7 +213,8 @@
       "gpu": "Intel Iris Xe Graphics",
       "os": "Windows 10 Pro"
     },
-    "deskripsi": "Dell XPS 9310 Laptop with Intel Core i7-1185G7, 16GB RAM, 1TB SSD, Intel Iris Xe Graphics, running Windows 10 Pro."
+    "deskripsi": "Dell XPS 9310 Laptop with Intel Core i7-1185G7, 16GB RAM, 1TB SSD, Intel Iris Xe Graphics, running Windows 10 Pro.",
+    "released_date": "2020-10-01"
   },
   {
     "id": 14,
@@ -221,7 +229,8 @@
       "gpu": "NVIDIA GeForce RTX 3050 Ti",
       "os": "Windows 10 Pro"
     },
-    "deskripsi": "Dell XPS 15 (9510) Laptop with Intel Core i7-11800H, 16GB RAM, 1TB SSD, NVIDIA GeForce RTX 3050 Ti GPU, and Windows 10 Pro."
+    "deskripsi": "Dell XPS 15 (9510) Laptop with Intel Core i7-11800H, 16GB RAM, 1TB SSD, NVIDIA GeForce RTX 3050 Ti GPU, and Windows 10 Pro.",
+    "released_date": "2021-01-01"
   },
   {
     "id": 15,
@@ -239,7 +248,8 @@
       "gpu": "Intel Iris Xe Graphics",
       "os": "Windows 10 Home"
     },
-    "deskripsi": "Dell Vostro 3400 Laptop with Intel Core i5-1135G7, 1TB SATA HDD storage, Intel Iris Xe Graphics, running Windows 10 Home. RAM not specified."
+    "deskripsi": "Dell Vostro 3400 Laptop with Intel Core i5-1135G7, 1TB SATA HDD storage, Intel Iris Xe Graphics, running Windows 10 Home. You can customized your RAM up to 64GB.",
+    "released_date": "2021-01-01"
   },
   {
     "id": 16,
@@ -254,7 +264,8 @@
       "gpu": "NVIDIA GeForce MX330 2GB",
       "os": "Windows 10 Home"
     },
-    "deskripsi": "Dell Vostro 3400 Laptop with Intel Core i7-1165G7, 8GB RAM, 256GB SSD, NVIDIA GeForce MX330 2GB GPU, running Windows 10 Home."
+    "deskripsi": "Dell Vostro 3400 Laptop with Intel Core i7-1165G7, 8GB RAM, 256GB SSD, NVIDIA GeForce MX330 2GB GPU, running Windows 10 Home.",
+    "released_date": "2021-01-01"
   },
   {
     "id": 17,
@@ -269,7 +280,8 @@
       "gpu": "Integrated Graphics",
       "os": "Windows 10 Pro"
     },
-    "deskripsi": "Dell Latitude 7310 CTO Laptop with Intel Core i7-10610U, 8GB onboard RAM, 256GB SSD, integrated graphics, and Windows 10 Pro."
+    "deskripsi": "Dell Latitude 7310 CTO Laptop with Intel Core i7-10610U, 8GB onboard RAM, 256GB SSD, integrated graphics, and Windows 10 Pro.",
+    "released_date": "2020-01-01"
   },
   {
     "id": 18,
@@ -284,7 +296,8 @@
       "gpu": "Integrated Graphics",
       "os": "Windows 10 Pro"
     },
-    "deskripsi": "Dell Latitude 7310 CTO Laptop with Intel Core i7-10610U, 16GB Non-ECC integrated RAM, 512GB SSD, integrated graphics, and Windows 10 Pro."
+    "deskripsi": "Dell Latitude 7310 CTO Laptop with Intel Core i7-10610U, 16GB Non-ECC integrated RAM, 512GB SSD, integrated graphics, and Windows 10 Pro.",
+    "released_date": "2020-01-01"
   },
   {
     "id": 19,
@@ -299,7 +312,8 @@
       "gpu": "NVIDIA GeForce MX450 2GB",
       "os": "Windows 10 Pro"
     },
-    "deskripsi": "Dell Latitude 3420 Laptop with Intel Core i7-1165G7, 16GB DDR4 RAM, 512GB SSD, NVIDIA GeForce MX450 2GB GPU, running Windows 10 Pro."
+    "deskripsi": "Dell Latitude 3420 Laptop with Intel Core i7-1165G7, 16GB DDR4 RAM, 512GB SSD, NVIDIA GeForce MX450 2GB GPU, running Windows 10 Pro.",
+    "released_date": "2021-01-01"
   },
   {
     "id": 20,
@@ -314,7 +328,8 @@
       "gpu": "NVIDIA GeForce MX450 2GB",
       "os": "Windows 10 Pro"
     },
-    "deskripsi": "Dell Latitude 3420 Laptop with Intel Core i7-1165G7, 16GB DDR4 RAM, 256GB SSD, NVIDIA GeForce MX450 2GB GPU, running Windows 10 Pro."
+    "deskripsi": "Dell Latitude 3420 Laptop with Intel Core i7-1165G7, 16GB DDR4 RAM, 256GB SSD, NVIDIA GeForce MX450 2GB GPU, running Windows 10 Pro.",
+    "released_date": "2021-01-01"
   },
   {
     "id": 21,
@@ -329,7 +344,8 @@
       "gpu": "Integrated Graphics",
       "os": "Windows 10 Home Single Language English"
     },
-    "deskripsi": "Lenovo Notebook V14-IIL Laptop with Intel Core i7-1065G1, 8GB RAM (expandable up to 20GB), 512GB M.2 PCIe NVMe SSD, integrated graphics, running Windows 10 Home Single Language English."
+    "deskripsi": "Lenovo Notebook V14-IIL Laptop with Intel Core i7-1065G1, 8GB RAM (expandable up to 20GB), 512GB M.2 PCIe NVMe SSD, integrated graphics, running Windows 10 Home Single Language English.",
+    "released_date": "2020-01-01"
   },
   {
     "id": 22,
@@ -344,7 +360,8 @@
       "gpu": "Integrated Graphics",
       "os": "Windows 10 Home Single Language English"
     },
-    "deskripsi": "Lenovo Notebook V14-IIL Laptop with Intel Core i5-1035G1, 8GB DDR4 RAM (4GB onboard, max 20GB), 256GB M.2 PCIe NVMe SSD, integrated graphics, running Windows 10 Home Single Language English."
+    "deskripsi": "Lenovo Notebook V14-IIL Laptop with Intel Core i5-1035G1, 8GB DDR4 RAM (4GB onboard, max 20GB), 256GB M.2 PCIe NVMe SSD, integrated graphics, running Windows 10 Home Single Language English.",
+    "released_date": "2020-01-01"
   },
   {
     "id": 23,
@@ -359,7 +376,8 @@
       "gpu": "Integrated Graphics",
       "os": "Windows 10 Home Single Language English"
     },
-    "deskripsi": "Lenovo Notebook V14-IIL Laptop with Intel Core i3-1005G1, 8GB DDR4 RAM (4GB onboard, max 20GB), 256GB M.2 PCIe NVMe SSD (type 2280/2242), integrated graphics, running Windows 10 Home Single Language English."
+    "deskripsi": "Lenovo Notebook V14-IIL Laptop with Intel Core i3-1005G1, 8GB DDR4 RAM (4GB onboard, max 20GB), 256GB M.2 PCIe NVMe SSD (type 2280/2242), integrated graphics, running Windows 10 Home Single Language English.",
+    "released_date": "2020-01-01"
   },
   {
     "id": 24,
@@ -374,7 +392,8 @@
       "gpu": "Intel® Graphics",
       "os": "Windows 11 Pro 64"
     },
-    "deskripsi": "Lenovo X12 Detachable Gen 2 with Intel Core Ultra 7 164U CPU, 16GB onboard LPD5X-7500 RAM, 512GB PCIe SSD, Intel Graphics, running Windows 11 Pro 64-bit."
+    "deskripsi": "Lenovo X12 Detachable Gen 2 with Intel Core Ultra 7 164U CPU, 16GB onboard LPD5X-7500 RAM, 512GB PCIe SSD, Intel Graphics, running Windows 11 Pro 64-bit.",
+    "released_date": "2024-01-01"
   },
   {
     "id": 25,
@@ -389,11 +408,12 @@
       "gpu": "Integrated Graphics",
       "os": "Windows 11 Pro 64"
     },
-    "deskripsi": "Lenovo ThinkPad E14 Gen 6 Laptop with Intel Core Ultra 5 125U 1.3GHz CPU, 16GB DDR5-5600 RAM, 512GB PCIe SSD, integrated graphics, running Windows 11 Pro 64-bit."
+    "deskripsi": "Lenovo ThinkPad E14 Gen 6 Laptop with Intel Core Ultra 5 125U 1.3GHz CPU, 16GB DDR5-5600 RAM, 512GB PCIe SSD, integrated graphics, running Windows 11 Pro 64-bit.",
+    "released_date": "2024-01-01"
   },
   {
     "id": 26,
-    "name": "Lenovo Thinkpad L13 Gen 5 Screen 13.3”",
+    "name": "Lenovo Thinkpad L13 Gen 5 Screen 13.3\"",
     "brand": "Lenovo",
     "jenis": "Laptop",
     "images": ["produk/Lenovo/L13/1.png"],
@@ -404,7 +424,8 @@
       "gpu": "Integrated Graphics",
       "os": "Windows 11 Pro 64"
     },
-    "deskripsi": "Lenovo ThinkPad L13 Gen 5 Laptop with Intel Core Ultra 5 135U CPU, 16GB DDR5 RAM, 512GB SSD, integrated graphics, running Windows 11 Pro 64-bit."
+    "deskripsi": "Lenovo ThinkPad L13 Gen 5 Laptop with Intel Core Ultra 5 135U CPU, 16GB DDR5 RAM, 512GB SSD, integrated graphics, running Windows 11 Pro 64-bit.",
+    "released_date": "2024-01-01"
   },
   {
     "id": 27,
@@ -420,7 +441,8 @@
       "os": "Windows 10 Pro",
       "screen": "13.3\" Touchscreen"
     },
-    "deskripsi": "Dell Latitude 3390 2-in-1 Laptop with Intel Core i5-8250U, 8GB RAM, 256GB SSD, integrated graphics, 13.3\" touchscreen, running Windows 10 Pro."
+    "deskripsi": "Dell Latitude 3390 2-in-1 Laptop with Intel Core i5-8250U, 8GB RAM, 256GB SSD, integrated graphics, 13.3\" touchscreen, running Windows 10 Pro.",
+    "released_date": "2018-01-01"
   },
   {
     "id": 28,
@@ -435,7 +457,8 @@
       "gpu": "Integrated Graphics",
       "os": "Windows 10 Home Single Language"
     },
-    "deskripsi": "Dell Latitude 3410 Laptop with Intel Core i7-10510U, 8GB DDR4 RAM, 512GB PCIe NVMe storage, integrated graphics, running Windows 10 Home Single Language."
+    "deskripsi": "Dell Latitude 3410 Laptop with Intel Core i7-10510U, 8GB DDR4 RAM, 512GB PCIe NVMe storage, integrated graphics, running Windows 10 Home Single Language.",
+    "released_date": "2020-01-01"
   },
   {
     "id": 29,
@@ -450,7 +473,8 @@
       "gpu": "Apple GPU 5-core",
       "os": "iOS 17"
     },
-    "deskripsi": "Apple iPhone 15 Smartphone with A16 Bionic chip, 6GB RAM, multiple storage options (128GB/256GB/512GB), Apple 5-core GPU, running iOS 17."
+    "deskripsi": "Apple iPhone 15 Smartphone with A16 Bionic chip, 6GB RAM, multiple storage options (128GB/256GB/512GB), Apple 5-core GPU, running iOS 17.",
+    "released_date": "2023-09-22"
   },
   {
     "id": 30,
@@ -465,7 +489,8 @@
       "gpu": "Apple GPU 4-core",
       "os": "iOS 18.3.1"
     },
-    "deskripsi": "Apple iPhone 16 Smartphone with Apple A18 chip, 8GB RAM, storage options of 128GB or 256GB, Apple 4-core GPU, running iOS 18.3.1."
+    "deskripsi": "Apple iPhone 16 Smartphone with Apple A18 chip, 8GB RAM, storage options of 128GB or 256GB, Apple 4-core GPU, running iOS 18.3.1.",
+    "released_date": "2024-09-20"
   },
   {
     "id": 31,
@@ -480,7 +505,8 @@
       "gpu": "Apple GPU 4-core",
       "os": "iOS 18.3.1"
     },
-    "deskripsi": "Apple iPhone 16e Smartphone with Apple A18 chip, 8GB RAM, storage options of 128GB or 256GB, Apple 4-core GPU, running iOS 18.3.1."
+    "deskripsi": "Apple iPhone 16e Smartphone with Apple A18 chip, 8GB RAM, storage options of 128GB or 256GB, Apple 4-core GPU, running iOS 18.3.1.",
+    "released_date": "2025-03-01"
   },
   {
     "id": 32,
@@ -495,7 +521,8 @@
       "gpu": "Xclipse 530",
       "os": "Android 14 One UI 6.0"
     },
-    "deskripsi": "Samsung A55 Smartphone with Exynos 1480 CPU, 8GB RAM, 256GB storage, Xclipse 530 GPU, running Android 14 with One UI 6.0."
+    "deskripsi": "Samsung A55 Smartphone with Exynos 1480 CPU, 8GB RAM, 256GB storage, Xclipse 530 GPU, running Android 14 with One UI 6.0.",
+    "released_date": "2024-03-11"
   },
   {
     "id": 33,
@@ -510,7 +537,8 @@
       "gpu": "AMD RDNA 2",
       "os": "Android 14 One UI 6.0"
     },
-    "deskripsi": "Samsung S24FE Smartphone with Exynos 2400e CPU, 8GB RAM, storage options of 128GB or 256GB, AMD RDNA 2 GPU, running Android 14 with One UI 6.0."
+    "deskripsi": "Samsung S24FE Smartphone with Exynos 2400e CPU, 8GB RAM, storage options of 128GB or 256GB, AMD RDNA 2 GPU, running Android 14 with One UI 6.0.",
+    "released_date": "2024-10-03"
   },
   {
     "id": 34,
@@ -525,7 +553,8 @@
       "gpu": "AMD RDNA 2",
       "os": "Android 14 One UI 6.0"
     },
-    "deskripsi": "Samsung S24FE Smartphone with Exynos 2400e CPU, 8GB RAM, storage options of 128GB or 256GB, AMD RDNA 2 GPU, running Android 14 with One UI 6.0."
+    "deskripsi": "Samsung S24FE Smartphone with Exynos 2400e CPU, 8GB RAM, storage options of 128GB or 256GB, AMD RDNA 2 GPU, running Android 14 with One UI 6.0.",
+    "released_date": "2024-10-03"
   },
   {
     "id": 35,
@@ -540,7 +569,8 @@
       "gpu": "Integrated Graphics on CPU",
       "os": "Windows 11 Home"
     },
-    "deskripsi": "Dell Optiplex 3000SFF PC with Intel Core i5-12500, 16GB DDR5 RAM, 512GB SSD M.2 2230 storage, integrated graphics on CPU, running Windows 11 Home."
+    "deskripsi": "Dell Optiplex 3000SFF PC with Intel Core i5-12500, 16GB DDR5 RAM, 512GB SSD M.2 2230 storage, integrated graphics on CPU, running Windows 11 Home.",
+    "released_date": "2022-01-01"
   },
   {
     "id": 36,
@@ -555,7 +585,8 @@
       "gpu": "Integrated Graphics on CPU",
       "os": "Windows 10 Pro"
     },
-    "deskripsi": "Dell Optiplex 7000 Tower PC with Intel Core i5-12500, 16GB DDR5 RAM, 512GB SSD M.2 2230 storage, integrated graphics on CPU, running Windows 10 Pro."
+    "deskripsi": "Dell Optiplex 7000 Tower PC with Intel Core i5-12500, 16GB DDR5 RAM, 512GB SSD M.2 2230 storage, integrated graphics on CPU, running Windows 10 Pro.",
+    "released_date": "2022-01-01"
   },
   {
     "id": 37,
@@ -570,7 +601,8 @@
       "gpu": "Integrated Graphics on CPU",
       "os": "Windows 10 Pro"
     },
-    "deskripsi": "Dell Optiplex 7060 Micro PC with Intel Core i5-8400, 8GB DDR5 RAM, 1TB SATA HDD storage, integrated graphics on CPU, running Windows 10 Pro."
+    "deskripsi": "Dell Optiplex 7060 Micro PC with Intel Core i5-8400, 8GB DDR5 RAM, 1TB SATA HDD storage, integrated graphics on CPU, running Windows 10 Pro.",
+    "released_date": "2018-01-01"
   },
   {
     "id": 38,
@@ -585,7 +617,8 @@
       "gpu": "Integrated Graphics on CPU",
       "os": "Windows 11 Pro"
     },
-    "deskripsi": "Dell Optiplex 7010 Micro PC with Intel Core i5-13500, 8GB DDR5 RAM, 512GB SSD M.2 2230 storage, integrated graphics on CPU, running Windows 11 Pro."
+    "deskripsi": "Dell Optiplex 7010 Micro PC with Intel Core i5-13500, 8GB DDR5 RAM, 512GB SSD M.2 2230 storage, integrated graphics on CPU, running Windows 11 Pro.",
+    "released_date": "2023-01-01"
   },
   {
     "id": 39,
@@ -600,7 +633,8 @@
       "gpu": "AMD Graphics",
       "os": "Windows 11 with Office 2024 Home and Student"
     },
-    "deskripsi": "Asus Zenbook 14 Laptop with AMD Ryzen 7 8840HS, 16GB RAM, 512GB SSD M.2 storage, AMD Graphics, running Windows 11 with Office 2024 Home and Student."
+    "deskripsi": "Asus Zenbook 14 Laptop with AMD Ryzen 7 8840HS, 16GB RAM, 512GB SSD M.2 storage, AMD Graphics, running Windows 11 with Office 2024 Home and Student.",
+    "released_date": "2024-01-01"
   },
   {
     "id": 40,
@@ -615,7 +649,8 @@
       "gpu": "Integrated Graphics",
       "os": "Windows 11 with Office 2024 Home and Student"
     },
-    "deskripsi": "Asus Vivobook 15 Laptop with Intel Core i5-1335U, 8GB DDR4 RAM, 512GB SSD M.2 NVMe storage, integrated graphics, running Windows 11 with Office 2024 Home and Student."
+    "deskripsi": "Asus Vivobook 15 Laptop with Intel Core i5-1335U, 8GB DDR4 RAM, 512GB SSD M.2 NVMe storage, integrated graphics, running Windows 11 with Office 2024 Home and Student.",
+    "released_date": "2023-01-01"
   },
   {
     "id": 41,
@@ -631,7 +666,8 @@
       "gpu": "Integrated Graphics",
       "os": "Windows 11 Home 64"
     },
-    "deskripsi": "HP 240 G9 14 inch FHD laptop with Intel Core i3-1315U processor, 8GB DDR4 RAM, 256GB SSD storage, backlit keyboard, fingerprint reader, and 3/3/3 warranty."
+    "deskripsi": "HP 240 G9 14 inch FHD laptop with Intel Core i3-1315U processor, 8GB DDR4 RAM, 256GB SSD storage, backlit keyboard, fingerprint reader, and 3/3/3 warranty.",
+    "released_date": "2023-01-01"
   },
   {
     "id": 42,
@@ -646,7 +682,8 @@
       "gpu": "Integrated Graphics",
       "os": "Windows 11 Pro 64"
     },
-    "deskripsi": "HP EliteBook 630 G10 13.3 inch FHD laptop with Intel Core i5-1335U processor, 16GB DDR4 RAM, 512GB SSD storage, dual HD camera, fingerprint sensor, and backlit keyboard."
+    "deskripsi": "HP EliteBook 630 G10 13.3 inch FHD laptop with Intel Core i5-1335U processor, 16GB DDR4 RAM, 512GB SSD storage, dual HD camera, fingerprint sensor, and backlit keyboard.",
+    "released_date": "2023-01-01"
   },
   {
     "id": 43,
@@ -661,7 +698,8 @@
       "gpu": "Integrated Graphics",
       "os": "Windows 11 Pro 64"
     },
-    "deskripsi": "HP EliteBook 630 G10 13.3 inch FHD laptop with Intel Core i7-1355U processor, 16GB DDR4 RAM, 1TB SSD storage, dual HD IR camera, fingerprint sensor, and 3/3/3 warranty."
+    "deskripsi": "HP EliteBook 630 G10 13.3 inch FHD laptop with Intel Core i7-1355U processor, 16GB DDR4 RAM, 1TB SSD storage, dual HD IR camera, fingerprint sensor, and 3/3/3 warranty.",
+    "released_date": "2023-01-01"
   },
   {
     "id": 44,
@@ -677,7 +715,8 @@
       "gpu": "Integrated Graphics",
       "os": "Windows 11 Pro 64"
     },
-    "deskripsi": "HP EliteBook 630 G11 Ultra 13.3 inch FHD+ laptop with Intel U5-125U processor, 16GB DDR5 RAM, 1TB SSD storage, dual HD IR camera, fingerprint sensor, and 3 years Wolf Pro Security."
+    "deskripsi": "HP EliteBook 630 G11 Ultra 13.3 inch FHD+ laptop with Intel U5-125U processor, 16GB DDR5 RAM, 1TB SSD storage, dual HD IR camera, fingerprint sensor, and 3 years Wolf Pro Security.",
+    "released_date": "2024-01-01"
   },
   {
     "id": 45,
@@ -692,7 +731,8 @@
       "gpu": "Integrated Graphics",
       "os": "Windows 11 Pro 64"
     },
-    "deskripsi": "HP EliteBook 630 G11 Ultra 13.3 inch FHD+ laptop with Intel U7-155U processor, 16GB DDR5 RAM, 1TB SSD storage, dual HD IR camera, fingerprint sensor, and 3 years Wolf Pro Security."
+    "deskripsi": "HP EliteBook 630 G11 Ultra 13.3 inch FHD+ laptop with Intel U7-155U processor, 16GB DDR5 RAM, 1TB SSD storage, dual HD IR camera, fingerprint sensor, and 3 years Wolf Pro Security.",
+    "released_date": "2024-01-01"
   },
   {
     "id": 46,
@@ -707,7 +747,8 @@
       "gpu": "Integrated Graphics",
       "os": "Windows 11 Pro 64"
     },
-    "deskripsi": "HP EliteBook x360 1040 G10 14 inch touchscreen convertible laptop with Intel Core i7-1355U processor, 16GB soldered RAM, 1TB SSD storage, Sure View display, HP Active Pen, and 3 years Wolf Pro Security."
+    "deskripsi": "HP EliteBook x360 1040 G10 14 inch touchscreen convertible laptop with Intel Core i7-1355U processor, 16GB soldered RAM, 1TB SSD storage, Sure View display, HP Active Pen, and 3 years Wolf Pro Security.",
+    "released_date": "2023-01-01"
   },
   {
     "id": 47,
@@ -722,7 +763,8 @@
       "gpu": "Integrated Graphics",
       "os": "Windows 11 Pro 64"
     },
-    "deskripsi": "HP EliteBook x360 1040 G11 Ultra 14 inch FHD+ touchscreen convertible laptop with Intel U7-155U processor, 32GB soldered RAM, 1TB SSD storage, Sure View display, HP Active Pen, and 3 years Wolf Pro Security."
+    "deskripsi": "HP EliteBook x360 1040 G11 Ultra 14 inch FHD+ touchscreen convertible laptop with Intel U7-155U processor, 32GB soldered RAM, 1TB SSD storage, Sure View display, HP Active Pen, and 3 years Wolf Pro Security.",
+    "released_date": "2024-01-01"
   },
   {
     "id": 48,
@@ -738,7 +780,8 @@
       "gpu": "Integrated Graphics",
       "os": "Windows 11 Pro 64"
     },
-    "deskripsi": "HP ProOne 240 G9 23.8 inch touchscreen All-in-One PC with Intel Core i7-1255U processor, 8GB DDR4 RAM, 512GB SSD storage, USB wired keyboard and mouse, and 3/3/3 warranty."
+    "deskripsi": "HP ProOne 240 G9 23.8 inch touchscreen All-in-One PC with Intel Core i7-1255U processor, 8GB DDR4 RAM, 512GB SSD storage, USB wired keyboard and mouse, and 3/3/3 warranty.",
+    "released_date": "2023-01-01"
   },
   {
     "id": 49,
@@ -754,7 +797,8 @@
       "gpu": "Integrated Graphics",
       "os": "Windows 11 Pro 64"
     },
-    "deskripsi": "HP ProOne 240 G10 23.8 inch FHD touchscreen All-in-One PC with Intel U5-125U processor, 8GB DDR5 RAM, 512GB SSD storage, 5MP pull-up webcam, USB wired keyboard and mouse, and 3/3/3 warranty."
+    "deskripsi": "HP ProOne 240 G10 23.8 inch FHD touchscreen All-in-One PC with Intel U5-125U processor, 8GB DDR5 RAM, 512GB SSD storage, 5MP pull-up webcam, USB wired keyboard and mouse, and 3/3/3 warranty.",
+    "released_date": "2024-01-01"
   },
   {
     "id": 50,
@@ -770,7 +814,8 @@
       "gpu": "Integrated Graphics",
       "os": "Windows 11 Pro 64"
     },
-    "deskripsi": "HP ProOne 240 G10 23.8 inch FHD touchscreen All-in-One PC with Intel U7-155U processor, 16GB DDR5 RAM, 1TB SSD storage, 5MP pull-up webcam, USB wired keyboard and mouse, and 3/3/3 warranty."
+    "deskripsi": "HP ProOne 240 G10 23.8 inch FHD touchscreen All-in-One PC with Intel U7-155U processor, 16GB DDR5 RAM, 1TB SSD storage, 5MP pull-up webcam, USB wired keyboard and mouse, and 3/3/3 warranty.",
+    "released_date": "2024-01-01"
   },
   {
     "id": 51,
@@ -785,7 +830,8 @@
       "gpu": "Integrated Graphics",
       "os": "Windows 11 Home SL"
     },
-    "deskripsi": "HP Pro Tower 280 G9 desktop PC with Intel Core i5-12400 processor, 8GB DDR4 RAM, 1TB HDD storage, DVD-RW drive, USB wired keyboard and optical mouse, includes HP P204v 19.5 inch monitor, and 3/3/3 warranty."
+    "deskripsi": "HP Pro Tower 280 G9 desktop PC with Intel Core i5-12400 processor, 8GB DDR4 RAM, 1TB HDD storage, DVD-RW drive, USB wired keyboard and optical mouse, includes HP P204v 19.5 inch monitor, and 3/3/3 warranty.",
+    "released_date": "2022-01-01"
   },
   {
     "id": 52,
@@ -800,7 +846,8 @@
       "gpu": "Integrated Graphics",
       "os": "Windows 11 Home SL"
     },
-    "deskripsi": "HP Pro Tower 280 G9 desktop PC with Intel Core i7-12700 processor, 8GB DDR4 RAM, 1TB HDD storage, DVD-RW drive, USB wired keyboard and optical mouse, includes HP P204v 19.5 inch monitor, and 3/3/3 warranty."
+    "deskripsi": "HP Pro Tower 280 G9 desktop PC with Intel Core i7-12700 processor, 8GB DDR4 RAM, 1TB HDD storage, DVD-RW drive, USB wired keyboard and optical mouse, includes HP P204v 19.5 inch monitor, and 3/3/3 warranty.",
+    "released_date": "2022-01-01"
   },
   {
     "id": 53,
@@ -815,7 +862,8 @@
       "gpu": "NVIDIA T400 4GB",
       "os": "Windows 11 Pro 64"
     },
-    "deskripsi": "HP Pro Tower 400 G9 MT desktop PC with Intel Core i7-12700 processor, 16GB DDR4 RAM, 1TB SSD storage, NVIDIA T400 4GB graphics card, DVD-RW drive, wireless mouse and keyboard, includes HP P22 G5 21.5 inch FHD monitor, and 3/3/3 warranty."
+    "deskripsi": "HP Pro Tower 400 G9 MT desktop PC with Intel Core i7-12700 processor, 16GB DDR4 RAM, 1TB SSD storage, NVIDIA T400 4GB graphics card, DVD-RW drive, wireless mouse and keyboard, includes HP P22 G5 21.5 inch FHD monitor, and 3/3/3 warranty.",
+    "released_date": "2022-01-01"
   },
   {
     "id": 54,
@@ -830,7 +878,8 @@
       "gpu": "NVIDIA T400 4GB",
       "os": "Windows 11 Pro 64"
     },
-    "deskripsi": "HP Pro Tower 400 G9 desktop PC with Intel Core i7-12700 processor, 16GB DDR4 RAM, 1TB SSD NVMe storage, NVIDIA T400 4GB graphics card, DVD-RW drive, keyboard and mouse, includes HP P22 G5 21.5 inch FHD monitor, and 3/3/3 warranty."
+    "deskripsi": "HP Pro Tower 400 G9 desktop PC with Intel Core i7-12700 processor, 16GB DDR4 RAM, 1TB SSD NVMe storage, NVIDIA T400 4GB graphics card, DVD-RW drive, keyboard and mouse, includes HP P22 G5 21.5 inch FHD monitor, and 3/3/3 warranty.",
+    "released_date": "2022-01-01"
   },
   {
     "id": 55,
@@ -845,7 +894,8 @@
       "gpu": "Intel UHD Graphics",
       "os": "Windows 11 Home SL"
     },
-    "deskripsi": "HP Pro Tower Maverick 280 G9 desktop PC with Intel Core i5-12500 processor, 16GB DDR4 RAM, 512GB SSD M.2 NVMe storage, Intel UHD Graphics, DVD-RW drive, wired keyboard and mouse, includes HP P204v 19.5 inch monitor, and 3/3/3 warranty."
+    "deskripsi": "HP Pro Tower Maverick 280 G9 desktop PC with Intel Core i5-12500 processor, 16GB DDR4 RAM, 512GB SSD M.2 NVMe storage, Intel UHD Graphics, DVD-RW drive, wired keyboard and mouse, includes HP P204v 19.5 inch monitor, and 3/3/3 warranty.",
+    "released_date": "2022-01-01"
   },
   {
     "id": 56,
@@ -860,7 +910,8 @@
       "gpu": "Intel UHD Graphics",
       "os": "Windows 11 Pro 64"
     },
-    "deskripsi": "HP Pro Tower Maverick 280 G9 desktop PC with Intel Core i7-12700 processor, 16GB DDR4 RAM, 512GB SSD M.2 NVMe storage, Intel UHD Graphics, DVD-RW drive, wired keyboard and mouse, includes HP P204v 19.5 inch monitor, and 3/3/3 warranty."
+    "deskripsi": "HP Pro Tower Maverick 280 G9 desktop PC with Intel Core i7-12700 processor, 16GB DDR4 RAM, 512GB SSD M.2 NVMe storage, Intel UHD Graphics, DVD-RW drive, wired keyboard and mouse, includes HP P204v 19.5 inch monitor, and 3/3/3 warranty.",
+    "released_date": "2022-01-01" 
   },
   {
     "id": 57,
@@ -875,7 +926,8 @@
       "gpu": "Integrated Graphics",
       "os": "Windows 11 Pro 64"
     },
-    "deskripsi": "Asus Vivobook S3407CA-VIPS7112M with Intel Core i5-1235U processor, 8GB DDR4 RAM, 256GB SSD storage, and 3/3/3 warranty."
+    "deskripsi": "Asus Vivobook S3407CA-VIPS7112M with Intel Core i5-1235U processor, 8GB DDR4 RAM, 256GB SSD storage, and 3/3/3 warranty.",
+    "released_date": "2022-01-01"
   },
   {
     "id": 58,
@@ -890,7 +942,8 @@
       "gpu": "Integrated Graphics",
       "os": "Windows 11 Pro 64"
     },
-    "deskripsi": "HP ProBook 440 G9 14 inch FHD laptop with Intel Core i7-1255U processor, 16GB DDR4 RAM, 512GB SSD storage, backlit keyboard, fingerprint reader, and 3/3/3 warranty."
+    "deskripsi": "HP ProBook 440 G9 14 inch FHD laptop with Intel Core i7-1255U processor, 16GB DDR4 RAM, 512GB SSD storage, backlit keyboard, fingerprint reader, and 3/3/3 warranty.",
+    "released_date": "2022-01-01"
   },
   {
     "id": 59,
@@ -905,7 +958,8 @@
       "gpu": "Intel UHD Graphics",
       "os": "Windows 11 Home"
     },
-    "deskripsi": "ASUS Vivobook S14 with 14-inch WUXGA IPS display, Intel Core Ultra 7 processor, 16GB DDR5 RAM, 1TB SSD, aluminum build, Cool Silver color, backlit keyboard, FHD IR camera with Windows Hello, and US MIL-STD 810H military-grade standard."
+    "deskripsi": "ASUS Vivobook S14 with 14-inch WUXGA IPS display, Intel Core Ultra 7 processor, 16GB DDR5 RAM, 1TB SSD, aluminum build, Cool Silver color, backlit keyboard, FHD IR camera with Windows Hello, and US MIL-STD 810H military-grade standard.",
+    "released_date": "2024-01-01"
   },
   {
     "id": 60,
@@ -921,7 +975,8 @@
       "gpu": "Intel UHD Graphics",
       "os": "Windows 11 Home"
     },
-    "deskripsi": "ASUS Vivobook S14 with 14-inch WUXGA IPS display, Intel Core Ultra 5 processor, 16GB DDR5 RAM, 1TB SSD, aluminum build, Matte Gray color, backlit keyboard, FHD IR camera with Windows Hello, and US MIL-STD 810H military-grade standard."
+    "deskripsi": "ASUS Vivobook S14 with 14-inch WUXGA IPS display, Intel Core Ultra 5 processor, 16GB DDR5 RAM, 1TB SSD, aluminum build, Matte Gray color, backlit keyboard, FHD IR camera with Windows Hello, and US MIL-STD 810H military-grade standard.",
+    "released_date": "2024-01-01"
   },
   {
     "id": 61,
@@ -937,7 +992,8 @@
       "gpu": "Intel UHD Graphics",
       "os": "Windows 11 Home"
     },
-    "deskripsi": "ASUS Vivobook S14 with 14-inch WUXGA IPS display, Intel Core Ultra 5 processor, 16GB DDR5 RAM, 1TB SSD, aluminum build, Cool Silver color, backlit keyboard, FHD IR camera with Windows Hello, and US MIL-STD 810H military-grade standard."
+    "deskripsi": "ASUS Vivobook S14 with 14-inch WUXGA IPS display, Intel Core Ultra 5 processor, 16GB DDR5 RAM, 1TB SSD, aluminum build, Cool Silver color, backlit keyboard, FHD IR camera with Windows Hello, and US MIL-STD 810H military-grade standard.",
+    "released_date": "2024-01-01"
   },
   {
     "id": 62,
@@ -952,7 +1008,8 @@
       "gpu": "AMD Radeon Graphics",
       "os": "Windows 11 Home"
     },
-    "deskripsi": "ASUS Vivobook 14 with 14-inch WUXGA IPS display, AMD Ryzen AI 5 processor, 16GB DDR5 RAM, 512GB SSD, plastic build, Quiet Blue color, SonicMaster audio, backlit keyboard, FHD IR camera with Windows Hello, and US MIL-STD 810H military-grade standard."
+    "deskripsi": "ASUS Vivobook 14 with 14-inch WUXGA IPS display, AMD Ryzen AI 5 processor, 16GB DDR5 RAM, 512GB SSD, plastic build, Quiet Blue color, SonicMaster audio, backlit keyboard, FHD IR camera with Windows Hello, and US MIL-STD 810H military-grade standard.",
+    "released_date": "2024-01-01"
   },
   {
     "id": 63,
@@ -967,7 +1024,8 @@
       "gpu": "AMD Radeon Graphics",
       "os": "Windows 11 Home"
     },
-    "deskripsi": "ASUS Vivobook 14 with 14-inch WUXGA IPS display, AMD Ryzen AI 5 processor, 16GB DDR5 RAM, 512GB SSD, plastic build, Platinum Gold color, SonicMaster audio, backlit keyboard, FHD IR camera with Windows Hello, and US MIL-STD 810H military-grade standard."
+    "deskripsi": "ASUS Vivobook 14 with 14-inch WUXGA IPS display, AMD Ryzen AI 5 processor, 16GB DDR5 RAM, 512GB SSD, plastic build, Platinum Gold color, SonicMaster audio, backlit keyboard, FHD IR camera with Windows Hello, and US MIL-STD 810H military-grade standard.",
+    "released_date": "2024-01-01"
   },
   {
     "id": 64,
@@ -982,7 +1040,8 @@
       "gpu": "AMD Radeon Graphics",
       "os": "Windows 11 Home"
     },
-    "deskripsi": "ASUS Vivobook 14 with 14-inch WUXGA IPS display, AMD Ryzen AI 5 processor, 16GB DDR5 RAM, 512GB SSD, plastic build, Cool Silver color, SonicMaster audio, backlit keyboard, FHD IR camera with Windows Hello, and US MIL-STD 810H military-grade standard."
+    "deskripsi": "ASUS Vivobook 14 with 14-inch WUXGA IPS display, AMD Ryzen AI 5 processor, 16GB DDR5 RAM, 512GB SSD, plastic build, Cool Silver color, SonicMaster audio, backlit keyboard, FHD IR camera with Windows Hello, and US MIL-STD 810H military-grade standard.",
+    "released_date": "2024-01-01"
   },
   {
     "id": 65,
@@ -997,7 +1056,8 @@
       "storage": "256GB",
       "os": "Xiaomi HyperOS"
     },
-    "deskripsi": "Xiaomi Redmi Note 14 with connectivity to 5G."
+    "deskripsi": "Xiaomi Redmi Note 14 with connectivity to 5G.",
+    "released_date": "2024-01-08"
   },
   {
     "id": 66,
@@ -1011,7 +1071,9 @@
       "ram": "16GB Soldered LPDDR5x-8533",
       "storage": "512GB SSD M.2 2242 PCIe 4.0x4 NVMe",
       "os": "Windows"
-    }
+    },
+    "deskripsi": "Lenovo Yoga 7 2-in-1 14ILL10 83JQ003UID with Intel Core Ultra 5 processor, 16GB RAM, 512GB SSD storage, AMD Radeon 680M graphics, and Windows OS.",
+    "released_date": "2024-01-01"
   },
   {
     "id": 67,
@@ -1025,7 +1087,9 @@
       "ram": "48GB",
       "storage": "512GB SSD",
       "gpu": "20 CORE GPU"
-    }
+    },
+    "deskripsi": "16-inch MacBook Pro with M4 Pro chip, 48GB RAM, 512GB SSD storage, 20-core GPU, and macOS.",
+    "released_date": "2024-11-08"
   },
   {
     "id": 68,
@@ -1039,7 +1103,9 @@
       "gpu": "Integrated Graphics",
       "storage": "512GB SSD",
       "os": "Win 11 Home+OHs"
-    }
+    },
+    "deskripsi": "Asus Expertbook P1403CVA-S63850WS with Intel Core i3-1315U processor, 8GB RAM, 512GB SSD storage, integrated graphics, and Windows 11 Home with Office Home & Student.",
+    "released_date": "2023-01-01"
   },
   {
     "id": 69,
@@ -1053,7 +1119,9 @@
       "ram": "16GB (1x16GB) DDR5 5600",
       "storage": "SSD 1TB NVMe",
       "os": "Windows 11 Pro 64"
-    }
+    },
+    "deskripsi": "HP EliteBook 630 with Intel U7-155U processor, 16GB DDR5 RAM, 1TB NVMe SSD storage, integrated graphics, and Windows 11 Pro 64-bit.",
+    "released_date": "2024-01-01"
   },
   {
     "id": 70,
@@ -1067,7 +1135,9 @@
       "storage": "1 TB, M.2 2230, QLC, Gen 4 PCIe NVMe, SSD",
       "gpu": "Integrated Intel graphics for Intel Core Ultra 7 155U processor",
       "os": "Windows 11 Pro, English"
-    }
+    },
+    "deskripsi": "Dell Latitude 5450 with Intel Core Ultra 7 165H vPro processor, 16GB DDR5 RAM, 1TB M.2 2230 QLC Gen 4 PCIe NVMe SSD storage, integrated Intel graphics, and Windows 11 Pro.",  
+    "released_date": "2024-01-01"
   },
   {
     "id": 71,
@@ -1081,7 +1151,9 @@
       "storage": "512 GB, M.2 2230, QLC, Gen 4 PCIe NVMe, SSD",
       "gpu": "Intel Iris Xe Graphics",
       "os": "Windows 11 Pro, English"
-    }
+    },
+    "deskripsi": "Dell Latitude 3430 with Intel Core i7-1255U processor, 16GB DDR5 RAM, 512GB M.2 2230 QLC Gen 4 PCIe NVMe SSD storage, Intel Iris Xe Graphics, and Windows 11 Pro.",
+    "released_date": "2022-01-01"
   },
   {
     "id": 72,
@@ -1095,6 +1167,8 @@
       "storage": "512 GB, M.2 2230, QLC, Gen 4 PCIe NVMe, SSD",
       "gpu": "Intel Iris Xe Graphics",
       "os": "Windows 11 Pro, English"
-    }
+    },
+    "deskripsi": "Dell Latitude 5431 with Intel Core i5-1250P processor, 8GB DDR5 RAM, 512GB M.2 2230 QLC Gen 4 PCIe NVMe SSD storage, Intel Iris Xe Graphics, and Windows 11 Pro.",
+    "released_date": "2022-01-01"
   }
 ]

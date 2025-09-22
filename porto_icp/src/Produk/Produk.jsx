@@ -4,7 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import Navbar from "../Navigation/Navbar";
 import Footer from "../Navigation/footer";
 import produkData from "./produk.json";
-import { FaFilter, FaSearch } from "react-icons/fa";
+import { FaFilter, FaSearch, FaWhatsapp } from "react-icons/fa";
 import "./Produk.css";
 
 import { Helmet } from "react-helmet";
@@ -38,6 +38,14 @@ export default function Produk() {
 
   const { brand, id } = useParams();
   const navigate = useNavigate();
+
+  // Function to check if product is new (released in current year)
+  const isNewProduct = (releaseDate) => {
+    if (!releaseDate) return false;
+    const currentYear = new Date().getFullYear();
+    const productYear = new Date(releaseDate).getFullYear();
+    return productYear === currentYear;
+  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -222,10 +230,10 @@ export default function Produk() {
       <div className="header-product">
         <div className="header-content">
           <div className="header-text">
-            <h1>Produk</h1>
+            <h1>Jelajahi Produk IT Kami</h1>
             <p>
               Temukan berbagai pilihan Komputer, Laptop, Smartphone, dan barang
-              IT lainnya.
+              IT lainnya. Konsultasikan kebutuhan IT Anda dengan kami!
             </p>
           </div>
 
@@ -316,6 +324,13 @@ export default function Produk() {
               >
                 <div className="product-content">
                   <div className="product-image-section">
+                    {/* NEW STOCK Badge */}
+                    {isNewProduct(product.released_date) && (
+                      <div className="new-stock-badge">
+                        <span>NEW STOCK</span>
+                      </div>
+                    )}
+                    
                     <img
                       src={product.images?.[0] || ""}
                       alt={product.name}
@@ -342,11 +357,18 @@ export default function Produk() {
             <div className="closeModalButton">
               {isMobile && (
                 <button className="product-close-button" onClick={closeModal}>
-                  <X />
+                  <X style={{fontSize:"20px"}} />
                 </button>
               )}
             </div>
             <div className="modal-image-container">
+              {/* NEW STOCK Badge in Modal */}
+              {isNewProduct(selectedProduct.released_date) && (
+                <div className="modal-new-stock-badge">
+                  <span>NEW STOCK</span>
+                </div>
+              )}
+
               {!isMobile && (
                 <button
                   className="nav-button"
@@ -388,8 +410,11 @@ export default function Produk() {
               )}
             </div>
 
-            <h3 className="modal-title">{selectedProduct.name}</h3>
-            <div className="modal-brand">Brand: {selectedProduct.brand}</div>
+            <div className="modal-name-brand">
+              <div className="modal-brand">{selectedProduct.brand}</div>
+              <h3 className="modal-title">{selectedProduct.name}</h3>
+              <span>{"("}{selectedProduct.jenis}{")"}</span>
+            </div>
 
             <div className="modal-specs">
               <div className="modal-spec-item">
@@ -421,6 +446,24 @@ export default function Produk() {
                   <AppWindow />
                 </span>{" "}
                 {selectedProduct.specs.os}
+              </div>
+              <div className="modal-product-description">
+                {selectedProduct.deskripsi}
+              </div>
+              <div className="action-button">
+                <span className="logo-icon">
+                    <FaWhatsapp />
+                </span>
+                <a
+                  href={`https://wa.me/6285545031039?text=Saya%20tertarik%20dengan%20produk%20${encodeURIComponent(
+                    selectedProduct.name,
+                  )}%20dari%20Infoduta%20Computindo%20Perkasa.%20Apakah%20produk%20ini%20masih%20tersedia?`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-primary"
+                >
+                  Konsultasikan via WhatsApp
+                </a>
               </div>
             </div>
           </div>

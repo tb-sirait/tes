@@ -84,7 +84,7 @@ const ProductCard = ({ product, onViewDetails }) => {
       <div className="filter-product-info">
         <h3>{product.name}</h3>
         {product.usage && (
-          <p style={{ fontSize: "13px", color: "#f1f2e2" }}>
+          <p style={{ fontSize: "13px", color: "#000000" }}>
             Penggunaan: {product.usage}
           </p>
         )}
