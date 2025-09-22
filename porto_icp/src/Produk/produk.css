@@ -647,7 +647,7 @@
 @media (max-width: 480px) {
   .header-product {
     padding: 1.5rem 1rem;
-    margin: 0.5rem auto;
+    margin: 2.5rem auto;
   }
 
   .header-text h1 {
@@ -765,7 +765,7 @@
 .modal-new-stock-badge {
   position: absolute;
   top: 16px;
-  right: 16px;
+  right: 140px;
   background: linear-gradient(135deg, #ff6b6b, #ee5a24);
   color: white;
   padding: 6px 12px;

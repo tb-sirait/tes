@@ -149,6 +149,14 @@ export default function Produk() {
     }
   }, [brand, id, products]);
 
+  useEffect(() => {
+    if (selectedProduct) {
+      document.title = `${selectedProduct.name} | Infoduta Computindo Perkasa`;
+    } else {
+      document.title = "Produk | Infoduta Computindo Perkasa";
+    }
+  }, [selectedProduct]);
+
   const [isClosing, setIsClosing] = useState(false);
 
   const openModal = (product) => {
@@ -274,7 +282,6 @@ export default function Produk() {
   return (
     <>
       <Helmet>
-        <title>Produk | Infoduta Computindo Perkasa</title>
         <meta
           name="description"
           content="Temukan berbagai pilihan Komputer, Laptop, Smartphone, dan barang IT lainnya di Infoduta Computindo Perkasa."
