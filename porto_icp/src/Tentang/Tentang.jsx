@@ -69,17 +69,17 @@ function Tentang() {
     {
       icon: <FaTrophy />,
       title: "29+ Tahun Pengalaman",
-      description: "Melayani sejak 1995 hingga kini",
+      description: "Melayani sejak 1996 hingga saat ini",
     },
     {
       icon: <FaUsers />,
       title: "100+ Klien Terpercaya",
-      description: "Perusahaan besar di Indonesia",
+      description: "Melayani Perusahaan-Perusahaan Terbesar di Indonesia",
     },
     {
       icon: <FaHandshake />,
       title: "Layanan 24/7",
-      description: "Support dan konsultasi penuh",
+      description: "Melayani konsultasi Produk IT kapan saja untuk Bisnis Anda",
     },
   ];
 
@@ -118,7 +118,8 @@ function Tentang() {
         <section className="hero-section-ttg">
           <h1 className="hero-title-ttg">PT. Infoduta Computindo Perkasa</h1>
           <p className="hero-subtitle-ttg">
-            "Solusi Kebutuhan Hardware dan Software Pilihan Anda"
+            "Solusi Pengadaan Produk IT Tepercaya untuk menunjang Kebutuhan
+            Bisnis Anda"
           </p>
           <div className="hero-content-ttg">
             <div className="hero-text-ttg">
@@ -160,17 +161,21 @@ function Tentang() {
                 <div className="text-block">
                   <p className="teks-konten">
                     <strong>PT Infoduta Computindo Perkasa</strong> adalah
-                    perusahaan yang bergerak di bidang Teknologi Informasi (IT)
-                    untuk memenuhi kebutuhan hardware dan software yang dimiliki
-                    oleh perusahaan-perusahaan di Indonesia, serta memberikan
-                    solusi untuk memenuhi kebutuhan alat IT pada
-                    perusahaan-perusahaan tersebut.
+                    perusahaan yang bergerak di bidang Teknologi Informasi (IT),
+                    yang menyediakan layanan pengadaan serta penyewaan produk IT
+                    (hardware, software, dan produk pendukung lainnya). Selain
+                    itu, Infoduta juga memberikan layanan pemeliharaan dan
+                    dukungan teknis untuk memastikan operasional sistem IT pada
+                    setiap klien berjalan optimal. Saat ini, PT Infoduta
+                    Computindo Perkasa telah dipercaya oleh berbagai perusahaan
+                    terkemuka di Indonesia sebagai mitra dalam pemenuhan
+                    kebutuhan teknologi informasi.
                   </p>
                 </div>
                 <div className="text-block">
                   <p className="teks-konten">
                     <strong>PT Infoduta Computindo Perkasa</strong> telah
-                    berdiri sejak tahun 1995 hingga saat ini, dan telah
+                    berdiri sejak tahun 1996 hingga saat ini, dan telah
                     dipercaya sebagai mitra tetap produk IT di perusahaan besar
                     di Indonesia seperti: Pertamina Group, Telkom Group, Telkom
                     Malaysia, Perbankan, dan perusahaan-perusahaan swasta

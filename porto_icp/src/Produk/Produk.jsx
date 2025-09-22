@@ -150,17 +150,33 @@ export default function Produk() {
   }, [brand, id, products]);
 
   useEffect(() => {
+    document.title = "Produk | Infoduta Computindo Perkasa";
+
+    // 🔑 SEO Dynamic Title & Meta Description
     if (selectedProduct) {
+      // Set title + meta ketika ada produk
       document.title = `${selectedProduct.name} | Infoduta Computindo Perkasa`;
 
       const metaDesc = document.querySelector("meta[name='description']");
       if (metaDesc) {
         metaDesc.setAttribute(
           "content",
-          `Dapatkan ${selectedProduct.name} untuk meningkatkan kinerja dan performa bisnis Anda, hanya di Infoduta`,
+          `Dapatkan ${selectedProduct.name} resmi bergaransi dengan spesifikasi lengkap di Infoduta Computindo Perkasa`,
         );
       }
     }
+
+    // 🔑 Reset ke default saat keluar dari halaman produk
+    return () => {
+      document.title = "Produk | Infoduta Computindo Perkasa";
+      const metaDesc = document.querySelector("meta[name='description']");
+      if (metaDesc) {
+        metaDesc.setAttribute(
+          "content",
+          "Solusi IT terbaik, server, storage, dan perangkat komputer resmi bergaransi.",
+        );
+      }
+    };
   }, [selectedProduct]);
 
   const [isClosing, setIsClosing] = useState(false);

@@ -458,12 +458,10 @@ function Homepage() {
         }
         `}
       </style>
-
-      <Navbar />
-
       <Helmet>
         <title>
-          Infoduta Computindo Perkasa | Solusi Software & Hardware Pilihan Anda
+          PT. Infoduta Computindo Perkasa | Solusi Pengadaan Produk IT terbaik
+          untuk Bisnis Anda
         </title>
         <meta
           name="description"
@@ -488,6 +486,8 @@ function Homepage() {
         <meta property="og:site_name" content="Infoduta Computindo Perkasa" />
         <meta property="og:type" content="website" />
       </Helmet>
+
+      <Navbar />
 
       {/* Hero Section */}
       <section style={styles.heroSection}>
