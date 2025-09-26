@@ -438,5 +438,37 @@
     "type": "Webcam",
     "images": "/src/assets/produk/hardware/logitech/0.png",
     "description": "Webcam Logitech C270 menawarkan video HD 720p pada 30fps. Dilengkapi dengan mikrofon peredam bising, koreksi cahaya otomatis, dan pemasangan universal yang mudah."
+  },
+  {
+    "id": 56,
+    "name": "Deli 3765 Fingerprint Time Attendance",
+    "brand": "Deli",
+    "type": "Utility",
+    "images": "/src/assets/produk/hardware/deli/1.png",
+    "description": "Deli 3765 Fingerprint Time Attendance adalah perangkat absensi sidik jari yang efisien. Dilengkapi dengan layar LCD, kapasitas penyimpanan hingga 3000 sidik jari, dan konektivitas USB serta TCP/IP untuk transfer data yang mudah."
+  },
+  {
+    "id": 57,
+    "name": "Mesin Laminating Dynamic 330 LED",
+    "brand": "Dynamic",
+    "type": "Utility",
+    "images": "/src/assets/produk/hardware/dynamic/1.png",
+    "description": "Mesin Laminating Dynamic 330 LED adalah alat laminasi berkualitas tinggi dengan lebar laminasi hingga 330mm. Dilengkapi dengan teknologi pemanasan cepat, kontrol suhu digital, dan fitur reverse untuk hasil laminasi yang sempurna."
+  },
+  {
+    "id": 58,
+    "name": "Epson Projector EB-E01",
+    "brand": "Epson",
+    "type": "Projector",
+    "images": "/src/assets/produk/hardware/epson/5.png",
+    "description": "Epson Projector EB-E01 adalah proyektor portabel dengan resolusi XGA (1024x768) dan kecerahan 3600 lumens. Ideal untuk presentasi di ruang kelas atau ruang rapat kecil hingga sedang, dengan konektivitas HDMI dan VGA."
+  },
+  {
+    "id": 59,
+    "name": "Canon Pixma G3010",
+    "brand": "Canon",
+    "type": "Printer",
+    "images": "/src/assets/produk/hardware/canon/2.png",
+    "description": "Canon Pixma G3010 merupakan printer terbaik keluaran Canon dengan fitur melimpah."
   }
 ]

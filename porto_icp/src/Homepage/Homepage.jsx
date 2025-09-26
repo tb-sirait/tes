@@ -54,21 +54,21 @@ function Homepage() {
       title: "Produk",
       image: WorkstationImage,
       route: "/produk",
-      description: "Jelajahi produk unggulan kami",
+      description: "Jelajahi produk-produk unggulan kami",
     },
     {
       id: "layanan",
       title: "Layanan",
       image: ServicesImage,
       route: "/layanan",
-      description: "Temukan layanan terbaik",
+      description: "Jelajahi layanan pengadaan/penyewaan Produk IT di kami",
     },
     {
       id: "tentang",
       title: "Tentang",
       image: AboutImage,
       route: "/tentang",
-      description: "Kenali lebih dekat perusahaan kami",
+      description: "Jelajahi lebih dalam tentang perusahaan kami",
     },
   ];
 
@@ -501,13 +501,15 @@ function Homepage() {
         <div className="hero-content" style={styles.heroContent}>
           <div style={styles.heroContentInner}>
             <h1 className="hero-title" style={styles.heroTitle}>
-              Solusi Kebutuhan
-              <span style={styles.heroSubtitle}>Software & Hardware</span>
-              <span style={styles.heroTagline}>Pilihan Anda</span>
+              Solusi Pengadaan
+              <span style={styles.heroSubtitle}>Produk IT Terbaik</span>
+              <span style={styles.heroTagline}>untuk Bisnis Anda</span>
             </h1>
 
             <p style={styles.heroDescription}>
-              Temukan solusi teknologi terdepan untuk mengembangkan bisnis Anda
+              Temukan solusi produk IT terdepan untuk mengembangkan bisnis
+              Anda bersama PT Infoduta Computindo Perkasa. Jelajahi produk dan
+              layanan kami sekarang!
             </p>
 
             <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
@@ -536,11 +538,11 @@ function Homepage() {
           {/* Section Header */}
           <div style={styles.sectionHeader}>
             <h2 className="section-title" style={styles.sectionTitle}>
-              Eksplor <span style={styles.sectionTitleAccent}>Infoduta</span>
+              Jelajahi <span style={styles.sectionTitleAccent}>Infoduta</span>
             </h2>
             <div style={styles.sectionDivider}></div>
             <p style={styles.sectionDescription}>
-              Lebih dekat dengan perusahaan kami
+              Lebih dekat dengan perusahaan kami dan temukan produk dan layanan sesuai keinginan Anda.
             </p>
           </div>
 

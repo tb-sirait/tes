@@ -1140,6 +1140,38 @@
     "released_date": "2024-01-01"
   },
   {
+    "id": 74,
+    "name": "DELL LATITUDE 5450",
+    "brand": "Dell",
+    "jenis": "Laptop",
+    "images": ["produk/Dell/Notebook/Latitude/5450/1.png"],
+    "specs": {
+      "cpu": "Intel Core Ultra 5 135H vPro (18 MB cache, 14 cores, 18 threads, up to 4.6 GHz)",
+      "ram": "16 GB: 1 x 16 GB, DDR5, 5600 MT/s (5200 MT/s with 13th Gen Intel Core processors)",
+      "storage": "512 GB, M.2 2230, QLC, Gen 4 PCIe NVMe, SSD",
+      "gpu": "Intel Iris Xe Graphics",
+      "os": "Windows 11 Pro, English"
+    },
+    "deskripsi": "3-cell, 54 Wh, ExpressCharge Capable, Long Life Cycle, 3-year limited hardware warranty English US backlit AI hotkey keyboard, 79-key Intel Wi-Fi 6E (6 where 6E unavailable) AX211, 2x2, 802.11ax, Bluetooth 5.3 wireless card Carry-In Service 12 Months ProSupport and Next Business Day Onsite Service 36 Month(s)",
+    "released_date": "2022-01-01"
+  },
+  {
+    "id": 73,
+    "name": "DELL LATITUDE 5450",
+    "brand": "Dell",
+    "jenis": "Laptop",
+    "images": ["produk/Dell/Notebook/Latitude/5450/1.png"],
+    "specs": {
+      "cpu": "Intel Core Ultra 7 155U (12 MB cache, 12 cores, 14 threads, up to 4.8 GHz) vPro",
+      "ram": "16GB RAM",
+      "storage": "1TB SSD M.2 2230 PCIe NVMe",
+      "gpu": "Intel Arc Xe Graphics",
+      "os": "Windows 11 Pro, English"
+    },
+    "deskripsi": "3-cell, 54 Wh, ExpressCharge Capable, Long Life Cycle, 3-year limited hardware warranty English US backlit AI hotkey keyboard, 79-key Intel Wi-Fi 6E (6 where 6E unavailable) AX211, 2x2, 802.11ax, Bluetooth 5.3 wireless card Carry-In Service 12 Months ProSupport and Next Business Day Onsite Service 36 Month(s)",
+    "released_date": "2022-01-01"
+  },
+  {
     "id": 71,
     "name": "DELL LATITUDE 3430",
     "brand": "Dell",
@@ -1170,5 +1202,21 @@
     },
     "deskripsi": "Dell Latitude 5431 with Intel Core i5-1250P processor, 8GB DDR5 RAM, 512GB M.2 2230 QLC Gen 4 PCIe NVMe SSD storage, Intel Iris Xe Graphics, and Windows 11 Pro.",
     "released_date": "2022-01-01"
+  },
+  {
+    "id": 75,
+    "name": "Samsung Galaxy A17 4G 8/128",
+    "brand": "Samsung",
+    "jenis": "Smartphone",
+    "images": ["produk/Asus/Expertbook/1.png"],
+    "specs": {
+      "cpu": "Octa-core 2.0 GHz",
+      "ram": "8GB",
+      "gpu": "Mali-G52 MC2 (2-core graphics)",
+      "storage": "512GB SSD",
+      "os": "Android 13, One UI Core 5"
+    },
+    "deskripsi": "Samsung Galaxy A17 with Octa-core 2.0 GHz processor, 8GB RAM, 512GB SSD storage, Mali-G52 MC2 graphics, and Android 13 with One UI Core 5.",
+    "released_date": "2025-08-06"
   }
 ]

@@ -254,5 +254,13 @@
     "brand": "Prolink",
     "images": ["/assets/produk/sparepart/prolink/1.png"],
     "description": "Prolink DL-7303 4G+ Cat6 fixed Wi-Fi router for reliable and high-speed internet access."
+  },
+  {
+    "id": 33,
+    "name": "External HDD 1TB WD My Passport",
+    "jenis": "HDD",
+    "brand": "WD",
+    "images": ["/assets/produk/sparepart/wd/1.png"],
+    "description": "HDD External HDD 1 TB by WD. More storage, more efficiency, more Flexible."
   }
 ]
