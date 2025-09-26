@@ -507,8 +507,8 @@ function Homepage() {
             </h1>
 
             <p style={styles.heroDescription}>
-              Temukan solusi produk IT terdepan untuk mengembangkan bisnis
-              Anda bersama PT Infoduta Computindo Perkasa. Jelajahi produk dan
+              Temukan solusi produk IT terdepan untuk mengembangkan bisnis Anda
+              bersama PT Infoduta Computindo Perkasa. Jelajahi produk dan
               layanan kami sekarang!
             </p>
 
@@ -542,7 +542,8 @@ function Homepage() {
             </h2>
             <div style={styles.sectionDivider}></div>
             <p style={styles.sectionDescription}>
-              Lebih dekat dengan perusahaan kami dan temukan produk dan layanan sesuai keinginan Anda.
+              Lebih dekat dengan perusahaan kami dan temukan produk dan layanan
+              sesuai keinginan Anda.
             </p>
           </div>
 
