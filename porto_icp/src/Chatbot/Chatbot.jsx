@@ -35,7 +35,7 @@ const ChatBot = () => {
     // Respon bot
     setTimeout(() => {
       let botText =
-        "Terima kasih atas pesan Anda! Saya akan membantu Anda segera.";
+        "Terima kasih atas pesan Anda! Mungkin Saya masih belum mengerti tentang pesan Anda. Dapatkah Anda mengirimi Ulang pesan Anda dengan bahasa yang lebih mudah di mengerti?";
 
       if (
         inputMessage.toLowerCase().includes("tanya") ||
@@ -242,6 +242,26 @@ const ChatBot = () => {
             <a href="/karir" style={{ color: "#2575fc", fontWeight: "bold" }}>
               halaman karir
             </a>
+          </>
+        );
+      } else if (
+        inputMessage.toLowerCase().includes("terima kasih") ||
+        inputMessage.toLowerCase().includes("terimakasih") ||
+        inputMessage.toLowerCase().includes("thank") ||
+        inputMessage.toLowerCase().includes("makasih") ||
+        inputMessage.toLowerCase().includes("thank you")
+      ) {
+        botText = (
+          <>
+            Terima Kasih kembali. Kami sangat menghargai Anda. Jika ada
+            keperluan tambahan, bisa{" "}
+            <a
+              href="https://wa.me/6285545031039"
+              style={{ color: "#2575fc", fontWeight: "bold" }}
+            >
+              Hubungi Kami via WhatsApp
+            </a>{" "}
+            ini.
           </>
         );
       }

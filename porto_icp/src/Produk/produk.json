@@ -1208,7 +1208,23 @@
     "name": "Samsung Galaxy A17 4G 8/128",
     "brand": "Samsung",
     "jenis": "Smartphone",
-    "images": ["produk/Asus/Expertbook/1.png"],
+    "images": ["produk/samsung/A17/1.png"],
+    "specs": {
+      "cpu": "Octa-core 2.0 GHz",
+      "ram": "8GB",
+      "gpu": "Mali-G52 MC2 (2-core graphics)",
+      "storage": "512GB SSD",
+      "os": "Android 13, One UI Core 5"
+    },
+    "deskripsi": "Samsung Galaxy A17 with Octa-core 2.0 GHz processor, 8GB RAM, 512GB SSD storage, Mali-G52 MC2 graphics, and Android 13 with One UI Core 5.",
+    "released_date": "2025-08-06"
+  },
+  {
+    "id": 76,
+    "name": "Samsung Galaxy A17 5G 8/128",
+    "brand": "Samsung",
+    "jenis": "Smartphone",
+    "images": ["produk/samsung/A17/1.png"],
     "specs": {
       "cpu": "Octa-core 2.0 GHz",
       "ram": "8GB",
