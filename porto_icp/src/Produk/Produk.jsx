@@ -80,7 +80,7 @@ export default function Produk() {
     return () => {
       window.removeEventListener("keydown", handleEsc);
     };
-  }, [closeModal, isModalOpen]);
+  }, [isModalOpen]);
 
   // Import gambar dari JSON
   function importImagesFromJson(jsonData) {
@@ -188,8 +188,7 @@ export default function Produk() {
     navigate(`/produk/${product.brand}/${product.id}`);
   };
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps, no-undef
-  const closeModal = useCallback(() => {
+  const closeModal = () => {
     setIsClosing(true);
     setTimeout(() => {
       setIsModalOpen(false);
@@ -197,7 +196,7 @@ export default function Produk() {
       setIsClosing(false);
       navigate("/produk");
     }, 300);
-  });
+  };
 
   const goToPreviousImage = () => {
     setSlideDirection("left");
