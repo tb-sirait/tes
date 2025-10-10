@@ -81,17 +81,13 @@ function AppContent() {
       <TrackVisitorActivity />
       {/* Kondisi: Navbar hanya muncul kalau bukan di /telusuri-kami */}
       {location.pathname !== "/telusuri-kami" && <Navbar />}
-
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="/produk" element={<Produk />} />
 
         {/* Produk detail */}
+        <Route path="/produk" element={<Produk />} />
         <Route path="/produk/:brand/:id" element={<Produk />} />
 
-        <Route path="/layanan" element={<Layanan />} />
-        <Route path="/tentang" element={<Tentang />} />
-        <Route path="/karir" element={<Karir />} />
 
         {/* Software */}
         <Route path="/produk/software" element={<Software />} />
@@ -122,6 +118,12 @@ function AppContent() {
         <Route path="/produk/server/:brand/:id" element={<Server />} />
 
         <Route path="/telusuri-kami" element={<BioLinks />} />
+
+        <Route path="/layanan" element={<Layanan />} />
+
+        <Route path="/tentang" element={<Tentang />} />
+
+        <Route path="/karir" element={<Karir />} />
 
         {/* fallback */}
         <Route path="*" element={<Homepage />} />

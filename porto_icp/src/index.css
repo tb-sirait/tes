@@ -112,3 +112,12 @@ body,
   box-sizing: border-box;
   font-family: "Inter", sans-serif;
 }
+
+/* Sembunyikan scrollbar tapi tetap bisa di-scroll */
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent; /* opsional */
+}
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}

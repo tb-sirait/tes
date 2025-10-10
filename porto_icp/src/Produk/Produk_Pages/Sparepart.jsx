@@ -279,7 +279,6 @@ const Sparepart = () => {
           isOpen={!!selectedProduct}
           onClose={handleCloseModal}
         />
-
         <Footer />
       </div>
     </>
