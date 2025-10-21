@@ -49,7 +49,11 @@ const ChatBot = () => {
               href="https://wa.me/6285545031039"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: "#25D366", fontWeight: "bold", textDecoration: "underline" }}
+              style={{
+                color: "#25D366",
+                fontWeight: "bold",
+                textDecoration: "underline",
+              }}
             >
               WhatsApp ini
             </a>
@@ -61,7 +65,11 @@ const ChatBot = () => {
             Kamu bisa cek daftar software di{" "}
             <a
               href="/produk/software"
-              style={{ color: "#2575fc", fontWeight: "bold", textDecoration: "underline" }}
+              style={{
+                color: "#2575fc",
+                fontWeight: "bold",
+                textDecoration: "underline",
+              }}
             >
               halaman Software
             </a>
@@ -73,7 +81,11 @@ const ChatBot = () => {
             Kamu bisa cek daftar hardware di{" "}
             <a
               href="/produk/hardware"
-              style={{ color: "#2575fc", fontWeight: "bold", textDecoration: "underline" }}
+              style={{
+                color: "#2575fc",
+                fontWeight: "bold",
+                textDecoration: "underline",
+              }}
             >
               halaman Hardware
             </a>
@@ -85,7 +97,11 @@ const ChatBot = () => {
             Kamu bisa cek daftar laptop di{" "}
             <a
               href="/produk/laptop"
-              style={{ color: "#2575fc", fontWeight: "bold", textDecoration: "underline" }}
+              style={{
+                color: "#2575fc",
+                fontWeight: "bold",
+                textDecoration: "underline",
+              }}
             >
               halaman Laptop
             </a>
@@ -102,7 +118,11 @@ const ChatBot = () => {
             Kamu bisa cek daftar smartphone di{" "}
             <a
               href="/produk/smartphone"
-              style={{ color: "#2575fc", fontWeight: "bold", textDecoration: "underline" }}
+              style={{
+                color: "#2575fc",
+                fontWeight: "bold",
+                textDecoration: "underline",
+              }}
             >
               halaman Smartphone
             </a>
@@ -118,7 +138,11 @@ const ChatBot = () => {
             Kamu bisa cek daftar computer di{" "}
             <a
               href="/produk/computer"
-              style={{ color: "#2575fc", fontWeight: "bold", textDecoration: "underline" }}
+              style={{
+                color: "#2575fc",
+                fontWeight: "bold",
+                textDecoration: "underline",
+              }}
             >
               halaman Komputer
             </a>
@@ -130,7 +154,11 @@ const ChatBot = () => {
             Kamu bisa cek daftar server di{" "}
             <a
               href="/produk/server"
-              style={{ color: "#2575fc", fontWeight: "bold", textDecoration: "underline" }}
+              style={{
+                color: "#2575fc",
+                fontWeight: "bold",
+                textDecoration: "underline",
+              }}
             >
               halaman Server
             </a>
@@ -146,7 +174,11 @@ const ChatBot = () => {
             Kamu bisa cek daftar sparepart di{" "}
             <a
               href="/produk/sparepart"
-              style={{ color: "#2575fc", fontWeight: "bold", textDecoration: "underline" }}
+              style={{
+                color: "#2575fc",
+                fontWeight: "bold",
+                textDecoration: "underline",
+              }}
             >
               halaman Sparepart
             </a>
@@ -162,7 +194,14 @@ const ChatBot = () => {
         botText = (
           <>
             Kami menyediakan berbagai produk IT, kamu bisa cek di{" "}
-            <a href="/produk" style={{ color: "#2575fc", fontWeight: "bold", textDecoration: "underline" }}>
+            <a
+              href="/produk"
+              style={{
+                color: "#2575fc",
+                fontWeight: "bold",
+                textDecoration: "underline",
+              }}
+            >
               halaman produk
             </a>{" "}
             atau kamu bisa tanyakan barang melalui{" "}
@@ -180,7 +219,14 @@ const ChatBot = () => {
         botText = (
           <>
             Kami menyediakan berbagai layanan IT, kamu bisa cek di{" "}
-            <a href="/layanan" style={{ color: "#2575fc", fontWeight: "bold", textDecoration: "underline" }}>
+            <a
+              href="/layanan"
+              style={{
+                color: "#2575fc",
+                fontWeight: "bold",
+                textDecoration: "underline",
+              }}
+            >
               halaman layanan
             </a>
           </>
@@ -203,7 +249,11 @@ const ChatBot = () => {
             sediakan{" "}
             <a
               href="/telusuri-kami"
-              style={{ color: "#2575fc", fontWeight: "bold", textDecoration: "underline" }}
+              style={{
+                color: "#2575fc",
+                fontWeight: "bold",
+                textDecoration: "underline",
+              }}
             >
               di sini
             </a>
@@ -222,7 +272,14 @@ const ChatBot = () => {
             Kami adalah PT. Infoduta Cipta Persada, sebuah perusahaan yang
             bergerak di bidang penyediaan solusi IT. Untuk informasi lebih
             lengkap, silakan kunjungi{" "}
-            <a href="/tentang" style={{ color: "#2575fc", fontWeight: "bold", textDecoration: "underline" }}>
+            <a
+              href="/tentang"
+              style={{
+                color: "#2575fc",
+                fontWeight: "bold",
+                textDecoration: "underline",
+              }}
+            >
               halaman tentang kami
             </a>
           </>
@@ -239,12 +296,19 @@ const ChatBot = () => {
           <>
             Kami sering membuka kesempatan berkarir di perusahaan kami. Untuk
             informasi lebih lengkap, silakan kunjungi{" "}
-            <a href="/karir" style={{ color: "#2575fc", fontWeight: "bold", textDecoration: "underline" }}>
+            <a
+              href="/karir"
+              style={{
+                color: "#2575fc",
+                fontWeight: "bold",
+                textDecoration: "underline",
+              }}
+            >
               halaman karir
             </a>
           </>
         );
-      } else if(
+      } else if (
         inputMessage.toLowerCase().includes("hai") ||
         inputMessage.toLowerCase().includes("hello") ||
         inputMessage.toLowerCase().includes("hi") ||
@@ -254,8 +318,8 @@ const ChatBot = () => {
       ) {
         botText = (
           <>
-            Hai-hai halo, sobat Duta. Selamat datang di Website Infoduta.
-            Ada yang bisa saya bantu?
+            Hai-hai halo, sobat Duta. Selamat datang di Website Infoduta. Ada
+            yang bisa saya bantu?
           </>
         );
       } else if (
@@ -271,7 +335,11 @@ const ChatBot = () => {
             keperluan tambahan, bisa{" "}
             <a
               href="https://wa.me/6285545031039"
-              style={{ color: "#2575fc", fontWeight: "bold", textDecoration: "underline" }}
+              style={{
+                color: "#2575fc",
+                fontWeight: "bold",
+                textDecoration: "underline",
+              }}
             >
               Hubungi Kami via WhatsApp
             </a>{" "}

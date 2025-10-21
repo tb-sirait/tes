@@ -40,16 +40,18 @@ function Homepage() {
   const handleExploreClick = () => {
     if (mainContentRef.current) {
       // Ambil elemen section-header (heading "Jelajahi Infoduta")
-      const sectionHeader = mainContentRef.current.querySelector('.section-header');
-      
+      const sectionHeader =
+        mainContentRef.current.querySelector(".section-header");
+
       if (sectionHeader) {
         const headerOffset = 100; // Offset dari atas (sesuaikan dengan tinggi navbar Anda)
         const elementPosition = sectionHeader.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        const offsetPosition =
+          elementPosition + window.pageYOffset - headerOffset;
 
         window.scrollTo({
           top: offsetPosition,
-          behavior: "smooth"
+          behavior: "smooth",
         });
       }
     }

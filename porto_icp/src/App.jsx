@@ -59,7 +59,9 @@ function TrackVisitorActivity() {
           ipAddress = data.ip || "unknown";
 
           // 2️⃣ Ambil info lokasi berdasarkan IP
-          const geoResponse = await fetch(`https://ipapi.co/${ipAddress}/json/`);
+          const geoResponse = await fetch(
+            `https://ipapi.co/${ipAddress}/json/`,
+          );
           if (geoResponse.ok) {
             const geoData = await geoResponse.json();
             country = geoData.country_name || "unknown";
@@ -119,7 +121,6 @@ function AppContent() {
         {/* Produk detail */}
         <Route path="/produk" element={<Produk />} />
         <Route path="/produk/:brand/:id" element={<Produk />} />
-
 
         {/* Software */}
         <Route path="/produk/software" element={<Software />} />
