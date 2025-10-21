@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
   "name": "porto_icp",
-  "version": "2.5.3",
+  "version": "2.9.3",
   "homepage": "https://www.infoduta.com/",
   "private": true,
   "type": "module",
@@ -12,7 +12,9 @@
     "test": "echo \"No tests specified\" && exit 0",
     "format": "prettier --write .",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint:fix": "eslint . --fix",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",

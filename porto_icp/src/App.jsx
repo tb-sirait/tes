@@ -43,16 +43,41 @@ function TrackVisitorActivity() {
       const formattedDateTime = `${day}-${month}-${year} ${hours}:${minutes}:${seconds}`;
 
       let ipAddress = "unknown";
+      let httpStatus = "unknown";
+      let httpDetail = "";
+      let country = "unknown";
+      let region = "unknown";
+      let city = "unknown";
+
       try {
+        // 1️⃣ Ambil IP publik pengguna
         const response = await fetch("https://api.ipify.org?format=json");
+        httpStatus = response.ok ? "OK" : `Error ${response.status}`;
+
         if (response.ok) {
           const data = await response.json();
           ipAddress = data.ip || "unknown";
+
+          // 2️⃣ Ambil info lokasi berdasarkan IP
+          const geoResponse = await fetch(`https://ipapi.co/${ipAddress}/json/`);
+          if (geoResponse.ok) {
+            const geoData = await geoResponse.json();
+            country = geoData.country_name || "unknown";
+            region = geoData.region || "unknown";
+            city = geoData.city || "unknown";
+          } else {
+            httpDetail += ` | Failed to fetch location (status ${geoResponse.status})`;
+          }
+        } else {
+          httpDetail = `Failed to fetch IP: HTTP ${response.status}`;
         }
-      } catch {
-        console.warn("Failed to fetch IP address");
+      } catch (error) {
+        httpStatus = "Error";
+        httpDetail = error.message || "Unknown error";
+        console.warn("Failed to fetch IP or location:", error);
       }
 
+      // 3️⃣ Gabungkan semua data pengunjung
       const visitorData = {
         timestamp: formattedDateTime,
         path: location.pathname,
@@ -60,7 +85,14 @@ function TrackVisitorActivity() {
         platform: navigator.platform,
         language: navigator.language,
         ipAddress: ipAddress,
+        httpStatus: httpStatus,
+        httpDetail: httpDetail,
+        country: country,
+        region: region,
+        city: city,
       };
+
+      // 4️⃣ Simpan ke Firebase
       const visitorsRef = ref(database, "visitors");
       push(visitorsRef, visitorData);
     }

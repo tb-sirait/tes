@@ -354,6 +354,7 @@ body {
   .send-btn {
     width: 45px;
     height: 45px;
+    padding : 10px;
   }
 
   .send-btn svg {
@@ -370,8 +371,8 @@ body {
 /* Mobile (<= 480px) */
 @media (max-width: 480px) {
   .chat-window {
-    width: calc(100vw - 20px); /* hampir full width */
-    height: 70vh; /* lebih fleksibel */
+    width: calc(100vw - 50px); /* hampir full width */
+    height: 50vh; /* lebih fleksibel */
     right: 10px;
     bottom: 80px;
   }
@@ -413,6 +414,7 @@ body {
   .send-btn {
     width: 40px;
     height: 40px;
+    padding : 0;
   }
 
   .send-btn svg {
@@ -423,6 +425,7 @@ body {
   .chat-toggle {
     width: 50px;
     height: 50px;
+    padding: 30%;
   }
 
   .chatbox-tooltip {
