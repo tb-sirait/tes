@@ -1,8 +1,11 @@
 import React from "react";
 import "./footer.css";
 import logoIcp from "../assets/logo_icp.png";
+import SalesModal from "./SalesWhatsapp";
+import { useState } from "react";
 
 function Footer() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <footer className="footer">
       <div className="footer-container">
@@ -16,7 +19,7 @@ function Footer() {
           <p className="company-description">
             PT. Infoduta Computindo Perkasa
             <br />
-            Solusi Hardware dan Software pilihan Anda.
+            <small>Solusi untuk Segala Kebutuhan Produk IT Perusahaan Anda</small>
           </p>
           <div className="company-address">
             <h4>Alamat Kantor</h4>
@@ -200,11 +203,10 @@ function Footer() {
                 <span className="social-username">@infoduta_computind0</span>
               </div>
             </a>
-            <a
-              href="https://wa.me/6285545031039"
+            <button
+              onClick={() => setIsModalOpen(true)}
               className="social-link whatsapp"
-              target="_blank"
-              rel="noopener noreferrer"
+              style={{ border: "none", cursor: "pointer" }}
             >
               <div className="social-icon">
                 <svg
@@ -218,9 +220,9 @@ function Footer() {
               </div>
               <div className="social-text">
                 <span className="social-name">WhatsApp</span>
-                <span className="social-username">+62 855-4503-1039</span>
+                <span className="social-username">Hubungi Sales kami di sini:</span>
               </div>
-            </a>
+            </button>
           </div>
         </div>
       </div>
@@ -237,6 +239,7 @@ function Footer() {
           </div>
         </div>
       </div>
+      <SalesModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </footer>
   );
 }

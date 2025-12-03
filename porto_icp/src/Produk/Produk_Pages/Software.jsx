@@ -69,6 +69,7 @@ const imageMap = {
   "Vmware Cloud Foundation 5": vmware1,
   FortiToken: fortitoken1,
   "Canva PRO": canva1,
+  "SketchUp Pro for Professional Use": sketchup1,
 };
 
 const ProductCard = ({ product, onViewDetails }) => {

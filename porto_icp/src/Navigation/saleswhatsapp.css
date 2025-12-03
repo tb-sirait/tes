@@ -1,0 +1,323 @@
+/* Modal Overlay */
+.sales-wa-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Custom Scrollbar untuk Modal */
+.sales-wa-modal-content::-webkit-scrollbar {
+  width: 10px;
+}
+
+.sales-wa-modal-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.sales-wa-modal-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  border-radius: 10px;
+}
+
+.sales-wa-modal-content::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #128C7E, #25D366);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Modal Content */
+.sales-wa-modal-content {
+  background: white;
+  border-radius: 20px;
+  max-width: 900px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Close Button */
+.sales-wa-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: white;
+  z-index: 1;
+  backdrop-filter: blur(10px);
+}
+
+.sales-wa-modal-close:hover {
+  background: rgba(255, 255, 255, 0.5);
+  transform: rotate(90deg);
+}
+
+.sales-wa-modal-close svg {
+  stroke-width: 2.5;
+}
+
+/* Modal Header */
+.sales-wa-modal-header {
+  text-align: center;
+  padding: 40px 40px 30px;
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  color: white;
+  border-radius: 20px 20px 0 0;
+}
+
+.sales-wa-modal-icon {
+  width: 70px;
+  height: 70px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  backdrop-filter: blur(10px);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+  }
+}
+
+.sales-wa-modal-header h2 {
+  margin: 0 0 10px;
+  font-size: 28px;
+  font-weight: 700;
+  color: white;
+}
+
+.sales-wa-modal-header p {
+  margin: 0;
+  font-size: 15px;
+  opacity: 0.95;
+  font-weight: 400;
+}
+
+/* Sales Grid */
+.sales-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 30px;
+}
+
+/* Sales Card */
+.sales-card {
+  background: white;
+  border: 2px solid #f0f0f0;
+  border-radius: 16px;
+  padding: 24px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.sales-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #25d366, #128c7e);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.sales-card:hover {
+  border-color: #25d366;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(37, 211, 102, 0.15);
+}
+
+.sales-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* Sales Avatar */
+.sales-avatar {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #25d366, #128c7e);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  font-size: 22px;
+  font-weight: 700;
+  color: white;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+
+/* Sales Info */
+.sales-info {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.sales-info h3 {
+  margin: 0 0 6px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.sales-role {
+  margin: 0 0 8px;
+  font-size: 13px;
+  color: #666;
+  font-weight: 500;
+}
+
+.sales-specialty {
+  margin: 0;
+  font-size: 12px;
+  color: #25d366;
+  font-weight: 600;
+  background: rgba(37, 211, 102, 0.1);
+  padding: 4px 12px;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+/* WhatsApp Button */
+.whatsapp-button {
+  width: 100%;
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+
+.whatsapp-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+}
+
+.whatsapp-button:active {
+  transform: translateY(0);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background-color: #f1f1f1;
+  color: #888;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .sales-wa-modal-content {
+    margin: 10px;
+    border-radius: 16px;
+  }
+
+  .sales-wa-modal-header {
+    padding: 30px 20px 20px;
+    border-radius: 16px 16px 0 0;
+  }
+
+  .sales-wa-modal-header h2 {
+    font-size: 22px;
+  }
+
+  .sales-wa-modal-header p {
+    font-size: 14px;
+  }
+
+  .sales-grid {
+    grid-template-columns: 1fr;
+    padding: 20px;
+    gap: 16px;
+  }
+
+  .sales-card {
+    padding: 20px;
+  }
+
+  .sales-wa-modal-close {
+    top: 15px;
+    right: 15px;
+    width: 36px;
+    height: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sales-wa-modal-overlay {
+    padding: 10px;
+  }
+
+  .sales-wa-modal-header {
+    padding: 25px 15px 15px;
+  }
+
+  .sales-wa-modal-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .sales-grid {
+    padding: 15px;
+  }
+}
