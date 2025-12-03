@@ -108,7 +108,7 @@ function Navbar() {
               </a>
             </li>
 
-            <li className="item-navbar">
+            {/*<li className="item-navbar">
               <a
                 className="item-hover"
                 href="/karir"
@@ -116,7 +116,7 @@ function Navbar() {
               >
                 Karir
               </a>
-            </li>
+            </li> */}
           </ul>
         </nav>
       </div>

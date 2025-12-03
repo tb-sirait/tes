@@ -2,10 +2,12 @@ import React from "react";
 import "./footer.css";
 import logoIcp from "../assets/logo_icp.png";
 import SalesModal from "./SalesWhatsapp";
+import KarirModal from "./KarirModal";
 import { useState } from "react";
 
 function Footer() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isCareerModalOpen, setIsCareerModalOpen] = useState(false);
   return (
     <footer className="footer">
       <div className="footer-container">
@@ -61,7 +63,9 @@ function Footer() {
               <a href="/tentang">Tentang Kami</a>
             </li>
             <li>
-              <a href="/karir">Karir</a>
+              <button onClick={() => setIsCareerModalOpen(true)}>
+                Karir
+              </button>
             </li>
             <li>
               <a href="/telusuri-kami">Telusuri Kami</a>
@@ -240,6 +244,10 @@ function Footer() {
         </div>
       </div>
       <SalesModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <KarirModal 
+  isOpen={isCareerModalOpen} 
+  onClose={() => setIsCareerModalOpen(false)} 
+/>
     </footer>
   );
 }

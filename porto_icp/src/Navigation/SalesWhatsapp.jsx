@@ -9,7 +9,7 @@ const SalesModal = ({ isOpen, onClose }) => {
       role: "Sales 5",
       phone: "+62 823-1004-7775",
       specialty:
-        "Email: sales.5@infoduta.com",
+        "sales.5@infoduta.com",
     },
     {
       id: 2,

@@ -6,18 +6,11 @@ import {
   FaMapMarkerAlt,
 } from "react-icons/fa";
 import "./kontakContainer.css";
+import SalesModal from "../Navigation/SalesWhatsapp";
 
 function KontakContainer() {
-  const message = encodeURIComponent(
-    "Selamat pagi Ibu, saya ingin berdiskusi terkait pengadaan alat IT PT Infoduta Computindo Perkasa untuk perusahaan saya. Bisakah kita berdiskusi terlebih dahulu?. Terima kasih!",
-  );
-  const phoneNumber = "6281314118264";
-  const phoneNumber2 = "628975808407";
-  const whatsappLink = `https://wa.me/${phoneNumber}?text=${message}`;
-  const whatsappLink2 = `https://wa.me/${phoneNumber2}?text=${message}`;
-  const whatsappLink3 = `https://wa.me/6285545031039?text=${message}`;
-
   const [modalOpen, setModalOpen] = useState(false);
+  const [salesModalOpen, setSalesModalOpen] = useState(false);
 
   const openModal = () => setModalOpen(true);
   const closeModal = () => setModalOpen(false);
@@ -72,49 +65,22 @@ function KontakContainer() {
               <span>Hubungi Admin Sales</span>
             </a>
             <a
-              href={whatsappLink3}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                setSalesModalOpen(true);
+              }}
               style={{
                 textDecoration: "none",
                 color: "white",
                 gap: "10px",
                 display: "flex",
                 alignItems: "left",
+                cursor: "pointer"
               }}
             >
               <FaWhatsapp className="icon" />
-              <span>0855-4503-1039</span>
-            </a>
-            <a
-              href={whatsappLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                textDecoration: "none",
-                color: "white",
-                gap: "10px",
-                display: "flex",
-                alignItems: "left",
-              }}
-            >
-              <FaWhatsapp className="icon" />
-              <span>0813-1411-8264</span>
-            </a>
-            <a
-              href={whatsappLink2}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                textDecoration: "none",
-                color: "white",
-                gap: "10px",
-                display: "flex",
-                alignItems: "left",
-              }}
-            >
-              <FaWhatsapp className="icon" />
-              <span>0897-5808-407</span>
+              <span>Hubungi Tim Sales WhatsApp</span>
             </a>
             <div className="kontak-item">
               <FaPhone className="icon" />
@@ -174,6 +140,7 @@ function KontakContainer() {
           </div>
         </div>
       )}
+      <SalesModal isOpen={salesModalOpen} onClose={() => setSalesModalOpen(false)} />
     </>
   );
 }
