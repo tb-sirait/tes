@@ -8,32 +8,28 @@ const SalesModal = ({ isOpen, onClose }) => {
       name: "Gunawan",
       role: "Sales 5",
       phone: "+62 823-1004-7775",
-      specialty:
-        "sales.5@infoduta.com",
+      specialty: "sales.5@infoduta.com",
     },
     {
       id: 2,
-      name: "Ina",
+      name: "Sales 2 - Standby",
       role: "Sales 2",
       phone: "+62 877-6138-1114",
-      specialty:
-        "sales.2@infoduta.com",
+      specialty: "sales.2@infoduta.com",
     },
     {
       id: 3,
-      name: "Fitri",
+      name: "Sales 8 - Standby",
       role: "Sales 8",
       phone: "+62 855-4503-1039",
-      specialty:
-        "sales.8@infoduta.com",
+      specialty: "sales.8@infoduta.com",
     },
     {
       id: 4,
       name: "Dewi",
       role: "Marketing/Sales",
       phone: "+62 897-5808-407",
-      specialty:
-        "dewi.handayani@infoduta.com",
+      specialty: "dewi.handayani@infoduta.com",
     },
   ];
 

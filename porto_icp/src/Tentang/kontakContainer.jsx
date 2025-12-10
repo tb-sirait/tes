@@ -76,7 +76,7 @@ function KontakContainer() {
                 gap: "10px",
                 display: "flex",
                 alignItems: "left",
-                cursor: "pointer"
+                cursor: "pointer",
               }}
             >
               <FaWhatsapp className="icon" />
@@ -140,7 +140,10 @@ function KontakContainer() {
           </div>
         </div>
       )}
-      <SalesModal isOpen={salesModalOpen} onClose={() => setSalesModalOpen(false)} />
+      <SalesModal
+        isOpen={salesModalOpen}
+        onClose={() => setSalesModalOpen(false)}
+      />
     </>
   );
 }

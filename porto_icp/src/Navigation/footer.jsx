@@ -21,7 +21,9 @@ function Footer() {
           <p className="company-description">
             PT. Infoduta Computindo Perkasa
             <br />
-            <small>Solusi untuk Segala Kebutuhan Produk IT Perusahaan Anda</small>
+            <small>
+              Solusi untuk Segala Kebutuhan Produk IT Perusahaan Anda
+            </small>
           </p>
           <div className="company-address">
             <h4>Alamat Kantor</h4>
@@ -63,9 +65,7 @@ function Footer() {
               <a href="/tentang">Tentang Kami</a>
             </li>
             <li>
-              <button onClick={() => setIsCareerModalOpen(true)}>
-                Karir
-              </button>
+              <button onClick={() => setIsCareerModalOpen(true)}>Karir</button>
             </li>
             <li>
               <a href="/telusuri-kami">Telusuri Kami</a>
@@ -224,7 +224,9 @@ function Footer() {
               </div>
               <div className="social-text">
                 <span className="social-name">WhatsApp</span>
-                <span className="social-username">Hubungi Sales kami di sini:</span>
+                <span className="social-username">
+                  Hubungi Sales/Marketing kami
+                </span>
               </div>
             </button>
           </div>
@@ -244,10 +246,10 @@ function Footer() {
         </div>
       </div>
       <SalesModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
-      <KarirModal 
-  isOpen={isCareerModalOpen} 
-  onClose={() => setIsCareerModalOpen(false)} 
-/>
+      <KarirModal
+        isOpen={isCareerModalOpen}
+        onClose={() => setIsCareerModalOpen(false)}
+      />
     </footer>
   );
 }

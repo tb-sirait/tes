@@ -25,12 +25,12 @@
 }
 
 .sales-wa-modal-content::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, #25D366, #128C7E);
+  background: linear-gradient(135deg, #25d366, #128c7e);
   border-radius: 10px;
 }
 
 .sales-wa-modal-content::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, #128C7E, #25D366);
+  background: linear-gradient(135deg, #128c7e, #25d366);
 }
 
 @keyframes fadeIn {

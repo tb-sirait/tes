@@ -17,8 +17,8 @@ function KarirModal({ isOpen, onClose }) {
         "Menguasai software Accurate",
         "Pengalaman minimal 1 tahun",
         "Teliti dan detail oriented",
-        "Mampu bekerja dalam tim"
-      ]
+        "Mampu bekerja dalam tim",
+      ],
     },
     {
       id: 2,
@@ -30,8 +30,8 @@ function KarirModal({ isOpen, onClose }) {
         "Memiliki kemampuan komunikasi yang baik",
         "Target oriented",
         "Pengalaman di bidang sales/telemarketing",
-        "Mampu bekerja dengan target"
-      ]
+        "Mampu bekerja dengan target",
+      ],
     },
     {
       id: 3,
@@ -43,8 +43,8 @@ function KarirModal({ isOpen, onClose }) {
         "Menguasai Canva dan tools desain lainnya",
         "Memahami strategi digital marketing",
         "Kreatif dan up-to-date dengan tren",
-        "Pengalaman minimal 1 tahun"
-      ]
+        "Pengalaman minimal 1 tahun",
+      ],
     },
     {
       id: 4,
@@ -56,8 +56,8 @@ function KarirModal({ isOpen, onClose }) {
         "Menguasai troubleshooting hardware dan software",
         "Memahami jaringan komputer",
         "Mampu bekerja di bawah tekanan",
-        "Sertifikasi IT menjadi nilai tambah"
-      ]
+        "Sertifikasi IT menjadi nilai tambah",
+      ],
     },
     {
       id: 5,
@@ -69,22 +69,27 @@ function KarirModal({ isOpen, onClose }) {
         "Memahami sistem inventory",
         "Teliti dan terorganisir",
         "Mampu mengoperasikan komputer",
-        "Pengalaman di bidang warehouse"
-      ]
-    }
+        "Pengalaman di bidang warehouse",
+      ],
+    },
   ];
 
   const fields = ["Semua", "Financial", "Marketing", "IT", "Gudang"];
 
   const filteredJobs = jobData.filter((job) => {
-    const matchesSearch = job.title.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesField = selectedField === "Semua" || job.field === selectedField;
+    const matchesSearch = job.title
+      .toLowerCase()
+      .includes(searchTerm.toLowerCase());
+    const matchesField =
+      selectedField === "Semua" || job.field === selectedField;
     return matchesSearch && matchesField;
   });
 
   const toggleJob = (jobId) => {
     setExpandedJobs((prev) =>
-      prev.includes(jobId) ? prev.filter((id) => id !== jobId) : [...prev, jobId]
+      prev.includes(jobId)
+        ? prev.filter((id) => id !== jobId)
+        : [...prev, jobId],
     );
   };
 
@@ -98,7 +103,10 @@ function KarirModal({ isOpen, onClose }) {
 
   return (
     <div className="career-modal-overlay" onClick={onClose}>
-      <div className="career-modal-container" onClick={(e) => e.stopPropagation()}>
+      <div
+        className="career-modal-container"
+        onClick={(e) => e.stopPropagation()}
+      >
         <div className="career-modal-header">
           <h2 className="career-modal-title">Lowongan Karir</h2>
           <button className="career-modal-close" onClick={onClose}>
@@ -159,7 +167,9 @@ function KarirModal({ isOpen, onClose }) {
                       <h3 className="career-job-title">{job.title}</h3>
                       <div className="career-job-meta">
                         <span className="career-job-field">{job.field}</span>
-                        <span className="career-job-type">{job.employmentType}</span>
+                        <span className="career-job-type">
+                          {job.employmentType}
+                        </span>
                       </div>
                     </div>
                     <svg
@@ -177,7 +187,9 @@ function KarirModal({ isOpen, onClose }) {
 
                   {expandedJobs.includes(job.id) && (
                     <div className="career-job-details">
-                      <h4 className="career-requirements-title">Persyaratan:</h4>
+                      <h4 className="career-requirements-title">
+                        Persyaratan:
+                      </h4>
                       <ul className="career-requirements-list">
                         {job.requirements.map((req, index) => (
                           <li key={index}>{req}</li>
