@@ -7,4 +7,5 @@ body,
   height: 100%;
   overflow-x: hidden; /* penting untuk mencegah scroll horizontal */
   box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
 }

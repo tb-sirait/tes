@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -28,10 +28,52 @@ import ScrollToTop from "./components/ScrollToTop";
 import { database } from "./firebaseConfig";
 import { push, ref, runTransaction } from "firebase/database";
 
+// ✅ SOLUSI 1: Cache IP dan Geolocation di Session Storage
+const CACHE_KEY = 'visitor_geo_cache';
+const CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 jam
+
+function getGeoCache() {
+  try {
+    const cached = sessionStorage.getItem(CACHE_KEY);
+    if (!cached) return null;
+    
+    const data = JSON.parse(cached);
+    const now = Date.now();
+    
+    // Check if cache expired
+    if (now - data.timestamp > CACHE_DURATION) {
+      sessionStorage.removeItem(CACHE_KEY);
+      return null;
+    }
+    
+    return data;
+  } catch {
+    return null;
+  }
+}
+
+function setGeoCache(data) {
+  try {
+    sessionStorage.setItem(CACHE_KEY, JSON.stringify({
+      ...data,
+      timestamp: Date.now()
+    }));
+  } catch (error) {
+    console.warn('Failed to cache geo data:', error);
+  }
+}
+
 function TrackVisitorActivity() {
   const location = useLocation();
+  const isFirstRender = useRef(true);
 
   useEffect(() => {
+    // ✅ SOLUSI 2: Skip duplicate calls in React Strict Mode
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+
     async function fetchAndPushVisitorData() {
       const now = new Date();
       const day = String(now.getDate()).padStart(2, "0");
@@ -43,40 +85,100 @@ function TrackVisitorActivity() {
       const formattedDateTime = `${day}-${month}-${year} ${hours}:${minutes}:${seconds}`;
 
       let ipAddress = "unknown";
-      let httpStatus = "unknown";
+      let httpStatus = "OK";
       let httpDetail = "";
       let country = "unknown";
       let region = "unknown";
       let city = "unknown";
 
-      try {
-        // 1️⃣ Ambil IP publik pengguna
-        const response = await fetch("https://api.ipify.org?format=json");
-        httpStatus = response.ok ? "OK" : `Error ${response.status}`;
+      // ✅ SOLUSI 3: Check cache first
+      const cachedGeo = getGeoCache();
+      
+      if (cachedGeo) {
+        // Gunakan data dari cache
+        ipAddress = cachedGeo.ipAddress;
+        country = cachedGeo.country;
+        region = cachedGeo.region;
+        city = cachedGeo.city;
+        httpDetail = "from_cache";
+      } else {
+        try {
+          // 1️⃣ Ambil IP publik pengguna
+          const ipResponse = await fetch("https://api.ipify.org?format=json", {
+            signal: AbortSignal.timeout(5000) // timeout 5 detik
+          });
 
-        if (response.ok) {
-          const data = await response.json();
-          ipAddress = data.ip || "unknown";
+          if (ipResponse.ok) {
+            const ipData = await ipResponse.json();
+            ipAddress = ipData.ip || "unknown";
 
-          // 2️⃣ Ambil info lokasi berdasarkan IP
-          const geoResponse = await fetch(
-            `https://ipapi.co/${ipAddress}/json/`,
-          );
-          if (geoResponse.ok) {
-            const geoData = await geoResponse.json();
-            country = geoData.country_name || "unknown";
-            region = geoData.region || "unknown";
-            city = geoData.city || "unknown";
+            // ✅ SOLUSI 4: Gunakan alternatif API atau skip jika error
+            try {
+              // Coba ipapi.co
+              const geoResponse = await fetch(
+                `https://ipapi.co/${ipAddress}/json/`,
+                {
+                  signal: AbortSignal.timeout(5000)
+                }
+              );
+
+              if (geoResponse.ok) {
+                const geoData = await geoResponse.json();
+                
+                // Check if we hit rate limit (ipapi.co returns error in JSON)
+                if (geoData.error) {
+                  throw new Error(`ipapi.co error: ${geoData.reason || 'rate limit'}`);
+                }
+                
+                country = geoData.country_name || "unknown";
+                region = geoData.region || "unknown";
+                city = geoData.city || "unknown";
+                
+                // Cache successful result
+                setGeoCache({ ipAddress, country, region, city });
+              } else if (geoResponse.status === 429) {
+                // ✅ SOLUSI 5: Fallback ke API alternatif
+                httpStatus = "Rate Limited";
+                httpDetail = "ipapi.co rate limit - using fallback";
+                
+                try {
+                  // Fallback: ip-api.com (45 req/minute, gratis unlimited daily)
+                  const fallbackResponse = await fetch(
+                    `http://ip-api.com/json/${ipAddress}`,
+                    { signal: AbortSignal.timeout(5000) }
+                  );
+                  
+                  if (fallbackResponse.ok) {
+                    const fallbackData = await fallbackResponse.json();
+                    country = fallbackData.country || "unknown";
+                    region = fallbackData.regionName || "unknown";
+                    city = fallbackData.city || "unknown";
+                    
+                    // Cache fallback result
+                    setGeoCache({ ipAddress, country, region, city });
+                  }
+                } catch (fallbackError) {
+                  console.warn("Fallback API also failed:", fallbackError);
+                  httpDetail += ` | fallback failed: ${fallbackError.message}`;
+                }
+              } else {
+                httpDetail = `Geolocation failed: HTTP ${geoResponse.status}`;
+              }
+            } catch (geoError) {
+              httpStatus = "Geo Error";
+              httpDetail = geoError.message || "Failed to fetch geolocation";
+              console.warn("Geolocation error:", geoError);
+              // Tetap simpan data dengan IP saja
+            }
           } else {
-            httpDetail += ` | Failed to fetch location (status ${geoResponse.status})`;
+            httpStatus = `IP Fetch Error ${ipResponse.status}`;
+            httpDetail = `Failed to fetch IP`;
           }
-        } else {
-          httpDetail = `Failed to fetch IP: HTTP ${response.status}`;
+        } catch (error) {
+          httpStatus = "Network Error";
+          httpDetail = error.message || "Unknown error";
+          console.warn("Failed to fetch visitor data:", error);
         }
-      } catch (error) {
-        httpStatus = "Error";
-        httpDetail = error.message || "Unknown error";
-        console.warn("Failed to fetch IP or location:", error);
       }
 
       // 3️⃣ Gabungkan semua data pengunjung
@@ -95,12 +197,21 @@ function TrackVisitorActivity() {
       };
 
       // 4️⃣ Simpan ke Firebase
-      const visitorsRef = ref(database, "visitors");
-      push(visitorsRef, visitorData);
+      try {
+        const visitorsRef = ref(database, "visitors");
+        await push(visitorsRef, visitorData);
+      } catch (firebaseError) {
+        console.error("Firebase error:", firebaseError);
+      }
     }
 
-    fetchAndPushVisitorData();
-  }, [location]);
+    // ✅ SOLUSI 6: Debounce untuk avoid spam calls
+    const timer = setTimeout(() => {
+      fetchAndPushVisitorData();
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, [location.pathname]); // Only trigger on pathname change
 
   return null;
 }

@@ -7,77 +7,114 @@ import "./homepage.css";
 
 // Images
 import KantorImage from "../assets/kantor_icp(landscape1).webp";
-import ArrowImage from "../assets/arrow.png";
 import WorkstationImage from "../assets/Workstation.png";
 import ServicesImage from "../assets/Services.png";
 import AboutImage from "../assets/About.png";
 
 function Homepage() {
   const navigate = useNavigate();
-  const [animate, setAnimate] = useState(false);
-  const [scrollAnimate, setScrollAnimate] = useState(false);
+  const [overlayOpacity, setOverlayOpacity] = useState(1);
+  const [contentVisible, setContentVisible] = useState(false);
+  const [cardsVisible, setCardsVisible] = useState([false, false, false]);
   const mainContentRef = useRef(null);
+  const cardRefs = useRef([]);
 
   useEffect(() => {
-    const timer = setTimeout(() => setAnimate(true), 100);
-    return () => clearTimeout(timer);
+    // Animasi overlay dari 100% ke 50%
+    const overlayTimer = setTimeout(() => {
+      setOverlayOpacity(0.5);
+    }, 100);
+
+    // Animasi fade in untuk content (teks dan tombol)
+    const contentTimer = setTimeout(() => {
+      setContentVisible(true);
+    }, 600);
+
+    return () => {
+      clearTimeout(overlayTimer);
+      clearTimeout(contentTimer);
+    };
   }, []);
 
   useEffect(() => {
-    function handleScroll() {
-      if (mainContentRef.current) {
-        const rect = mainContentRef.current.getBoundingClientRect();
-        if (rect.top < window.innerHeight * 0.6 && rect.bottom >= 0) {
-          setScrollAnimate(true);
-          window.removeEventListener("scroll", handleScroll);
-        }
+    // Simpan referensi untuk cleanup
+    const currentCards = cardRefs.current;
+    
+    // Observer untuk animasi cards
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = currentCards.indexOf(entry.target);
+            if (index !== -1) {
+              setTimeout(() => {
+                setCardsVisible((prev) => {
+                  const newState = [...prev];
+                  newState[index] = true;
+                  return newState;
+                });
+              }, index * 200); // Delay berbeda untuk setiap card
+            }
+          }
+        });
+      },
+      {
+        threshold: 0.2,
+        rootMargin: "0px 0px -100px 0px",
       }
-    }
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    );
+
+    currentCards.forEach((card) => {
+      if (card) observer.observe(card);
+    });
+
+    return () => {
+      currentCards.forEach((card) => {
+        if (card) observer.unobserve(card);
+      });
+    };
   }, []);
 
   const handleExploreClick = () => {
     if (mainContentRef.current) {
-      // Ambil elemen section-header (heading "Jelajahi Infoduta")
-      const sectionHeader =
-        mainContentRef.current.querySelector(".section-header");
-
-      if (sectionHeader) {
-        const headerOffset = 100; // Offset dari atas (sesuaikan dengan tinggi navbar Anda)
-        const elementPosition = sectionHeader.getBoundingClientRect().top;
-        const offsetPosition =
-          elementPosition + window.pageYOffset - headerOffset;
-
+      // Cara 1: Gunakan scrollIntoView
+      mainContentRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+      
+      // Cara 2: Fallback dengan window.scrollTo (lebih reliable untuk event trigger)
+      setTimeout(() => {
+        const targetPosition = mainContentRef.current.offsetTop;
         window.scrollTo({
-          top: offsetPosition,
-          behavior: "smooth",
+          top: targetPosition,
+          behavior: 'smooth'
         });
-      }
+      }, 100);
     }
   };
 
   const navigationItems = [
     {
-      id: "produk",
-      title: "Produk",
-      image: WorkstationImage,
-      route: "/produk",
-      description: "Jelajahi produk-produk unggulan kami",
+      id: "tentang",
+      title: "Tentang Infoduta",
+      image: AboutImage,
+      route: "/tentang",
+      description: "Lorem ipsum dolor sit amet consectetur. Viverra amet lacus urna euismod in fermentum vitae. Sed sed enim semper id.",
     },
     {
       id: "layanan",
-      title: "Layanan",
+      title: "Layanan Kami",
       image: ServicesImage,
       route: "/layanan",
-      description: "Jelajahi layanan pengadaan/penyewaan Produk IT di kami",
+      description: "Lorem ipsum dolor sit amet consectetur. Viverra amet lacus urna euismod in fermentum vitae. Sed sed enim semper id.",
     },
     {
-      id: "tentang",
-      title: "Tentang",
-      image: AboutImage,
-      route: "/tentang",
-      description: "Jelajahi lebih dalam tentang perusahaan kami",
+      id: "produk",
+      title: "Produk IT Infoduta",
+      image: WorkstationImage,
+      route: "/produk",
+      description: "Lorem ipsum dolor sit amet consectetur. Viverra amet lacus urna euismod in fermentum vitae. Sed sed enim semper id.",
     },
   ];
 
@@ -110,67 +147,65 @@ function Homepage() {
         <link rel="canonical" href="https://infoduta.com/" />
         <meta property="og:site_name" content="Infoduta Computindo Perkasa" />
         <meta property="og:type" content="website" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet" />
       </Helmet>
 
       <Navbar />
 
       {/* Hero Section */}
-      <section className="homepage-hero-section">
+      <section className="homepage-hero-section" id="hero-section">
         <img
           alt="HR Building Wahid Hasyim"
           className="homepage-hero-image"
           src={KantorImage}
         />
-        <div className="homepage-hero-overlay"></div>
+        <div 
+          className="homepage-hero-overlay"
+          style={{ opacity: overlayOpacity }}
+        ></div>
 
-        <div className={`homepage-hero-content ${animate ? "animate" : ""}`}>
+        <div className={`homepage-hero-content ${contentVisible ? 'visible' : ''}`}>
           <div className="homepage-hero-content-inner">
             <h1 className="homepage-hero-title">
-              Solusi Pengadaan
-              <span className="homepage-hero-subtitle">Produk IT Terbaik</span>
-              <span className="homepage-hero-tagline">untuk Bisnis Anda</span>
+              PT. Infoduta Computindo Perkasa
             </h1>
-
-            <p className="homepage-hero-description">
-              Temukan solusi produk IT terdepan untuk mengembangkan bisnis Anda
-              bersama PT Infoduta Computindo Perkasa. Jelajahi produk dan
-              layanan kami sekarang!
-            </p>
-
-            <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-              <button
-                onClick={handleExploreClick}
-                className="explore-button"
-                aria-label="Jelajahi layanan kami"
+            <h2 className="homepage-hero-subtitle">
+              Solusi Pengadaan Produk IT Terbaik<br />Untuk Bisnis Anda
+            </h2>
+            <button
+              onClick={handleExploreClick}
+              className="explore-button"
+              aria-label="Jelajahi layanan kami"
+            >
+              Jelajah Sekarang
+              <svg
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <span>Jelajahi Sekarang</span>
-                <img
-                  className="floating-arrow"
-                  style={{ width: "1.25rem", height: "1.25rem" }}
-                  src={ArrowImage}
-                  alt=""
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 9l-7 7-7-7"
                 />
-              </button>
-            </div>
+              </svg>
+            </button>
           </div>
         </div>
       </section>
 
       {/* Main Content */}
-      <main
-        ref={mainContentRef}
-        className={`main-content ${scrollAnimate ? "scroll-animate" : ""}`}
-      >
+      <main ref={mainContentRef} className="homepage-main-content">
         <div className="container-2">
           {/* Section Header */}
           <div className="section-header">
-            <h2 className="section-title">
-              Jelajahi <span className="section-title-accent">Infoduta</span>
-            </h2>
-            <div className="section-divider"></div>
+            <h2 className="section-title">Jelajahi Infoduta</h2>
             <p className="section-description">
-              Lebih dekat dengan perusahaan kami dan temukan produk dan layanan
-              sesuai keinginan Anda.
+              Lebih dekat dengan perusahaan kami dan temukan produk dan layanan sesuai keinginan Anda.
             </p>
           </div>
 
@@ -179,42 +214,33 @@ function Homepage() {
             {navigationItems.map((item, index) => (
               <div
                 key={item.id}
+                ref={(el) => (cardRefs.current[index] = el)}
                 onClick={() => navigate(item.route)}
-                className="card"
-                style={{
-                  opacity: scrollAnimate ? 1 : 0,
-                  transform: scrollAnimate
-                    ? "translateY(0)"
-                    : "translateY(30px)",
-                  transition: `all 0.8s ease-out ${index * 0.2}s, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1)`,
-                }}
+                className={`card ${cardsVisible[index] ? 'card-visible' : ''}`}
               >
-                {/* Background Pattern */}
-                <div className="card-pattern-1"></div>
-                <div className="card-pattern-2"></div>
+                {/* Icon Container - di kiri */}
+                <div className="card-icon-container">
+                  <img
+                    alt={`${item.title} icon`}
+                    className="card-icon"
+                    src={item.image}
+                  />
+                </div>
 
+                {/* Content - di kanan */}
                 <div className="card-content">
-                  {/* Icon Container */}
-                  <div className="card-icon-container">
-                    <img
-                      alt={`${item.title} icon`}
-                      className="card-icon"
-                      src={item.image}
-                    />
-                  </div>
-
-                  {/* Content */}
                   <h3 className="card-title">{item.title}</h3>
                   <p className="card-description">{item.description}</p>
 
                   {/* Call to Action */}
                   <div className="card-cta">
-                    <span>Pelajari Lebih Lanjut</span>
+                    <span>Selengkapnya</span>
                     <svg
                       className="card-arrow"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
                         strokeLinecap="round"

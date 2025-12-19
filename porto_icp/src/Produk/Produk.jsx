@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useMemo } from "react";
+import React, { useState, useEffect, useRef, useMemo, useCallback } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 import Navbar from "../Navigation/Navbar";
@@ -35,6 +35,7 @@ export default function Produk() {
   const [fade, setFade] = useState(false);
   const [slideDirection, setSlideDirection] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isClosing, setIsClosing] = useState(false);
 
   const { brand, id } = useParams();
   const navigate = useNavigate();
@@ -59,16 +60,26 @@ export default function Produk() {
 
   useEffect(() => {
     if (isModalOpen) {
-      document.documentElement.style.overflow = "hidden"; // kunci scroll di <html>
+      document.documentElement.style.overflow = "hidden";
     } else {
-      document.documentElement.style.overflow = "auto"; // hidupkan scroll lagi
+      document.documentElement.style.overflow = "auto";
     }
 
-    // cleanup
     return () => {
       document.documentElement.style.overflow = "auto";
     };
   }, [isModalOpen]);
+
+  // Wrap closeModal in useCallback to prevent unnecessary re-renders
+  const closeModal = useCallback(() => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setIsModalOpen(false);
+      setSelectedProduct(null);
+      setIsClosing(false);
+      navigate("/produk");
+    }, 300);
+  }, [navigate]);
 
   useEffect(() => {
     const handleEsc = (event) => {
@@ -80,7 +91,7 @@ export default function Produk() {
     return () => {
       window.removeEventListener("keydown", handleEsc);
     };
-  }, [isModalOpen]);
+  }, [isModalOpen, closeModal]); // Now closeModal is included in dependencies
 
   // Import gambar dari JSON
   function importImagesFromJson(jsonData) {
@@ -152,9 +163,7 @@ export default function Produk() {
   useEffect(() => {
     document.title = "Produk | Infoduta Computindo Perkasa";
 
-    // 🔑 SEO Dynamic Title & Meta Description
     if (selectedProduct) {
-      // Set title + meta ketika ada produk
       document.title = `${selectedProduct.name} | Infoduta Computindo Perkasa`;
 
       const metaDesc = document.querySelector("meta[name='description']");
@@ -166,7 +175,6 @@ export default function Produk() {
       }
     }
 
-    // 🔑 Reset ke default saat keluar dari halaman produk
     return () => {
       document.title = "Produk | Infoduta Computindo Perkasa";
       const metaDesc = document.querySelector("meta[name='description']");
@@ -179,23 +187,11 @@ export default function Produk() {
     };
   }, [selectedProduct]);
 
-  const [isClosing, setIsClosing] = useState(false);
-
   const openModal = (product) => {
     setSelectedProduct(product);
     setCurrentImageIndex(0);
     setIsModalOpen(true);
     navigate(`/produk/${product.brand}/${product.id}`);
-  };
-
-  const closeModal = () => {
-    setIsClosing(true);
-    setTimeout(() => {
-      setIsModalOpen(false);
-      setSelectedProduct(null);
-      setIsClosing(false);
-      navigate("/produk");
-    }, 300);
   };
 
   const goToPreviousImage = () => {
@@ -247,7 +243,6 @@ export default function Produk() {
     touchEndX.current = null;
   };
 
-  // HEADER
   const ProductHeader = ({
     searchQuery,
     onSearchChange,
@@ -353,7 +348,6 @@ export default function Produk() {
               >
                 <div className="product-content">
                   <div className="product-image-section">
-                    {/* NEW STOCK Badge */}
                     {isNewProduct(product.released_date) && (
                       <div className="new-stock-badge">
                         <span>NEW STOCK</span>
@@ -391,7 +385,6 @@ export default function Produk() {
               )}
             </div>
             <div className="modal-image-container">
-              {/* NEW STOCK Badge in Modal */}
               {isNewProduct(selectedProduct.released_date) && (
                 <div className="modal-new-stock-badge">
                   <span>NEW STOCK</span>
