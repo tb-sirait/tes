@@ -1,6 +1,6 @@
 /* Global Font */
 * {
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   scroll-behavior: smooth;
 }
 
@@ -51,12 +51,16 @@
   color: white;
   z-index: 10;
   text-align: center;
-  width: calc(100vw - 160px); /* 100vw - (80px padding left + 80px padding right) */
+  width: calc(
+    100vw - 160px
+  ); /* 100vw - (80px padding left + 80px padding right) */
   max-width: 800px;
   padding: 2rem 80px;
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 1s ease-out 0.3s, transform 1s ease-out 0.3s;
+  transition:
+    opacity 1s ease-out 0.3s,
+    transform 1s ease-out 0.3s;
 }
 
 .homepage-hero-content.visible {

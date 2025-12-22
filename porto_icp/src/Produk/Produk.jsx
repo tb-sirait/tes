@@ -4,7 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import Navbar from "../Navigation/Navbar";
 import Footer from "../Navigation/footer";
 import produkData from "./produk.json";
-import { FaFilter, FaSearch, FaWhatsapp } from "react-icons/fa";
+import { FaFilter, FaSearch, FaWhatsapp, FaTimes } from "react-icons/fa";
 import "./Produk.css";
 
 import { Helmet } from "react-helmet";
@@ -21,13 +21,13 @@ import AppleLogo from "../assets/Apple_logo.png";
 import AcerLogo from "../assets/Acer_logo.png";
 import PrevIcon from "../assets/produk/icon/prev.png";
 import NextIcon from "../assets/produk/icon/next.png";
+import kantorICP from "../assets/kantor_icp(landscape1).webp";
 
 import { MemoryStick, Gpu, Cpu, AppWindow, HardDrive, X } from "lucide-react";
 
 export default function Produk() {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedBrand, setSelectedBrand] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
   const [isMobile, setIsMobile] = useState(false);
   const touchStartX = useRef(null);
@@ -36,9 +36,22 @@ export default function Produk() {
   const [slideDirection, setSlideDirection] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isClosing, setIsClosing] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [heroAnimated, setHeroAnimated] = useState(false);
 
-  const { brand, id } = useParams();
+  // Filter states
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [selectedBrand, setSelectedBrand] = useState("");
+  const [selectedType, setSelectedType] = useState("");
+  const [sortByRelease, setSortByRelease] = useState(false);
+  const [sortBy, setSortBy] = useState("nama");
+  const [sortOrder, setSortOrder] = useState("asc");
+
+  const { brand, id, category } = useParams();
   const navigate = useNavigate();
+
+  const searchTimeout = useRef(null);
+  const mainContentRef = useRef(null);
 
   // Function to check if product is new (released in current year)
   const isNewProduct = (releaseDate) => {
@@ -55,6 +68,12 @@ export default function Produk() {
     };
     handleResize();
     window.addEventListener("resize", handleResize);
+    
+    // Trigger hero animation
+    setTimeout(() => {
+      setHeroAnimated(true);
+    }, 100);
+    
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
@@ -77,9 +96,11 @@ export default function Produk() {
       setIsModalOpen(false);
       setSelectedProduct(null);
       setIsClosing(false);
-      navigate("/produk");
+      // Kembali ke halaman sebelumnya (kategori atau /produk)
+      const basePath = category ? `/produk/${category}` : '/produk';
+      navigate(basePath);
     }, 300);
-  }, [navigate]);
+  }, [navigate, category]);
 
   useEffect(() => {
     const handleEsc = (event) => {
@@ -91,7 +112,7 @@ export default function Produk() {
     return () => {
       window.removeEventListener("keydown", handleEsc);
     };
-  }, [isModalOpen, closeModal]); // Now closeModal is included in dependencies
+  }, [isModalOpen, closeModal]);
 
   // Import gambar dari JSON
   function importImagesFromJson(jsonData) {
@@ -116,33 +137,133 @@ export default function Produk() {
   const [filteredProducts, setFilteredProducts] = useState(products);
 
   // Filter produk
-  const handleSearchSubmit = (e) => {
-    e.preventDefault();
-    const results = products.filter((product) => {
-      const matchesBrand = !selectedBrand || product.brand === selectedBrand;
-      const matchesSearch = product.name
-        .toLowerCase()
-        .includes(searchQuery.toLowerCase());
-      return matchesBrand && matchesSearch;
-    });
-    setFilteredProducts(results);
-  };
+  const filterProducts = useCallback(() => {
+    let results = [...products];
 
-  const brands = [
-    { name: "Dell", logo: DellLogoWhite },
-    { name: "Lenovo", logo: LenovoLogo },
-    { name: "Cisco", logo: CiscoLogo },
-    { name: "Samsung", logo: SamsungLogo },
-    { name: "Asus", logo: AsusLogoWhite },
-    { name: "HP", logo: HpLogoWhite },
-    { name: "InFocus", logo: InfocusLogo },
-    { name: "Apple", logo: AppleLogo },
-    { name: "Acer", logo: AcerLogo },
-    { name: "Xiaomi", logo: XiaomiLogo },
+    // Filter by category
+    if (selectedCategory) {
+      results = results.filter((product) => 
+        product.jenis.toLowerCase() === selectedCategory.toLowerCase()
+      );
+    }
+
+    // Filter by brand
+    if (selectedBrand) {
+      results = results.filter((product) => 
+        product.brand.toLowerCase() === selectedBrand.toLowerCase()
+      );
+    }
+
+    // Filter by type
+    if (selectedType) {
+      results = results.filter((product) => 
+        product.type && product.type.toLowerCase() === selectedType.toLowerCase()
+      );
+    }
+
+    // Filter by search query
+    if (searchQuery) {
+      results = results.filter((product) =>
+        product.name.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    }
+
+    // Sort by release date
+    if (sortByRelease) {
+      results.sort((a, b) => {
+        const dateA = new Date(a.released_date || 0);
+        const dateB = new Date(b.released_date || 0);
+        return dateB - dateA; // Newest first
+      });
+    }
+
+    // Sort by selected option
+    if (sortBy === "nama") {
+      results.sort((a, b) => {
+        if (sortOrder === "asc") {
+          return a.name.localeCompare(b.name);
+        } else {
+          return b.name.localeCompare(a.name);
+        }
+      });
+    } else if (sortBy === "tanggal") {
+      results.sort((a, b) => {
+        const dateA = new Date(a.released_date || 0);
+        const dateB = new Date(b.released_date || 0);
+        if (sortOrder === "asc") {
+          return dateA - dateB;
+        } else {
+          return dateB - dateA;
+        }
+      });
+    }
+
+    setFilteredProducts(results);
+  }, [products, selectedCategory, selectedBrand, selectedType, searchQuery, sortByRelease, sortBy, sortOrder]);
+
+  // Handle search with debounce
+  useEffect(() => {
+    if (searchTimeout.current) {
+      clearTimeout(searchTimeout.current);
+    }
+
+    setIsLoading(true);
+    searchTimeout.current = setTimeout(() => {
+      filterProducts();
+      setIsLoading(false);
+    }, 1000);
+
+    return () => {
+      if (searchTimeout.current) {
+        clearTimeout(searchTimeout.current);
+      }
+    };
+  }, [searchQuery, selectedCategory, selectedBrand, selectedType, sortByRelease, sortBy, sortOrder, filterProducts]);
+
+
+
+  const categories = [
+    { name: "Software", path: "software" },
+    { name: "Hardware", path: "hardware" },
+    { name: "Server", path: "server" },
+    { name: "Komputer", path: "komputer" },
+    { name: "Laptop", path: "laptop" },
+    { name: "Sparepart", path: "sparepart" },
+    { name: "Smartphone", path: "smartphone" },
   ];
+
+  // Get unique types from products
+  const uniqueTypes = useMemo(() => {
+    const types = new Set();
+    products.forEach((product) => {
+      if (product.type) {
+        types.add(product.type);
+      }
+    });
+    return Array.from(types);
+  }, [products]);
+
+  // Get unique brands from products
+  const uniqueBrands = useMemo(() => {
+    const brands = new Set();
+    products.forEach((product) => {
+      if (product.brand) {
+        brands.add(product.brand);
+      }
+    });
+    return Array.from(brands);
+  }, [products]);
 
   // === ROUTE SYNC ===
   useEffect(() => {
+    // Set kategori dari URL jika ada
+    if (category) {
+      setSelectedCategory(category);
+    } else {
+      setSelectedCategory("");
+    }
+
+    // Cek apakah ada brand dan id di URL untuk membuka modal
     if (brand && id) {
       const found = products.find(
         (p) =>
@@ -153,12 +274,16 @@ export default function Produk() {
         setSelectedProduct(found);
         setCurrentImageIndex(0);
         setIsModalOpen(true);
+      } else {
+        // Jika produk tidak ditemukan, redirect ke halaman produk
+        setIsModalOpen(false);
+        setSelectedProduct(null);
       }
     } else {
       setIsModalOpen(false);
       setSelectedProduct(null);
     }
-  }, [brand, id, products]);
+  }, [brand, id, category, products]);
 
   useEffect(() => {
     document.title = "Produk | Infoduta Computindo Perkasa";
@@ -191,7 +316,10 @@ export default function Produk() {
     setSelectedProduct(product);
     setCurrentImageIndex(0);
     setIsModalOpen(true);
-    navigate(`/produk/${product.brand}/${product.id}`);
+    // Jika sudah di halaman kategori, tetap di kategori tersebut
+    // Jika di halaman /produk, buka modal tanpa menambah kategori ke URL
+    const basePath = category ? `/produk/${category}` : '/produk';
+    navigate(`${basePath}/${product.brand}/${product.id}`);
   };
 
   const goToPreviousImage = () => {
@@ -243,57 +371,29 @@ export default function Produk() {
     touchEndX.current = null;
   };
 
-  const ProductHeader = ({
-    searchQuery,
-    onSearchChange,
-    selectedBrand,
-    onBrandChange,
-    brandOptions,
-    onSearchSubmit,
-  }) => {
-    return (
-      <div className="header-product">
-        <div className="header-content">
-          <div className="header-text">
-            <h1>Jelajahi Produk IT Kami</h1>
-            <p>
-              Temukan berbagai pilihan Komputer, Laptop, Smartphone, dan barang
-              IT lainnya. Konsultasikan kebutuhan IT Anda dengan kami!
-            </p>
-          </div>
+  const handleCategoryClick = (categoryPath) => {
+    navigate(`/produk/${categoryPath}`);
+    setSelectedCategory(categoryPath);
+  };
 
-          <form onSubmit={onSearchSubmit} className="search-filter-container">
-            <div className="search-wrapper">
-              <FaSearch className="search-icon" />
-              <input
-                type="text"
-                placeholder="Cari produk..."
-                value={searchQuery}
-                onChange={onSearchChange}
-                className="search-input"
-              />
-            </div>
+  const resetFilters = () => {
+    setSelectedCategory("");
+    setSelectedBrand("");
+    setSelectedType("");
+    setSortByRelease(false);
+    setSearchQuery("");
+    setSortBy("nama");
+    setSortOrder("asc");
+    navigate("/produk");
+  };
 
-            <select
-              value={selectedBrand}
-              onChange={onBrandChange}
-              className="brand-select"
-            >
-              <option value="">🏷️ Semua Merek</option>
-              {brandOptions.map((brand, idx) => (
-                <option key={idx} value={brand}>
-                  {brand}
-                </option>
-              ))}
-            </select>
-
-            <button type="submit" className="btn-search">
-              Cari
-            </button>
-          </form>
-        </div>
-      </div>
-    );
+  const scrollToMainContent = () => {
+    if (mainContentRef.current) {
+      mainContentRef.current.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
   };
 
   return (
@@ -323,77 +423,198 @@ export default function Produk() {
         <meta property="og:type" content="website" />
       </Helmet>
       <Navbar />
-      <main className="main-container">
-        <div className="page-content">
-          <ProductHeader
-            searchQuery={searchQuery}
-            onSearchChange={(e) => setSearchQuery(e.target.value)}
-            selectedBrand={selectedBrand}
-            onBrandChange={(e) => setSelectedBrand(e.target.value)}
-            brandOptions={brands.map((brand) => brand.name)}
-            onSearchSubmit={handleSearchSubmit}
-          />
+      <main className="produk-main-container">
+        {/* Hero Section */}
+        <div className={`produk-hero-section homepage-hero-section ${heroAnimated ? 'produk-hero-animated' : ''}`}>
+          <img src={kantorICP} alt="Kantor Infoduta Computindo Perkasa" className="produk-hero-image" />
+          <div className={`produk-hero-overlay ${heroAnimated ? 'produk-overlay-animated' : ''}`}></div>
+          <div className={`produk-hero-content ${heroAnimated ? 'produk-content-animated' : ''}`}>
+            <h1>Produk Infoduta</h1>
+            <p>Kami menyediakan segala solusi produk IT untuk kebutuhan Bisnis Anda</p>
+            <button className="produk-hero-btn" onClick={scrollToMainContent}>
+              Jelajahi Produk
+            </button>
+          </div>
+        </div>
 
-          <h2 className="product-section-title">
-            {selectedBrand ? `Produk ${selectedBrand}` : "Produk Populer"} (
-            {filteredProducts.length})
-          </h2>
+        <div className="produk-page-content" ref={mainContentRef}>
+          {/* Search and Sort Bar */}
+          <div className="produk-search-sort-container">
+            <div className="produk-search-wrapper">
+              <FaSearch className="produk-search-icon" />
+              <input
+                type="text"
+                placeholder="Cari produk..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="produk-search-input"
+              />
+            </div>
 
-          <div className="products-grid">
-            {filteredProducts.map((product) => (
-              <div
-                key={product.id}
-                className="product-card"
-                onClick={() => openModal(product)}
+            <div className="produk-sort-wrapper">
+              <label>urut berdasarkan:</label>
+              <select
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value)}
+                className="produk-sort-select"
               >
-                <div className="product-content">
-                  <div className="product-image-section">
-                    {isNewProduct(product.released_date) && (
-                      <div className="new-stock-badge">
-                        <span>NEW STOCK</span>
-                      </div>
-                    )}
+                <option value="nama">Nama</option>
+                <option value="tanggal">Tanggal Rilis</option>
+              </select>
+              <select
+                value={sortOrder}
+                onChange={(e) => setSortOrder(e.target.value)}
+                className="produk-order-select"
+              >
+                <option value="asc">A-Z / Terlama</option>
+                <option value="desc">Z-A / Terbaru</option>
+              </select>
+            </div>
+          </div>
 
-                    <img
-                      src={product.images?.[0] || ""}
-                      alt={product.name}
-                      className={`product-image ${fade ? "fade" : ""}`}
-                    />
-                    <h4 className="product-title">{product.name}</h4>
-                  </div>
+          <div className="produk-content-wrapper">
+            {/* Sidebar Filter */}
+            <aside className="produk-sidebar-filter">
+              <h3>Kategori</h3>
+              <ul className="produk-category-list">
+                {categories.map((cat, idx) => (
+                  <li
+                    key={idx}
+                    className={selectedCategory === cat.path ? "produk-active" : ""}
+                    onClick={() => handleCategoryClick(cat.path)}
+                  >
+                    {cat.name}
+                  </li>
+                ))}
+              </ul>
+
+              <h3 className="produk-filter-title">Filter</h3>
+              
+              <div className="produk-filter-group">
+                <div className="produk-filter-header">
+                  <span>Merk{selectedBrand ? `: ${selectedBrand}` : ""}</span>
                 </div>
+                <select
+                  value={selectedBrand}
+                  onChange={(e) => setSelectedBrand(e.target.value)}
+                  className="produk-filter-select"
+                >
+                  <option value="">Semua Merk</option>
+                  {uniqueBrands.map((brand, idx) => (
+                    <option key={idx} value={brand}>
+                      {brand}
+                    </option>
+                  ))}
+                </select>
               </div>
-            ))}
+
+              <div className="produk-filter-group">
+                <div className="produk-filter-header">
+                  <span>Tanggal Keluaran</span>
+                </div>
+                <label className="produk-checkbox-label">
+                  <input
+                    type="checkbox"
+                    checked={sortByRelease}
+                    onChange={(e) => setSortByRelease(e.target.checked)}
+                  />
+                  Terbaru - Terlama
+                </label>
+              </div>
+
+              <div className="produk-filter-group">
+                <div className="produk-filter-header">
+                  <span>Tipe{selectedType ? `: ${selectedType}` : ""}</span>
+                </div>
+                <select
+                  value={selectedType}
+                  onChange={(e) => setSelectedType(e.target.value)}
+                  className="produk-filter-select"
+                >
+                  <option value="">Semua Tipe</option>
+                  {uniqueTypes.map((type, idx) => (
+                    <option key={idx} value={type}>
+                      {type}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <button className="produk-reset-filter-btn" onClick={resetFilters}>
+                Reset Filter
+              </button>
+            </aside>
+
+            {/* Products Grid */}
+            <div className="produk-products-section">
+              <h2 className="produk-section-title">
+                Menampilkan {filteredProducts.length} Produk
+              </h2>
+
+              {isLoading ? (
+                <div className="produk-loading-container">
+                  <div className="produk-spinner"></div>
+                  <p>Memuat produk...</p>
+                </div>
+              ) : (
+                <div className="produk-products-grid">
+                  {filteredProducts.map((product) => (
+                    <div
+                      key={product.id}
+                      className="produk-product-card"
+                      onClick={() => openModal(product)}
+                    >
+                      <div className="produk-product-content">
+                        <div className="produk-product-image-section">
+                          {isNewProduct(product.released_date) && (
+                            <div className="produk-new-stock-badge">
+                              <span>NEW STOCK</span>
+                            </div>
+                          )}
+
+                          <img
+                            src={product.images?.[0] || ""}
+                            alt={product.name}
+                            className={`produk-product-image ${fade ? "produk-fade" : ""}`}
+                          />
+                          <h4 className="produk-product-title">{product.name}</h4>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </main>
 
       {isModalOpen && selectedProduct && (
         <div
-          className={`modal-overlay ${isClosing ? "fade-out" : ""}`}
+          className={`produk-modal-overlay ${isClosing ? "produk-fade-out" : ""}`}
           onClick={closeModal}
         >
           <div
-            className={`modal-content ${isClosing ? "fade-out" : ""}`}
+            className={`produk-modal-content ${isClosing ? "produk-fade-out" : ""}`}
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="closeModalButton">
+            <div className="produk-closeModalButton">
               {isMobile && (
-                <button className="product-close-button" onClick={closeModal}>
+                <button className="produk-product-close-button" onClick={closeModal}>
                   <X style={{ fontSize: "20px" }} />
                 </button>
               )}
             </div>
-            <div className="modal-image-container">
+            <div className="produk-modal-image-container">
               {isNewProduct(selectedProduct.released_date) && (
-                <div className="modal-new-stock-badge">
+                <div className="produk-modal-new-stock-badge">
                   <span>NEW STOCK</span>
                 </div>
               )}
 
               {!isMobile && (
                 <button
-                  className="nav-button"
+                  className="produk-nav-button"
                   onClick={(e) => {
                     e.stopPropagation();
                     goToPreviousImage();
@@ -406,11 +627,11 @@ export default function Produk() {
               <img
                 src={selectedProduct.images[currentImageIndex] || ""}
                 alt={selectedProduct.name}
-                className={`modal-image ${
+                className={`produk-modal-image ${
                   slideDirection === "right"
-                    ? "slide-in-right"
+                    ? "produk-slide-in-right"
                     : slideDirection === "left"
-                      ? "slide-in-left"
+                      ? "produk-slide-in-left"
                       : ""
                 }`}
                 onTouchStart={handleTouchStart}
@@ -421,7 +642,7 @@ export default function Produk() {
 
               {!isMobile && (
                 <button
-                  className="nav-button"
+                  className="produk-nav-button"
                   onClick={(e) => {
                     e.stopPropagation();
                     goToNextImage();
@@ -432,9 +653,9 @@ export default function Produk() {
               )}
             </div>
 
-            <div className="modal-name-brand">
-              <div className="modal-brand">{selectedProduct.brand}</div>
-              <h3 className="modal-title">{selectedProduct.name}</h3>
+            <div className="produk-modal-name-brand">
+              <div className="produk-modal-brand">{selectedProduct.brand}</div>
+              <h3 className="produk-modal-title">{selectedProduct.name}</h3>
               <span>
                 {"("}
                 {selectedProduct.jenis}
@@ -442,42 +663,42 @@ export default function Produk() {
               </span>
             </div>
 
-            <div className="modal-specs">
-              <div className="modal-spec-item">
-                <span className="spec-icon">
+            <div className="produk-modal-specs">
+              <div className="produk-modal-spec-item">
+                <span className="produk-spec-icon">
                   <Cpu />
                 </span>{" "}
                 {selectedProduct.specs.cpu}
               </div>
-              <div className="modal-spec-item">
-                <span className="spec-icon">
+              <div className="produk-modal-spec-item">
+                <span className="produk-spec-icon">
                   <Gpu />
                 </span>{" "}
                 {selectedProduct.specs.gpu}
               </div>
-              <div className="modal-spec-item">
-                <span className="spec-icon">
+              <div className="produk-modal-spec-item">
+                <span className="produk-spec-icon">
                   <MemoryStick />
                 </span>{" "}
                 {selectedProduct.specs.ram}
               </div>
-              <div className="modal-spec-item">
-                <span className="spec-icon">
+              <div className="produk-modal-spec-item">
+                <span className="produk-spec-icon">
                   <HardDrive />
                 </span>{" "}
                 {selectedProduct.specs.storage}
               </div>
-              <div className="modal-spec-item">
-                <span className="spec-icon">
+              <div className="produk-modal-spec-item">
+                <span className="produk-spec-icon">
                   <AppWindow />
                 </span>{" "}
                 {selectedProduct.specs.os}
               </div>
-              <div className="modal-product-description">
+              <div className="produk-modal-product-description">
                 {selectedProduct.deskripsi}
               </div>
-              <div className="action-button">
-                <span className="logo-icon">
+              <div className="produk-action-button">
+                <span className="produk-logo-icon">
                   <FaWhatsapp />
                 </span>
                 <a
@@ -486,7 +707,7 @@ export default function Produk() {
                   )}%20dari%20Infoduta%20Computindo%20Perkasa.%20Apakah%20produk%20ini%20masih%20tersedia?`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn btn-primary"
+                  className="produk-btn produk-btn-primary"
                 >
                   Konsultasikan via WhatsApp
                 </a>

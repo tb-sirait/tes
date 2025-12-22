@@ -29,23 +29,23 @@ import { database } from "./firebaseConfig";
 import { push, ref, runTransaction } from "firebase/database";
 
 // ✅ SOLUSI 1: Cache IP dan Geolocation di Session Storage
-const CACHE_KEY = 'visitor_geo_cache';
+const CACHE_KEY = "visitor_geo_cache";
 const CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 jam
 
 function getGeoCache() {
   try {
     const cached = sessionStorage.getItem(CACHE_KEY);
     if (!cached) return null;
-    
+
     const data = JSON.parse(cached);
     const now = Date.now();
-    
+
     // Check if cache expired
     if (now - data.timestamp > CACHE_DURATION) {
       sessionStorage.removeItem(CACHE_KEY);
       return null;
     }
-    
+
     return data;
   } catch {
     return null;
@@ -54,12 +54,15 @@ function getGeoCache() {
 
 function setGeoCache(data) {
   try {
-    sessionStorage.setItem(CACHE_KEY, JSON.stringify({
-      ...data,
-      timestamp: Date.now()
-    }));
+    sessionStorage.setItem(
+      CACHE_KEY,
+      JSON.stringify({
+        ...data,
+        timestamp: Date.now(),
+      }),
+    );
   } catch (error) {
-    console.warn('Failed to cache geo data:', error);
+    console.warn("Failed to cache geo data:", error);
   }
 }
 
@@ -93,7 +96,7 @@ function TrackVisitorActivity() {
 
       // ✅ SOLUSI 3: Check cache first
       const cachedGeo = getGeoCache();
-      
+
       if (cachedGeo) {
         // Gunakan data dari cache
         ipAddress = cachedGeo.ipAddress;
@@ -105,7 +108,7 @@ function TrackVisitorActivity() {
         try {
           // 1️⃣ Ambil IP publik pengguna
           const ipResponse = await fetch("https://api.ipify.org?format=json", {
-            signal: AbortSignal.timeout(5000) // timeout 5 detik
+            signal: AbortSignal.timeout(5000), // timeout 5 detik
           });
 
           if (ipResponse.ok) {
@@ -118,42 +121,44 @@ function TrackVisitorActivity() {
               const geoResponse = await fetch(
                 `https://ipapi.co/${ipAddress}/json/`,
                 {
-                  signal: AbortSignal.timeout(5000)
-                }
+                  signal: AbortSignal.timeout(5000),
+                },
               );
 
               if (geoResponse.ok) {
                 const geoData = await geoResponse.json();
-                
+
                 // Check if we hit rate limit (ipapi.co returns error in JSON)
                 if (geoData.error) {
-                  throw new Error(`ipapi.co error: ${geoData.reason || 'rate limit'}`);
+                  throw new Error(
+                    `ipapi.co error: ${geoData.reason || "rate limit"}`,
+                  );
                 }
-                
+
                 country = geoData.country_name || "unknown";
                 region = geoData.region || "unknown";
                 city = geoData.city || "unknown";
-                
+
                 // Cache successful result
                 setGeoCache({ ipAddress, country, region, city });
               } else if (geoResponse.status === 429) {
                 // ✅ SOLUSI 5: Fallback ke API alternatif
                 httpStatus = "Rate Limited";
                 httpDetail = "ipapi.co rate limit - using fallback";
-                
+
                 try {
                   // Fallback: ip-api.com (45 req/minute, gratis unlimited daily)
                   const fallbackResponse = await fetch(
                     `http://ip-api.com/json/${ipAddress}`,
-                    { signal: AbortSignal.timeout(5000) }
+                    { signal: AbortSignal.timeout(5000) },
                   );
-                  
+
                   if (fallbackResponse.ok) {
                     const fallbackData = await fallbackResponse.json();
                     country = fallbackData.country || "unknown";
                     region = fallbackData.regionName || "unknown";
                     city = fallbackData.city || "unknown";
-                    
+
                     // Cache fallback result
                     setGeoCache({ ipAddress, country, region, city });
                   }
@@ -216,6 +221,9 @@ function TrackVisitorActivity() {
   return null;
 }
 
+// Di file router utama Anda (App.jsx)
+// Urutkan routes dengan lebih spesifik terlebih dahulu
+
 function AppContent() {
   const location = useLocation();
 
@@ -224,15 +232,11 @@ function AppContent() {
       <ScrollToTop />
       <Chatbot />
       <TrackVisitorActivity />
-      {/* Kondisi: Navbar hanya muncul kalau bukan di /telusuri-kami */}
       {location.pathname !== "/telusuri-kami" && <Navbar />}
       <Routes>
         <Route path="/" element={<Homepage />} />
 
-        {/* Produk detail */}
-        <Route path="/produk" element={<Produk />} />
-        <Route path="/produk/:brand/:id" element={<Produk />} />
-
+        {/* Route kategori harus SEBELUM route dynamic params */}
         {/* Software */}
         <Route path="/produk/software" element={<Software />} />
         <Route path="/produk/software/:id" element={<Software />} />
@@ -261,19 +265,19 @@ function AppContent() {
         <Route path="/produk/server" element={<Server />} />
         <Route path="/produk/server/:brand/:id" element={<Server />} />
 
+        {/* Produk utama - HARUS SETELAH semua kategori */}
+        <Route path="/produk" element={<Produk />} />
+        <Route path="/produk/:brand/:id" element={<Produk />} />
+
         <Route path="/telusuri-kami" element={<BioLinks />} />
-
         <Route path="/layanan" element={<Layanan />} />
-
         <Route path="/tentang" element={<Tentang />} />
-
         <Route path="/karir" element={<Karir />} />
 
         {/* fallback */}
         <Route path="*" element={<Homepage />} />
       </Routes>
 
-      {/* CookieConsent tetap muncul di semua halaman */}
       <CookieConsent />
     </>
   );

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   FaEnvelope,
   FaWhatsapp,
@@ -7,17 +7,12 @@ import {
   FaUsers,
   FaHandshake,
   FaTrophy,
+  FaChevronDown,
 } from "react-icons/fa";
-import FAQ from "./faq";
-import Navbar from "../Navigation/Navbar";
-import Footer from "../Navigation/footer";
-import KontakContainer from "./kontakContainer";
 import "./tentang.css";
 
-import { activateScrollAnimation } from "./scrollAnimation";
-
 // Import images
-import kantorImage from "../assets/kantor_icp.webp";
+import kantorImage from "../assets/kantor_icp(landscape1).webp";
 import strukturImage from "../assets/struktur_keorganisasian_icp.png";
 import dellLogo from "../assets/Dell_logo.png";
 import lenovoLogo from "../assets/lenovo_logo.png";
@@ -34,15 +29,17 @@ import telkomLogo from "../assets/Telkom_logo.png";
 import tmLogo from "../assets/TM_logo.png";
 import plnLogo from "../assets/pln_logo.png";
 
-import { Helmet } from "react-helmet";
+// Import components
+import FAQ from "./faq";
+import Navbar from "../Navigation/Navbar";
+import Footer from "../Navigation/footer";
+import KontakContainer from "./kontakContainer";
 
 function Tentang() {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  const [showMainContent, setShowMainContent] = useState(false);
 
   useEffect(() => {
-    activateScrollAnimation();
+    window.scrollTo(0, 0);
   }, []);
 
   const brandLogos = [
@@ -65,235 +62,229 @@ function Tentang() {
     { src: plnLogo, alt: "PLN" },
   ];
 
-  const achievements = [
-    {
-      icon: <FaTrophy />,
-      title: "29+ Tahun Pengalaman",
-      description: "Melayani sejak 1996 hingga saat ini",
-    },
-    {
-      icon: <FaUsers />,
-      title: "100+ Klien Terpercaya",
-      description: "Melayani Perusahaan-Perusahaan Terbesar di Indonesia",
-    },
-    {
-      icon: <FaHandshake />,
-      title: "Layanan 24/7",
-      description: "Melayani konsultasi Produk IT kapan saja untuk Bisnis Anda",
-    },
-  ];
+  const handleScrollToContent = () => {
+    setShowMainContent(true);
+    // Scroll ke posisi 0 (top) terlebih dahulu
+    window.scrollTo({ top: 0, behavior: 'auto' });
+    
+    // Kemudian scroll ke section tentang kami
+    setTimeout(() => {
+      const aboutSection = document.querySelector('.tentang-section-about');
+      if (aboutSection) {
+        const navbarHeight = 70; // Adjust sesuai tinggi navbar Anda
+        const elementPosition = aboutSection.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }, 100);
+  };
 
   return (
     <>
-      <Helmet>
-        <title>Tentang Kami | PT Infoduta Computindo Perkasa</title>
-        <meta
-          name="description"
-          content="Pelajari lebih lanjut tentang PT Infoduta Computindo Perkasa, pengalaman kami, visi misi, dan layanan terbaik di bidang IT."
-        />
-        <meta
-          name="keywords"
-          content="Tentang PT Infoduta Computindo Perkasa, Visi Misi ICP, Layanan IT, Hardware dan Software, Partner ICP"
-        />
-        <meta name="author" content="PT Infoduta Computindo Perkasa" />
-        <link rel="canonical" href="https://www.infoduta.com/tentang" />
-        <meta
-          property="og:title"
-          content="Tentang Kami | PT Infoduta Computindo Perkasa"
-        />
-        <meta
-          property="og:description"
-          content="Pelajari lebih lanjut tentang PT Infoduta Computindo Perkasa, pengalaman kami, visi misi, dan layanan terbaik di bidang IT."
-        />
-        <meta property="og:url" content="https://www.infoduta.com/tentang" />
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:site_name"
-          content="PT Infoduta Computindo Perkasa"
-        />
-      </Helmet>
       <Navbar />
-      <div className="tentang">
-        {/* Hero Section */}
-        <section className="hero-section-ttg">
-          <h1 className="hero-title-ttg">PT. Infoduta Computindo Perkasa</h1>
-          <p className="hero-subtitle-ttg">
-            "Solusi Pengadaan Produk IT Tepercaya untuk menunjang Kebutuhan
-            Bisnis Anda"
-          </p>
-          <div className="hero-content-ttg">
-            <div className="hero-text-ttg">
-              <div className="hero-stats-ttg">
-                {achievements.map((achievement, index) => (
-                  <div key={index} className="stat-item">
-                    <div className="stat-icon">{achievement.icon}</div>
-                    <div className="stat-content">
-                      <h3 style={{ color: "#ffffffff" }}>
-                        {achievement.title}
-                      </h3>
-                      <p>{achievement.description}</p>
+      
+      <div className="tentang-page">
+        {/* Hero Section - Full Screen */}
+        <section className={`tentang-hero homepage-hero-section ${showMainContent ? 'tentang-hero-hidden' : ''}`}>
+          <div className="tentang-hero-overlay"></div>
+          <img 
+            src={kantorImage} 
+            alt="Kantor PT Infoduta Computindo Perkasa" 
+            className="tentang-hero-image"
+          />
+          <div className="tentang-hero-content">
+            <h1 className="tentang-hero-title">Tentang Infoduta</h1>
+            <p className="tentang-hero-subtitle">
+              Komitmen dan Sinergi Kami untuk memberikan Solusi Kebutuhan Produk IT Bisnis Anda
+            </p>
+            <button className="tentang-hero-button" onClick={handleScrollToContent}>
+              Jelajahi Kami
+            </button>
+            
+            <div className="tentang-hero-stats">
+              <div className="tentang-stat-item">
+                <div className="tentang-stat-label">Melayani</div>
+                <div className="tentang-stat-value">29+</div>
+                <div className="tentang-stat-desc">Tahun</div>
+              </div>
+              <div className="tentang-stat-item">
+                <div className="tentang-stat-label">Dengan</div>
+                <div className="tentang-stat-value">100+</div>
+                <div className="tentang-stat-desc">Klien Terpercaya</div>
+              </div>
+              <div className="tentang-stat-item">
+                <div className="tentang-stat-label">Layanan Penuh</div>
+                <div className="tentang-stat-value">24/7</div>
+                <div className="tentang-stat-desc">Konsultasi</div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="tentang-scroll-indicator" onClick={handleScrollToContent}>
+            <FaChevronDown />
+          </div>
+        </section>
+
+        {/* Main Content */}
+        <div className={`tentang-main-content ${showMainContent ? 'tentang-main-content-visible' : ''}`}>
+          
+          {/* Tentang Kami Section */}
+          <section className="tentang-section-about">
+            <div className="tentang-container">
+              <div className="tentang-section-layout">
+                <div className="tentang-section-left">
+                  <h2 className="tentang-section-title">Tentang Kami</h2>
+                  <div className="tentang-title-divider"></div>
+                </div>
+                <div className="tentang-section-right">
+                  <div className="tentang-text-content">
+                    <p>
+                      <strong>PT Infoduta Computindo Perkasa</strong> adalah
+                      perusahaan yang bergerak di bidang Teknologi Informasi (IT),
+                      yang menyediakan layanan pengadaan serta penyewaan produk IT
+                      (hardware, software, dan produk pendukung lainnya). Selain
+                      itu, Infoduta juga memberikan layanan pemeliharaan dan
+                      dukungan teknis untuk memastikan operasional sistem IT pada
+                      setiap klien berjalan optimal. Saat ini, PT Infoduta
+                      Computindo Perkasa telah dipercaya oleh berbagai perusahaan
+                      terkemuka di Indonesia sebagai mitra dalam pemenuhan
+                      kebutuhan teknologi informasi.
+                    </p>
+                    <p>
+                      <strong>PT Infoduta Computindo Perkasa</strong> telah
+                      berdiri sejak tahun 1996 hingga saat ini, dan telah
+                      dipercaya sebagai mitra tetap produk IT di perusahaan besar
+                      di Indonesia seperti: Pertamina Group, Telkom Group, Telkom
+                      Malaysia, Perbankan, dan perusahaan-perusahaan swasta
+                      lainnya.
+                    </p>
+                    <p>
+                      <strong>PT Infoduta Computindo Perkasa</strong> memiliki
+                      team solid yang selalu siap dalam memberikan layanan terbaik
+                      untuk mendukung setiap proses bisnis perusahaan Anda dengan
+                      orientasi solusi dan pelayanan maksimal. Kami menyediakan
+                      produk-produk dari brand high-end dengan harga yang sangat
+                      terjangkau. Kami menjual produk-produk IT seperti Laptop,
+                      PC, Printer, UPS, Server, Software, Hardware serta sparepart
+                      dari berbagai macam brand.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Visi Misi Section */}
+          <section className="tentang-section-visi-misi">
+            <div className="tentang-container">
+              <div className="tentang-section-layout">
+                <div className="tentang-section-left">
+                  <h2 className="tentang-section-title">Visi dan Misi Kami</h2>
+                  <div className="tentang-title-divider"></div>
+                </div>
+                <div className="tentang-section-right">
+                  <div className="tentang-visi-misi-content">
+                    <div className="tentang-visi-box">
+                      <h3>Visi</h3>
+                      <p>
+                        Menjadi Perusahaan Vendor Produk Teknologi Informasi (IT)
+                        terbaik yang berguna dalam mendukung proses pengembangan
+                        bisnis perusahaan klien kami.
+                      </p>
+                    </div>
+                    <div className="tentang-misi-box">
+                      <h3>Misi</h3>
+                      <ol>
+                        <li>
+                          Memberikan solusi serta pelayanan yang cepat, hangat dan
+                          proses transaksi dengan mudah.
+                        </li>
+                        <li>Jaminan layanan purna jual (After sales service).</li>
+                        <li>
+                          Memiliki Teknisi komputer professional yang selalu siap
+                          dalam memperbaiki produk IT yang bermasalah.
+                        </li>
+                      </ol>
                     </div>
                   </div>
-                ))}
+                </div>
               </div>
             </div>
-            <div className="hero-image-ttg">
-              <div className="image-container">
-                <img
-                  src={kantorImage}
-                  alt="Kantor PT Infoduta Computindo Perkasa"
-                />
-                <div className="image-overlay"></div>
-              </div>
-            </div>
-          </div>
-        </section>
+          </section>
 
-        {/* About Section */}
-        <section className="about-section">
-          <div className="container">
-            <div className="section-header">
-              <h2>Tentang Perusahaan</h2>
-              <div className="section-divider"></div>
-            </div>
-            <div className="about-content">
-              <div className="about-text">
-                <div className="text-block">
-                  <p className="teks-konten">
-                    <strong>PT Infoduta Computindo Perkasa</strong> adalah
-                    perusahaan yang bergerak di bidang Teknologi Informasi (IT),
-                    yang menyediakan layanan pengadaan serta penyewaan produk IT
-                    (hardware, software, dan produk pendukung lainnya). Selain
-                    itu, Infoduta juga memberikan layanan pemeliharaan dan
-                    dukungan teknis untuk memastikan operasional sistem IT pada
-                    setiap klien berjalan optimal. Saat ini, PT Infoduta
-                    Computindo Perkasa telah dipercaya oleh berbagai perusahaan
-                    terkemuka di Indonesia sebagai mitra dalam pemenuhan
-                    kebutuhan teknologi informasi.
-                  </p>
+          {/* Struktur Organisasi Section */}
+          <section className="tentang-section-struktur">
+            <div className="tentang-container">
+              <div className="tentang-section-layout">
+                <div className="tentang-section-left">
+                  <h2 className="tentang-section-title">Struktur Organisasi</h2>
+                  <div className="tentang-title-divider"></div>
                 </div>
-                <div className="text-block">
-                  <p className="teks-konten">
-                    <strong>PT Infoduta Computindo Perkasa</strong> telah
-                    berdiri sejak tahun 1996 hingga saat ini, dan telah
-                    dipercaya sebagai mitra tetap produk IT di perusahaan besar
-                    di Indonesia seperti: Pertamina Group, Telkom Group, Telkom
-                    Malaysia, Perbankan, dan perusahaan-perusahaan swasta
-                    lainnya.
-                  </p>
-                </div>
-                <div className="text-block">
-                  <p className="teks-konten">
-                    <strong>PT Infoduta Computindo Perkasa</strong> memiliki
-                    team solid yang selalu siap dalam memberikan layanan terbaik
-                    untuk mendukung setiap proses bisnis perusahaan Anda dengan
-                    orientasi solusi dan pelayanan maksimal. Kami menyediakan
-                    produk-produk dari brand high-end dengan harga yang sangat
-                    terjangkau. Kami menjual produk-produk IT seperti Laptop,
-                    PC, Printer, UPS, Server, Software, Hardware serta sparepart
-                    dari berbagai macam brand.
-                  </p>
+                <div className="tentang-section-right">
+                  <div className="tentang-struktur-image-wrapper">
+                    <img
+                      src={strukturImage}
+                      alt="Struktur Organisasi PT Infoduta Computindo Perkasa"
+                      className="tentang-struktur-image"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* Organizational Structure */}
-        <section className="struktur-section">
-          <div className="container">
-            <div className="section-header">
-              <h2>Struktur Organisasi</h2>
-              <div className="section-divider"></div>
+          {/* Brand Partner Section */}
+          <section className="tentang-section-brands">
+            <div className="tentang-container">
+              <div className="tentang-section-layout">
+                <div className="tentang-section-left">
+                  <h2 className="tentang-section-title">Brand Partner Support</h2>
+                  <div className="tentang-title-divider"></div>
+                </div>
+                <div className="tentang-section-right">
+                  <div className="tentang-brands-grid">
+                    {brandLogos.map((brand, index) => (
+                      <div key={index} className="tentang-brand-item">
+                        <img src={brand.src} alt={brand.alt} />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-          <div className="struktur-container">
-            <img
-              src={strukturImage}
-              alt="Struktur Organisasi"
-              className="struktur-image"
-            />
-          </div>
-        </section>
+          </section>
 
-        {/* Vision & Mission */}
-        <section className="visi-misi-section">
-          <div className="container">
-            <div className="section-header">
-              <h6>Visi Misi Perusahaan</h6>
-              <div className="section-divider"></div>
-            </div>
-            <div className="visi-misi-content">
-              <div className="visi-card">
-                <div className="card-header">
-                  <h3>Visi</h3>
+          {/* Rekan Kerja Section */}
+          <section className="tentang-section-partners">
+            <div className="tentang-container">
+              <div className="tentang-section-layout">
+                <div className="tentang-section-left">
+                  <h2 className="tentang-section-title">Rekan Kerja Perusahaan</h2>
+                  <div className="tentang-title-divider"></div>
                 </div>
-                <div className="card-content">
-                  <p>
-                    Menjadi Perusahaan Vendor Produk Teknologi Informasi (IT)
-                    terbaik yang berguna dalam mendukung proses pengembangan
-                    bisnis perusahaan klien kami.
-                  </p>
-                </div>
-              </div>
-              <div className="misi-card">
-                <div className="card-header">
-                  <h3>Misi</h3>
-                </div>
-                <div className="card-content">
-                  <ol>
-                    <li>
-                      Memberikan solusi serta pelayanan yang cepat, hangat dan
-                      proses transaksi dengan mudah.
-                    </li>
-                    <li>Jaminan layanan purna jual (After sales service).</li>
-                    <li>
-                      Memiliki Teknisi komputer professional yang selalu siap
-                      dalam memperbaiki produk IT yang bermasalah.
-                    </li>
-                  </ol>
+                <div className="tentang-section-right">
+                  <div className="tentang-partners-grid">
+                    {partnerLogos.map((partner, index) => (
+                      <div key={index} className="tentang-partner-item">
+                        <img src={partner.src} alt={partner.alt} />
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* Brand Partners */}
-        <section className="brand-section">
-          <div className="container">
-            <div className="section-header">
-              <h2>Brand Partner Support</h2>
-              <div className="section-divider"></div>
-            </div>
-          </div>
-          <div className="brand-logos">
-            {brandLogos.map((brand, index) => (
-              <div key={index} className="brand-item">
-                <img src={brand.src} alt={brand.alt} />
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Partners */}
-        <section className="partners-section">
-          <div className="container">
-            <div className="section-header">
-              <h6>Rekan Kerja Perusahaan</h6>
-              <div className="section-divider"></div>
-            </div>
-          </div>
-          <div className="partner-logos">
-            {partnerLogos.map((partner, index) => (
-              <div key={index} className="partner-item">
-                <img src={partner.src} alt={partner.alt} />
-              </div>
-            ))}
-          </div>
-        </section>
-        <KontakContainer />
-        <FAQ />
+          {/* Kontak dan FAQ */}
+          <KontakContainer />
+          <FAQ />
+        </div>
       </div>
+      
       <Footer />
     </>
   );

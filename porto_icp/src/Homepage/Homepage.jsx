@@ -39,7 +39,7 @@ function Homepage() {
   useEffect(() => {
     // Simpan referensi untuk cleanup
     const currentCards = cardRefs.current;
-    
+
     // Observer untuk animasi cards
     const observer = new IntersectionObserver(
       (entries) => {
@@ -61,7 +61,7 @@ function Homepage() {
       {
         threshold: 0.2,
         rootMargin: "0px 0px -100px 0px",
-      }
+      },
     );
 
     currentCards.forEach((card) => {
@@ -79,16 +79,16 @@ function Homepage() {
     if (mainContentRef.current) {
       // Cara 1: Gunakan scrollIntoView
       mainContentRef.current.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
+        behavior: "smooth",
+        block: "start",
       });
-      
+
       // Cara 2: Fallback dengan window.scrollTo (lebih reliable untuk event trigger)
       setTimeout(() => {
         const targetPosition = mainContentRef.current.offsetTop;
         window.scrollTo({
           top: targetPosition,
-          behavior: 'smooth'
+          behavior: "smooth",
         });
       }, 100);
     }
@@ -100,21 +100,24 @@ function Homepage() {
       title: "Tentang Infoduta",
       image: AboutImage,
       route: "/tentang",
-      description: "Lorem ipsum dolor sit amet consectetur. Viverra amet lacus urna euismod in fermentum vitae. Sed sed enim semper id.",
+      description:
+        "Lorem ipsum dolor sit amet consectetur. Viverra amet lacus urna euismod in fermentum vitae. Sed sed enim semper id.",
     },
     {
       id: "layanan",
       title: "Layanan Kami",
       image: ServicesImage,
       route: "/layanan",
-      description: "Lorem ipsum dolor sit amet consectetur. Viverra amet lacus urna euismod in fermentum vitae. Sed sed enim semper id.",
+      description:
+        "Lorem ipsum dolor sit amet consectetur. Viverra amet lacus urna euismod in fermentum vitae. Sed sed enim semper id.",
     },
     {
       id: "produk",
       title: "Produk IT Infoduta",
       image: WorkstationImage,
       route: "/produk",
-      description: "Lorem ipsum dolor sit amet consectetur. Viverra amet lacus urna euismod in fermentum vitae. Sed sed enim semper id.",
+      description:
+        "Lorem ipsum dolor sit amet consectetur. Viverra amet lacus urna euismod in fermentum vitae. Sed sed enim semper id.",
     },
   ];
 
@@ -148,8 +151,15 @@ function Homepage() {
         <meta property="og:site_name" content="Infoduta Computindo Perkasa" />
         <meta property="og:type" content="website" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
       </Helmet>
 
       <Navbar />
@@ -161,18 +171,22 @@ function Homepage() {
           className="homepage-hero-image"
           src={KantorImage}
         />
-        <div 
+        <div
           className="homepage-hero-overlay"
           style={{ opacity: overlayOpacity }}
         ></div>
 
-        <div className={`homepage-hero-content ${contentVisible ? 'visible' : ''}`}>
+        <div
+          className={`homepage-hero-content ${contentVisible ? "visible" : ""}`}
+        >
           <div className="homepage-hero-content-inner">
             <h1 className="homepage-hero-title">
               PT. Infoduta Computindo Perkasa
             </h1>
             <h2 className="homepage-hero-subtitle">
-              Solusi Pengadaan Produk IT Terbaik<br />Untuk Bisnis Anda
+              Solusi Pengadaan Produk IT Terbaik
+              <br />
+              Untuk Bisnis Anda
             </h2>
             <button
               onClick={handleExploreClick}
@@ -205,7 +219,8 @@ function Homepage() {
           <div className="section-header">
             <h2 className="section-title">Jelajahi Infoduta</h2>
             <p className="section-description">
-              Lebih dekat dengan perusahaan kami dan temukan produk dan layanan sesuai keinginan Anda.
+              Lebih dekat dengan perusahaan kami dan temukan produk dan layanan
+              sesuai keinginan Anda.
             </p>
           </div>
 
@@ -216,7 +231,7 @@ function Homepage() {
                 key={item.id}
                 ref={(el) => (cardRefs.current[index] = el)}
                 onClick={() => navigate(item.route)}
-                className={`card ${cardsVisible[index] ? 'card-visible' : ''}`}
+                className={`card ${cardsVisible[index] ? "card-visible" : ""}`}
               >
                 {/* Icon Container - di kiri */}
                 <div className="card-icon-container">
