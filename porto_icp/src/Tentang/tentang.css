@@ -179,7 +179,9 @@
 }
 
 .tentang-scroll-indicator {
-  animation: bounce 2s 1.6s infinite, scrollIndicatorFadeIn 0.5s 1.6s forwards;
+  animation:
+    bounce 2s 1.6s infinite,
+    scrollIndicatorFadeIn 0.5s 1.6s forwards;
 }
 
 .tentang-scroll-indicator:hover {
@@ -447,7 +449,11 @@
 }
 
 @keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
     transform: translateX(-50%) translateY(0);
   }
   40% {

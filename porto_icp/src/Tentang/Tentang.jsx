@@ -65,37 +65,37 @@ function Tentang() {
   ];
 
   useEffect(() => {
-  if (!showMainContent) {
-    // Matikan scroll
-    document.body.style.overflow = "hidden";
-  } else {
-    // Aktifkan kembali scroll
-    document.body.style.overflow = "auto";
-  }
+    if (!showMainContent) {
+      // Matikan scroll
+      document.body.style.overflow = "hidden";
+    } else {
+      // Aktifkan kembali scroll
+      document.body.style.overflow = "auto";
+    }
 
-  // Cleanup saat component unmount
-  return () => {
-    document.body.style.overflow = "auto";
-  };
-}, [showMainContent]);
-
+    // Cleanup saat component unmount
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [showMainContent]);
 
   const handleScrollToContent = () => {
     setShowMainContent(true);
     // Scroll ke posisi 0 (top) terlebih dahulu
-    window.scrollTo({ top: 0, behavior: 'auto' });
-    
+    window.scrollTo({ top: 0, behavior: "auto" });
+
     // Kemudian scroll ke section tentang kami
     setTimeout(() => {
-      const aboutSection = document.querySelector('.tentang-section-about');
+      const aboutSection = document.querySelector(".tentang-section-about");
       if (aboutSection) {
         const navbarHeight = 70; // Adjust sesuai tinggi navbar Anda
         const elementPosition = aboutSection.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
-        
+        const offsetPosition =
+          elementPosition + window.pageYOffset - navbarHeight;
+
         window.scrollTo({
           top: offsetPosition,
-          behavior: 'smooth'
+          behavior: "smooth",
         });
       }
     }, 100);
@@ -116,25 +116,31 @@ function Tentang() {
         />
         <link rel="canonical" href="https://www.infoduta.com/tentang" />
       </Helmet>
-      
+
       <div className="tentang-page">
         {/* Hero Section - Full Screen */}
-        <section className={`tentang-hero homepage-hero-section ${showMainContent ? 'tentang-hero-hidden' : ''}`}>
+        <section
+          className={`tentang-hero homepage-hero-section ${showMainContent ? "tentang-hero-hidden" : ""}`}
+        >
           <div className="tentang-hero-overlay"></div>
-          <img 
-            src={kantorImage} 
-            alt="Kantor PT Infoduta Computindo Perkasa" 
+          <img
+            src={kantorImage}
+            alt="Kantor PT Infoduta Computindo Perkasa"
             className="tentang-hero-image"
           />
           <div className="tentang-hero-content">
             <h1 className="tentang-hero-title">Tentang Infoduta</h1>
             <p className="tentang-hero-subtitle">
-              Komitmen dan Sinergi Kami untuk memberikan Solusi Kebutuhan Produk IT Bisnis Anda
+              Komitmen dan Sinergi Kami untuk memberikan Solusi Kebutuhan Produk
+              IT Bisnis Anda
             </p>
-            <button className="tentang-hero-button" onClick={handleScrollToContent}>
+            <button
+              className="tentang-hero-button"
+              onClick={handleScrollToContent}
+            >
               Jelajahi Kami
             </button>
-            
+
             <div className="tentang-hero-stats">
               <div className="tentang-stat-item">
                 <div className="tentang-stat-label">Melayani</div>
@@ -153,15 +159,19 @@ function Tentang() {
               </div>
             </div>
           </div>
-          
-          <div className="tentang-scroll-indicator" onClick={handleScrollToContent}>
+
+          <div
+            className="tentang-scroll-indicator"
+            onClick={handleScrollToContent}
+          >
             <FaChevronDown />
           </div>
         </section>
 
         {/* Main Content */}
-        <div className={`tentang-main-content ${showMainContent ? 'tentang-main-content-visible' : ''}`}>
-          
+        <div
+          className={`tentang-main-content ${showMainContent ? "tentang-main-content-visible" : ""}`}
+        >
           {/* Tentang Kami Section */}
           <section className="tentang-section-about">
             <div className="tentang-container">
@@ -174,33 +184,33 @@ function Tentang() {
                   <div className="tentang-text-content">
                     <p>
                       <strong>PT Infoduta Computindo Perkasa</strong> adalah
-                      perusahaan yang bergerak di bidang Teknologi Informasi (IT),
-                      yang menyediakan layanan pengadaan serta penyewaan produk IT
-                      (hardware, software, dan produk pendukung lainnya). Selain
-                      itu, Infoduta juga memberikan layanan pemeliharaan dan
-                      dukungan teknis untuk memastikan operasional sistem IT pada
-                      setiap klien berjalan optimal. Saat ini, PT Infoduta
-                      Computindo Perkasa telah dipercaya oleh berbagai perusahaan
-                      terkemuka di Indonesia sebagai mitra dalam pemenuhan
-                      kebutuhan teknologi informasi.
+                      perusahaan yang bergerak di bidang Teknologi Informasi
+                      (IT), yang menyediakan layanan pengadaan serta penyewaan
+                      produk IT (hardware, software, dan produk pendukung
+                      lainnya). Selain itu, Infoduta juga memberikan layanan
+                      pemeliharaan dan dukungan teknis untuk memastikan
+                      operasional sistem IT pada setiap klien berjalan optimal.
+                      Saat ini, PT Infoduta Computindo Perkasa telah dipercaya
+                      oleh berbagai perusahaan terkemuka di Indonesia sebagai
+                      mitra dalam pemenuhan kebutuhan teknologi informasi.
                     </p>
                     <p>
                       <strong>PT Infoduta Computindo Perkasa</strong> telah
                       berdiri sejak tahun 1996 hingga saat ini, dan telah
-                      dipercaya sebagai mitra tetap produk IT di perusahaan besar
-                      di Indonesia seperti: Pertamina Group, Telkom Group, Telkom
-                      Malaysia, Perbankan, dan perusahaan-perusahaan swasta
-                      lainnya.
+                      dipercaya sebagai mitra tetap produk IT di perusahaan
+                      besar di Indonesia seperti: Pertamina Group, Telkom Group,
+                      Telkom Malaysia, Perbankan, dan perusahaan-perusahaan
+                      swasta lainnya.
                     </p>
                     <p>
                       <strong>PT Infoduta Computindo Perkasa</strong> memiliki
-                      team solid yang selalu siap dalam memberikan layanan terbaik
-                      untuk mendukung setiap proses bisnis perusahaan Anda dengan
-                      orientasi solusi dan pelayanan maksimal. Kami menyediakan
-                      produk-produk dari brand high-end dengan harga yang sangat
-                      terjangkau. Kami menjual produk-produk IT seperti Laptop,
-                      PC, Printer, UPS, Server, Software, Hardware serta sparepart
-                      dari berbagai macam brand.
+                      team solid yang selalu siap dalam memberikan layanan
+                      terbaik untuk mendukung setiap proses bisnis perusahaan
+                      Anda dengan orientasi solusi dan pelayanan maksimal. Kami
+                      menyediakan produk-produk dari brand high-end dengan harga
+                      yang sangat terjangkau. Kami menjual produk-produk IT
+                      seperti Laptop, PC, Printer, UPS, Server, Software,
+                      Hardware serta sparepart dari berbagai macam brand.
                     </p>
                   </div>
                 </div>
@@ -221,22 +231,24 @@ function Tentang() {
                     <div className="tentang-visi-box">
                       <h3>Visi</h3>
                       <p>
-                        Menjadi Perusahaan Vendor Produk Teknologi Informasi (IT)
-                        terbaik yang berguna dalam mendukung proses pengembangan
-                        bisnis perusahaan klien kami.
+                        Menjadi Perusahaan Vendor Produk Teknologi Informasi
+                        (IT) terbaik yang berguna dalam mendukung proses
+                        pengembangan bisnis perusahaan klien kami.
                       </p>
                     </div>
                     <div className="tentang-misi-box">
                       <h3>Misi</h3>
                       <ol>
                         <li>
-                          Memberikan solusi serta pelayanan yang cepat, hangat dan
-                          proses transaksi dengan mudah.
+                          Memberikan solusi serta pelayanan yang cepat, hangat
+                          dan proses transaksi dengan mudah.
                         </li>
-                        <li>Jaminan layanan purna jual (After sales service).</li>
                         <li>
-                          Memiliki Teknisi komputer professional yang selalu siap
-                          dalam memperbaiki produk IT yang bermasalah.
+                          Jaminan layanan purna jual (After sales service).
+                        </li>
+                        <li>
+                          Memiliki Teknisi komputer professional yang selalu
+                          siap dalam memperbaiki produk IT yang bermasalah.
                         </li>
                       </ol>
                     </div>
@@ -272,7 +284,9 @@ function Tentang() {
             <div className="tentang-container">
               <div className="tentang-section-layout">
                 <div className="tentang-section-left">
-                  <h2 className="tentang-section-title">Brand Partner Support</h2>
+                  <h2 className="tentang-section-title">
+                    Brand Partner Support
+                  </h2>
                   <div className="tentang-title-divider"></div>
                 </div>
                 <div className="tentang-section-right">
@@ -293,7 +307,9 @@ function Tentang() {
             <div className="tentang-container">
               <div className="tentang-section-layout">
                 <div className="tentang-section-left">
-                  <h2 className="tentang-section-title">Rekan Kerja Perusahaan</h2>
+                  <h2 className="tentang-section-title">
+                    Rekan Kerja Perusahaan
+                  </h2>
                   <div className="tentang-title-divider"></div>
                 </div>
                 <div className="tentang-section-right">
@@ -314,7 +330,7 @@ function Tentang() {
           <FAQ />
         </div>
       </div>
-      
+
       <Footer />
     </>
   );

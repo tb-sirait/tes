@@ -27,11 +27,11 @@ function Footer() {
               </thin>
             </small>
           </p>
-          
+
           {/* Google Maps */}
           <div className="foot-maps-container">
             <iframe
-              src="https://maps.google.com/maps?q=PT+infoduta&t=&z=13&ie=UTF8&iwloc=&output=embed"              
+              src="https://maps.google.com/maps?q=PT+infoduta&t=&z=13&ie=UTF8&iwloc=&output=embed"
               width="100%"
               height="200"
               style={{ border: 0, borderRadius: "10px" }}
@@ -154,7 +154,9 @@ function Footer() {
               </div>
               <div className="foot-social-text">
                 <span className="foot-social-name">Instagram</span>
-                <span className="foot-social-username">@infoduta_computindo</span>
+                <span className="foot-social-username">
+                  @infoduta_computindo
+                </span>
               </div>
             </a>
             <a
@@ -221,7 +223,9 @@ function Footer() {
               </div>
               <div className="foot-social-text">
                 <span className="foot-social-name">TikTok</span>
-                <span className="foot-social-username">@infoduta_computind0</span>
+                <span className="foot-social-username">
+                  @infoduta_computind0
+                </span>
               </div>
             </a>
             <button

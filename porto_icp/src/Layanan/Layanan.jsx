@@ -64,7 +64,9 @@ function Layanan() {
   };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + heroImages.length) % heroImages.length);
+    setCurrentSlide(
+      (prev) => (prev - 1 + heroImages.length) % heroImages.length,
+    );
   };
 
   const scrollToSection = (sectionId) => {
@@ -129,30 +131,34 @@ function Layanan() {
 
       {/* Hero Page Section */}
       <div className="services-hero-page homepage-hero-section">
-        <div 
-          className="services-hero-overlay" 
+        <div
+          className="services-hero-overlay"
           style={{ opacity: overlayOpacity }}
         ></div>
-        
+
         <div className="services-hero-content-wrapper">
           {/* Left Group - Text Content */}
-          <div className={`services-hero-text-group ${isHeroVisible ? 'services-hero-visible' : ''}`}>
+          <div
+            className={`services-hero-text-group ${isHeroVisible ? "services-hero-visible" : ""}`}
+          >
             <h1 className="services-hero-title">Layanan Kami</h1>
             <div className="services-hero-divider"></div>
             <p className="services-hero-subtitle">
               Infoduta hadir sebagai solusi untuk bisnis anda dengan melayani
               Pengadaan atau Penyewaan Produk IT.
             </p>
-            <button 
+            <button
               className="services-hero-cta"
-              onClick={() => scrollToSection('services-navigation')}
+              onClick={() => scrollToSection("services-navigation")}
             >
               Jelajahi Layanan
             </button>
           </div>
 
           {/* Right Group - Image Slider */}
-          <div className={`services-hero-slider-group ${isHeroVisible ? 'services-hero-visible' : ''}`}>
+          <div
+            className={`services-hero-slider-group ${isHeroVisible ? "services-hero-visible" : ""}`}
+          >
             <div className="services-hero-slideshow">
               {heroImages.map((image, index) => (
                 <img
@@ -165,17 +171,17 @@ function Layanan() {
                 />
               ))}
             </div>
-            
+
             {/* Controls outside the image */}
             <div className="services-hero-controls">
-              <button 
-                className="services-hero-nav services-hero-nav-prev" 
+              <button
+                className="services-hero-nav services-hero-nav-prev"
                 onClick={prevSlide}
                 aria-label="Previous slide"
               >
                 <FaChevronLeft />
               </button>
-              
+
               <div className="services-hero-indicators">
                 {heroImages.map((_, index) => (
                   <button
@@ -188,9 +194,9 @@ function Layanan() {
                   />
                 ))}
               </div>
-              
-              <button 
-                className="services-hero-nav services-hero-nav-next" 
+
+              <button
+                className="services-hero-nav services-hero-nav-next"
                 onClick={nextSlide}
                 aria-label="Next slide"
               >
@@ -203,47 +209,53 @@ function Layanan() {
 
       {/* Main Content */}
       <main className="services-main-content">
-        
         {/* Navigation Section */}
-        <section id="services-navigation" className="services-navigation-section">
-          <h2 className="services-section-title">Apa Saja Layanan yang Kami Sediakan?</h2>
+        <section
+          id="services-navigation"
+          className="services-navigation-section"
+        >
+          <h2 className="services-section-title">
+            Apa Saja Layanan yang Kami Sediakan?
+          </h2>
           <div className="services-navigation-grid">
-            <button 
+            <button
               className="services-nav-card"
-              onClick={() => scrollToSection('services-pengadaan')}
+              onClick={() => scrollToSection("services-pengadaan")}
             >
               <div className="services-nav-image-wrapper">
-                <img 
-                  src={aiGeneratifProduk} 
-                  alt="Pengadaan dan Penjualan Produk IT" 
+                <img
+                  src={aiGeneratifProduk}
+                  alt="Pengadaan dan Penjualan Produk IT"
                   className="services-nav-image"
                 />
               </div>
-              <h3 className="services-nav-title">Pengadaan dan Penjualan Produk IT</h3>
+              <h3 className="services-nav-title">
+                Pengadaan dan Penjualan Produk IT
+              </h3>
             </button>
 
-            <button 
+            <button
               className="services-nav-card"
-              onClick={() => scrollToSection('services-penyewaan')}
+              onClick={() => scrollToSection("services-penyewaan")}
             >
               <div className="services-nav-image-wrapper">
-                <img 
-                  src={aiGeneratifProduk} 
-                  alt="Penyewaan Produk IT" 
+                <img
+                  src={aiGeneratifProduk}
+                  alt="Penyewaan Produk IT"
                   className="services-nav-image"
                 />
               </div>
               <h3 className="services-nav-title">Penyewaan Produk IT</h3>
             </button>
 
-            <button 
+            <button
               className="services-nav-card"
-              onClick={() => scrollToSection('services-purnajual')}
+              onClick={() => scrollToSection("services-purnajual")}
             >
               <div className="services-nav-image-wrapper">
-                <img 
-                  src={aiGeneratifService} 
-                  alt="Layanan Purna Jual" 
+                <img
+                  src={aiGeneratifService}
+                  alt="Layanan Purna Jual"
                   className="services-nav-image"
                 />
               </div>
@@ -264,10 +276,14 @@ function Layanan() {
               >
                 <div className="services-card-icon">{service.icon}</div>
                 <h3 className="services-card-title">{service.title}</h3>
-                <p className="services-card-description">{service.description}</p>
+                <p className="services-card-description">
+                  {service.description}
+                </p>
                 <ul className="services-card-features">
                   {service.features.map((feature, idx) => (
-                    <li key={idx} className="services-feature-item">{feature}</li>
+                    <li key={idx} className="services-feature-item">
+                      {feature}
+                    </li>
                   ))}
                 </ul>
               </div>
@@ -279,13 +295,16 @@ function Layanan() {
         <section id="services-pengadaan" className="services-detail-section">
           <div className="services-detail-container">
             <div className="services-detail-content">
-              <h2 className="services-detail-title">Pengadaan dan Penjualan Produk IT</h2>
+              <h2 className="services-detail-title">
+                Pengadaan dan Penjualan Produk IT
+              </h2>
               <p className="services-detail-text">
                 Infoduta menyediakan layanan penjualan dan pengadaan produk IT
                 terkini, mulai dari perangkat keras komputer, server, hingga
-                berbagai solusi jaringan dan teknologi informasi. Kami berkomitmen
-                memberikan produk berkualitas dengan harga kompetitif yang dapat
-                memenuhi kebutuhan bisnis dan individu Anda.
+                berbagai solusi jaringan dan teknologi informasi. Kami
+                berkomitmen memberikan produk berkualitas dengan harga
+                kompetitif yang dapat memenuhi kebutuhan bisnis dan individu
+                Anda.
               </p>
               <div className="services-detail-badges">
                 <span className="services-badge services-badge-green">
@@ -307,7 +326,10 @@ function Layanan() {
         </section>
 
         {/* Penyewaan Section */}
-        <section id="services-penyewaan" className="services-detail-section services-detail-reverse">
+        <section
+          id="services-penyewaan"
+          className="services-detail-section services-detail-reverse"
+        >
           <div className="services-detail-container">
             <div className="services-detail-image-wrapper">
               <img
@@ -320,10 +342,11 @@ function Layanan() {
               <h2 className="services-detail-title">Penyewaan Produk IT</h2>
               <p className="services-detail-text">
                 Selain pengadaan dan penyewaan Alat IT, infoduta.com juga
-                menyediakan layanan servis perangkat IT untuk kebutuhan Bisnis Anda. Sama
-                seperti layanan pengadaan, kami menyediakan berbagai macam
-                produk IT, kami menyediakan layanan Purna Jual seolah terdapat
-                kendala atau masalah selama produk masih dalam Masa Sewa.
+                menyediakan layanan servis perangkat IT untuk kebutuhan Bisnis
+                Anda. Sama seperti layanan pengadaan, kami menyediakan berbagai
+                macam produk IT, kami menyediakan layanan Purna Jual seolah
+                terdapat kendala atau masalah selama produk masih dalam Masa
+                Sewa.
               </p>
               <div className="services-detail-badges">
                 <span className="services-badge services-badge-purple">
@@ -341,7 +364,9 @@ function Layanan() {
         <section id="services-purnajual" className="services-detail-section">
           <div className="services-detail-container">
             <div className="services-detail-content">
-              <h2 className="services-detail-title">Layanan Purnajual Unggulan</h2>
+              <h2 className="services-detail-title">
+                Layanan Purnajual Unggulan
+              </h2>
               <p className="services-detail-text">
                 Sebagai bentuk komitmen kami terhadap kualitas dan kepuasan
                 pelanggan, layanan purnajual Infoduta menyediakan:

@@ -317,7 +317,7 @@
     grid-template-columns: 1.8fr 1fr 1fr 1.3fr;
     gap: 30px;
   }
-  
+
   .foot-maps-container iframe {
     height: 180px;
   }
@@ -328,11 +328,11 @@
     grid-template-columns: 1fr 1fr;
     gap: 30px;
   }
-  
+
   .foot-company-info {
     grid-column: 1 / -1;
   }
-  
+
   .foot-maps-container iframe {
     height: 200px;
   }
@@ -349,13 +349,13 @@
     padding-right: 0;
     text-align: center;
   }
-  
+
   .foot-maps-container {
     margin-left: auto;
     margin-right: auto;
     max-width: 100%;
   }
-  
+
   .foot-maps-container iframe {
     height: 250px;
   }
@@ -402,7 +402,7 @@
   .foot-section-title {
     font-size: 1.1rem;
   }
-  
+
   .foot-maps-container iframe {
     height: 220px;
   }

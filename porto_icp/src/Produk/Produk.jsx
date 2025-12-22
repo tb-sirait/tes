@@ -1,4 +1,10 @@
-import React, { useState, useEffect, useRef, useMemo, useCallback } from "react";
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  useMemo,
+  useCallback,
+} from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 import Navbar from "../Navigation/Navbar";
@@ -68,12 +74,12 @@ export default function Produk() {
     };
     handleResize();
     window.addEventListener("resize", handleResize);
-    
+
     // Trigger hero animation
     setTimeout(() => {
       setHeroAnimated(true);
     }, 100);
-    
+
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
@@ -97,7 +103,7 @@ export default function Produk() {
       setSelectedProduct(null);
       setIsClosing(false);
       // Kembali ke halaman sebelumnya (kategori atau /produk)
-      const basePath = category ? `/produk/${category}` : '/produk';
+      const basePath = category ? `/produk/${category}` : "/produk";
       navigate(basePath);
     }, 300);
   }, [navigate, category]);
@@ -142,29 +148,33 @@ export default function Produk() {
 
     // Filter by category
     if (selectedCategory) {
-      results = results.filter((product) => 
-        product.jenis.toLowerCase() === selectedCategory.toLowerCase()
+      results = results.filter(
+        (product) =>
+          product.jenis.toLowerCase() === selectedCategory.toLowerCase(),
       );
     }
 
     // Filter by brand
     if (selectedBrand) {
-      results = results.filter((product) => 
-        product.brand.toLowerCase() === selectedBrand.toLowerCase()
+      results = results.filter(
+        (product) =>
+          product.brand.toLowerCase() === selectedBrand.toLowerCase(),
       );
     }
 
     // Filter by type
     if (selectedType) {
-      results = results.filter((product) => 
-        product.type && product.type.toLowerCase() === selectedType.toLowerCase()
+      results = results.filter(
+        (product) =>
+          product.type &&
+          product.type.toLowerCase() === selectedType.toLowerCase(),
       );
     }
 
     // Filter by search query
     if (searchQuery) {
       results = results.filter((product) =>
-        product.name.toLowerCase().includes(searchQuery.toLowerCase())
+        product.name.toLowerCase().includes(searchQuery.toLowerCase()),
       );
     }
 
@@ -199,7 +209,16 @@ export default function Produk() {
     }
 
     setFilteredProducts(results);
-  }, [products, selectedCategory, selectedBrand, selectedType, searchQuery, sortByRelease, sortBy, sortOrder]);
+  }, [
+    products,
+    selectedCategory,
+    selectedBrand,
+    selectedType,
+    searchQuery,
+    sortByRelease,
+    sortBy,
+    sortOrder,
+  ]);
 
   // Handle search with debounce
   useEffect(() => {
@@ -218,9 +237,16 @@ export default function Produk() {
         clearTimeout(searchTimeout.current);
       }
     };
-  }, [searchQuery, selectedCategory, selectedBrand, selectedType, sortByRelease, sortBy, sortOrder, filterProducts]);
-
-
+  }, [
+    searchQuery,
+    selectedCategory,
+    selectedBrand,
+    selectedType,
+    sortByRelease,
+    sortBy,
+    sortOrder,
+    filterProducts,
+  ]);
 
   const categories = [
     { name: "Software", path: "software" },
@@ -318,7 +344,7 @@ export default function Produk() {
     setIsModalOpen(true);
     // Jika sudah di halaman kategori, tetap di kategori tersebut
     // Jika di halaman /produk, buka modal tanpa menambah kategori ke URL
-    const basePath = category ? `/produk/${category}` : '/produk';
+    const basePath = category ? `/produk/${category}` : "/produk";
     navigate(`${basePath}/${product.brand}/${product.id}`);
   };
 
@@ -389,9 +415,9 @@ export default function Produk() {
 
   const scrollToMainContent = () => {
     if (mainContentRef.current) {
-      mainContentRef.current.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
+      mainContentRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
       });
     }
   };
@@ -425,12 +451,25 @@ export default function Produk() {
       <Navbar />
       <main className="produk-main-container">
         {/* Hero Section */}
-        <div className={`produk-hero-section homepage-hero-section ${heroAnimated ? 'produk-hero-animated' : ''}`}>
-          <img src={kantorICP} alt="Kantor Infoduta Computindo Perkasa" className="produk-hero-image" />
-          <div className={`produk-hero-overlay ${heroAnimated ? 'produk-overlay-animated' : ''}`}></div>
-          <div className={`produk-hero-content ${heroAnimated ? 'produk-content-animated' : ''}`}>
+        <div
+          className={`produk-hero-section homepage-hero-section ${heroAnimated ? "produk-hero-animated" : ""}`}
+        >
+          <img
+            src={kantorICP}
+            alt="Kantor Infoduta Computindo Perkasa"
+            className="produk-hero-image"
+          />
+          <div
+            className={`produk-hero-overlay ${heroAnimated ? "produk-overlay-animated" : ""}`}
+          ></div>
+          <div
+            className={`produk-hero-content ${heroAnimated ? "produk-content-animated" : ""}`}
+          >
             <h1>Produk Infoduta</h1>
-            <p>Kami menyediakan segala solusi produk IT untuk kebutuhan Bisnis Anda</p>
+            <p>
+              Kami menyediakan segala solusi produk IT untuk kebutuhan Bisnis
+              Anda
+            </p>
             <button className="produk-hero-btn" onClick={scrollToMainContent}>
               Jelajahi Produk
             </button>
@@ -480,7 +519,9 @@ export default function Produk() {
                 {categories.map((cat, idx) => (
                   <li
                     key={idx}
-                    className={selectedCategory === cat.path ? "produk-active" : ""}
+                    className={
+                      selectedCategory === cat.path ? "produk-active" : ""
+                    }
                     onClick={() => handleCategoryClick(cat.path)}
                   >
                     {cat.name}
@@ -489,7 +530,7 @@ export default function Produk() {
               </ul>
 
               <h3 className="produk-filter-title">Filter</h3>
-              
+
               <div className="produk-filter-group">
                 <div className="produk-filter-header">
                   <span>Merk{selectedBrand ? `: ${selectedBrand}` : ""}</span>
@@ -540,7 +581,10 @@ export default function Produk() {
                 </select>
               </div>
 
-              <button className="produk-reset-filter-btn" onClick={resetFilters}>
+              <button
+                className="produk-reset-filter-btn"
+                onClick={resetFilters}
+              >
                 Reset Filter
               </button>
             </aside>
@@ -577,7 +621,9 @@ export default function Produk() {
                             alt={product.name}
                             className={`produk-product-image ${fade ? "produk-fade" : ""}`}
                           />
-                          <h4 className="produk-product-title">{product.name}</h4>
+                          <h4 className="produk-product-title">
+                            {product.name}
+                          </h4>
                         </div>
                       </div>
                     </div>
@@ -600,7 +646,10 @@ export default function Produk() {
           >
             <div className="produk-closeModalButton">
               {isMobile && (
-                <button className="produk-product-close-button" onClick={closeModal}>
+                <button
+                  className="produk-product-close-button"
+                  onClick={closeModal}
+                >
                   <X style={{ fontSize: "20px" }} />
                 </button>
               )}
