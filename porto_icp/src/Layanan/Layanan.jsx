@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import {
   FaCheck,
@@ -7,8 +6,8 @@ import {
   FaServer,
   FaNetworkWired,
   FaHeadset,
-  FaShieldAlt,
-  FaRocket,
+  FaChevronLeft,
+  FaChevronRight,
 } from "react-icons/fa";
 import "./layanan.css";
 
@@ -17,34 +16,67 @@ import Footer from "../Navigation/footer";
 import FAQ from "../Tentang/faq";
 import KontakContainer from "../Tentang/kontakContainer";
 
+// Import images
+import awardImg from "../assets/layanan/award.png";
+import consulItImg from "../assets/layanan/consul_it.png";
+import hardwareItImg from "../assets/layanan/hardware_it.png";
+import procureItImg from "../assets/layanan/procure_it.png";
+import serviceItImg from "../assets/layanan/service_it.png";
 import aiGeneratifProduk from "../assets/layanan/ai_generatif_produk.png";
 import aiGeneratifService from "../assets/layanan/ai_generatif_service.png";
 
 function Layanan() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isHeroVisible, setIsHeroVisible] = useState(false);
+  const [overlayOpacity, setOverlayOpacity] = useState(1);
+
+  const heroImages = [
+    { src: awardImg, alt: "Award" },
+    { src: consulItImg, alt: "Konsultasi IT" },
+    { src: hardwareItImg, alt: "Hardware IT" },
+    { src: procureItImg, alt: "Procurement IT" },
+    { src: serviceItImg, alt: "Service IT" },
+  ];
+
   useEffect(() => {
     window.scrollTo(0, 0);
+
+    // Hero text fade in animation
+    const timer = setTimeout(() => {
+      setIsHeroVisible(true);
+      setOverlayOpacity(0.5);
+    }, 100);
+
+    return () => clearTimeout(timer);
   }, []);
 
-  const [isVisible, setIsVisible] = useState(false);
-
+  // Auto slide
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 },
-    );
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroImages.length);
+    }, 5000);
 
-    const target = document.querySelector(".services-container");
-    if (target) observer.observe(target);
-    return () => observer.disconnect();
-  }, []);
+    return () => clearInterval(interval);
+  }, [heroImages.length]);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % heroImages.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + heroImages.length) % heroImages.length);
+  };
+
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
   const services = [
     {
-      icon: <FaCogs className="text-4xl text-blue-500" />,
+      icon: <FaCogs className="services-icon-svg" />,
       title: "Konsultasi IT",
       description:
         "Solusi konsultasi teknologi informasi terpadu untuk mengoptimalkan infrastruktur bisnis Anda",
@@ -55,21 +87,21 @@ function Layanan() {
       ],
     },
     {
-      icon: <FaServer className="text-4xl text-green-500" />,
+      icon: <FaServer className="services-icon-svg" />,
       title: "Hardware IT",
       description:
         "Penyediaan perangkat keras IT berkualitas tinggi dengan spesifikasi sesuai kebutuhan bisnis",
       features: ["Server Enterprise", "Workstation", "Networking Equipment"],
     },
     {
-      icon: <FaNetworkWired className="text-4xl text-purple-500" />,
+      icon: <FaNetworkWired className="services-icon-svg" />,
       title: "Procurement IT",
       description:
         "Layanan pengadaan perangkat IT dengan proses yang efisien dan harga kompetitif",
       features: ["Vendor Management", "Cost Optimization", "Quality Assurance"],
     },
     {
-      icon: <FaHeadset className="text-4xl text-orange-500" />,
+      icon: <FaHeadset className="services-icon-svg" />,
       title: "Service IT",
       description:
         "Dukungan teknis dan maintenance komprehensif untuk menjaga performa optimal sistem IT",
@@ -94,158 +126,277 @@ function Layanan() {
       </Helmet>
 
       <Navbar />
-      <div className="layanan-hero">
-        <div></div>
-        <div className="service-hero-content">
-          <h1 className="layanan-hero-title">Layanan</h1>
-          <div className="hero-divider"></div>
-          <p className="hero-subtitle">
-            Infoduta hadir sebagai solusi untuk bisnis anda dengan melayani
-            Pengadaan atau Penyewaan Produk IT.
-          </p>
-        </div>
-      </div>
 
-      <div className="services-container">
-        <h2 className="services-title">Layanan Kami</h2>
-        <div className="services-grid">
-          {services.map((service, index) => (
-            <div
-              key={index}
-              className={`service-card ${isVisible ? "visible" : ""}`}
-              style={{ transitionDelay: `${index * 0.1}s` }}
-            >
-              <div className="service-icon">{service.icon}</div>
-              <h3 className="service-title">{service.title}</h3>
-              <p className="service-description">{service.description}</p>
-              <ul className="service-features">
-                {service.features.map((feature, idx) => (
-                  <li key={idx}>{feature}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <section className="highlight-section">
-        <div className="highlight-container">
-          <div className="highlight-content">
-            <h2 className="highlight-title">Penjualan & Penyewaan Produk IT</h2>
-            <p className="highlight-text">
-              Infoduta menyediakan layanan penjualan dan penyewaan produk IT
-              terkini, mulai dari perangkat keras komputer, server, hingga
-              berbagai solusi jaringan dan teknologi informasi. Kami berkomitmen
-              memberikan produk berkualitas dengan harga kompetitif yang dapat
-              memenuhi kebutuhan bisnis dan individu Anda.
+      {/* Hero Page Section */}
+      <div className="services-hero-page homepage-hero-section">
+        <div 
+          className="services-hero-overlay" 
+          style={{ opacity: overlayOpacity }}
+        ></div>
+        
+        <div className="services-hero-content-wrapper">
+          {/* Left Group - Text Content */}
+          <div className={`services-hero-text-group ${isHeroVisible ? 'services-hero-visible' : ''}`}>
+            <h1 className="services-hero-title">Layanan Kami</h1>
+            <div className="services-hero-divider"></div>
+            <p className="services-hero-subtitle">
+              Infoduta hadir sebagai solusi untuk bisnis anda dengan melayani
+              Pengadaan atau Penyewaan Produk IT.
             </p>
-            <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  background: "#e8f5e8",
-                  padding: "0.5rem 1rem",
-                  borderRadius: "25px",
-                }}
+            <button 
+              className="services-hero-cta"
+              onClick={() => scrollToSection('services-navigation')}
+            >
+              Jelajahi Layanan
+            </button>
+          </div>
+
+          {/* Right Group - Image Slider */}
+          <div className={`services-hero-slider-group ${isHeroVisible ? 'services-hero-visible' : ''}`}>
+            <div className="services-hero-slideshow">
+              {heroImages.map((image, index) => (
+                <img
+                  key={index}
+                  src={image.src}
+                  alt={image.alt}
+                  className={`services-hero-slide ${
+                    index === currentSlide ? "services-slide-active" : ""
+                  }`}
+                />
+              ))}
+            </div>
+            
+            {/* Controls outside the image */}
+            <div className="services-hero-controls">
+              <button 
+                className="services-hero-nav services-hero-nav-prev" 
+                onClick={prevSlide}
+                aria-label="Previous slide"
               >
-                <FaRocket style={{ color: "#48bb78", marginRight: "0.5rem" }} />
-                <span
-                  style={{
-                    color: "#2d6e3e",
-                    fontSize: "0.9rem",
-                    fontWeight: "500",
-                  }}
-                >
+                <FaChevronLeft />
+              </button>
+              
+              <div className="services-hero-indicators">
+                {heroImages.map((_, index) => (
+                  <button
+                    key={index}
+                    className={`services-hero-indicator ${
+                      index === currentSlide ? "services-indicator-active" : ""
+                    }`}
+                    onClick={() => setCurrentSlide(index)}
+                    aria-label={`Go to slide ${index + 1}`}
+                  />
+                ))}
+              </div>
+              
+              <button 
+                className="services-hero-nav services-hero-nav-next" 
+                onClick={nextSlide}
+                aria-label="Next slide"
+              >
+                <FaChevronRight />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <main className="services-main-content">
+        
+        {/* Navigation Section */}
+        <section id="services-navigation" className="services-navigation-section">
+          <h2 className="services-section-title">Apa Saja Layanan yang Kami Sediakan?</h2>
+          <div className="services-navigation-grid">
+            <button 
+              className="services-nav-card"
+              onClick={() => scrollToSection('services-pengadaan')}
+            >
+              <div className="services-nav-image-wrapper">
+                <img 
+                  src={aiGeneratifProduk} 
+                  alt="Pengadaan dan Penjualan Produk IT" 
+                  className="services-nav-image"
+                />
+              </div>
+              <h3 className="services-nav-title">Pengadaan dan Penjualan Produk IT</h3>
+            </button>
+
+            <button 
+              className="services-nav-card"
+              onClick={() => scrollToSection('services-penyewaan')}
+            >
+              <div className="services-nav-image-wrapper">
+                <img 
+                  src={aiGeneratifProduk} 
+                  alt="Penyewaan Produk IT" 
+                  className="services-nav-image"
+                />
+              </div>
+              <h3 className="services-nav-title">Penyewaan Produk IT</h3>
+            </button>
+
+            <button 
+              className="services-nav-card"
+              onClick={() => scrollToSection('services-purnajual')}
+            >
+              <div className="services-nav-image-wrapper">
+                <img 
+                  src={aiGeneratifService} 
+                  alt="Layanan Purna Jual" 
+                  className="services-nav-image"
+                />
+              </div>
+              <h3 className="services-nav-title">Layanan Purna Jual</h3>
+            </button>
+          </div>
+        </section>
+
+        {/* Services Grid Section */}
+        <section className="services-grid-section">
+          <h2 className="services-section-title">Layanan Kami</h2>
+          <div className="services-cards-grid">
+            {services.map((service, index) => (
+              <div
+                key={index}
+                className="services-card"
+                style={{ transitionDelay: `${index * 0.1}s` }}
+              >
+                <div className="services-card-icon">{service.icon}</div>
+                <h3 className="services-card-title">{service.title}</h3>
+                <p className="services-card-description">{service.description}</p>
+                <ul className="services-card-features">
+                  {service.features.map((feature, idx) => (
+                    <li key={idx} className="services-feature-item">{feature}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Pengadaan Section */}
+        <section id="services-pengadaan" className="services-detail-section">
+          <div className="services-detail-container">
+            <div className="services-detail-content">
+              <h2 className="services-detail-title">Pengadaan dan Penjualan Produk IT</h2>
+              <p className="services-detail-text">
+                Infoduta menyediakan layanan penjualan dan pengadaan produk IT
+                terkini, mulai dari perangkat keras komputer, server, hingga
+                berbagai solusi jaringan dan teknologi informasi. Kami berkomitmen
+                memberikan produk berkualitas dengan harga kompetitif yang dapat
+                memenuhi kebutuhan bisnis dan individu Anda.
+              </p>
+              <div className="services-detail-badges">
+                <span className="services-badge services-badge-green">
                   Produk Terbaru
                 </span>
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  background: "#e8f4fd",
-                  padding: "0.5rem 1rem",
-                  borderRadius: "25px",
-                }}
-              >
-                <FaShieldAlt
-                  style={{ color: "#3182ce", marginRight: "0.5rem" }}
-                />
-                <span
-                  style={{
-                    color: "#2b5d8a",
-                    fontSize: "0.9rem",
-                    fontWeight: "500",
-                  }}
-                >
+                <span className="services-badge services-badge-blue">
                   Garansi Resmi
                 </span>
               </div>
             </div>
+            <div className="services-detail-image-wrapper">
+              <img
+                src={aiGeneratifProduk}
+                alt="Penjualan dan Pengadaan Produk IT"
+                className="services-detail-image"
+              />
+            </div>
           </div>
-          <img
-            src={aiGeneratifProduk}
-            alt="Penjualan dan Penyewaan Produk IT"
-            className="highlight-image"
-          />
-        </div>
-      </section>
+        </section>
 
-      <section className="highlight-section">
-        <div className="highlight-container reverse">
-          <img
-            src={aiGeneratifService}
-            alt="Layanan Purnajual Unggulan"
-            className="highlight-image"
-          />
-          <div className="highlight-content">
-            <h2 className="highlight-title">Layanan Purnajual Unggulan</h2>
-            <p className="highlight-text">
-              Sebagai bentuk komitmen kami terhadap kualitas dan kepuasan
-              pelanggan, layanan purnajual Infoduta menyediakan:
-            </p>
-            <ul className="highlight-list">
-              <li>
-                <FaCheck className="check-icon" />
-                <div>
-                  <strong>Servis Bergaransi:</strong> Setiap produk yang Anda
-                  beli atau sewa mendapatkan layanan servis bergaransi untuk
-                  memastikan performa optimal tanpa biaya tambahan selama masa
-                  garansi.
-                </div>
-              </li>
-              <li>
-                <FaCheck className="check-icon" />
-                <div>
-                  <strong>Konsultasi Alat IT Gratis:</strong> Kami menyediakan
-                  konsultasi profesional tentang peralatan dan solusi IT yang
-                  sesuai dengan kebutuhan Anda tanpa biaya tambahan.
-                </div>
-              </li>
-              <li>
-                <FaCheck className="check-icon" />
-                <div>
-                  <strong>Pengiriman dan Instalasi:</strong> Kami menawarkan
-                  layanan pengiriman dan instalasi produk IT di lokasi Anda
-                  untuk memastikan semua perangkat siap digunakan.
-                </div>
-              </li>
-              <li>
-                <FaCheck className="check-icon" />
-                <div>
-                  <strong>Pelatihan Penggunaan:</strong> Kami memberikan
-                  pelatihan penggunaan produk IT yang Anda beli atau sewa,
-                  sehingga Anda dapat memaksimalkan manfaat untuk perusahaan
-                  Anda dari teknologi yang diterima.
-                </div>
-              </li>
-            </ul>
+        {/* Penyewaan Section */}
+        <section id="services-penyewaan" className="services-detail-section services-detail-reverse">
+          <div className="services-detail-container">
+            <div className="services-detail-image-wrapper">
+              <img
+                src={aiGeneratifProduk}
+                alt="Penyewaan Produk IT"
+                className="services-detail-image"
+              />
+            </div>
+            <div className="services-detail-content">
+              <h2 className="services-detail-title">Penyewaan Produk IT</h2>
+              <p className="services-detail-text">
+                Selain pengadaan dan penyewaan Alat IT, infoduta.com juga
+                menyediakan layanan servis perangkat IT untuk kebutuhan Bisnis Anda. Sama
+                seperti layanan pengadaan, kami menyediakan berbagai macam
+                produk IT, kami menyediakan layanan Purna Jual seolah terdapat
+                kendala atau masalah selama produk masih dalam Masa Sewa.
+              </p>
+              <div className="services-detail-badges">
+                <span className="services-badge services-badge-purple">
+                  Fleksibel
+                </span>
+                <span className="services-badge services-badge-orange">
+                  Hemat Biaya
+                </span>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
-      <KontakContainer />
-      <FAQ />
+        </section>
+
+        {/* Purna Jual Section */}
+        <section id="services-purnajual" className="services-detail-section">
+          <div className="services-detail-container">
+            <div className="services-detail-content">
+              <h2 className="services-detail-title">Layanan Purnajual Unggulan</h2>
+              <p className="services-detail-text">
+                Sebagai bentuk komitmen kami terhadap kualitas dan kepuasan
+                pelanggan, layanan purnajual Infoduta menyediakan:
+              </p>
+              <ul className="services-detail-list">
+                <li className="services-detail-list-item">
+                  <FaCheck className="services-detail-check" />
+                  <div>
+                    <strong>Servis Bergaransi:</strong> Setiap produk yang Anda
+                    beli atau sewa mendapatkan layanan servis bergaransi untuk
+                    memastikan performa optimal tanpa biaya tambahan selama masa
+                    garansi.
+                  </div>
+                </li>
+                <li className="services-detail-list-item">
+                  <FaCheck className="services-detail-check" />
+                  <div>
+                    <strong>Konsultasi Alat IT Gratis:</strong> Kami menyediakan
+                    konsultasi profesional tentang peralatan dan solusi IT yang
+                    sesuai dengan kebutuhan Anda tanpa biaya tambahan.
+                  </div>
+                </li>
+                <li className="services-detail-list-item">
+                  <FaCheck className="services-detail-check" />
+                  <div>
+                    <strong>Pengiriman dan Instalasi:</strong> Kami menawarkan
+                    layanan pengiriman dan instalasi produk IT di lokasi Anda
+                    untuk memastikan semua perangkat siap digunakan.
+                  </div>
+                </li>
+                <li className="services-detail-list-item">
+                  <FaCheck className="services-detail-check" />
+                  <div>
+                    <strong>Pelatihan Penggunaan:</strong> Kami memberikan
+                    pelatihan penggunaan produk IT yang Anda beli atau sewa,
+                    sehingga Anda dapat memaksimalkan manfaat untuk perusahaan
+                    Anda dari teknologi yang diterima.
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div className="services-detail-image-wrapper">
+              <img
+                src={aiGeneratifService}
+                alt="Layanan Purnajual Unggulan"
+                className="services-detail-image"
+              />
+            </div>
+          </div>
+        </section>
+
+        <KontakContainer />
+        <FAQ />
+      </main>
+
       <Footer />
     </>
   );

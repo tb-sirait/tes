@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+// KontakContainer.jsx
+import React, { useState, useEffect } from "react";
 import {
   FaEnvelope,
   FaWhatsapp,
@@ -15,53 +16,73 @@ function KontakContainer() {
   const openModal = () => setModalOpen(true);
   const closeModal = () => setModalOpen(false);
 
+  // Fungsi untuk mengecek status aktif berdasarkan waktu
+  const isActiveTime = () => {
+    const now = new Date();
+    const hour = now.getHours();
+    // Aktif jika jam 8 pagi sampai sebelum jam 5 sore (08:00 - 16:59)
+    return hour >= 8 && hour < 17;
+  };
+
+  const salesData = [
+    { name: "Sales Admin 1", email: "sales.1@infoduta.com" },
+    { name: "Sales Admin 2", email: "sales.2@infoduta.com" },
+    { name: "Sales Admin 3", email: "sales.3@infoduta.com" },
+    { name: "Sales Admin 6", email: "sales.6@infoduta.com" },
+    { name: "Sales Admin 7", email: "sales.7@infoduta.com" },
+  ];
+
+  const [activeStatus, setActiveStatus] = useState(isActiveTime());
+
+  useEffect(() => {
+    // Update status setiap menit
+    const interval = setInterval(() => {
+      setActiveStatus(isActiveTime());
+    }, 60000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <>
-      <section className="kontak" style={{ padding: "50px 0" }}>
-        <h2 style={{ fontSize: "45px" }}>Our Contact</h2>
-        <div className="section-divider" style={{ marginBottom: "20px" }}></div>
-        <p style={{ marginBottom: "18px", fontSize: "18px" }}>
+      <section className="con-section">
+        <h2 className="con-title">Our Contact</h2>
+        <div className="con-divider"></div>
+        <p className="con-subtitle">
           Untuk informasi lebih lanjut, silakan hubungi kami melalui:
         </p>
 
-        <div className="kontak-container" style={{ maxWidth: "1200px" }}>
+        <div className="con-container">
           {/* Kotak Map */}
-          <div className="map-box">
-            <div className="gmap_canvas">
+          <div className="con-map-box">
+            <div className="con-gmap-canvas">
               <iframe
-                className="gmap_iframe"
+                className="con-gmap-iframe"
                 src="https://maps.google.com/maps?q=PT+infoduta&t=&z=13&ie=UTF8&iwloc=&output=embed"
                 frameBorder="0"
                 scrolling="no"
                 marginHeight="0"
                 marginWidth="0"
+                title="Google Maps PT Infoduta"
               ></iframe>
             </div>
           </div>
 
           {/* Kotak Kontak */}
-          <div className="kontak-box">
-            <div className="kontak-item">
-              <FaEnvelope className="icon" />
+          <div className="con-info-box">
+            <div className="con-item">
+              <FaEnvelope className="con-icon" />
               <span>dewi.handayani@infoduta.com</span>
             </div>
             <a
               href="#"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                textDecoration: "none",
-                color: "white",
-                gap: "10px",
-                display: "flex",
-                alignItems: "left",
-              }}
+              className="con-link"
               onClick={(e) => {
                 e.preventDefault();
                 openModal();
               }}
             >
-              <FaEnvelope className="icon" />
+              <FaEnvelope className="con-icon" />
               <span>Hubungi Admin Sales</span>
             </a>
             <a
@@ -70,24 +91,17 @@ function KontakContainer() {
                 e.preventDefault();
                 setSalesModalOpen(true);
               }}
-              style={{
-                textDecoration: "none",
-                color: "white",
-                gap: "10px",
-                display: "flex",
-                alignItems: "left",
-                cursor: "pointer",
-              }}
+              className="con-link"
             >
-              <FaWhatsapp className="icon" />
+              <FaWhatsapp className="con-icon" />
               <span>Hubungi Tim Sales WhatsApp</span>
             </a>
-            <div className="kontak-item">
-              <FaPhone className="icon" />
+            <div className="con-item">
+              <FaPhone className="con-icon" />
               <span>(021) 3983-1939</span>
             </div>
-            <div className="kontak-item">
-              <FaMapMarkerAlt className="icon" />
+            <div className="con-item">
+              <FaMapMarkerAlt className="con-icon" />
               <div>
                 <strong>PT. Infoduta Computindo Perkasa</strong>
                 <br />
@@ -101,45 +115,48 @@ function KontakContainer() {
           </div>
         </div>
       </section>
+
+      {/* Modal Daftar Email Admin Sales */}
       {modalOpen && (
-        <div className="modal-backdrop" onClick={closeModal}>
-          <div className="modal-container" onClick={(e) => e.stopPropagation()}>
-            <h2 className="modal-title">Daftar Email Admin Sales</h2>
-            <ul className="email-list">
-              <li>
-                <a href="mailto:sales.1@infoduta.com" className="email-link">
-                  sales.1@infoduta.com
+        <div className="con-modal-backdrop" onClick={closeModal}>
+          <div
+            className="con-modal-container"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h2 className="con-modal-title">Daftar Admin Sales</h2>
+            <div className="con-sales-list">
+              {salesData.map((sales, index) => (
+                <a
+                  key={index}
+                  href={`mailto:${sales.email}`}
+                  className="con-sales-card"
+                >
+                  <div className="con-sales-info">
+                    <div className="con-sales-name">{sales.name}</div>
+                    <div className="con-sales-email">{sales.email}</div>
+                  </div>
+                  <div className="con-sales-status">
+                    <span
+                      className={`con-status-badge ${
+                        activeStatus ? "con-active" : "con-inactive"
+                      }`}
+                    >
+                      {activeStatus ? "● Aktif" : "● Tidak Aktif"}
+                    </span>
+                  </div>
                 </a>
-              </li>
-              <li>
-                <a href="mailto:sales.2@infoduta.com" className="email-link">
-                  sales.2@infoduta.com
-                </a>
-              </li>
-              <li>
-                <a href="mailto:sales.3@infoduta.com" className="email-link">
-                  sales.3@infoduta.com
-                </a>
-              </li>
-              <li>
-                <a href="mailto:sales.6@infoduta.com" className="email-link">
-                  sales.6@infoduta.com
-                </a>
-              </li>
-              <li>
-                <a href="mailto:sales.7@infoduta.com" className="email-link">
-                  sales.7@infoduta.com
-                </a>
-              </li>
-            </ul>
-            <div className="modal-footer">
-              <button onClick={closeModal} className="cancel-btn">
-                Close
+              ))}
+            </div>
+            <div className="con-modal-footer">
+              <button onClick={closeModal} className="con-close-btn">
+                Tutup
               </button>
             </div>
           </div>
         </div>
       )}
+
+      {/* Modal Sales WhatsApp */}
       <SalesModal
         isOpen={salesModalOpen}
         onClose={() => setSalesModalOpen(false)}

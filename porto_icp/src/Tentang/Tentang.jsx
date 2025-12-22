@@ -35,6 +35,8 @@ import Navbar from "../Navigation/Navbar";
 import Footer from "../Navigation/footer";
 import KontakContainer from "./kontakContainer";
 
+import { Helmet } from "react-helmet";
+
 function Tentang() {
   const [showMainContent, setShowMainContent] = useState(false);
 
@@ -62,6 +64,22 @@ function Tentang() {
     { src: plnLogo, alt: "PLN" },
   ];
 
+  useEffect(() => {
+  if (!showMainContent) {
+    // Matikan scroll
+    document.body.style.overflow = "hidden";
+  } else {
+    // Aktifkan kembali scroll
+    document.body.style.overflow = "auto";
+  }
+
+  // Cleanup saat component unmount
+  return () => {
+    document.body.style.overflow = "auto";
+  };
+}, [showMainContent]);
+
+
   const handleScrollToContent = () => {
     setShowMainContent(true);
     // Scroll ke posisi 0 (top) terlebih dahulu
@@ -86,6 +104,18 @@ function Tentang() {
   return (
     <>
       <Navbar />
+      <Helmet>
+        <title>Tentang Kami | PT Infoduta Computindo Perkasa</title>
+        <meta
+          name="description"
+          content="Pelajari lebih lanjut tentang PT Infoduta Computindo Perkasa, perusahaan IT terpercaya yang telah melayani klien selama lebih dari 29 tahun dengan solusi teknologi informasi terbaik."
+        />
+        <meta
+          name="keywords"
+          content="Tentang Infoduta, Visi Misi Infoduta, Struktur Organisasi Infoduta, Brand Partner Infoduta, Rekan Kerja Infoduta, Perusahaan IT Indonesia"
+        />
+        <link rel="canonical" href="https://www.infoduta.com/tentang" />
+      </Helmet>
       
       <div className="tentang-page">
         {/* Hero Section - Full Screen */}
