@@ -191,7 +191,7 @@
 
 /* Buat area hover yang lebih besar dengan pseudo-element */
 .dropdown::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -20px;
@@ -245,7 +245,7 @@
 
 /* Tambahkan bridge area untuk smooth transition */
 .dropdown-menu::before {
-  content: '';
+  content: "";
   position: absolute;
   top: -1rem;
   left: 0;

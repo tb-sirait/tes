@@ -12,7 +12,7 @@ function Karir() {
     name: "",
     phone: "",
     email: "",
-    message: ""
+    message: "",
   });
   const [selectedJob, setSelectedJob] = useState(null);
   const [expandedJob, setExpandedJob] = useState(null);
@@ -45,7 +45,7 @@ function Karir() {
       name: "",
       phone: "",
       email: "",
-      message: ""
+      message: "",
     });
     setSelectedJob(null);
     document.body.style.overflow = "unset";
@@ -106,7 +106,8 @@ function Karir() {
     }
 
     // Generate WhatsApp message
-    const message = `*Lamaran Pekerjaan - ${selectedJob.title}*%0A%0A` +
+    const message =
+      `*Lamaran Pekerjaan - ${selectedJob.title}*%0A%0A` +
       `Nama: ${formData.name}%0A` +
       `Nomor Telepon: ${formData.phone}%0A` +
       `Email: ${formData.email}%0A` +
@@ -119,7 +120,7 @@ function Karir() {
 
     // Open WhatsApp
     window.open(whatsappUrl, "_blank");
-    
+
     closeModal();
   };
 
@@ -128,10 +129,13 @@ function Karir() {
   };
 
   // Filter jobs based on search and filter
-  const filteredJobs = jobsData.filter(job => {
-    const matchesSearch = job.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         job.description.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesFilter = filterType === "all" || job.type.toLowerCase() === filterType.toLowerCase();
+  const filteredJobs = jobsData.filter((job) => {
+    const matchesSearch =
+      job.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      job.description.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesFilter =
+      filterType === "all" ||
+      job.type.toLowerCase() === filterType.toLowerCase();
     return matchesSearch && matchesFilter;
   });
 
@@ -155,22 +159,31 @@ function Karir() {
 
       <div className="karir-page">
         {/* Hero Section */}
-        <section className={`karir-hero-section home-hero-section ${heroLoaded ? 'karir-hero-loaded' : ''}`}>
-          <img 
-            src={kantorICP} 
-            alt="Kantor Infoduta Computindo Perkasa" 
+        <section
+          className={`karir-hero-section home-hero-section ${heroLoaded ? "karir-hero-loaded" : ""}`}
+        >
+          <img
+            src={kantorICP}
+            alt="Kantor Infoduta Computindo Perkasa"
             className="karir-hero-background"
           />
           <div className="karir-hero-overlay"></div>
           <div className="karir-hero-content">
             <h1 className="karir-hero-title">Karir di Infoduta</h1>
             <p className="karir-hero-description">
-              Mari bergabung untuk bertumbuh dan berkembang bersama dengan Infoduta
+              Mari bergabung untuk bertumbuh dan berkembang bersama dengan
+              Infoduta
             </p>
             <button className="karir-hero-button" onClick={scrollToContent}>
               Jelajahi Karir Infoduta
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <path d="M12 5V19M12 19L5 12M12 19L19 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path
+                  d="M12 5V19M12 19L5 12M12 19L19 12"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
             </button>
           </div>
@@ -187,8 +200,19 @@ function Karir() {
             {/* Search and Filter Section */}
             <div className="karir-search-filter">
               <div className="karir-search-box">
-                <svg className="karir-search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
-                  <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                <svg
+                  className="karir-search-icon"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+                  <path
+                    d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
                 </svg>
                 <input
                   type="text"
@@ -225,7 +249,10 @@ function Karir() {
               ) : (
                 filteredJobs.map((job) => (
                   <div key={job.id} className="karir-job-card">
-                    <div className="karir-job-header" onClick={() => toggleExpand(job.id)}>
+                    <div
+                      className="karir-job-header"
+                      onClick={() => toggleExpand(job.id)}
+                    >
                       <div className="karir-job-header-left">
                         <h3 className="karir-job-title">{job.title}</h3>
                         <p className="karir-job-meta">
@@ -234,13 +261,19 @@ function Karir() {
                       </div>
                       <button className="karir-expand-button">
                         <svg
-                          className={`karir-expand-icon ${expandedJob === job.id ? 'karir-expanded' : ''}`}
+                          className={`karir-expand-icon ${expandedJob === job.id ? "karir-expanded" : ""}`}
                           width="24"
                           height="24"
                           viewBox="0 0 24 24"
                           fill="none"
                         >
-                          <path d="M19 9L12 16L5 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                          <path
+                            d="M19 9L12 16L5 9"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
                         </svg>
                       </button>
                     </div>
@@ -252,10 +285,15 @@ function Karir() {
                         </div>
 
                         <div className="karir-job-requirements">
-                          <h4 className="karir-requirements-title">Persyaratan:</h4>
+                          <h4 className="karir-requirements-title">
+                            Persyaratan:
+                          </h4>
                           <ul className="karir-requirements-list">
                             {job.requirements.map((req, index) => (
-                              <li key={index} className="karir-requirement-item">
+                              <li
+                                key={index}
+                                className="karir-requirement-item"
+                              >
                                 {req}
                               </li>
                             ))}
@@ -267,8 +305,19 @@ function Karir() {
                           onClick={() => openModal(job)}
                         >
                           Lamar Sekarang
-                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                          >
+                            <path
+                              d="M5 12H19M19 12L12 5M19 12L12 19"
+                              stroke="currentColor"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
                           </svg>
                         </button>
                       </div>
@@ -285,14 +334,23 @@ function Karir() {
         {/* Modal */}
         {modalOpen && (
           <div className="karir-modal-backdrop" onClick={closeModal}>
-            <div className="karir-modal-container" onClick={(e) => e.stopPropagation()}>
+            <div
+              className="karir-modal-container"
+              onClick={(e) => e.stopPropagation()}
+            >
               <div className="karir-modal-header">
                 <h2 className="karir-modal-title">
                   Form Lamaran - {selectedJob?.title}
                 </h2>
                 <button className="karir-modal-close" onClick={closeModal}>
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path
+                      d="M18 6L6 18M6 6L18 18"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
                   </svg>
                 </button>
               </div>
@@ -362,7 +420,11 @@ function Karir() {
                 </div>
 
                 <div className="karir-form-actions">
-                  <button type="button" onClick={closeModal} className="karir-cancel-button">
+                  <button
+                    type="button"
+                    onClick={closeModal}
+                    className="karir-cancel-button"
+                  >
                     Batal
                   </button>
                   <button type="submit" className="karir-submit-button">

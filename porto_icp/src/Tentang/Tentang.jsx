@@ -184,15 +184,16 @@ function Tentang() {
                   <div className="tentang-text-content">
                     <p>
                       <strong>PT Infoduta Computindo Perkasa</strong> adalah
-                      perusahaan B2B (Business to Business) yang bergerak di bidang Teknologi Informasi
-                      (IT), yang menyediakan layanan pengadaan serta penyewaan
-                      produk IT (hardware, software, dan produk pendukung
-                      lainnya). Selain itu, Infoduta juga memberikan layanan
-                      pemeliharaan dan dukungan teknis untuk memastikan
-                      operasional sistem IT pada setiap klien berjalan optimal.
-                      Saat ini, PT Infoduta Computindo Perkasa telah dipercaya
-                      oleh berbagai perusahaan terkemuka di Indonesia sebagai
-                      mitra dalam pemenuhan kebutuhan teknologi informasi.
+                      perusahaan B2B (Business to Business) yang bergerak di
+                      bidang Teknologi Informasi (IT), yang menyediakan layanan
+                      pengadaan serta penyewaan produk IT (hardware, software,
+                      dan produk pendukung lainnya). Selain itu, Infoduta juga
+                      memberikan layanan pemeliharaan dan dukungan teknis untuk
+                      memastikan operasional sistem IT pada setiap klien
+                      berjalan optimal. Saat ini, PT Infoduta Computindo Perkasa
+                      telah dipercaya oleh berbagai perusahaan terkemuka di
+                      Indonesia sebagai mitra dalam pemenuhan kebutuhan
+                      teknologi informasi.
                     </p>
                     <p>
                       <strong>PT Infoduta Computindo Perkasa</strong> telah

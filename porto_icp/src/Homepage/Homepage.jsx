@@ -176,13 +176,9 @@ function Homepage() {
           style={{ opacity: overlayOpacity }}
         ></div>
 
-        <div
-          className={`home-hero-content ${contentVisible ? "visible" : ""}`}
-        >
+        <div className={`home-hero-content ${contentVisible ? "visible" : ""}`}>
           <div className="home-hero-content-inner">
-            <h1 className="home-hero-title">
-              PT. Infoduta Computindo Perkasa
-            </h1>
+            <h1 className="home-hero-title">PT. Infoduta Computindo Perkasa</h1>
             <h2 className="home-hero-subtitle">
               Solusi Pengadaan Produk IT Terbaik
               <br />

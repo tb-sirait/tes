@@ -87,11 +87,7 @@ function Navbar() {
       }
     >
       <div className="navbar-container">
-        <a
-          href="/"
-          className="logo-with-text"
-          onClick={closeMenu}
-        >
+        <a href="/" className="logo-with-text" onClick={closeMenu}>
           <img src={logoICP} alt="Logo ICP" className="logo" />
           <div className="teks">
             <p
@@ -153,30 +149,44 @@ function Navbar() {
                   {dropdownVisible ? "▲" : "▼"}
                 </button>
               </div>
-              <ul 
+              <ul
                 className={`dropdown-menu ${dropdownVisible ? "show" : ""}`}
-                style={{ display: dropdownVisible ? 'block' : 'none' }}
+                style={{ display: dropdownVisible ? "block" : "none" }}
               >
                 <li>
-                  <a href="/produk/software" onClick={closeMenu}>Software</a>
+                  <a href="/produk/software" onClick={closeMenu}>
+                    Software
+                  </a>
                 </li>
                 <li>
-                  <a href="/produk/hardware" onClick={closeMenu}>Hardware</a>
+                  <a href="/produk/hardware" onClick={closeMenu}>
+                    Hardware
+                  </a>
                 </li>
                 <li>
-                  <a href="/produk/sparepart" onClick={closeMenu}>Sparepart</a>
+                  <a href="/produk/sparepart" onClick={closeMenu}>
+                    Sparepart
+                  </a>
                 </li>
                 <li>
-                  <a href="/produk/Computer" onClick={closeMenu}>Komputer</a>
+                  <a href="/produk/Computer" onClick={closeMenu}>
+                    Komputer
+                  </a>
                 </li>
                 <li>
-                  <a href="/produk/laptop" onClick={closeMenu}>Laptop</a>
+                  <a href="/produk/laptop" onClick={closeMenu}>
+                    Laptop
+                  </a>
                 </li>
                 <li>
-                  <a href="/produk/smartphone" onClick={closeMenu}>Smartphone</a>
+                  <a href="/produk/smartphone" onClick={closeMenu}>
+                    Smartphone
+                  </a>
                 </li>
                 <li>
-                  <a href="/produk/server" onClick={closeMenu}>Server</a>
+                  <a href="/produk/server" onClick={closeMenu}>
+                    Server
+                  </a>
                 </li>
               </ul>
             </li>

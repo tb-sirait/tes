@@ -55,7 +55,9 @@
   max-width: 800px;
   opacity: 0;
   transform: scale(0.8);
-  transition: opacity 1s ease-out 0.3s, transform 1s ease-out 0.3s;
+  transition:
+    opacity 1s ease-out 0.3s,
+    transform 1s ease-out 0.3s;
 }
 
 .karir-hero-section.karir-hero-loaded .karir-hero-content {
