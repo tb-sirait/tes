@@ -101,7 +101,7 @@ function Homepage() {
       image: AboutImage,
       route: "/tentang",
       description:
-        "Lorem ipsum dolor sit amet consectetur. Viverra amet lacus urna euismod in fermentum vitae. Sed sed enim semper id.",
+        "PT Infoduta Computindo Perkasa adalah perusahaan B2B (Business to Business) yang bergerak di bidang Teknologi Informasi (IT), yang menyediakan layanan pengadaan serta penyewaan produk IT (hardware, software, dan produk pendukung lainnya). Selain itu, Infoduta juga memberikan layanan pemeliharaan dan dukungan teknis untuk memastikan operasional sistem IT pada setiap klien berjalan optimal. Saat ini, PT Infoduta Computindo Perkasa telah dipercaya oleh berbagai perusahaan terkemuka di Indonesia sebagai mitra dalam pemenuhan kebutuhan teknologi informasi.",
     },
     {
       id: "layanan",
@@ -109,7 +109,7 @@ function Homepage() {
       image: ServicesImage,
       route: "/layanan",
       description:
-        "Lorem ipsum dolor sit amet consectetur. Viverra amet lacus urna euismod in fermentum vitae. Sed sed enim semper id.",
+        "Infoduta hadir sebagai solusi untuk bisnis anda dengan melayani Pengadaan atau Penyewaan Produk IT. Kami menyediakan berbagai produk IT berkualitas dari merek-merek ternama, serta layanan pemeliharaan dan dukungan teknis untuk memastikan sistem IT anda berjalan optimal.",
     },
     {
       id: "produk",
@@ -117,12 +117,12 @@ function Homepage() {
       image: WorkstationImage,
       route: "/produk",
       description:
-        "Lorem ipsum dolor sit amet consectetur. Viverra amet lacus urna euismod in fermentum vitae. Sed sed enim semper id.",
+        "Jelajahi berbagai produk IT berkualitas tinggi dari merek-merek ternama yang kami sediakan. Dari perangkat keras hingga perangkat lunak, Infoduta siap memenuhi kebutuhan teknologi informasi bisnis Anda. Kami juga menyediakan layanan pemeliharaan dan dukungan teknis untuk memastikan sistem IT anda berjalan optimal.",
     },
   ];
 
   return (
-    <div className="homepage-container">
+    <div className="home-container">
       <Helmet>
         <title>
           PT. Infoduta Computindo Perkasa | Solusi Pengadaan Produk IT terbaik
@@ -165,32 +165,32 @@ function Homepage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="homepage-hero-section" id="hero-section">
+      <section className="home-hero-section" id="hero-section">
         <img
           alt="HR Building Wahid Hasyim"
-          className="homepage-hero-image"
+          className="home-hero-image"
           src={KantorImage}
         />
         <div
-          className="homepage-hero-overlay"
+          className="home-hero-overlay"
           style={{ opacity: overlayOpacity }}
         ></div>
 
         <div
-          className={`homepage-hero-content ${contentVisible ? "visible" : ""}`}
+          className={`home-hero-content ${contentVisible ? "visible" : ""}`}
         >
-          <div className="homepage-hero-content-inner">
-            <h1 className="homepage-hero-title">
+          <div className="home-hero-content-inner">
+            <h1 className="home-hero-title">
               PT. Infoduta Computindo Perkasa
             </h1>
-            <h2 className="homepage-hero-subtitle">
+            <h2 className="home-hero-subtitle">
               Solusi Pengadaan Produk IT Terbaik
               <br />
               Untuk Bisnis Anda
             </h2>
             <button
               onClick={handleExploreClick}
-              className="explore-button"
+              className="home-explore-button"
               aria-label="Jelajahi layanan kami"
             >
               Jelajah Sekarang
@@ -213,45 +213,45 @@ function Homepage() {
       </section>
 
       {/* Main Content */}
-      <main ref={mainContentRef} className="homepage-main-content">
-        <div className="container-2">
+      <main ref={mainContentRef} className="home-main-content">
+        <div className="home-container-2">
           {/* Section Header */}
-          <div className="section-header">
-            <h2 className="section-title">Jelajahi Infoduta</h2>
-            <p className="section-description">
+          <div className="home-section-header">
+            <h2 className="home-section-title">Jelajahi Infoduta</h2>
+            <p className="home-section-description">
               Lebih dekat dengan perusahaan kami dan temukan produk dan layanan
               sesuai keinginan Anda.
             </p>
           </div>
 
           {/* Navigation Cards */}
-          <div className="cards-grid">
+          <div className="home-cards-grid">
             {navigationItems.map((item, index) => (
               <div
                 key={item.id}
                 ref={(el) => (cardRefs.current[index] = el)}
                 onClick={() => navigate(item.route)}
-                className={`card ${cardsVisible[index] ? "card-visible" : ""}`}
+                className={`home-card ${cardsVisible[index] ? "home-card-visible" : ""}`}
               >
                 {/* Icon Container - di kiri */}
-                <div className="card-icon-container">
+                <div className="home-card-icon-container">
                   <img
                     alt={`${item.title} icon`}
-                    className="card-icon"
+                    className="home-card-icon"
                     src={item.image}
                   />
                 </div>
 
                 {/* Content - di kanan */}
-                <div className="card-content">
-                  <h3 className="card-title">{item.title}</h3>
-                  <p className="card-description">{item.description}</p>
+                <div className="home-card-content">
+                  <h3 className="home-card-title">{item.title}</h3>
+                  <p className="home-card-description">{item.description}</p>
 
                   {/* Call to Action */}
-                  <div className="card-cta">
+                  <div className="home-card-cta">
                     <span>Selengkapnya</span>
                     <svg
-                      className="card-arrow"
+                      className="home-card-arrow"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"

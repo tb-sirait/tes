@@ -120,7 +120,7 @@ function Tentang() {
       <div className="tentang-page">
         {/* Hero Section - Full Screen */}
         <section
-          className={`tentang-hero homepage-hero-section ${showMainContent ? "tentang-hero-hidden" : ""}`}
+          className={`tentang-hero home-hero-section ${showMainContent ? "tentang-hero-hidden" : ""}`}
         >
           <div className="tentang-hero-overlay"></div>
           <img
@@ -184,7 +184,7 @@ function Tentang() {
                   <div className="tentang-text-content">
                     <p>
                       <strong>PT Infoduta Computindo Perkasa</strong> adalah
-                      perusahaan yang bergerak di bidang Teknologi Informasi
+                      perusahaan B2B (Business to Business) yang bergerak di bidang Teknologi Informasi
                       (IT), yang menyediakan layanan pengadaan serta penyewaan
                       produk IT (hardware, software, dan produk pendukung
                       lainnya). Selain itu, Infoduta juga memberikan layanan

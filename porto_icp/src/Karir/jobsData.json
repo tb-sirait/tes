@@ -1,0 +1,36 @@
+[
+  {
+    "id": 1,
+    "title": "Marketing",
+    "type": "Full-time",
+    "location": "Menteng, Jakarta Pusat",
+    "requirements": [
+      "Lulusan S1, dengan pengalaman marketing minimal 2 tahun",
+      "Usia maksimal 30 tahun",
+      "Mahir menggunakan gadget, komputer dan aplikasi Microsoft Office",
+      "Terbiasa menggunakan platform marketplace (Shopee, TikTok, Tokopedia, Blibli, Lazada)",
+      "Bisa Live Streaming / Shop Live",
+      "Luwes, cekatan, mampu bekerja sama dengan tim",
+      "Bersedia bekerja dengan target dan dalam situasi yang dinamis",
+      "Komunikatif dan memiliki kemampuan layanan pelanggan yang baik",
+      "Memiliki minat di dunia e-commerce dan pemasaran digital"
+    ],
+    "description": "Bergabunglah dengan tim marketing kami untuk mengembangkan strategi pemasaran digital yang inovatif."
+  },
+  {
+    "id": 2,
+    "title": "Customer Service",
+    "type": "Full-time",
+    "location": "Menteng, Jakarta Pusat",
+    "requirements": [
+      "Minimal lulusan SMA/SMK",
+      "Pengalaman customer service minimal 1 tahun",
+      "Komunikatif dan sabar dalam melayani pelanggan",
+      "Mahir menggunakan komputer dan aplikasi office",
+      "Mampu multitasking dan bekerja di bawah tekanan",
+      "Memiliki kemampuan problem solving yang baik",
+      "Bersedia bekerja shift"
+    ],
+    "description": "Berikan pelayanan terbaik kepada pelanggan dan jadilah wajah perusahaan yang ramah."
+  }
+]

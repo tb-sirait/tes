@@ -452,7 +452,7 @@ export default function Produk() {
       <main className="produk-main-container">
         {/* Hero Section */}
         <div
-          className={`produk-hero-section homepage-hero-section ${heroAnimated ? "produk-hero-animated" : ""}`}
+          className={`produk-hero-section home-hero-section ${heroAnimated ? "produk-hero-animated" : ""}`}
         >
           <img
             src={kantorICP}

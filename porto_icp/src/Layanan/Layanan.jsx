@@ -130,7 +130,7 @@ function Layanan() {
       <Navbar />
 
       {/* Hero Page Section */}
-      <div className="services-hero-page homepage-hero-section">
+      <div className="services-hero-page home-hero-section">
         <div
           className="services-hero-overlay"
           style={{ opacity: overlayOpacity }}

@@ -8,22 +8,11 @@ function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    // Gunakan Intersection Observer untuk detect hero section
-    const heroSection = document.querySelector(".homepage-hero-section");
+    const heroSection = document.querySelector(".home-hero-section");
 
     if (heroSection) {
       const observer = new IntersectionObserver(
         ([entry]) => {
-          // Ketika hero section TIDAK terlihat (keluar dari viewport)
-          // berarti user sudah scroll melewati hero
-          console.log(
-            "Hero visible:",
-            entry.isIntersecting,
-            "Intersection ratio:",
-            entry.intersectionRatio,
-          );
-
-          // Jika hero section kurang dari 30% terlihat, set scrolled = true
           if (entry.intersectionRatio < 0.3) {
             setIsScrolled(true);
           } else {
@@ -31,7 +20,6 @@ function Navbar() {
           }
         },
         {
-          // Threshold: trigger saat 30% hero masih terlihat
           threshold: [0, 0.3, 0.5, 0.7, 1.0],
           rootMargin: "0px",
         },
@@ -43,20 +31,42 @@ function Navbar() {
         observer.disconnect();
       };
     } else {
-      // Jika tidak ada hero section, set scrolled = true (halaman lain)
       setIsScrolled(true);
     }
   }, []);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
+    // Reset dropdown saat menu ditutup
+    if (menuOpen) {
+      setDropdownVisible(false);
+    }
+  };
+
+  const toggleDropdown = (e) => {
+    // Stop propagation agar tidak trigger link
+    e.preventDefault();
+    e.stopPropagation();
+    console.log("Toggle dropdown, current state:", dropdownVisible);
+    setDropdownVisible(!dropdownVisible);
   };
 
   const handleDropdownEnter = () => {
-    setDropdownVisible(true);
+    // Hanya untuk desktop - set state untuk sinkronisasi
+    if (window.innerWidth > 1024) {
+      setDropdownVisible(true);
+    }
   };
 
   const handleDropdownLeave = () => {
+    // Hanya untuk desktop - set state untuk sinkronisasi
+    if (window.innerWidth > 1024) {
+      setDropdownVisible(false);
+    }
+  };
+
+  const closeMenu = () => {
+    setMenuOpen(false);
     setDropdownVisible(false);
   };
 
@@ -80,7 +90,7 @@ function Navbar() {
         <a
           href="/"
           className="logo-with-text"
-          onClick={() => setMenuOpen(false)}
+          onClick={closeMenu}
         >
           <img src={logoICP} alt="Logo ICP" className="logo" />
           <div className="teks">
@@ -105,7 +115,7 @@ function Navbar() {
           aria-label="Toggle menu"
           style={{ color: isScrolled ? "#1f2937" : "white" }}
         >
-          &#9776;
+          {menuOpen ? "✕" : "☰"}
         </button>
 
         <nav className="nav-menu">
@@ -114,7 +124,7 @@ function Navbar() {
               <a
                 className="nav-link"
                 href="/"
-                onClick={() => setMenuOpen(false)}
+                onClick={closeMenu}
                 style={{ color: isScrolled ? "#1f2937" : "white" }}
               >
                 Beranda
@@ -126,34 +136,47 @@ function Navbar() {
               onMouseEnter={handleDropdownEnter}
               onMouseLeave={handleDropdownLeave}
             >
-              <a
-                className="nav-link"
-                href="/produk"
-                style={{ color: isScrolled ? "#1f2937" : "white" }}
+              <div className="dropdown-toggle-wrapper">
+                <a
+                  className="nav-link"
+                  href="/produk"
+                  style={{ color: isScrolled ? "#1f2937" : "white" }}
+                >
+                  Produk
+                </a>
+                <button
+                  className="dropdown-arrow-btn"
+                  onClick={toggleDropdown}
+                  aria-label="Toggle dropdown produk"
+                  style={{ color: isScrolled ? "#1f2937" : "white" }}
+                >
+                  {dropdownVisible ? "▲" : "▼"}
+                </button>
+              </div>
+              <ul 
+                className={`dropdown-menu ${dropdownVisible ? "show" : ""}`}
+                style={{ display: dropdownVisible ? 'block' : 'none' }}
               >
-                Produk
-              </a>
-              <ul className={`dropdown-menu ${dropdownVisible ? "show" : ""}`}>
                 <li>
-                  <a href="/produk/software">Software</a>
+                  <a href="/produk/software" onClick={closeMenu}>Software</a>
                 </li>
                 <li>
-                  <a href="/produk/hardware">Hardware</a>
+                  <a href="/produk/hardware" onClick={closeMenu}>Hardware</a>
                 </li>
                 <li>
-                  <a href="/produk/sparepart">Sparepart</a>
+                  <a href="/produk/sparepart" onClick={closeMenu}>Sparepart</a>
                 </li>
                 <li>
-                  <a href="/produk/Computer">Komputer</a>
+                  <a href="/produk/Computer" onClick={closeMenu}>Komputer</a>
                 </li>
                 <li>
-                  <a href="/produk/laptop">Laptop</a>
+                  <a href="/produk/laptop" onClick={closeMenu}>Laptop</a>
                 </li>
                 <li>
-                  <a href="/produk/smartphone">Smartphone</a>
+                  <a href="/produk/smartphone" onClick={closeMenu}>Smartphone</a>
                 </li>
                 <li>
-                  <a href="/produk/server">Server</a>
+                  <a href="/produk/server" onClick={closeMenu}>Server</a>
                 </li>
               </ul>
             </li>
@@ -162,7 +185,7 @@ function Navbar() {
               <a
                 className="nav-link"
                 href="/layanan"
-                onClick={() => setMenuOpen(false)}
+                onClick={closeMenu}
                 style={{ color: isScrolled ? "#1f2937" : "white" }}
               >
                 Layanan
@@ -173,7 +196,7 @@ function Navbar() {
               <a
                 className="nav-link"
                 href="/tentang"
-                onClick={() => setMenuOpen(false)}
+                onClick={closeMenu}
                 style={{ color: isScrolled ? "#1f2937" : "white" }}
               >
                 Tentang
@@ -184,7 +207,7 @@ function Navbar() {
               <a
                 className="nav-link"
                 href="/karir"
-                onClick={() => setMenuOpen(false)}
+                onClick={closeMenu}
                 style={{ color: isScrolled ? "#1f2937" : "white" }}
               >
                 Karir

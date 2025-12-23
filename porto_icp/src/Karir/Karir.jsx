@@ -1,47 +1,54 @@
 import { useState, useEffect, useRef } from "react";
 import { Helmet } from "react-helmet";
-import ReCAPTCHA from "react-google-recaptcha";
-
 import Navbar from "../Navigation/Navbar";
-import "./karir.css";
 import Footer from "../Navigation/footer";
-import { sendForm } from "emailjs-com";
-
-//import kantorIcpLandscapeImage from "../assets/kantor_icp(landscape).png";
-import KantorImage from "../assets/kantor_icp(landscape1).webp";
-
-const RECAPTCHA_SITE_KEY = "YOUR_RECAPTCHA_SITE_KEY"; // Replace with your actual site key
+import jobsData from "./jobsData.json";
+import kantorICP from "../assets/kantor_icp(landscape1).webp";
+import "./karir.css";
 
 function Karir() {
   const [modalOpen, setModalOpen] = useState(false);
   const [formData, setFormData] = useState({
-    from_name: "",
-    from_phone: "",
-    from_email: "",
-    cv: null,
+    name: "",
+    phone: "",
+    email: "",
+    message: ""
   });
-  const [jobTitle, setJobTitle] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-  // Removed reCAPTCHA state
-  const formRef = useRef();
-  // Removed reCAPTCHA ref
+  const [selectedJob, setSelectedJob] = useState(null);
+  const [expandedJob, setExpandedJob] = useState(null);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [filterType, setFilterType] = useState("all");
+  const [heroLoaded, setHeroLoaded] = useState(false);
+  const mainContentRef = useRef(null);
 
-  const openModal = (title) => {
-    setJobTitle(title);
+  useEffect(() => {
+    // Trigger hero animation on mount
+    const timer = setTimeout(() => {
+      setHeroLoaded(true);
+    }, 100);
+    return () => clearTimeout(timer);
+  }, []);
+
+  const scrollToContent = () => {
+    mainContentRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const openModal = (job) => {
+    setSelectedJob(job);
     setModalOpen(true);
-    document.body.style.overflow = "hidden"; // Prevent background scrolling
+    document.body.style.overflow = "hidden";
   };
 
   const closeModal = () => {
     setModalOpen(false);
     setFormData({
-      from_name: "",
-      from_phone: "",
-      from_email: "",
-      cv: null,
+      name: "",
+      phone: "",
+      email: "",
+      message: ""
     });
-    setJobTitle("");
-    document.body.style.overflow = "unset"; // Restore scrolling
+    setSelectedJob(null);
+    document.body.style.overflow = "unset";
   };
 
   useEffect(() => {
@@ -53,134 +60,80 @@ function Karir() {
     window.addEventListener("keydown", handleKeyDown);
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
-      document.body.style.overflow = "unset"; // Cleanup on unmount
+      document.body.style.overflow = "unset";
     };
   }, [modalOpen]);
 
   const handleChange = (e) => {
-    const { name, value, files } = e.target;
-    if (name === "cv") {
-      setFormData((prev) => ({ ...prev, cv: files[0] }));
-    } else {
-      setFormData((prev) => ({ ...prev, [name]: value }));
-    }
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const validateForm = () => {
-    if (!formData.from_name.trim()) {
+    if (!formData.name.trim()) {
       alert("Nama harus diisi.");
       return false;
     }
-    if (!formData.from_phone.trim()) {
+    if (!formData.phone.trim()) {
       alert("Nomor telepon harus diisi.");
       return false;
     }
-    if (!formData.from_email.trim()) {
+    if (!formData.email.trim()) {
       alert("Email harus diisi.");
       return false;
     }
-    if (!formData.cv) {
-      alert("CV harus diupload.");
-      return false;
-    }
 
-    // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(formData.from_email)) {
+    if (!emailRegex.test(formData.email)) {
       alert("Format email tidak valid.");
       return false;
     }
 
-    // Phone validation (basic)
     const phoneRegex = /^[0-9+\-\s()]+$/;
-    if (!phoneRegex.test(formData.from_phone)) {
+    if (!phoneRegex.test(formData.phone)) {
       alert("Format nomor telepon tidak valid.");
       return false;
     }
 
-    // if (!recaptchaValue) {
-    //   alert("Mohon verifikasi reCAPTCHA.");
-    //   return false;
-    // }
-
     return true;
   };
 
-  // Removed handleRecaptchaChange function
-
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     if (!validateForm()) {
       return;
     }
 
-    setIsLoading(true);
+    // Generate WhatsApp message
+    const message = `*Lamaran Pekerjaan - ${selectedJob.title}*%0A%0A` +
+      `Nama: ${formData.name}%0A` +
+      `Nomor Telepon: ${formData.phone}%0A` +
+      `Email: ${formData.email}%0A` +
+      `Pesan: ${formData.message || "-"}%0A%0A` +
+      `Saya tertarik untuk melamar posisi ${selectedJob.title} di PT. Infoduta Computindo Perkasa.`;
 
-    // Set the message field value to include name, phone, and CV file name
-    if (formRef.current) {
-      const messageInput = formRef.current.querySelector(
-        'input[name="message"]',
-      );
-      if (messageInput) {
-        messageInput.value = `Posisi: ${jobTitle}, Nama: ${formData.from_name}, Nomor Telpon: ${formData.from_phone}, File CV: ${formData.cv ? formData.cv.name : ""}`;
-      }
-    }
+    // WhatsApp number (ganti dengan nomor WhatsApp perusahaan)
+    const whatsappNumber = "6282122334455"; // Ganti dengan nomor yang sesuai
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
 
-    try {
-      await sendForm(
-        "service_9e0ngq3",
-        "template_rjxaunz",
-        formRef.current,
-        "nYM60UZycO9ExRaZF",
-      );
-
-      alert(
-        "Lamaran berhasil terkirim! Terima kasih atas minat Anda. Tim HRD kami akan menghubungi Anda segera.",
-      );
-      closeModal();
-    } catch (error) {
-      console.error("Gagal mengirim:", error);
-      alert(
-        "Gagal mengirim lamaran. Silakan periksa koneksi internet Anda dan coba lagi.",
-      );
-    } finally {
-      setIsLoading(false);
-    }
+    // Open WhatsApp
+    window.open(whatsappUrl, "_blank");
+    
+    closeModal();
   };
 
-  const jobPositions = [
-    {
-      title: "Marketing",
-      requirements: [
-        "Lulusan S1, dengan pengalaman marketing minimal 2 tahun",
-        "Usia maksimal 30 tahun",
-        "Mahir menggunakan gadget, komputer dan aplikasi Microsoft Office",
-        "Terbiasa menggunakan platform marketplace (Shopee, TikTok, Tokopedia, Blibli, Lazada)",
-        "Bisa Live Streaming / Shop Live",
-        "Luwes, cekatan, mampu bekerja sama dengan tim",
-        "Bersedia bekerja dengan target dan dalam situasi yang dinamis",
-        "Komunikatif dan memiliki kemampuan layanan pelanggan yang baik",
-        "Memiliki minat di dunia e-commerce dan pemasaran digital",
-      ],
-      description:
-        "Bergabunglah dengan tim marketing kami untuk mengembangkan strategi pemasaran digital yang inovatif.",
-    },
-    {
-      title: "Customer Service",
-      requirements: [
-        "Minimal lulusan SMA/SMK",
-        "Pengalaman customer service minimal 1 tahun",
-        "Komunikatif dan sabar dalam melayani pelanggan",
-        "Mahir menggunakan komputer dan aplikasi office",
-        "Mampu multitasking dan bekerja di bawah tekanan",
-        "Memiliki kemampuan problem solving yang baik",
-        "Bersedia bekerja shift",
-      ],
-      description:
-        "Berikan pelayanan terbaik kepada pelanggan dan jadilah wajah perusahaan yang ramah.",
-    },
-  ];
+  const toggleExpand = (jobId) => {
+    setExpandedJob(expandedJob === jobId ? null : jobId);
+  };
+
+  // Filter jobs based on search and filter
+  const filteredJobs = jobsData.filter(job => {
+    const matchesSearch = job.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                         job.description.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesFilter = filterType === "all" || job.type.toLowerCase() === filterType.toLowerCase();
+    return matchesSearch && matchesFilter;
+  });
 
   return (
     <>
@@ -192,233 +145,228 @@ function Karir() {
         />
         <meta
           name="keywords"
-          content="Karir, Lowongan Kerja, Peluang Karir, Tim Profesional, PT Infoduta Computindo Perkasa, Bergabung Bersama Kami"
+          content="Karir, Lowongan Kerja, Peluang Karir, Tim Profesional, PT Infoduta Computindo Perkasa"
         />
         <meta name="author" content="PT Infoduta Computindo Perkasa" />
         <link rel="canonical" href="https://infoduta.com/karir" />
       </Helmet>
+
       <Navbar />
-      <div className="career-page">
-        <img
-          className="background-image mobile-background"
-          src={KantorImage}
-          alt="Background"
-        />
-        <div className="blue-overlay"></div>
 
-        <main className="main-content">
-          <div className="hero-section">
-            <h1 className="page-title">Karir Bersama Infoduta</h1>
-            <p className="page-description">
-              PT. Infoduta Computindo Perkasa membuka berbagai lowongan kerja
-              untuk mengembangkan tim profesional, demi membangun masa depan
-              yang lebih baik bersama-sama.
+      <div className="karir-page">
+        {/* Hero Section */}
+        <section className={`karir-hero-section home-hero-section ${heroLoaded ? 'karir-hero-loaded' : ''}`}>
+          <img 
+            src={kantorICP} 
+            alt="Kantor Infoduta Computindo Perkasa" 
+            className="karir-hero-background"
+          />
+          <div className="karir-hero-overlay"></div>
+          <div className="karir-hero-content">
+            <h1 className="karir-hero-title">Karir di Infoduta</h1>
+            <p className="karir-hero-description">
+              Mari bergabung untuk bertumbuh dan berkembang bersama dengan Infoduta
             </p>
+            <button className="karir-hero-button" onClick={scrollToContent}>
+              Jelajahi Karir Infoduta
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M12 5V19M12 19L5 12M12 19L19 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
           </div>
+        </section>
 
-          <div className="jobs-section">
-            <h2 className="section-title">Lowongan Terbuka</h2>
-            <div className="jobs-grid">
-              {jobPositions.map((job, index) => (
-                <div key={index} className="job-card">
-                  <div className="job-header">
-                    <h3 className="job-title">{job.title}</h3>
-                    <p className="job-description">{job.description}</p>
-                  </div>
+        {/* Main Content */}
+        <main className="karir-main-content" ref={mainContentRef}>
+          <div className="karir-content-container">
+            <div className="karir-header">
+              <h2 className="karir-title">Karir di Infoduta</h2>
+              <p className="karir-subtitle">Carilah potensi mu di Infoduta</p>
+            </div>
 
-                  <div className="job-requirements">
-                    <h4 className="requirements-title">Persyaratan:</h4>
-                    <ul className="requirements-list">
-                      {job.requirements.map((req, reqIndex) => (
-                        <li key={reqIndex} className="requirement-item">
-                          {req}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+            {/* Search and Filter Section */}
+            <div className="karir-search-filter">
+              <div className="karir-search-box">
+                <svg className="karir-search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                </svg>
+                <input
+                  type="text"
+                  className="karir-search-input"
+                  placeholder="Cari pekerjaan..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
+              </div>
 
-                  <button
-                    onClick={() => openModal(job.title)}
-                    className="apply-button"
+              <div className="karir-filter-box">
+                <label className="karir-filter-label">
+                  <span>Urutkan berdasarkan</span>
+                  <select
+                    className="karir-filter-select"
+                    value={filterType}
+                    onChange={(e) => setFilterType(e.target.value)}
                   >
-                    <span>Lamar Sekarang</span>
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M5 12H19M19 12L12 5M19 12L12 19"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </button>
+                    <option value="all">Semua</option>
+                    <option value="full-time">Full-time</option>
+                    <option value="part-time">Part-time</option>
+                    <option value="contract">Kontrak</option>
+                  </select>
+                </label>
+              </div>
+            </div>
+
+            {/* Jobs List Section */}
+            <div className="karir-jobs-list">
+              {filteredJobs.length === 0 ? (
+                <div className="karir-no-results">
+                  <p>Tidak ada lowongan yang sesuai dengan pencarian Anda.</p>
                 </div>
-              ))}
+              ) : (
+                filteredJobs.map((job) => (
+                  <div key={job.id} className="karir-job-card">
+                    <div className="karir-job-header" onClick={() => toggleExpand(job.id)}>
+                      <div className="karir-job-header-left">
+                        <h3 className="karir-job-title">{job.title}</h3>
+                        <p className="karir-job-meta">
+                          {job.type} • {job.location}
+                        </p>
+                      </div>
+                      <button className="karir-expand-button">
+                        <svg
+                          className={`karir-expand-icon ${expandedJob === job.id ? 'karir-expanded' : ''}`}
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                        >
+                          <path d="M19 9L12 16L5 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      </button>
+                    </div>
+
+                    {expandedJob === job.id && (
+                      <div className="karir-job-details">
+                        <div className="karir-job-description">
+                          <p>{job.description}</p>
+                        </div>
+
+                        <div className="karir-job-requirements">
+                          <h4 className="karir-requirements-title">Persyaratan:</h4>
+                          <ul className="karir-requirements-list">
+                            {job.requirements.map((req, index) => (
+                              <li key={index} className="karir-requirement-item">
+                                {req}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+
+                        <button
+                          className="karir-apply-button"
+                          onClick={() => openModal(job)}
+                        >
+                          Lamar Sekarang
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                ))
+              )}
             </div>
           </div>
         </main>
 
         <Footer />
 
+        {/* Modal */}
         {modalOpen && (
-          <div className="modal-backdrop" onClick={closeModal}>
-            <div
-              className="modal-container"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="modal-header">
-                <h2 className="modal-title">
-                  Form Lamaran {jobTitle && `- ${jobTitle}`}
+          <div className="karir-modal-backdrop" onClick={closeModal}>
+            <div className="karir-modal-container" onClick={(e) => e.stopPropagation()}>
+              <div className="karir-modal-header">
+                <h2 className="karir-modal-title">
+                  Form Lamaran - {selectedJob?.title}
                 </h2>
-                <button
-                  className="modal-close-btn"
-                  onClick={closeModal}
-                  type="button"
-                >
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M18 6L6 18M6 6L18 18"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
+                <button className="karir-modal-close" onClick={closeModal}>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </button>
               </div>
 
-              <form
-                ref={formRef}
-                onSubmit={handleSubmit}
-                className="application-form"
-              >
-                <input type="hidden" name="message" value="" />
-                <input
-                  type="hidden"
-                  name="to_email"
-                  value="tbsintheworld@gmail.com"
-                />
-
-                <div className="form-group">
-                  <label htmlFor="from_name" className="form-label">
-                    Nama Lengkap <span className="required">*</span>
+              <form onSubmit={handleSubmit} className="karir-form">
+                <div className="karir-form-group">
+                  <label htmlFor="name" className="karir-form-label">
+                    Nama Lengkap <span className="karir-required">*</span>
                   </label>
                   <input
                     type="text"
-                    id="from_name"
-                    name="from_name"
-                    value={formData.from_name}
+                    id="name"
+                    name="name"
+                    value={formData.name}
                     onChange={handleChange}
                     required
-                    className="form-input"
+                    className="karir-form-input"
                     placeholder="Masukkan nama lengkap Anda"
                   />
                 </div>
 
-                <div className="form-group">
-                  <label htmlFor="from_phone" className="form-label">
-                    Nomor Telepon <span className="required">*</span>
+                <div className="karir-form-group">
+                  <label htmlFor="phone" className="karir-form-label">
+                    Nomor Telepon <span className="karir-required">*</span>
                   </label>
                   <input
                     type="tel"
-                    id="from_phone"
-                    name="from_phone"
-                    value={formData.from_phone}
+                    id="phone"
+                    name="phone"
+                    value={formData.phone}
                     onChange={handleChange}
                     required
-                    className="form-input"
+                    className="karir-form-input"
                     placeholder="Contoh: +62812345678"
                   />
                 </div>
 
-                <div className="form-group">
-                  <label htmlFor="from_email" className="form-label">
-                    Email <span className="required">*</span>
+                <div className="karir-form-group">
+                  <label htmlFor="email" className="karir-form-label">
+                    Email <span className="karir-required">*</span>
                   </label>
                   <input
                     type="email"
-                    id="from_email"
-                    name="from_email"
-                    value={formData.from_email}
+                    id="email"
+                    name="email"
+                    value={formData.email}
                     onChange={handleChange}
                     required
-                    className="form-input"
+                    className="karir-form-input"
                     placeholder="contoh@email.com"
                   />
                 </div>
 
-                <div className="form-group">
-                  <label htmlFor="cv" className="form-label">
-                    Upload CV <span className="required">*</span>
+                <div className="karir-form-group">
+                  <label htmlFor="message" className="karir-form-label">
+                    Pesan (Opsional)
                   </label>
-                  <div className="file-input-wrapper">
-                    <input
-                      type="file"
-                      id="cv"
-                      name="cv"
-                      onChange={handleChange}
-                      required
-                      className="file-input"
-                      accept=".pdf,.doc,.docx"
-                    />
-                    <label htmlFor="cv" className="file-input-label">
-                      <svg
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15M17 8L12 3M12 3L7 8M12 3V15"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                      {formData.cv
-                        ? formData.cv.name
-                        : "Pilih file CV (PDF, DOC, DOCX)"}
-                    </label>
-                  </div>
-                  <small className="form-help">Maksimal ukuran file 5MB</small>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    className="karir-form-textarea"
+                    placeholder="Ceritakan tentang diri Anda..."
+                    rows="4"
+                  />
                 </div>
 
-                <div className="form-actions">
-                  <button
-                    type="button"
-                    onClick={closeModal}
-                    className="cancel-btn"
-                    disabled={isLoading}
-                  >
+                <div className="karir-form-actions">
+                  <button type="button" onClick={closeModal} className="karir-cancel-button">
                     Batal
                   </button>
-                  <button
-                    type="submit"
-                    className="submit-btn"
-                    disabled={isLoading}
-                  >
-                    {isLoading ? (
-                      <>
-                        <div className="spinner"></div>
-                        Mengirim...
-                      </>
-                    ) : (
-                      "Kirim Lamaran"
-                    )}
+                  <button type="submit" className="karir-submit-button">
+                    Kirim via WhatsApp
                   </button>
                 </div>
               </form>
