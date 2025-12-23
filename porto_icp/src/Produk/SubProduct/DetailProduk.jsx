@@ -15,13 +15,83 @@ import {
 } from "lucide-react";
 import Navbar from "../../Navigation/Navbar.jsx";
 import Footer from "../../Navigation/footer.jsx";
+
+// Import semua data sources
 import produkData from "../produk.json";
+import hardwareData from "../hardware.json";
+import softwareData from "../software.json";
+import sparepartData from "../../Produk/sparepart.json";
+import serverData from "../server.json";
+
 import "./detailproduk.css";
 
 // Dynamically import all images
 const images = import.meta.glob("../../assets/produk/**/*.{png,jpg,jpeg,svg}", {
   eager: true,
 });
+
+// Software images
+import microsoft1 from "../../assets/software/microsoft/1.png";
+import microsoft2 from "../../assets/software/microsoft/2.png";
+import microsoft3 from "../../assets/software/microsoft/3.png";
+import microsoft4 from "../../assets/software/microsoft/4.png";
+import microsoft5 from "../../assets/software/microsoft/5.png";
+import microsoft6 from "../../assets/software/microsoft/6.png";
+import windows1 from "../../assets/software/windows/1.png";
+import adobe1 from "../../assets/software/adobe/1.png";
+import adobe2 from "../../assets/software/adobe/2.png";
+import adobe3 from "../../assets/software/adobe/3.png";
+import sql1 from "../../assets/software/sql/1.png";
+import sql2 from "../../assets/software/sql/2.png";
+import heimdal1 from "../../assets/software/heimdal/1.png";
+import pdf1 from "../../assets/software/pdf/1.png";
+import autocad1 from "../../assets/software/autocad/1.png";
+import autocad2 from "../../assets/software/autocad/2.png";
+import thinkcell1 from "../../assets/software/thinkcell/1.png";
+import sketchup1 from "../../assets/software/sketchup/1.png";
+import enscape1 from "../../assets/software/enscape/1.png";
+import chatgpt1 from "../../assets/software/chatgpt/1.png";
+import hootsuite1 from "../../assets/software/hootsuite/1.png";
+import sid1 from "../../assets/software/sid/1.png";
+import figma1 from "../../assets/software/figma/1.svg";
+import vmware1 from "../../assets/software/vmware/1.png";
+import fortitoken1 from "../../assets/software/fortitoken/1.svg";
+import canva1 from "../../assets/software/canva/1.svg";
+
+const softwareImageMap = {
+  "Microsoft Office 365 Family": microsoft1,
+  "Microsoft Office 365 Personal": microsoft2,
+  "Microsoft Office 2024 Home and Student": microsoft3,
+  "Microsoft Office 2024 Home and Business": microsoft4,
+  "Microsoft Office Professional Plus 2024": microsoft6,
+  "Microsoft Office Standard 2024": microsoft5,
+  "Windows 11 Pro": windows1,
+  "Acrobat Pro for teams Subscription New": adobe1,
+  "Windows Server 2025 Standard - 16 Core License Pack": microsoft2,
+  "Microsoft SQL Server 2022 Standard Edition": sql1,
+  "Heimdal EPDR Plus & Ransomware Encryption Protection": heimdal1,
+  "PDF Exchange Pro": pdf1,
+  "AutoCAD LT 2024 Commercial New Single-user": autocad1,
+  "AutoCAD LT 2026 Commercial New Single-user ELD Annual Subscription":
+    autocad2,
+  "Thinkcell Annual Subscription": thinkcell1,
+  "Software SketchUp Pro For Professional Use, ANN TRM CTR": sketchup1,
+  "SketchUp Pro For Professional Use": sketchup1,
+  "Software Enscape Fixed Seat License": enscape1,
+  "ChatGPT Team": chatgpt1,
+  "Hootsuite Professional": hootsuite1,
+  "S.id – Pro": sid1,
+  "Figma Organization Dev Seat": figma1,
+  "License Figma Full Seat": figma1,
+  "Adobe Illustrator": adobe2,
+  "Adobe Photoshop": adobe3,
+  "Windows Server 2025  - CAL": microsoft3,
+  "Windows Server 2025 Standard": microsoft4,
+  "SQL Server Standard Edition": sql2,
+  "Vmware Cloud Foundation 5": vmware1,
+  FortiToken: fortitoken1,
+  "Canva PRO": canva1,
+};
 
 const imageMap = {};
 for (const path in images) {
@@ -35,22 +105,49 @@ for (const path in images) {
 const DetailProduk = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { brand, id } = useParams();
+  const { id } = useParams();
 
   const [product, setProduct] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [activeTab, setActiveTab] = useState("spesifikasi");
   const [imgError, setImgError] = useState({});
+  const [category, setCategory] = useState("");
 
   useEffect(() => {
-    const found = produkData.find((p) => String(p.id) === id);
+    // Determine category from URL path
+    const pathSegments = location.pathname.split("/").filter(Boolean);
+    const categoryFromPath = pathSegments[1]; // produk/[category]/...
+    setCategory(categoryFromPath);
+
+    // Find product from appropriate data source
+    let found = null;
+    let dataSource = "";
+
+    if (categoryFromPath === "server") {
+      found = serverData.find((p) => String(p.id) === id);
+      dataSource = "server";
+    } else if (categoryFromPath === "hardware") {
+      found = hardwareData.find((p) => String(p.id) === id);
+      dataSource = "hardware";
+    } else if (categoryFromPath === "software") {
+      found = softwareData.find((p) => String(p.id) === id);
+      dataSource = "software";
+    } else if (categoryFromPath === "sparepart") {
+      found = sparepartData.find((p) => String(p.id) === id);
+      dataSource = "sparepart";
+    } else {
+      // laptop, computer, smartphone dari produk.json
+      found = produkData.find((p) => String(p.id) === id);
+      dataSource = "produk";
+    }
+
     if (found) {
-      setProduct(found);
+      setProduct({ ...found, dataSource });
       document.title = `${found.name} | Infoduta Computindo Perkasa`;
     } else {
       document.title = "Produk Tidak Ditemukan | Infoduta Computindo Perkasa";
     }
-  }, [id]);
+  }, [id, location.pathname]);
 
   if (!product) {
     return (
@@ -65,12 +162,67 @@ const DetailProduk = () => {
     );
   }
 
-  const imagePaths = product.images || [];
+  // Get images array berdasarkan kategori
+  const getImagePaths = () => {
+    if (product.dataSource === "software") {
+      // Software hanya punya 1 gambar
+      const img = softwareImageMap[product.name];
+      return img ? [img] : [];
+    } else if (product.dataSource === "hardware") {
+      // Hardware: images adalah string
+      return product.images ? [product.images] : [];
+    } else if (product.dataSource === "sparepart") {
+      // Sparepart: images adalah array
+      return product.images || [];
+    } else if (product.dataSource === "server") {
+      // Server: gambar field
+      return product.gambar ? [product.gambar] : [];
+    } else {
+      // Produk.json: images adalah array
+      return product.images || [];
+    }
+  };
+
+  const imagePaths = getImagePaths();
+
+  // Get resolved image source
+  const getResolvedImageSrc = (imgPath, index) => {
+    if (imgError[index]) return "/api/placeholder/400/300";
+
+    if (product.dataSource === "software") {
+      return imgPath || "/api/placeholder/400/300";
+    }
+
+    if (product.dataSource === "hardware") {
+      const normalizedPath = imgPath
+        .replace(/^\/src\/assets\//, "")
+        .replace(/\\/g, "/");
+      return imageMap[normalizedPath] || "/api/placeholder/400/300";
+    }
+
+    if (product.dataSource === "sparepart") {
+      const normalizedPath = imgPath
+        .replace(/^\/assets\//, "")
+        .replace(/\\/g, "/");
+      return imageMap[normalizedPath] || "/api/placeholder/400/300";
+    }
+
+    if (product.dataSource === "server") {
+      const normalizedPath = imgPath
+        .replace(/^assets\//, "")
+        .replace(/\\/g, "/");
+      return imageMap[normalizedPath] || "/api/placeholder/400/300";
+    }
+
+    // Default produk.json
+    return imageMap[imgPath] || "/api/placeholder/400/300";
+  };
+
   const currentImagePath = imagePaths[currentImageIndex];
-  const currentImageSrc = imgError[currentImageIndex]
-    ? "/api/placeholder/400/300"
-    : (currentImagePath && imageMap[currentImagePath]) ||
-      "/api/placeholder/400/300";
+  const currentImageSrc = getResolvedImageSrc(
+    currentImagePath,
+    currentImageIndex,
+  );
 
   const handleNextImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % imagePaths.length);
@@ -88,8 +240,10 @@ const DetailProduk = () => {
 
   // Breadcrumb
   const getBreadcrumb = () => {
-    const paths = location.pathname.split("/").filter(Boolean);
-    const categoryPath = paths[1]; // produk/computer -> computer
+    const categoryLabel =
+      category === "computer"
+        ? "Computer"
+        : category.charAt(0).toUpperCase() + category.slice(1);
 
     return (
       <div className="details-breadcrumb">
@@ -105,10 +259,10 @@ const DetailProduk = () => {
         </span>
         <span className="details-breadcrumb-separator">/</span>
         <span
-          onClick={() => navigate(`/produk/${categoryPath}`)}
+          onClick={() => navigate(`/produk/${category}`)}
           className="details-breadcrumb-link"
         >
-          {categoryPath.charAt(0).toUpperCase() + categoryPath.slice(1)}
+          {categoryLabel}
         </span>
         <span className="details-breadcrumb-separator">/</span>
         <span className="details-breadcrumb-link">{product.brand}</span>
@@ -118,8 +272,10 @@ const DetailProduk = () => {
     );
   };
 
-  // Render thumbnails with navigation
+  // Render thumbnails
   const renderThumbnails = () => {
+    if (imagePaths.length <= 1) return null;
+
     const visibleThumbs = 3;
     const startIndex = Math.max(
       0,
@@ -142,9 +298,7 @@ const DetailProduk = () => {
         <div className="details-thumbnails">
           {imagePaths.slice(adjustedStart, endIndex).map((imgPath, idx) => {
             const actualIndex = adjustedStart + idx;
-            const thumbSrc = imgError[actualIndex]
-              ? "/api/placeholder/80/60"
-              : (imgPath && imageMap[imgPath]) || "/api/placeholder/80/60";
+            const thumbSrc = getResolvedImageSrc(imgPath, actualIndex);
 
             return (
               <div
@@ -179,6 +333,15 @@ const DetailProduk = () => {
     );
   };
 
+  // Get product type label
+  const getProductType = () => {
+    if (product.dataSource === "server") return "Server";
+    if (product.dataSource === "hardware") return product.type || "Hardware";
+    if (product.dataSource === "software") return "Software";
+    if (product.dataSource === "sparepart") return product.jenis || "Sparepart";
+    return product.jenis || product.type || "Product";
+  };
+
   return (
     <div className="details-page">
       <Navbar />
@@ -200,7 +363,7 @@ const DetailProduk = () => {
             />
           </div>
 
-          {imagePaths.length > 0 && renderThumbnails()}
+          {renderThumbnails()}
         </div>
 
         {/* Right - Product Info */}
@@ -208,13 +371,25 @@ const DetailProduk = () => {
           <h1>{product.name}</h1>
           <div className="details-meta">
             <span className="details-brand-tag">{product.brand}</span>
-            <span className="details-type-tag">{product.jenis}</span>
+            <span className="details-type-tag">{getProductType()}</span>
           </div>
 
           <div className="details-description">
             <h3>Deskripsi:</h3>
-            <p>{product.deskripsi || "Deskripsi produk tidak tersedia."}</p>
+            <p>
+              {product.deskripsi ||
+                product.description ||
+                "Deskripsi produk tidak tersedia."}
+            </p>
           </div>
+
+          {/* Software usage info */}
+          {product.dataSource === "software" && product.usage && (
+            <div className="details-usage-info">
+              <h3>Durasi:</h3>
+              <p>{product.usage}</p>
+            </div>
+          )}
 
           <a
             className="details-contact-button"
@@ -255,61 +430,262 @@ const DetailProduk = () => {
         <div className="details-tabs-content">
           {activeTab === "spesifikasi" && (
             <div className="details-specs-content">
-              {product.specs?.cpu && (
-                <div className="details-spec-row">
-                  <div className="details-spec-icon">
-                    <Cpu size={24} />
-                  </div>
-                  <div className="details-spec-info">
-                    <strong>Prosesor (CPU)</strong>
-                    <span>{product.specs.cpu}</span>
-                  </div>
+              {/* Server Specs - Complete Details */}
+              {product.dataSource === "server" && (
+                <>
+                  {product.processor && (
+                    <div className="details-spec-row">
+                      <div className="details-spec-icon">
+                        <Cpu size={24} />
+                      </div>
+                      <div className="details-spec-info">
+                        <strong>Processor</strong>
+                        <span>{product.processor}</span>
+                      </div>
+                    </div>
+                  )}
+                  {product.mainboard && (
+                    <div className="details-spec-row">
+                      <div className="details-spec-icon">
+                        <Monitor size={24} />
+                      </div>
+                      <div className="details-spec-info">
+                        <strong>Mainboard</strong>
+                        <span>{product.mainboard}</span>
+                      </div>
+                    </div>
+                  )}
+                  {product.memory && (
+                    <div className="details-spec-row">
+                      <div className="details-spec-icon">
+                        <MemoryStick size={24} />
+                      </div>
+                      <div className="details-spec-info">
+                        <strong>Memory</strong>
+                        <span>{product.memory}</span>
+                      </div>
+                    </div>
+                  )}
+                  {product.storage && (
+                    <div className="details-spec-row">
+                      <div className="details-spec-icon">
+                        <HardDrive size={24} />
+                      </div>
+                      <div className="details-spec-info">
+                        <strong>Storage</strong>
+                        <span>{product.storage}</span>
+                      </div>
+                    </div>
+                  )}
+                  {product.raid && (
+                    <div className="details-spec-row">
+                      <div className="details-spec-icon">
+                        <Shield size={24} />
+                      </div>
+                      <div className="details-spec-info">
+                        <strong>RAID Support</strong>
+                        <span>{product.raid}</span>
+                      </div>
+                    </div>
+                  )}
+                  {product.psu && (
+                    <div className="details-spec-row">
+                      <div className="details-spec-icon">
+                        <Package size={24} />
+                      </div>
+                      <div className="details-spec-info">
+                        <strong>Power Supply</strong>
+                        <span>{product.psu}</span>
+                      </div>
+                    </div>
+                  )}
+                  {product.tpm && (
+                    <div className="details-spec-row">
+                      <div className="details-spec-icon">
+                        <Shield size={24} />
+                      </div>
+                      <div className="details-spec-info">
+                        <strong>TPM</strong>
+                        <span>{product.tpm}</span>
+                      </div>
+                    </div>
+                  )}
+                  {product.idrac && (
+                    <div className="details-spec-row">
+                      <div className="details-spec-icon">
+                        <Monitor size={24} />
+                      </div>
+                      <div className="details-spec-info">
+                        <strong>iDRAC / Remote Management</strong>
+                        <span>{product.idrac}</span>
+                      </div>
+                    </div>
+                  )}
+                  {product.network && product.network.length > 0 && (
+                    <div className="details-spec-row">
+                      <div className="details-spec-icon">
+                        <AppWindow size={24} />
+                      </div>
+                      <div className="details-spec-info">
+                        <strong>Network</strong>
+                        <span>
+                          {Array.isArray(product.network)
+                            ? product.network.join(", ")
+                            : product.network}
+                        </span>
+                      </div>
+                    </div>
+                  )}
+                  {product.nic && (
+                    <div className="details-spec-row">
+                      <div className="details-spec-icon">
+                        <AppWindow size={24} />
+                      </div>
+                      <div className="details-spec-info">
+                        <strong>NIC</strong>
+                        <span>{product.nic}</span>
+                      </div>
+                    </div>
+                  )}
+                  {product.riser && (
+                    <div className="details-spec-row">
+                      <div className="details-spec-icon">
+                        <Package size={24} />
+                      </div>
+                      <div className="details-spec-info">
+                        <strong>Riser / Expansion Slot</strong>
+                        <span>{product.riser}</span>
+                      </div>
+                    </div>
+                  )}
+                  {product.chassis && (
+                    <div className="details-spec-row">
+                      <div className="details-spec-icon">
+                        <Package size={24} />
+                      </div>
+                      <div className="details-spec-info">
+                        <strong>Chassis</strong>
+                        <span>{product.chassis}</span>
+                      </div>
+                    </div>
+                  )}
+                  {product.accessories && (
+                    <div className="details-spec-row">
+                      <div className="details-spec-icon">
+                        <Package size={24} />
+                      </div>
+                      <div className="details-spec-info">
+                        <strong>Accessories</strong>
+                        <span>{product.accessories}</span>
+                      </div>
+                    </div>
+                  )}
+                  {product.os && (
+                    <div className="details-spec-row">
+                      <div className="details-spec-icon">
+                        <AppWindow size={24} />
+                      </div>
+                      <div className="details-spec-info">
+                        <strong>Operating System</strong>
+                        <span>{product.os}</span>
+                      </div>
+                    </div>
+                  )}
+                  {product.warranty && (
+                    <div className="details-spec-row">
+                      <div className="details-spec-icon">
+                        <Shield size={24} />
+                      </div>
+                      <div className="details-spec-info">
+                        <strong>Warranty</strong>
+                        <span>{product.warranty}</span>
+                      </div>
+                    </div>
+                  )}
+                </>
+              )}
+
+              {/* Laptop/PC/Smartphone Specs */}
+              {product.dataSource === "produk" && product.specs && (
+                <>
+                  {product.specs.cpu && (
+                    <div className="details-spec-row">
+                      <div className="details-spec-icon">
+                        <Cpu size={24} />
+                      </div>
+                      <div className="details-spec-info">
+                        <strong>Prosesor (CPU)</strong>
+                        <span>{product.specs.cpu}</span>
+                      </div>
+                    </div>
+                  )}
+                  {product.specs.ram && (
+                    <div className="details-spec-row">
+                      <div className="details-spec-icon">
+                        <MemoryStick size={24} />
+                      </div>
+                      <div className="details-spec-info">
+                        <strong>RAM</strong>
+                        <span>{product.specs.ram}</span>
+                      </div>
+                    </div>
+                  )}
+                  {product.specs.storage && (
+                    <div className="details-spec-row">
+                      <div className="details-spec-icon">
+                        <HardDrive size={24} />
+                      </div>
+                      <div className="details-spec-info">
+                        <strong>Penyimpanan</strong>
+                        <span>{product.specs.storage}</span>
+                      </div>
+                    </div>
+                  )}
+                  {product.specs.gpu && (
+                    <div className="details-spec-row">
+                      <div className="details-spec-icon">
+                        <Monitor size={24} />
+                      </div>
+                      <div className="details-spec-info">
+                        <strong>GPU</strong>
+                        <span>{product.specs.gpu}</span>
+                      </div>
+                    </div>
+                  )}
+                  {product.specs.os && (
+                    <div className="details-spec-row">
+                      <div className="details-spec-icon">
+                        <AppWindow size={24} />
+                      </div>
+                      <div className="details-spec-info">
+                        <strong>Sistem Operasi</strong>
+                        <span>{product.specs.os}</span>
+                      </div>
+                    </div>
+                  )}
+                </>
+              )}
+
+              {/* Hardware/Software/Sparepart - show description */}
+              {["hardware", "software", "sparepart"].includes(
+                product.dataSource,
+              ) && (
+                <div className="details-spec-description">
+                  <p>
+                    {product.description ||
+                      product.deskripsi ||
+                      "Spesifikasi detail tidak tersedia untuk produk ini."}
+                  </p>
                 </div>
               )}
-              {product.specs?.ram && (
-                <div className="details-spec-row">
-                  <div className="details-spec-icon">
-                    <MemoryStick size={24} />
+
+              {/* No specs available */}
+              {product.dataSource === "produk" &&
+                (!product.specs || Object.keys(product.specs).length === 0) && (
+                  <div className="details-spec-description">
+                    <p>Spesifikasi detail tidak tersedia untuk produk ini.</p>
                   </div>
-                  <div className="details-spec-info">
-                    <strong>RAM</strong>
-                    <span>{product.specs.ram}</span>
-                  </div>
-                </div>
-              )}
-              {product.specs?.storage && (
-                <div className="details-spec-row">
-                  <div className="details-spec-icon">
-                    <HardDrive size={24} />
-                  </div>
-                  <div className="details-spec-info">
-                    <strong>Penyimpanan</strong>
-                    <span>{product.specs.storage}</span>
-                  </div>
-                </div>
-              )}
-              {product.specs?.gpu && (
-                <div className="details-spec-row">
-                  <div className="details-spec-icon">
-                    <Monitor size={24} />
-                  </div>
-                  <div className="details-spec-info">
-                    <strong>GPU</strong>
-                    <span>{product.specs.gpu}</span>
-                  </div>
-                </div>
-              )}
-              {product.specs?.os && (
-                <div className="details-spec-row">
-                  <div className="details-spec-icon">
-                    <AppWindow size={24} />
-                  </div>
-                  <div className="details-spec-info">
-                    <strong>Sistem Operasi</strong>
-                    <span>{product.specs.os}</span>
-                  </div>
-                </div>
-              )}
+                )}
             </div>
           )}
 

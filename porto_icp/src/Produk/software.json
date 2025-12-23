@@ -134,7 +134,7 @@
   },
   {
     "id": 20,
-    "brand": "Canva",
+    "brand": "Figma",
     "name": "Figma Organization Dev Seat",
     "usage": "Lisensi Seumur Hidup",
     "image": "/src/assets/software/figma/1.svg"
@@ -190,7 +190,7 @@
   },
   {
     "id": 28,
-    "brand": "Adobe",
+    "brand": "Canva",
     "name": "Canva PRO",
     "usage": "1 Tahun Berlangganan",
     "image": "/src/assets/software/canva/1.svg"

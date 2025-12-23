@@ -5,7 +5,6 @@ import { Helmet } from "react-helmet";
 
 const Computer = () => {
   const { id } = useParams();
-  
 
   // If there's an ID in the URL, show DetailProduk
   // Otherwise, show SubProduk list

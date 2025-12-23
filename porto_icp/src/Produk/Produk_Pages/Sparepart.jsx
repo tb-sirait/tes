@@ -1,286 +1,66 @@
-import { useState, useEffect } from "react";
-import produkData from "../../Produk/sparepart.json";
-import "./laptop.css";
-import { X, MessageCircle } from "lucide-react";
-import Navbar from "../../Navigation/Navbar.jsx";
-import Footer from "../../Navigation/footer.jsx";
-
-import { useNavigate, useParams } from "react-router-dom";
-
+import { useParams } from "react-router-dom";
+import SubProduk from "../SubProduct/Subproduk.jsx";
+import DetailProduk from "../SubProduct/DetailProduk.jsx";
 import { Helmet } from "react-helmet";
 
-// Dynamically import all images from assets folder using Vite's import.meta.glob
-const images = import.meta.glob(
-  "../../assets/produk/sparepart/**/*.{png,jpg,jpeg,svg}",
-  { eager: true, as: "url" },
-);
-
-// Merge all images into one object
-const allImages = { ...images };
-
-const getImageUrl = (imagePath) => {
-  if (!imagePath || typeof imagePath !== "string") {
-    console.warn("getImageUrl received non-string imagePath:", imagePath);
-    return "/api/placeholder/200/150";
-  }
-  const relativePath = imagePath.replace(/^\/assets\//, "../../assets/");
-  return allImages[relativePath] || "/api/placeholder/200/150";
-};
-
-const ProductCard = ({ product, onViewDetails }) => {
-  const imgSrc = getImageUrl(
-    product.images && product.images.length > 0 ? product.images[0] : "",
-  );
-
-  return (
-    <div className="filter-product-card" onClick={() => onViewDetails(product)}>
-      <div className="filter-product-image">
-        <img src={imgSrc} alt={product.name} />
-      </div>
-      <div className="filter-product-info">
-        <h3>{product.name}</h3>
-        <div className="filter-product-meta">
-          <span className="brand">{product.brand}</span>
-          <span className="type">{product.jenis}</span>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const ProductModal = ({ product, isOpen, onClose }) => {
-  useEffect(() => {
-    const handleEsc = (event) => {
-      if (event.key === "Escape") {
-        onClose();
-      }
-    };
-    window.addEventListener("keydown", handleEsc);
-    return () => {
-      window.removeEventListener("keydown", handleEsc);
-    };
-  }, [onClose]);
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, [isOpen]);
-
-  if (!isOpen || !product) return null;
-
-  // Use getImageUrl to get image src instead of imageMap which is undefined
-  const imgSrc = getImageUrl(
-    product.images && product.images.length > 0 ? product.images[0] : "",
-  );
-
-  return (
-    <div className="filter-modal-overlay" onClick={onClose}>
-      <div
-        className="filter-modal-content"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <button className="close-button" onClick={onClose}>
-          <X />
-        </button>
-        <div className="filter-modal-body">
-          <div className="filter-modal-image">
-            <img src={imgSrc} alt={product.name} />
-          </div>
-          <div className="filter-modal-details">
-            <h2>{product.name}</h2>
-            <div className="meta">
-              <span className="brand-tag">{product.brand}</span>
-              <span> | </span>
-              <span className="type-tag">{product.jenis}</span>
-            </div>
-            <p className="filter-product-description">{product.description}</p>
-            <div className="filter-modal-actions">
-              <div className="contact-options">
-                <a
-                  className="contact-button"
-                  href={`https://wa.me/6285545031039?text=${encodeURIComponent(`Saya berminat pada unit produk ${product.name} untuk perusahaan saya. Bisa diskusi untuk produknya?`)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <MessageCircle className="chat-icon" /> Hubungi Kami
-                </a>
-              </div>
-              <div className="extra-info">
-                <p>
-                  <strong>✨ Penawaran spesial:</strong> Gratis konsultasi dan
-                  bantuan instalasi produk.
-                </p>
-                <p>
-                  <strong>🚚 Pesan Antar:</strong> Tersedia antar barang untuk
-                  Jakarta dan Sekitarnya
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const ProductHeader = ({
-  searchQuery,
-  onSearchChange,
-  selectedBrand,
-  onBrandChange,
-  brandOptions,
-}) => {
-  return (
-    <div className="filter-product-header">
-      <div className="header-text">
-        <h1>Sparepart</h1>
-        <p>
-          Temukan berbagai pilihan Sparepart yang sesuai dengan kebutuhan
-          perusahaan Anda.
-        </p>
-      </div>
-
-      <div className="laptop-search-filter-bar">
-        <h5 style={{ marginRight: "10px", color: "#1434a4" }}>Cari:</h5>
-        <input
-          type="text"
-          placeholder="Cari barang..."
-          value={searchQuery}
-          onChange={onSearchChange}
-          className="laptop-search-input"
-        />
-        <select
-          value={selectedBrand}
-          onChange={onBrandChange}
-          className="brand-select"
-        >
-          <option value="">Semua Merek</option>
-          {brandOptions.map((brand, idx) => (
-            <option key={idx} value={brand}>
-              {brand}
-            </option>
-          ))}
-        </select>
-      </div>
-    </div>
-  );
-};
-
 const Sparepart = () => {
-  const [selectedBrand, setSelectedBrand] = useState("");
-  const [searchQuery, setSearchQuery] = useState("");
-  const [products, setProducts] = useState([]);
-  const [selectedProduct, setSelectedProduct] = useState(null);
-  const navigate = useNavigate();
   const { id } = useParams();
 
-  useEffect(() => {
-    if (selectedProduct) {
-      document.title = `${selectedProduct.name} | Infoduta Computindo Perkasa`;
-    } else {
-      document.title = "Spareparts | Infoduta Computindo Perkasa";
-    }
-  }, [selectedProduct]);
-
-  useEffect(() => {
-    const sparepartProducts = produkData.sort((a, b) =>
-      a.name.localeCompare(b.name),
+  if (id) {
+    return (
+      <>
+        <Helmet>
+          <title>Detail Sparepart | Infoduta Computindo Perkasa</title>
+          <meta
+            name="description"
+            content="Detail produk sparepart untuk kebutuhan bisnis Anda."
+          />
+          <link
+            rel="canonical"
+            href={`https://www.infoduta.com/produk/sparepart/${id}`}
+          />
+        </Helmet>
+        <DetailProduk dataSource="../../Produk/sparepart.json" />
+      </>
     );
-    setProducts(sparepartProducts);
-  }, []);
-
-  const handleOpenModal = (product) => {
-    setSelectedProduct(product);
-    navigate(`/produk/sparepart/${product.id}`);
-  };
-
-  const handleCloseModal = () => {
-    setSelectedProduct(null);
-    navigate("/produk/sparepart");
-  };
-
-  useEffect(() => {
-    if (id && products.length > 0) {
-      const prod = products.find((p) => p.id === parseInt(id));
-      if (prod) {
-        setSelectedProduct(prod);
-      } else {
-        setSelectedProduct(null);
-      }
-    } else {
-      setSelectedProduct(null);
-    }
-  }, [id, products]);
-
-  const filteredProducts = products.filter((product) => {
-    const brandMatch = !selectedBrand || product.brand === selectedBrand;
-    const nameMatch =
-      !searchQuery ||
-      product.name.toLowerCase().includes(searchQuery.toLowerCase());
-    return brandMatch && nameMatch;
-  });
+  }
 
   return (
     <>
       <Helmet>
+        <title>Produk Sparepart | Infoduta Computindo Perkasa</title>
         <meta
           name="description"
-          content="Temukan berbagai pilihan Sparepart yang sesuai dengan kebutuhan perusahaan Anda."
+          content="Temukan berbagai pilihan Sparepart komputer yang sesuai dengan kebutuhan perusahaan Anda."
         />
         <meta
           name="keywords"
-          content="Sparepart IT, Komponen Komputer, Aksesori IT, Perangkat Keras, Suku Cadang, Perbaikan Komputer, Upgrade Hardware, Sparepart Laptop, Sparepart Smartphone, Sparepart Server"
+          content="Produk Sparepart, Suku Cadang, Komponen Komputer, RAM, SSD, HDD, Infoduta Computindo Perkasa"
         />
-        <meta name="author" content="PT Infoduta Computindo Perkasa" />
-        <link rel="canonical" href="https://infoduta.com/produk/sparepart" />
         <meta
           property="og:title"
-          content="Sparepart | Infoduta Computindo Perkasa"
+          content="Produk Sparepart - Infoduta Computindo Perkasa"
         />
         <meta
           property="og:description"
-          content="Temukan berbagai pilihan Sparepart yang sesuai dengan kebutuhan perusahaan Anda."
+          content="Temukan berbagai pilihan Sparepart komputer yang sesuai dengan kebutuhan perusahaan Anda."
         />
         <meta
           property="og:url"
-          content="https://infoduta.com/produk/sparepart"
+          content="https://www.infoduta.com/produk/sparepart"
         />
-        <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="Infoduta Computindo Perkasa" />
-        <meta property="og:image" content="/api/og-image/sparepart" />
+        <link
+          rel="canonical"
+          href="https://www.infoduta.com/produk/sparepart"
+        />
       </Helmet>
-      <div className="laptop-page">
-        <Navbar />
-        <ProductHeader
-          searchQuery={searchQuery}
-          onSearchChange={(e) => setSearchQuery(e.target.value)}
-          selectedBrand={selectedBrand}
-          onBrandChange={(e) => setSelectedBrand(e.target.value)}
-          brandOptions={[...new Set(products.map((p) => p.brand))]}
-        />
-
-        <div className="filter-product-grid" style={{ marginTop: "30px" }}>
-          {filteredProducts.map((product) => (
-            <ProductCard
-              key={product.name}
-              product={product}
-              onViewDetails={handleOpenModal}
-            />
-          ))}
-        </div>
-
-        <ProductModal
-          product={selectedProduct}
-          isOpen={!!selectedProduct}
-          onClose={handleCloseModal}
-        />
-        <Footer />
-      </div>
+      // Sparepart.jsx
+      <SubProduk
+        jenisBarang="sparepart"
+        title="Sparepart"
+        description="Sparepart komputer dan aksesoris"
+        dataSource="../../Produk/sparepart.json"
+      />
     </>
   );
 };

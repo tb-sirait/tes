@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
   "name": "porto_icp",
-  "version": "3.0.1",
+  "version": "3.0.3",
   "homepage": "https://www.infoduta.com/",
   "private": true,
   "type": "module",

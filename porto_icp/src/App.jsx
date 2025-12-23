@@ -239,7 +239,7 @@ function AppContent() {
         {/* Route kategori harus SEBELUM route dynamic params */}
         {/* Software */}
         <Route path="/produk/software" element={<Software />} />
-        <Route path="/produk/software/:id" element={<Software />} />
+        <Route path="/produk/software/:brand/:id" element={<Software />} />
 
         {/* Hardware */}
         <Route path="/produk/hardware" element={<Hardware />} />

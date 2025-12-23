@@ -8,14 +8,13 @@
 /* Hero Section */
 .sub-produk-hero {
   background: rgba(0, 0, 0, 0.8);
-  padding: 80px 20px 40px;
+  padding: 100px 20px 40px;
   color: white;
   position: relative;
   overflow: hidden;
 }
 
 .sub-produk-hero-content {
-  max-width: 1200px;
   margin: 0 auto;
   position: relative;
   z-index: 1;
@@ -198,8 +197,7 @@
 
 /* Sidebar Filter */
 .sub-produk-sidebar {
-  position: sticky;
-  top: 100px;
+  position: relative;
 }
 
 .sub-produk-filter-box {
@@ -495,4 +493,48 @@
   .sub-produk-card-info h3 {
     font-size: 1rem;
   }
+}
+
+/* Tambahkan ke subproduk.css */
+.sub-produk-info-text {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid #eee;
+}
+
+.sub-produk-info-text small {
+  color: #666;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+/* Untuk DetailProduk - usage info */
+.details-usage-info {
+  margin: 20px 0;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.details-usage-info h3 {
+  margin: 0 0 8px 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.details-usage-info p {
+  margin: 0;
+  color: #666;
+}
+
+.details-spec-description {
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.details-spec-description p {
+  margin: 0;
+  line-height: 1.6;
+  color: #555;
 }
