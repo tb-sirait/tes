@@ -15,13 +15,13 @@ import Karir from "./Karir/Karir";
 import BioLinks from "./BioLink/BioLink";
 import Chatbot from "./Chatbot/Chatbot";
 
-import Computer from "./Produk/Produk_Pages/Computer";
-import Hardware from "./Produk/Produk_Pages/Hardware";
-import Software from "./Produk/Produk_Pages/Software";
-import Sparepart from "./Produk/Produk_Pages/Sparepart";
-import Smartphone from "./Produk/Produk_Pages/Smartphone";
-import Laptop from "./Produk/Produk_Pages/Laptop";
-import Server from "./Produk/Produk_Pages/Server";
+import Computer from "./Produk/Subproduct_Container/Computer";
+import Hardware from "./Produk/Subproduct_Container/Hardware";
+import Software from "./Produk/Subproduct_Container/Software";
+import Sparepart from "./Produk/Subproduct_Container/Sparepart";
+import Smartphone from "./Produk/Subproduct_Container/Smartphone";
+import Laptop from "./Produk/Subproduct_Container/Laptop";
+import Server from "./Produk/Subproduct_Container/Server";
 
 import CookieConsent from "./components/CookieConsent";
 import ScrollToTop from "./components/ScrollToTop";
@@ -247,7 +247,7 @@ function AppContent() {
 
         {/* Sparepart */}
         <Route path="/produk/sparepart" element={<Sparepart />} />
-        <Route path="/produk/sparepart/:id" element={<Sparepart />} />
+        <Route path="/produk/sparepart/:brand/:id" element={<Sparepart />} />
 
         {/* Computer */}
         <Route path="/produk/computer" element={<Computer />} />
