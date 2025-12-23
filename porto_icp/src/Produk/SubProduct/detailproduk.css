@@ -1,0 +1,599 @@
+/* Main Page Layout */
+.details-page {
+  font-family: "Inter", sans-serif;
+  background-color: #ffffff;
+  min-height: 100vh;
+  padding-top: 80px;
+}
+
+/* Breadcrumb */
+.details-breadcrumb {
+  max-width: 1400px;
+  margin: 20px auto;
+  padding: 0 40px;
+  font-size: 0.9rem;
+  color: #6b7280;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.details-breadcrumb-link {
+  color: #007bff;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.details-breadcrumb-link:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+.details-breadcrumb-separator {
+  color: #d1d5db;
+}
+
+.details-breadcrumb-current {
+  color: #1f2937;
+  font-weight: 600;
+}
+
+/* Product Detail Container */
+.details-container {
+  max-width: 1400px;
+  margin: 40px auto;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 60px;
+  align-items: start;
+}
+
+/* Image Section */
+.details-image-section {
+  position: sticky;
+  top: 100px;
+}
+
+.details-main-image {
+  background: linear-gradient(135deg, #f8f9ff, #e8f2ff);
+  border-radius: 20px;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+}
+
+.details-main-image img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+/* Thumbnails */
+.details-thumbnails-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.details-thumbnails {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.details-thumbnail {
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 3px solid transparent;
+  transition: all 0.3s ease;
+  background: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.details-thumbnail:hover {
+  border-color: #007bff;
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
+}
+
+.details-thumbnail.active {
+  border-color: #007bff;
+  box-shadow: 0 0 0 1px #007bff;
+}
+
+.details-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 8px;
+}
+
+.details-thumbnail-nav {
+  background: white;
+  border: 2px solid #e5e7eb;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #6b7280;
+}
+
+.details-thumbnail-nav:hover {
+  background: #007bff;
+  border-color: #007bff;
+  color: white;
+  transform: scale(1.1);
+}
+
+.details-thumbnail-nav:active {
+  transform: scale(0.95);
+}
+
+/* Info Section */
+.details-info-section h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 16px;
+  line-height: 1.3;
+}
+
+.details-meta {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.details-brand-tag {
+  background: linear-gradient(135deg, #007bff, #6f42c1);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.details-type-tag {
+  background: #f3f4f6;
+  color: #6b7280;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.details-description {
+  background: #f9fafb;
+  padding: 24px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  border-left: 4px solid #007bff;
+}
+
+.details-description h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 12px;
+}
+
+.details-description p {
+  color: #4b5563;
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+.details-contact-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1.05rem;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
+  transition: all 0.3s ease;
+}
+
+.details-contact-button:hover {
+  background: linear-gradient(135deg, #059669, #047857);
+  box-shadow: 0 8px 24px rgba(5, 150, 105, 0.4);
+  transform: translateY(-2px);
+  color: white;
+}
+
+.details-contact-button svg {
+  transition: transform 0.3s ease;
+}
+
+.details-contact-button:hover svg {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Tabs Section */
+.details-tabs-container {
+  max-width: 1400px;
+  margin: 60px auto;
+  padding: 0 40px;
+}
+
+.details-tabs-header {
+  display: flex;
+  gap: 4px;
+  border-bottom: 2px solid #e5e7eb;
+  margin-bottom: 30px;
+}
+
+.details-tab {
+  background: transparent;
+  border: none;
+  padding: 16px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #6b7280;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-bottom: 3px solid transparent;
+  position: relative;
+  bottom: -2px;
+}
+
+.details-tab:hover {
+  color: #007bff;
+  background: #f0f7ff;
+}
+
+.details-tab.active {
+  color: #007bff;
+  border-bottom-color: #007bff;
+  background: #f0f7ff;
+}
+
+.details-tabs-content {
+  min-height: 300px;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Specs Content */
+.details-specs-content {
+  display: grid;
+  gap: 16px;
+}
+
+.details-spec-row {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.details-spec-row:hover {
+  border-color: #007bff;
+  box-shadow: 0 4px 16px rgba(0, 123, 255, 0.1);
+  transform: translateX(4px);
+}
+
+.details-spec-icon {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #e8f2ff, #f0f7ff);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #007bff;
+  flex-shrink: 0;
+  border: 2px solid #e1ecff;
+}
+
+.details-spec-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.details-spec-info strong {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #007bff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.details-spec-info span {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+/* Service Content */
+.details-service-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.details-service-card {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.details-service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  border-color: #007bff;
+}
+
+.details-service-card svg {
+  color: #007bff;
+  margin-bottom: 16px;
+}
+
+.details-service-card h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 12px;
+}
+
+.details-service-card p {
+  color: #4b5563;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* Aftersales Content */
+.details-aftersales-content {
+  display: grid;
+  gap: 24px;
+}
+
+.details-warranty-card {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.details-warranty-card:hover {
+  transform: translateX(4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  border-color: #10b981;
+}
+
+.details-warranty-card svg {
+  color: #10b981;
+  margin-bottom: 16px;
+}
+
+.details-warranty-card h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 16px;
+}
+
+.details-warranty-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.details-warranty-card li {
+  color: #4b5563;
+  line-height: 1.8;
+  font-size: 0.95rem;
+  padding-left: 24px;
+  position: relative;
+  margin-bottom: 8px;
+}
+
+.details-warranty-card li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #10b981;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* Not Found */
+.details-not-found {
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.details-not-found h2 {
+  font-size: 2rem;
+  color: #1f2937;
+  margin-bottom: 20px;
+}
+
+.details-not-found button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.details-not-found button:hover {
+  background: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .details-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 0 20px;
+  }
+
+  .details-image-section {
+    position: static;
+  }
+
+  .details-tabs-container {
+    padding: 0 20px;
+  }
+
+  .details-service-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .details-page {
+    padding-top: 60px;
+  }
+
+  .details-breadcrumb {
+    padding: 0 15px;
+    font-size: 0.8rem;
+  }
+
+  .details-container {
+    margin: 20px auto;
+    padding: 0 15px;
+  }
+
+  .details-main-image {
+    min-height: 300px;
+    padding: 30px;
+  }
+
+  .details-main-image img {
+    max-width: 300px;
+  }
+
+  .details-info-section h1 {
+    font-size: 1.5rem;
+  }
+
+  .details-contact-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .details-tabs-container {
+    margin: 40px auto;
+    padding: 0 15px;
+  }
+
+  .details-tabs-header {
+    flex-wrap: wrap;
+  }
+
+  .details-tab {
+    padding: 12px 16px;
+    font-size: 0.9rem;
+  }
+
+  .details-thumbnails {
+    gap: 8px;
+  }
+
+  .details-thumbnail {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .details-main-image {
+    min-height: 250px;
+    padding: 20px;
+  }
+
+  .details-main-image img {
+    max-width: 250px;
+  }
+
+  .details-info-section h1 {
+    font-size: 1.3rem;
+  }
+
+  .details-description {
+    padding: 16px;
+  }
+
+  .details-spec-row {
+    padding: 16px;
+  }
+
+  .details-spec-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .details-service-card,
+  .details-warranty-card {
+    padding: 20px;
+  }
+
+  .details-thumbnails {
+    gap: 6px;
+  }
+
+  .details-thumbnail {
+    width: 50px;
+    height: 50px;
+  }
+
+  .details-thumbnail-nav {
+    width: 32px;
+    height: 32px;
+  }
+}
