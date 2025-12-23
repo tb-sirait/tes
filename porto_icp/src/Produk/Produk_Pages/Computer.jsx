@@ -1,12 +1,11 @@
-import React, { useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import SubProduk from "../SubProduct/Subproduk.jsx";
 import DetailProduk from "../SubProduct/DetailProduk.jsx";
 import { Helmet } from "react-helmet";
 
 const Computer = () => {
   const { id } = useParams();
-  const navigate = useNavigate();
+  
 
   // If there's an ID in the URL, show DetailProduk
   // Otherwise, show SubProduk list

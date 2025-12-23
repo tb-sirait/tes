@@ -252,7 +252,7 @@ export default function Produk() {
     { name: "Software", path: "software" },
     { name: "Hardware", path: "hardware" },
     { name: "Server", path: "server" },
-    { name: "Komputer", path: "komputer" },
+    { name: "Komputer", path: "computer" },
     { name: "Laptop", path: "laptop" },
     { name: "Sparepart", path: "sparepart" },
     { name: "Smartphone", path: "smartphone" },
