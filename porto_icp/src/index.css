@@ -132,11 +132,19 @@ body,
   font-family: "Inter", sans-serif;
 }
 
-/* Sembunyikan scrollbar tapi tetap bisa di-scroll */
 ::-webkit-scrollbar {
-  width: 0px;
-  background: transparent; /* opsional */
+  width: 8px;
 }
-body::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #5a6fd8, #6a4190);
 }

@@ -8,23 +8,45 @@
 .tentang-page {
   width: 100%;
   overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Prevent scroll when hero is active */
+body.tentang-hero-active {
+  overflow: hidden;
+  height: 100vh;
+}
+
+/* Invisible detector untuk navbar - hanya untuk deteksi warna navbar */
+.tentang-navbar-detector {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+  pointer-events: none;
 }
 
 /* ===== HERO SECTION ===== */
 .tentang-hero {
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100vh;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.6s ease;
+  z-index: 1000;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
 }
 
 .tentang-hero-hidden {
-  height: 0;
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
 }
 
@@ -163,12 +185,11 @@
   color: white;
   font-size: 2rem;
   cursor: pointer;
-  animation: bounce 2s infinite;
+  animation: bounce 2s 1.6s infinite, scrollIndicatorFadeIn 0.5s 1.6s forwards;
   opacity: 0;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-/* Delay animation untuk scroll indicator */
 @keyframes scrollIndicatorFadeIn {
   0% {
     opacity: 0;
@@ -178,12 +199,6 @@
   }
 }
 
-.tentang-scroll-indicator {
-  animation:
-    bounce 2s 1.6s infinite,
-    scrollIndicatorFadeIn 0.5s 1.6s forwards;
-}
-
 .tentang-scroll-indicator:hover {
   opacity: 1 !important;
 }
@@ -191,9 +206,12 @@
 /* ===== MAIN CONTENT ===== */
 .tentang-main-content {
   opacity: 0;
-  transform: translateY(50px);
-  transition: all 0.6s ease;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
   pointer-events: none;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
 }
 
 .tentang-main-content-visible {
@@ -217,6 +235,11 @@
   padding: 140px 0;
 }
 
+/* Padding top khusus untuk section pertama agar tidak tertutup navbar */
+.tentang-section-about .tentang-section-layout {
+  padding-top: 100px;
+}
+
 .tentang-section-left {
   position: sticky;
   top: 100px;
@@ -226,6 +249,7 @@
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 15px;
+  margin-top: 15px;
   line-height: 1.2;
 }
 
@@ -495,6 +519,11 @@
     padding: 50px 0;
   }
 
+  /* Tambahan padding untuk section pertama di mobile */
+  .tentang-section-about .tentang-section-layout {
+    padding-top: 100px;
+  }
+
   .tentang-section-left {
     position: static;
     text-align: center;
@@ -538,6 +567,11 @@
 
   .tentang-section-layout {
     padding: 40px 0;
+  }
+
+  /* Padding lebih untuk section pertama di mobile kecil */
+  .tentang-section-about .tentang-section-layout {
+    padding-top: 100px;
   }
 
   .tentang-section-title {

@@ -178,6 +178,12 @@
   border-color: rgba(37, 211, 102, 0.3);
 }
 
+.foot-social-link.foot-email {
+  background-color: rgba(234, 67, 53, 0.1);
+  color: white;
+  border-color: rgba(234, 67, 53, 0.3);
+}
+
 .foot-social-link:hover {
   transform: translateY(-2px);
   background: rgba(255, 255, 255, 0.12);
@@ -261,6 +267,11 @@
   border-color: rgba(37, 211, 102, 0.4);
 }
 
+.foot-social-link.foot-email:hover {
+  color: #ea4335;
+  border-color: rgba(234, 67, 53, 0.4);
+}
+
 /* Footer Bottom */
 .foot-bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.15);
@@ -303,6 +314,192 @@
 .foot-bottom-links a:hover {
   color: #fbbf24;
   background: rgba(251, 191, 36, 0.1);
+}
+
+/* ===== MODAL STYLES (dengan prefix con-) ===== */
+
+/* Modal Backdrop */
+.con-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  animation: con-fadeIn 0.3s ease;
+  backdrop-filter: blur(4px);
+}
+
+@keyframes con-fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Modal Container */
+.con-modal-container {
+  background-color: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  max-width: 600px;
+  width: 90%;
+  max-height: 85vh;
+  overflow-y: auto;
+  color: #333;
+  animation: con-slideUp 0.3s ease;
+}
+
+@keyframes con-slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Modal Title */
+.con-modal-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: #1434a4;
+  text-align: center;
+}
+
+/* Sales List - Card Layout */
+.con-sales-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+/* Sales Card */
+.con-sales-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 20px;
+  background-color: #f8f9fa;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #333;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.con-sales-card:hover {
+  background-color: #e8f0fe;
+  border-color: #1434a4;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(20, 52, 164, 0.15);
+}
+
+/* Sales Info */
+.con-sales-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.con-sales-name {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #1434a4;
+}
+
+.con-sales-email {
+  font-size: 0.95rem;
+  color: #666;
+  word-break: break-word;
+}
+
+/* Sales Status */
+.con-sales-status {
+  display: flex;
+  align-items: center;
+}
+
+.con-status-badge {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.con-status-badge.con-active {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.con-status-badge.con-inactive {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+/* Modal Footer */
+.con-modal-footer {
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+.con-close-btn {
+  background-color: #1434a4;
+  color: white;
+  border: none;
+  padding: 12px 32px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.con-close-btn:hover {
+  background-color: #0a2a75;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(20, 52, 164, 0.3);
+}
+
+.con-close-btn:active {
+  transform: translateY(0);
+}
+
+/* Custom Scrollbar untuk Modal */
+.con-modal-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.con-modal-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.con-modal-container::-webkit-scrollbar-thumb {
+  background: #1434a4;
+  border-radius: 10px;
+}
+
+.con-modal-container::-webkit-scrollbar-thumb:hover {
+  background: #0a2a75;
 }
 
 /* Responsive Design */
@@ -392,6 +589,61 @@
     justify-content: center;
     gap: 15px;
   }
+
+  /* Modal Responsive - Tablet */
+  .con-modal-container {
+    padding: 25px;
+    width: 92%;
+    max-height: 90vh;
+  }
+
+  .con-modal-title {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+  }
+
+  .con-sales-card {
+    padding: 16px 18px;
+  }
+
+  .con-sales-name {
+    font-size: 1rem;
+  }
+
+  .con-sales-email {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 600px) {
+  /* Modal Responsive - Mobile Medium */
+  .con-modal-container {
+    padding: 20px;
+    width: 95%;
+    border-radius: 12px;
+  }
+
+  .con-modal-title {
+    font-size: 1.4rem;
+    margin-bottom: 18px;
+  }
+
+  .con-sales-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 16px;
+  }
+
+  .con-sales-status {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .con-close-btn {
+    width: 100%;
+    padding: 14px 32px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -424,6 +676,69 @@
 
   .foot-social-username {
     font-size: 0.75rem;
+  }
+
+  /* Modal Responsive - Mobile Small */
+  .con-modal-container {
+    padding: 18px;
+    width: 96%;
+    max-height: 92vh;
+  }
+
+  .con-modal-title {
+    font-size: 1.3rem;
+    margin-bottom: 16px;
+  }
+
+  .con-sales-list {
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .con-sales-card {
+    padding: 12px 14px;
+  }
+
+  .con-sales-name {
+    font-size: 0.95rem;
+  }
+
+  .con-sales-email {
+    font-size: 0.85rem;
+  }
+
+  .con-status-badge {
+    font-size: 0.8rem;
+    padding: 5px 12px;
+  }
+
+  .con-close-btn {
+    font-size: 0.95rem;
+    padding: 12px 28px;
+  }
+}
+
+@media (max-width: 360px) {
+  /* Modal Responsive - Mobile Extra Small */
+  .con-modal-container {
+    padding: 15px;
+  }
+
+  .con-modal-title {
+    font-size: 1.2rem;
+  }
+
+  .con-sales-name {
+    font-size: 0.9rem;
+  }
+
+  .con-sales-email {
+    font-size: 0.8rem;
+  }
+
+  .con-status-badge {
+    font-size: 0.75rem;
+    padding: 4px 10px;
   }
 }
 

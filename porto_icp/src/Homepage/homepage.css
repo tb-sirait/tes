@@ -179,7 +179,7 @@
 }
 
 .home-card {
-  background-color: #e5e7eb;
+  background: linear-gradient(135deg, #1434a4, #3730a3);
   border-radius: 1rem;
   padding: 2rem;
   cursor: pointer;
@@ -220,7 +220,7 @@
 .home-card-icon-container {
   width: 200px;
   height: 200px;
-  background-color: #1e40af;
+  background-color: #2563eb;
   border-radius: 0.75rem;
   display: flex;
   align-items: center;
@@ -249,27 +249,74 @@
 .home-card-title {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #1f2937;
+  color: #bbbbbb;
   margin: 0;
   transition: color 0.3s ease;
 }
 
 .home-card:hover .home-card-title {
-  color: #2563eb;
+  color: #ffffff;
+}
+
+.card-pattern-1 {
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2), transparent);
+  border-radius: 50%;
+  z-index: 5;
+}
+
+.card-pattern-2 {
+  position: absolute;
+  bottom: -50px;
+  left: -50px;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2), transparent);
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.card-pattern-3 {
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2), transparent);
+  border-radius: 50%;
+  z-index: -1;
+}
+.card-pattern-4 {
+  position: absolute;
+  bottom: -50px;
+  right: -50px;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2), transparent);
+  border-radius: 50%;
+  z-index: 5;
 }
 
 .home-card-description {
-  color: #6b7280;
+  color: #bbbbbb;
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.6;
   margin: 0;
 }
 
+.home-card:hover .home-card-description {
+  color: #ffffff;
+}
+
 .home-card-cta {
   display: inline-flex;
   align-items: center;
-  color: #1f2937;
+  color: #bbbbbb;
   font-weight: 700;
   gap: 0.5rem;
   margin-top: 0.5rem;
@@ -278,7 +325,7 @@
 
 .home-card:hover .home-card-cta {
   transform: translateX(8px);
-  color: #2563eb;
+  color: #ffffff;
 }
 
 .home-card:hover .home-card-arrow {

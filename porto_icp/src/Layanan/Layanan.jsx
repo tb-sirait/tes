@@ -412,8 +412,6 @@ function Layanan() {
             </div>
           </div>
         </section>
-
-        <KontakContainer />
         <FAQ />
       </main>
 

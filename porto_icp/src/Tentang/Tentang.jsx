@@ -1,12 +1,5 @@
 import React, { useEffect, useState } from "react";
 import {
-  FaEnvelope,
-  FaWhatsapp,
-  FaPhone,
-  FaMapMarkerAlt,
-  FaUsers,
-  FaHandshake,
-  FaTrophy,
   FaChevronDown,
 } from "react-icons/fa";
 import "./tentang.css";
@@ -66,39 +59,57 @@ function Tentang() {
 
   useEffect(() => {
     if (!showMainContent) {
-      // Matikan scroll
-      document.body.style.overflow = "hidden";
+      document.body.classList.add('tentang-hero-active');
     } else {
-      // Aktifkan kembali scroll
-      document.body.style.overflow = "auto";
+      document.body.classList.remove('tentang-hero-active');
     }
 
-    // Cleanup saat component unmount
     return () => {
-      document.body.style.overflow = "auto";
+      document.body.classList.remove('tentang-hero-active');
     };
+  }, [showMainContent]);
+
+  // Custom scroll handler untuk mencegah scroll ke atas setelah klik
+  useEffect(() => {
+    if (showMainContent) {
+      let isScrolling = false;
+
+      const handleScroll = () => {
+        if (isScrolling) return;
+        
+        // Cegah scroll ke posisi < 50px (area hero yang hidden)
+        if (window.pageYOffset < 50) {
+          isScrolling = true;
+          window.scrollTo({ top: 50, behavior: "auto" });
+          setTimeout(() => { isScrolling = false; }, 100);
+        }
+      };
+
+      window.addEventListener('scroll', handleScroll, { passive: false });
+      
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }
   }, [showMainContent]);
 
   const handleScrollToContent = () => {
     setShowMainContent(true);
-    // Scroll ke posisi 0 (top) terlebih dahulu
-    window.scrollTo({ top: 0, behavior: "auto" });
-
-    // Kemudian scroll ke section tentang kami
+    
+    // Tunggu sebentar agar transisi berjalan
     setTimeout(() => {
       const aboutSection = document.querySelector(".tentang-section-about");
       if (aboutSection) {
-        const navbarHeight = 70; // Adjust sesuai tinggi navbar Anda
-        const elementPosition = aboutSection.getBoundingClientRect().top;
-        const offsetPosition =
-          elementPosition + window.pageYOffset - navbarHeight;
-
+        const navbarHeight = 80;
+        const targetPosition = aboutSection.offsetTop - navbarHeight;
+        
+        // Scroll ke section about
         window.scrollTo({
-          top: offsetPosition,
+          top: targetPosition,
           behavior: "smooth",
         });
       }
-    }, 100);
+    }, 650);
   };
 
   return (
@@ -118,9 +129,14 @@ function Tentang() {
       </Helmet>
 
       <div className="tentang-page">
+        {/* Invisible detector untuk navbar - hanya aktif saat hero visible */}
+        {!showMainContent && (
+          <div className="tentang-navbar-detector home-hero-section"></div>
+        )}
+        
         {/* Hero Section - Full Screen */}
         <section
-          className={`tentang-hero home-hero-section ${showMainContent ? "tentang-hero-hidden" : ""}`}
+          className={`tentang-hero ${showMainContent ? "tentang-hero-hidden" : ""}`}
         >
           <div className="tentang-hero-overlay"></div>
           <img
@@ -327,7 +343,6 @@ function Tentang() {
           </section>
 
           {/* Kontak dan FAQ */}
-          <KontakContainer />
           <FAQ />
         </div>
       </div>

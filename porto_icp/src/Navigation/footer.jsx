@@ -8,6 +8,21 @@ import { useState } from "react";
 function Footer() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isCareerModalOpen, setIsCareerModalOpen] = useState(false);
+  const [isEmailModalOpen, setIsEmailModalOpen] = useState(false);
+
+  // Data sales untuk modal
+  const salesData = [
+    { name: "Admin Sales 1", email: "sales1@infoduta.com" },
+    { name: "Admin Sales 2", email: "sales2@infoduta.com" },
+    { name: "Admin Sales 3", email: "sales3@infoduta.com" },
+  ];
+
+  const activeStatus = true; // Ubah sesuai kebutuhan
+
+  const closeEmailModal = () => {
+    setIsEmailModalOpen(false);
+  };
+
   return (
     <footer className="foot-footer">
       <div className="foot-container">
@@ -250,6 +265,30 @@ function Footer() {
                 </span>
               </div>
             </button>
+            
+            {/* Tombol Email Sales Baru */}
+            <button
+              onClick={() => setIsEmailModalOpen(true)}
+              className="foot-social-link foot-email"
+              style={{ border: "none", cursor: "pointer" }}
+            >
+              <div className="foot-social-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  width="20"
+                  height="20"
+                  fill="currentColor"
+                >
+                  <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                </svg>
+              </div>
+              <div className="foot-social-text">
+                <span className="foot-social-name">Email Sales</span>
+                <span className="foot-social-username">
+                  Daftar Admin Sales Kami
+                </span>
+              </div>
+            </button>
           </div>
         </div>
       </div>
@@ -266,11 +305,55 @@ function Footer() {
           </div>
         </div>
       </div>
+
+      {/* Modal WhatsApp */}
       <SalesModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      
+      {/* Modal Karir */}
       <KarirModal
         isOpen={isCareerModalOpen}
         onClose={() => setIsCareerModalOpen(false)}
       />
+
+      {/* Modal Email Sales */}
+      {isEmailModalOpen && (
+        <div className="con-modal-backdrop" onClick={closeEmailModal}>
+          <div
+            className="con-modal-container"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h2 className="con-modal-title">Daftar Admin Sales</h2>
+            <div className="con-sales-list">
+              {salesData.map((sales, index) => (
+                <a
+                  key={index}
+                  href={`mailto:${sales.email}`}
+                  className="con-sales-card"
+                >
+                  <div className="con-sales-info">
+                    <div className="con-sales-name">{sales.name}</div>
+                    <div className="con-sales-email">{sales.email}</div>
+                  </div>
+                  <div className="con-sales-status">
+                    <span
+                      className={`con-status-badge ${
+                        activeStatus ? "con-active" : "con-inactive"
+                      }`}
+                    >
+                      {activeStatus ? "● Aktif" : "● Tidak Aktif"}
+                    </span>
+                  </div>
+                </a>
+              ))}
+            </div>
+            <div className="con-modal-footer">
+              <button onClick={closeEmailModal} className="con-close-btn">
+                Tutup
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </footer>
   );
 }

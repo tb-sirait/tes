@@ -101,7 +101,7 @@ function Homepage() {
       image: AboutImage,
       route: "/tentang",
       description:
-        "PT Infoduta Computindo Perkasa adalah perusahaan B2B (Business to Business) yang bergerak di bidang Teknologi Informasi (IT), yang menyediakan layanan pengadaan serta penyewaan produk IT (hardware, software, dan produk pendukung lainnya). Selain itu, Infoduta juga memberikan layanan pemeliharaan dan dukungan teknis untuk memastikan operasional sistem IT pada setiap klien berjalan optimal. Saat ini, PT Infoduta Computindo Perkasa telah dipercaya oleh berbagai perusahaan terkemuka di Indonesia sebagai mitra dalam pemenuhan kebutuhan teknologi informasi.",
+        "PT Infoduta Computindo Perkasa adalah perusahaan B2B (Business to Business) yang bergerak di bidang Teknologi Informasi (IT), yang menyediakan layanan pengadaan serta penyewaan produk IT (hardware, software, dan produk pendukung lainnya).",
     },
     {
       id: "layanan",
@@ -109,7 +109,7 @@ function Homepage() {
       image: ServicesImage,
       route: "/layanan",
       description:
-        "Infoduta hadir sebagai solusi untuk bisnis anda dengan melayani Pengadaan atau Penyewaan Produk IT. Kami menyediakan berbagai produk IT berkualitas dari merek-merek ternama, serta layanan pemeliharaan dan dukungan teknis untuk memastikan sistem IT anda berjalan optimal.",
+        "Kami menyediakan berbagai produk IT berkualitas dari merek-merek ternama, serta layanan pemeliharaan dan dukungan teknis untuk memastikan sistem IT anda berjalan optimal.",
     },
     {
       id: "produk",
@@ -143,7 +143,7 @@ function Homepage() {
         />
         <meta
           property="og:description"
-          content="Temukan solusi teknologi terdepan untuk mengembangkan bisnis Anda bersama PT Infoduta Computindo Perkasa. Jelajahi produk dan layanan kami sekarang!"
+          content="PT Infoduta Computindo Perkasa menyediakan solusi IT terbaik dengan produk software dan hardware berkualitas tinggi. Temukan layanan unggulan kami untuk mendukung kebutuhan bisnis Anda."
         />
         <meta property="og:image" content="/api/og-image/homepage" />
         <meta property="og:url" content="https://infoduta.com/" />
@@ -229,6 +229,11 @@ function Homepage() {
                 onClick={() => navigate(item.route)}
                 className={`home-card ${cardsVisible[index] ? "home-card-visible" : ""}`}
               >
+              {/* Background Pattern */}
+                <div className="card-pattern-1"></div>
+                <div className="card-pattern-2"></div>
+                <div className="card-pattern-3"></div>
+                <div className="card-pattern-4"></div>
                 {/* Icon Container - di kiri */}
                 <div className="home-card-icon-container">
                   <img
