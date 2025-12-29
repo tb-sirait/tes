@@ -339,10 +339,10 @@ function Layanan() {
               <h2 className="services-detail-title">Penyewaan Produk IT</h2>
               <p className="services-detail-text">
                 Butuh solusi IT jangka pendek tanpa harus membeli? Infoduta
-                menawarkan layanan penyewaan produk IT berkualitas tinggi,
-                mulai dari laptop, server, hingga perangkat jaringan. Dengan
-                layanan kami, Anda dapat mengakses teknologi terbaru sesuai
-                kebutuhan bisnis Anda tanpa beban investasi besar.
+                menawarkan layanan penyewaan produk IT berkualitas tinggi, mulai
+                dari laptop, server, hingga perangkat jaringan. Dengan layanan
+                kami, Anda dapat mengakses teknologi terbaru sesuai kebutuhan
+                bisnis Anda tanpa beban investasi besar.
               </p>
               <div className="services-detail-badges">
                 <span className="services-badge services-badge-purple">
@@ -371,33 +371,34 @@ function Layanan() {
                 <li className="services-detail-list-item">
                   <FaCheck className="services-detail-check" />
                   <div>
-                    <strong>Servis Bergaransi:</strong> Produk IT yang Anda
-                    beli atau sewa dilengkapi dengan jaminan Servis bergaransi
-                    (baik dari Supplier ataupun dari Kami).
+                    <strong>Servis Bergaransi:</strong> Produk IT yang Anda beli
+                    atau sewa dilengkapi dengan jaminan Servis bergaransi (baik
+                    dari Supplier ataupun dari Kami).
                   </div>
                 </li>
                 <li className="services-detail-list-item">
                   <FaCheck className="services-detail-check" />
                   <div>
-                    <strong>Konsultasi Alat IT Gratis:</strong> Kami menyediakan konsultasi produk
-                    untuk kebutuhan proyek pada Bisnis anda dengan produk IT yang sesuai.
+                    <strong>Konsultasi Alat IT Gratis:</strong> Kami menyediakan
+                    konsultasi produk untuk kebutuhan proyek pada Bisnis anda
+                    dengan produk IT yang sesuai.
                   </div>
                 </li>
                 <li className="services-detail-list-item">
                   <FaCheck className="services-detail-check" />
                   <div>
-                    <strong>Pengiriman dan Instalasi:</strong> Kami siap membantu
-                    pengiriman dan instalasi produk IT di lokasi Anda, memastikan
-                    Produk IT yang anda beli dapat berjalan dengan lancar dan 
-                    sesuai dengan kebutuhan Anda.
+                    <strong>Pengiriman dan Instalasi:</strong> Kami siap
+                    membantu pengiriman dan instalasi produk IT di lokasi Anda,
+                    memastikan Produk IT yang anda beli dapat berjalan dengan
+                    lancar dan sesuai dengan kebutuhan Anda.
                   </div>
                 </li>
                 <li className="services-detail-list-item">
                   <FaCheck className="services-detail-check" />
                   <div>
-                    <strong>Pelatihan Penggunaan:</strong> Kami siap membantu Anda
-                    dengan memberikan informasi cara penggunaan dan pemanfaatan Produk IT
-                    yang Anda
+                    <strong>Pelatihan Penggunaan:</strong> Kami siap membantu
+                    Anda dengan memberikan informasi cara penggunaan dan
+                    pemanfaatan Produk IT yang Anda
                   </div>
                 </li>
               </ul>

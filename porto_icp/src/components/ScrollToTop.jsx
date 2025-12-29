@@ -6,20 +6,20 @@ export default function ScrollToTop() {
 
   useEffect(() => {
     // Cek apakah halaman memiliki hero section
-    const heroSection = document.querySelector('.home-hero-section');
-    
+    const heroSection = document.querySelector(".home-hero-section");
+
     if (heroSection) {
       // Jika ada hero section, scroll ke posisi hero section
-      heroSection.scrollIntoView({ 
-        behavior: 'instant', // gunakan 'instant' agar langsung, atau 'smooth' untuk animasi
-        block: 'start' 
+      heroSection.scrollIntoView({
+        behavior: "instant", // gunakan 'instant' agar langsung, atau 'smooth' untuk animasi
+        block: "start",
       });
     } else {
       // Jika tidak ada hero section, scroll ke paling atas
       window.scrollTo({
         top: 0,
         left: 0,
-        behavior: 'instant'
+        behavior: "instant",
       });
     }
   }, [pathname]);

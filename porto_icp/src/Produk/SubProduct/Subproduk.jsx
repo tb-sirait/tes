@@ -118,14 +118,14 @@ const ProductCard = ({ product, imageSrc, onClick, category }) => {
           <span className="sub-produk-brand">{product.brand}</span>
           <span className="sub-produk-type">
             {category === "server"
-            ? "Server"
-            : category === "hardware"
-            ? product.type || "Hardware"
-            : category === "software"
-            ? "Software"
-            : category === "sparepart"
-            ? product.jenis || "Sparepart"
-            : product.jenis || product.type || "Product"}
+              ? "Server"
+              : category === "hardware"
+                ? product.type || "Hardware"
+                : category === "software"
+                  ? "Software"
+                  : category === "sparepart"
+                    ? product.jenis || "Sparepart"
+                    : product.jenis || product.type || "Product"}
           </span>
         </div>
 
