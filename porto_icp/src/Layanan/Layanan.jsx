@@ -6,8 +6,6 @@ import {
   FaServer,
   FaNetworkWired,
   FaHeadset,
-  FaChevronLeft,
-  FaChevronRight,
 } from "react-icons/fa";
 import "./layanan.css";
 
@@ -179,7 +177,7 @@ function Layanan() {
                 onClick={prevSlide}
                 aria-label="Previous slide"
               >
-                <FaChevronLeft />
+                {"<"}
               </button>
 
               <div className="services-hero-indicators">
@@ -200,7 +198,7 @@ function Layanan() {
                 onClick={nextSlide}
                 aria-label="Next slide"
               >
-                <FaChevronRight />
+                {">"}
               </button>
             </div>
           </div>
@@ -303,8 +301,7 @@ function Layanan() {
                 terkini, mulai dari perangkat keras komputer, server, hingga
                 berbagai solusi jaringan dan teknologi informasi. Kami
                 berkomitmen memberikan produk berkualitas dengan harga
-                kompetitif yang dapat memenuhi kebutuhan bisnis dan individu
-                Anda.
+                kompetitif yang dapat memenuhi kebutuhan bisnis Anda.
               </p>
               <div className="services-detail-badges">
                 <span className="services-badge services-badge-green">
@@ -341,12 +338,11 @@ function Layanan() {
             <div className="services-detail-content">
               <h2 className="services-detail-title">Penyewaan Produk IT</h2>
               <p className="services-detail-text">
-                Selain pengadaan dan penyewaan Alat IT, infoduta.com juga
-                menyediakan layanan servis perangkat IT untuk kebutuhan Bisnis
-                Anda. Sama seperti layanan pengadaan, kami menyediakan berbagai
-                macam produk IT, kami menyediakan layanan Purna Jual seolah
-                terdapat kendala atau masalah selama produk masih dalam Masa
-                Sewa.
+                Butuh solusi IT jangka pendek tanpa harus membeli? Infoduta
+                menawarkan layanan penyewaan produk IT berkualitas tinggi,
+                mulai dari laptop, server, hingga perangkat jaringan. Dengan
+                layanan kami, Anda dapat mengakses teknologi terbaru sesuai
+                kebutuhan bisnis Anda tanpa beban investasi besar.
               </p>
               <div className="services-detail-badges">
                 <span className="services-badge services-badge-purple">
@@ -375,35 +371,33 @@ function Layanan() {
                 <li className="services-detail-list-item">
                   <FaCheck className="services-detail-check" />
                   <div>
-                    <strong>Servis Bergaransi:</strong> Setiap produk yang Anda
-                    beli atau sewa mendapatkan layanan servis bergaransi untuk
-                    memastikan performa optimal tanpa biaya tambahan selama masa
-                    garansi.
+                    <strong>Servis Bergaransi:</strong> Produk IT yang Anda
+                    beli atau sewa dilengkapi dengan jaminan Servis bergaransi
+                    (baik dari Supplier ataupun dari Kami).
                   </div>
                 </li>
                 <li className="services-detail-list-item">
                   <FaCheck className="services-detail-check" />
                   <div>
-                    <strong>Konsultasi Alat IT Gratis:</strong> Kami menyediakan
-                    konsultasi profesional tentang peralatan dan solusi IT yang
-                    sesuai dengan kebutuhan Anda tanpa biaya tambahan.
+                    <strong>Konsultasi Alat IT Gratis:</strong> Kami menyediakan konsultasi produk
+                    untuk kebutuhan proyek pada Bisnis anda dengan produk IT yang sesuai.
                   </div>
                 </li>
                 <li className="services-detail-list-item">
                   <FaCheck className="services-detail-check" />
                   <div>
-                    <strong>Pengiriman dan Instalasi:</strong> Kami menawarkan
-                    layanan pengiriman dan instalasi produk IT di lokasi Anda
-                    untuk memastikan semua perangkat siap digunakan.
+                    <strong>Pengiriman dan Instalasi:</strong> Kami siap membantu
+                    pengiriman dan instalasi produk IT di lokasi Anda, memastikan
+                    Produk IT yang anda beli dapat berjalan dengan lancar dan 
+                    sesuai dengan kebutuhan Anda.
                   </div>
                 </li>
                 <li className="services-detail-list-item">
                   <FaCheck className="services-detail-check" />
                   <div>
-                    <strong>Pelatihan Penggunaan:</strong> Kami memberikan
-                    pelatihan penggunaan produk IT yang Anda beli atau sewa,
-                    sehingga Anda dapat memaksimalkan manfaat untuk perusahaan
-                    Anda dari teknologi yang diterima.
+                    <strong>Pelatihan Penggunaan:</strong> Kami siap membantu Anda
+                    dengan memberikan informasi cara penggunaan dan pemanfaatan Produk IT
+                    yang Anda
                   </div>
                 </li>
               </ul>
