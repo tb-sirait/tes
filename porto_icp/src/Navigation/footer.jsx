@@ -12,9 +12,9 @@ function Footer() {
 
   // Data sales untuk modal
   const salesData = [
-    { name: "Admin Sales 1", email: "sales1@infoduta.com" },
-    { name: "Admin Sales 2", email: "sales2@infoduta.com" },
-    { name: "Admin Sales 3", email: "sales3@infoduta.com" },
+    { name: "Admin Sales 1", email: "sales.1@infoduta.com" },
+    { name: "Admin Sales 2", email: "sales.2@infoduta.com" },
+    { name: "Admin Sales 3", email: "sales.6@infoduta.com" },
   ];
 
   const activeStatus = true; // Ubah sesuai kebutuhan
@@ -265,7 +265,7 @@ function Footer() {
                 </span>
               </div>
             </button>
-            
+
             {/* Tombol Email Sales Baru */}
             <button
               onClick={() => setIsEmailModalOpen(true)}
@@ -297,18 +297,18 @@ function Footer() {
       <div className="foot-bottom">
         <div className="foot-bottom-content">
           <p className="foot-copyright">
-            &copy; 2025 | PT Infoduta Computindo Perkasa
+            &copy; 2026 | PT Infoduta Computindo Perkasa
           </p>
           <div className="foot-bottom-links">
-            <a href="/layanan">Terms of Service</a>
-            <a href="/tentang">About</a>
+            <a href="/layanan">Layanan</a>
+            <a href="/tentang">Tentang</a>
           </div>
         </div>
       </div>
 
       {/* Modal WhatsApp */}
       <SalesModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
-      
+
       {/* Modal Karir */}
       <KarirModal
         isOpen={isCareerModalOpen}

@@ -229,7 +229,7 @@ function Homepage() {
                 onClick={() => navigate(item.route)}
                 className={`home-card ${cardsVisible[index] ? "home-card-visible" : ""}`}
               >
-              {/* Background Pattern */}
+                {/* Background Pattern */}
                 <div className="card-pattern-1"></div>
                 <div className="card-pattern-2"></div>
                 <div className="card-pattern-3"></div>

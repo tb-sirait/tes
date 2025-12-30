@@ -41,7 +41,9 @@ body.tentang-hero-active {
   align-items: center;
   justify-content: center;
   z-index: 1000;
-  transition: opacity 0.6s ease, visibility 0.6s ease;
+  transition:
+    opacity 0.6s ease,
+    visibility 0.6s ease;
 }
 
 .tentang-hero-hidden {
@@ -185,7 +187,9 @@ body.tentang-hero-active {
   color: white;
   font-size: 2rem;
   cursor: pointer;
-  animation: bounce 2s 1.6s infinite, scrollIndicatorFadeIn 0.5s 1.6s forwards;
+  animation:
+    bounce 2s 1.6s infinite,
+    scrollIndicatorFadeIn 0.5s 1.6s forwards;
   opacity: 0;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
@@ -207,7 +211,9 @@ body.tentang-hero-active {
 .tentang-main-content {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
   pointer-events: none;
   min-height: 100vh;
   position: relative;

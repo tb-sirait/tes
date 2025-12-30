@@ -264,7 +264,11 @@
   right: -50px;
   width: 150px;
   height: 150px;
-  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2), transparent);
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
   border-radius: 50%;
   z-index: 5;
 }
@@ -275,7 +279,11 @@
   left: -50px;
   width: 150px;
   height: 150px;
-  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2), transparent);
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
   border-radius: 50%;
   z-index: -1;
 }
@@ -286,7 +294,11 @@
   left: -50px;
   width: 150px;
   height: 150px;
-  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2), transparent);
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
   border-radius: 50%;
   z-index: -1;
 }
@@ -296,7 +308,11 @@
   right: -50px;
   width: 150px;
   height: 150px;
-  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2), transparent);
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
   border-radius: 50%;
   z-index: 5;
 }

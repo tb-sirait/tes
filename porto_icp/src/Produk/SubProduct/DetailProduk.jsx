@@ -12,6 +12,8 @@ import {
   Package,
   Shield,
   Truck,
+  Pickaxe as Service,
+  Send,
 } from "lucide-react";
 import Navbar from "../../Navigation/Navbar.jsx";
 import Footer from "../../Navigation/footer.jsx";
@@ -707,6 +709,24 @@ const DetailProduk = () => {
                   Untuk pengiriman ke luar Jabodetabek, kami bekerja sama dengan
                   jasa ekspedisi terpercaya untuk memastikan produk sampai
                   dengan aman.
+                </p>
+              </div>
+              <div className="details-service-card">
+                <Service size={32} />
+                <h3>Instalasi & Setup</h3>
+                <p>
+                  Tim teknisi kami siap membantu instalasi dan setup awal
+                  perangkat di lokasi Anda untuk memastikan semuanya berjalan
+                  lancar.
+                </p>
+              </div>
+              <div className="details-service-card">
+                <Send size={32} />
+                <h3>Pengiriman Software tercepat</h3>
+                <p>
+                  Untuk produk software, kami menyediakan pengiriman lisensi
+                  secara digital melalui email dalam waktu 1x24 jam setelah
+                  pembayaran dikonfirmasi.
                 </p>
               </div>
             </div>

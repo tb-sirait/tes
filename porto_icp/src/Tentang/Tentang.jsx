@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  FaChevronDown,
-} from "react-icons/fa";
+import { FaChevronDown } from "react-icons/fa";
 import "./tentang.css";
 
 // Import images
@@ -59,13 +57,13 @@ function Tentang() {
 
   useEffect(() => {
     if (!showMainContent) {
-      document.body.classList.add('tentang-hero-active');
+      document.body.classList.add("tentang-hero-active");
     } else {
-      document.body.classList.remove('tentang-hero-active');
+      document.body.classList.remove("tentang-hero-active");
     }
 
     return () => {
-      document.body.classList.remove('tentang-hero-active');
+      document.body.classList.remove("tentang-hero-active");
     };
   }, [showMainContent]);
 
@@ -76,33 +74,35 @@ function Tentang() {
 
       const handleScroll = () => {
         if (isScrolling) return;
-        
+
         // Cegah scroll ke posisi < 50px (area hero yang hidden)
         if (window.pageYOffset < 50) {
           isScrolling = true;
           window.scrollTo({ top: 50, behavior: "auto" });
-          setTimeout(() => { isScrolling = false; }, 100);
+          setTimeout(() => {
+            isScrolling = false;
+          }, 100);
         }
       };
 
-      window.addEventListener('scroll', handleScroll, { passive: false });
-      
+      window.addEventListener("scroll", handleScroll, { passive: false });
+
       return () => {
-        window.removeEventListener('scroll', handleScroll);
+        window.removeEventListener("scroll", handleScroll);
       };
     }
   }, [showMainContent]);
 
   const handleScrollToContent = () => {
     setShowMainContent(true);
-    
+
     // Tunggu sebentar agar transisi berjalan
     setTimeout(() => {
       const aboutSection = document.querySelector(".tentang-section-about");
       if (aboutSection) {
         const navbarHeight = 80;
         const targetPosition = aboutSection.offsetTop - navbarHeight;
-        
+
         // Scroll ke section about
         window.scrollTo({
           top: targetPosition,
@@ -133,7 +133,7 @@ function Tentang() {
         {!showMainContent && (
           <div className="tentang-navbar-detector home-hero-section"></div>
         )}
-        
+
         {/* Hero Section - Full Screen */}
         <section
           className={`tentang-hero ${showMainContent ? "tentang-hero-hidden" : ""}`}
