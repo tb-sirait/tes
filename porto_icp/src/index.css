@@ -1,19 +1,17 @@
 @font-face {
   font-family: "Nunito";
-  src:
-    url("path/to/your/font-files/Nunito-Regular.woff2") format("woff2"),
-    url("path/to/your/font-files/Nunito-Regular.woff") format("woff");
-  font-weight: 400;
-  font-style: normal;
+  src: url("./assets/fonts/Nunito/Nunito-Italic-VariableFont_wght.ttf")
+    format("truetype");
+  font-weight: 200 1000; /* range weight variable font */
+  font-style: italic;
   font-display: swap;
 }
 
 @font-face {
   font-family: "Nunito";
-  src:
-    url("path/to/your/font-files/Nunito-Bold.woff2") format("woff2"),
-    url("path/to/your/font-files/Nunito-Bold.woff") format("woff");
-  font-weight: 700;
+  src: url("./assets/fonts/Nunito/Nunito-VariableFont_wght.ttf")
+    format("truetype");
+  font-weight: 200 1000;
   font-style: normal;
   font-display: swap;
 }
@@ -31,11 +29,16 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  scroll-behavior: smooth;
 }
 
 * {
   box-sizing: border-box;
-  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: "Nunito", sans-serif;
 }
 
 a {
@@ -147,4 +150,16 @@ body,
 
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(135deg, #5a6fd8, #6a4190);
+}
+
+input[type="radio"] {
+  accent-color: #667eea;
+}
+
+input[type="radio"]:hover {
+  accent-color: #667eea;
+}
+
+input[type="radio"]:checked {
+  accent-color: #667eea;
 }

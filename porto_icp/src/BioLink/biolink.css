@@ -229,7 +229,7 @@
 }
 
 /* Links grid */
-.links-grid {
+.soc-links-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 14px;
@@ -238,7 +238,7 @@
 
 /* Base card style */
 .website-link,
-.bio-social-link {
+.soc-link {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -254,7 +254,7 @@
 }
 
 /* Shine effect */
-.bio-social-link::before {
+.soc-link::before {
   content: "";
   position: absolute;
   top: 0;
@@ -270,7 +270,7 @@
   transition: left 0.6s ease;
 }
 
-.bio-social-link:hover::before {
+.soc-link:hover::before {
   left: 100%;
 }
 
@@ -327,7 +327,7 @@
 
 /* Hover effects */
 .website-link:hover,
-.bio-social-link:hover {
+.soc-link:hover {
   background: var(--hover-color, #2980b9);
   transform: translateY(-4px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
@@ -337,19 +337,19 @@
 .website-link:hover .link-description,
 .website-link:hover .link-arrow,
 .website-link:hover .link-icon,
-.bio-social-link:hover .link-text,
-.bio-social-link:hover .link-description,
-.bio-social-link:hover .link-arrow,
-.bio-social-link:hover .link-icon {
+.soc-link:hover .link-text,
+.soc-link:hover .link-description,
+.soc-link:hover .link-arrow,
+.soc-link:hover .link-icon {
   color: #fff !important;
 }
 
-.bio-social-link:hover .icon-emoji {
+.soc-link:hover .icon-emoji {
   transform: scale(1.2) rotate(10deg);
   filter: brightness(1.2);
 }
 
-.bio-social-link:hover .link-arrow {
+.soc-link:hover .link-arrow {
   transform: translateX(6px);
   opacity: 1;
 }

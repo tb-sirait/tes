@@ -190,7 +190,7 @@ export default function BioLinks() {
             <div className="bio-section-divider"></div>
           </div>
 
-          <div className="links-grid website-links">
+          <div className="soc-links-grid website-links">
             {websiteLinks.map((link, index) => (
               <a
                 key={index}
@@ -217,14 +217,14 @@ export default function BioLinks() {
             <div className="bio-section-divider"></div>
           </div>
 
-          <div className="links-grid social-links">
+          <div className="soc-links-grid soc-links">
             {socialLinks.map((link, index) => (
               <a
                 key={index}
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="social-link"
+                className="soc-link"
                 style={{ "--hover-color": link.color }}
               >
                 <div className="link-icon">{link.icon}</div>
