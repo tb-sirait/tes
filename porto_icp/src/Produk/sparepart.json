@@ -5,7 +5,7 @@
     "jenis": "GPU",
     "brand": "NVIDIA",
     "images": ["/assets/produk/sparepart/nvidia/1.png"],
-    "description": "High-performance Nvidia A100 80GB PCIe GPU designed for AI and HPC workloads."
+    "description": "GPU NVIDIA A100 80GB (berbasis arsitektur Ampere) menawarkan performa tinggi yang luar biasa untuk beban kerja AI, analitik data, dan Komputasi Kinerja Tinggi (HPC), dengan fitur-fitur utama seperti memori HBM2e berkapasitas besar dan bandwidth memori lebih dari 2 TB/s."
   },
   {
     "id": 2,
@@ -13,7 +13,7 @@
     "jenis": "GPU",
     "brand": "NVIDIA",
     "images": ["/assets/produk/sparepart/nvidia/3.png"],
-    "description": "Nvidia Tesla V100 32GB PCIe GPU optimized for deep learning and scientific computing."
+    "description": "NVIDIA Tesla V100 32GB PCIe adalah GPU pusat data berbasis arsitektur Volta untuk AI dan HPC, memiliki 5.120 inti CUDA, 640 inti Tensor, memori 32GB HBM2 dengan bandwidth 900 GB/s, dan performa puncak hingga 14 TFLOPS (FP32) atau 28 TFLOPS (FP16). Kartu ini mendukung NVLink untuk komunikasi antar-GPU, memiliki TDP 250W, dan menggunakan antarmuka PCIe 3.0 x16, menjadikannya akselerator kuat untuk simulasi ilmiah dan pelatihan deep learning."
   },
   {
     "id": 3,
@@ -21,7 +21,7 @@
     "jenis": "GPU",
     "brand": "NVIDIA",
     "images": ["/assets/produk/sparepart/nvidia/2.png"],
-    "description": "NVIDIA L40S Passive PCIe 48GB GPU suitable for professional visualization and AI."
+    "description": "GPU NVIDIA L40S Passive PCIE 48GB dirancang untuk beban kerja pusat data yang intensif, menggabungkan kemampuan AI dan grafis tingkat lanjut. Spesifikasi performa utamanya mencakup 91.6 TFLOPS untuk komputasi presisi tunggal (FP32) dan performa Tensor Core yang sangat tinggi hingga 1.466 TFLOPS (dengan sparsity). "
   },
   {
     "id": 4,
@@ -29,7 +29,7 @@
     "jenis": "Backplane",
     "brand": "Supermicro",
     "images": ["/assets/produk/sparepart/supermicro/1.png"],
-    "description": "Supermicro backplane daughter card BPN-SAS3-216EL for SAS3 storage expansion."
+    "description": "Backplane Supermicro BPN-SAS3-216EL adalah komponen dari rakitan backplane yang mendukung konektivitas SAS 3.0 dengan kecepatan transfer data 12 Gbps untuk setiap drive."
   },
   {
     "id": 5,
@@ -37,7 +37,7 @@
     "jenis": "Power Supply",
     "brand": "Supermicro",
     "images": ["/assets/produk/sparepart/supermicro/2.png"],
-    "description": "Supermicro PWS-920P-SQ power supply unit for reliable server power delivery."
+    "description": "Power supply Supermicro PWS-920P-SQ menawarkan daya total 920 Watt dan memiliki peringkat efisiensi 80 PLUS Platinum dengan efisiensi khas sebesar 94%. Unit ini dirancang untuk server 1U dan mendukung fitur redundansi hot-swap untuk keandalan operasional"
   },
   {
     "id": 6,
@@ -45,7 +45,7 @@
     "jenis": "Hard Drive",
     "brand": "Synology",
     "images": ["/assets/produk/sparepart/synology/4.png"],
-    "description": "Synology HAT3300-12T is a high-capacity 12TB hard drive designed for Synology NAS systems."
+    "description": "Harddisk Synology HAT3300-12T adalah hard drive NAS seri Plus 12TB yang dirancang khusus untuk lingkungan Synology NAS, menawarkan keandalan dan kinerja yang konsisten."
   },
   {
     "id": 7,

@@ -59,7 +59,7 @@ import sid1 from "../../assets/software/sid/1.png";
 import figma1 from "../../assets/software/figma/1.svg";
 import vmware1 from "../../assets/software/vmware/1.png";
 import fortitoken1 from "../../assets/software/fortitoken/1.svg";
-import canva1 from "../../assets/software/canva/1.svg";
+import canva1 from "../../assets/software/canva/1.png";
 
 const softwareImageMap = {
   "Microsoft Office 365 Family": microsoft1,

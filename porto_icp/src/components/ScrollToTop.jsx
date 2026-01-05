@@ -10,16 +10,16 @@ export default function ScrollToTop() {
     const detailSection = document.querySelector(".details-container");
 
     // Jika halaman tidak memiliki hero section, scroll ke paling atas
-    if (heroSection && !detailSection) {
+    if (heroSection) {
       // Jika ada hero section, scroll ke posisi hero section
       heroSection.scrollIntoView({
         behavior: "instant", // gunakan 'instant' agar langsung, atau 'smooth' untuk animasi
         block: "start",
       });
-    } else if (detailSection) {
+    } else if (!heroSection && detailSection) {
       // Jika ada detail section, scroll ke posisi detail section
       detailSection.scrollIntoView({
-        behavior: "instant",
+        behavior: "smooth",
         block: "start",
       });
     } else {
