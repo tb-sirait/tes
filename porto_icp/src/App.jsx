@@ -15,6 +15,7 @@ import Karir from "./Karir/Karir";
 import BioLinks from "./BioLink/BioLink";
 import Chatbot from "./Chatbot/Chatbot";
 
+// Import komponen kategori produk
 import Computer from "./Produk/Subproduct_Container/Computer";
 import Hardware from "./Produk/Subproduct_Container/Hardware";
 import Software from "./Produk/Subproduct_Container/Software";
@@ -28,7 +29,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import { database } from "./firebaseConfig";
 import { push, ref, runTransaction } from "firebase/database";
 
-// ✅ SOLUSI 1: Cache IP dan Geolocation di Session Storage
+// Cache IP dan Geolocation di Session Storage
 const CACHE_KEY = "visitor_geo_cache";
 const CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 jam
 
@@ -40,7 +41,6 @@ function getGeoCache() {
     const data = JSON.parse(cached);
     const now = Date.now();
 
-    // Check if cache expired
     if (now - data.timestamp > CACHE_DURATION) {
       sessionStorage.removeItem(CACHE_KEY);
       return null;
@@ -71,7 +71,6 @@ function TrackVisitorActivity() {
   const isFirstRender = useRef(true);
 
   useEffect(() => {
-    // ✅ SOLUSI 2: Skip duplicate calls in React Strict Mode
     if (isFirstRender.current) {
       isFirstRender.current = false;
       return;
@@ -94,11 +93,9 @@ function TrackVisitorActivity() {
       let region = "unknown";
       let city = "unknown";
 
-      // ✅ SOLUSI 3: Check cache first
       const cachedGeo = getGeoCache();
 
       if (cachedGeo) {
-        // Gunakan data dari cache
         ipAddress = cachedGeo.ipAddress;
         country = cachedGeo.country;
         region = cachedGeo.region;
@@ -106,18 +103,15 @@ function TrackVisitorActivity() {
         httpDetail = "from_cache";
       } else {
         try {
-          // 1️⃣ Ambil IP publik pengguna
           const ipResponse = await fetch("https://api.ipify.org?format=json", {
-            signal: AbortSignal.timeout(5000), // timeout 5 detik
+            signal: AbortSignal.timeout(5000),
           });
 
           if (ipResponse.ok) {
             const ipData = await ipResponse.json();
             ipAddress = ipData.ip || "unknown";
 
-            // ✅ SOLUSI 4: Gunakan alternatif API atau skip jika error
             try {
-              // Coba ipapi.co
               const geoResponse = await fetch(
                 `https://ipapi.co/${ipAddress}/json/`,
                 {
@@ -128,7 +122,6 @@ function TrackVisitorActivity() {
               if (geoResponse.ok) {
                 const geoData = await geoResponse.json();
 
-                // Check if we hit rate limit (ipapi.co returns error in JSON)
                 if (geoData.error) {
                   throw new Error(
                     `ipapi.co error: ${geoData.reason || "rate limit"}`,
@@ -139,15 +132,12 @@ function TrackVisitorActivity() {
                 region = geoData.region || "unknown";
                 city = geoData.city || "unknown";
 
-                // Cache successful result
                 setGeoCache({ ipAddress, country, region, city });
               } else if (geoResponse.status === 429) {
-                // ✅ SOLUSI 5: Fallback ke API alternatif
                 httpStatus = "Rate Limited";
                 httpDetail = "ipapi.co rate limit - using fallback";
 
                 try {
-                  // Fallback: ip-api.com (45 req/minute, gratis unlimited daily)
                   const fallbackResponse = await fetch(
                     `http://ip-api.com/json/${ipAddress}`,
                     { signal: AbortSignal.timeout(5000) },
@@ -159,7 +149,6 @@ function TrackVisitorActivity() {
                     region = fallbackData.regionName || "unknown";
                     city = fallbackData.city || "unknown";
 
-                    // Cache fallback result
                     setGeoCache({ ipAddress, country, region, city });
                   }
                 } catch (fallbackError) {
@@ -173,7 +162,6 @@ function TrackVisitorActivity() {
               httpStatus = "Geo Error";
               httpDetail = geoError.message || "Failed to fetch geolocation";
               console.warn("Geolocation error:", geoError);
-              // Tetap simpan data dengan IP saja
             }
           } else {
             httpStatus = `IP Fetch Error ${ipResponse.status}`;
@@ -186,7 +174,6 @@ function TrackVisitorActivity() {
         }
       }
 
-      // 3️⃣ Gabungkan semua data pengunjung
       const visitorData = {
         timestamp: formattedDateTime,
         path: location.pathname,
@@ -201,7 +188,6 @@ function TrackVisitorActivity() {
         city: city,
       };
 
-      // 4️⃣ Simpan ke Firebase
       try {
         const visitorsRef = ref(database, "visitors");
         await push(visitorsRef, visitorData);
@@ -210,19 +196,15 @@ function TrackVisitorActivity() {
       }
     }
 
-    // ✅ SOLUSI 6: Debounce untuk avoid spam calls
     const timer = setTimeout(() => {
       fetchAndPushVisitorData();
     }, 300);
 
     return () => clearTimeout(timer);
-  }, [location.pathname]); // Only trigger on pathname change
+  }, [location.pathname]);
 
   return null;
 }
-
-// Di file router utama Anda (App.jsx)
-// Urutkan routes dengan lebih spesifik terlebih dahulu
 
 function AppContent() {
   const location = useLocation();
@@ -236,45 +218,52 @@ function AppContent() {
       <Routes>
         <Route path="/" element={<Homepage />} />
 
-        {/* Route kategori harus SEBELUM route dynamic params */}
-        {/* Software */}
-        <Route path="/produk/software" element={<Software />} />
+        {/* ==================== ROUTES DETAIL PRODUK ==================== */}
+        {/* PENTING: Route detail produk HARUS di atas route kategori */}
+        {/* Format: /produk/{category}/{brand}/{id} */}
+
+        {/* Detail Produk - Software */}
         <Route path="/produk/software/:brand/:id" element={<Software />} />
 
-        {/* Hardware */}
-        <Route path="/produk/hardware" element={<Hardware />} />
+        {/* Detail Produk - Hardware */}
         <Route path="/produk/hardware/:brand/:id" element={<Hardware />} />
 
-        {/* Sparepart */}
-        <Route path="/produk/sparepart" element={<Sparepart />} />
+        {/* Detail Produk - Sparepart */}
         <Route path="/produk/sparepart/:brand/:id" element={<Sparepart />} />
 
-        {/* Computer */}
-        <Route path="/produk/computer" element={<Computer />} />
+        {/* Detail Produk - Computer */}
         <Route path="/produk/computer/:brand/:id" element={<Computer />} />
 
-        {/* Smartphone */}
-        <Route path="/produk/smartphone" element={<Smartphone />} />
+        {/* Detail Produk - Smartphone */}
         <Route path="/produk/smartphone/:brand/:id" element={<Smartphone />} />
 
-        {/* Laptop */}
-        <Route path="/produk/laptop" element={<Laptop />} />
+        {/* Detail Produk - Laptop */}
         <Route path="/produk/laptop/:brand/:id" element={<Laptop />} />
 
-        {/* Server */}
-        <Route path="/produk/server" element={<Server />} />
+        {/* Detail Produk - Server */}
         <Route path="/produk/server/:brand/:id" element={<Server />} />
 
-        {/* Produk utama - HARUS SETELAH semua kategori */}
-        <Route path="/produk" element={<Produk />} />
-        <Route path="/produk/:brand/:id" element={<Produk />} />
+        {/* ==================== ROUTES KATEGORI PRODUK ==================== */}
+        {/* Route kategori (listing) */}
 
+        <Route path="/produk/software" element={<Software />} />
+        <Route path="/produk/hardware" element={<Hardware />} />
+        <Route path="/produk/sparepart" element={<Sparepart />} />
+        <Route path="/produk/computer" element={<Computer />} />
+        <Route path="/produk/smartphone" element={<Smartphone />} />
+        <Route path="/produk/laptop" element={<Laptop />} />
+        <Route path="/produk/server" element={<Server />} />
+
+        {/* ==================== ROUTE PRODUK UTAMA ==================== */}
+        <Route path="/produk" element={<Produk />} />
+
+        {/* ==================== OTHER ROUTES ==================== */}
         <Route path="/telusuri-kami" element={<BioLinks />} />
         <Route path="/layanan" element={<Layanan />} />
         <Route path="/tentang" element={<Tentang />} />
         <Route path="/karir" element={<Karir />} />
 
-        {/* fallback */}
+        {/* Fallback - redirect ke homepage */}
         <Route path="*" element={<Homepage />} />
       </Routes>
 

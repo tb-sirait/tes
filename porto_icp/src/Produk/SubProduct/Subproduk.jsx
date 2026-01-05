@@ -17,6 +17,8 @@ import softwareData from "../software.json";
 import sparepartData from "../../Produk/sparepart.json";
 import serverData from "../server.json";
 
+import Footer from "../../Navigation/footer";
+
 // Import gambar dengan glob patterns
 const produkImages = import.meta.glob(
   "../../assets/produk/**/*.{png,jpg,jpeg,svg}",
@@ -553,6 +555,7 @@ const SubProduk = ({ jenisBarang, title, description, dataSource }) => {
           )}
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

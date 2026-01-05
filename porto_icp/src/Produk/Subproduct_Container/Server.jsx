@@ -14,7 +14,7 @@ const Server = () => {
           <title>Detail Server | Infoduta Computindo Perkasa</title>
           <meta
             name="description"
-            content="Detail spesifikasi lengkap produk server untuk kebutuhan bisnis Anda."
+            content="Detail produk server untuk kebutuhan bisnis Anda."
           />
           <link
             rel="canonical"
@@ -31,32 +31,39 @@ const Server = () => {
       <Helmet>
         <title>Produk Server | Infoduta Computindo Perkasa</title>
         <meta
+          name="title"
+          content="Produk Server | Infoduta Computindo Perkasa"
+        />
+        <meta
           name="description"
-          content="Temukan berbagai pilihan Server dengan spesifikasi terbaik yang sesuai dengan kebutuhan perusahaan Anda."
+          content="Temukan berbagai pilihan Server dengan kualitas terbaik yang sesuai dengan kebutuhan perusahaan Anda."
         />
         <meta
           name="keywords"
-          content="Produk Server, Server Rack, Tower Server, Blade Server, Infoduta Computindo Perkasa, Solusi IT"
+          content="Produk Server, Dell Server, HP Server, Lenovo Server, Infoduta Computindo Perkasa"
         />
+        <meta property="og:type" content="website" />
         <meta
           property="og:title"
           content="Produk Server - Infoduta Computindo Perkasa"
         />
         <meta
           property="og:description"
-          content="Temukan berbagai pilihan Server dengan spesifikasi terbaik yang sesuai dengan kebutuhan perusahaan Anda."
+          content="Temukan berbagai pilihan Server dengan kualitas terbaik yang sesuai dengan kebutuhan perusahaan Anda."
         />
         <meta
           property="og:url"
           content="https://www.infoduta.com/produk/server"
         />
+        <meta property="og:site_name" content="Infoduta Computindo Perkasa" />
+        <meta property="twitter:card" content="summary_large_image" />
         <link rel="canonical" href="https://www.infoduta.com/produk/server" />
       </Helmet>
-      // Server.jsx
+
       <SubProduk
         jenisBarang="server"
         title="Server"
-        description="Koleksi server berkualitas tinggi"
+        description="Temukan berbagai pilihan Server dengan kualitas terbaik yang sesuai dengan kebutuhan perusahaan Anda."
         dataSource="../server.json"
       />
     </>

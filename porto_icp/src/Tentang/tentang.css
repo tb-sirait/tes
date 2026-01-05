@@ -527,7 +527,7 @@ body.tentang-hero-active {
 
   /* Tambahan padding untuk section pertama di mobile */
   .tentang-section-about .tentang-section-layout {
-    padding-top: 100px;
+    padding-top: 120px;
   }
 
   .tentang-section-left {
@@ -565,7 +565,7 @@ body.tentang-hero-active {
   }
 }
 
-/* Mobile (480px and below) */
+/* iPhone 16 & Similar Mobile Devices (393px width) */
 @media (max-width: 480px) {
   .tentang-container {
     padding: 0 15px;
@@ -575,98 +575,176 @@ body.tentang-hero-active {
     padding: 40px 0;
   }
 
-  /* Padding lebih untuk section pertama di mobile kecil */
+  /* Padding dinamis untuk section pertama - menyesuaikan dengan navbar */
   .tentang-section-about .tentang-section-layout {
-    padding-top: 100px;
+    padding-top: calc(80px + 40px); /* navbar height + spacing */
   }
 
   .tentang-section-title {
     font-size: 1.8rem;
   }
 
+  /* Hero Section - iPhone 16 Optimization (393 × 852 px) */
   .tentang-hero {
     height: 100vh;
-    min-height: 600px;
+    min-height: 100vh;
+  }
+
+  .tentang-hero-content {
+    padding: 0 20px;
+    padding-top: 80px; /* Offset untuk navbar */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    max-height: 100vh;
   }
 
   .tentang-hero-title {
     font-size: 2rem;
+    margin-bottom: 12px;
+    line-height: 1.2;
+    margin-top: 0;
   }
 
   .tentang-hero-subtitle {
-    font-size: 1rem;
+    font-size: 0.9rem;
     padding: 0 10px;
+    margin-bottom: 25px;
+    line-height: 1.5;
   }
 
   .tentang-hero-button {
-    padding: 12px 30px;
-    font-size: 1rem;
+    padding: 11px 30px;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
   }
 
+  /* Hero Stats - Optimized for iPhone 16 */
   .tentang-hero-stats {
-    margin-top: 40px;
+    margin-top: 20px;
+    gap: 20px;
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .tentang-stat-item {
+    width: 100%;
+  }
+
+  .tentang-stat-label {
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+  }
+
+  .tentang-stat-value {
+    font-size: 2rem;
+    margin-bottom: 3px;
+  }
+
+  .tentang-stat-desc {
+    font-size: 0.85rem;
+  }
+
+  /* Scroll Indicator */
+  .tentang-scroll-indicator {
+    bottom: 20px;
+    font-size: 1.6rem;
+  }
+
+  /* Text Content */
+  .tentang-text-content p {
+    font-size: 0.95rem;
+    text-align: left;
+    line-height: 1.7;
+  }
+
+  /* Visi Misi Boxes */
+  .tentang-visi-box,
+  .tentang-misi-box {
+    padding: 20px;
+    border-radius: 15px;
+  }
+
+  .tentang-visi-box h3,
+  .tentang-misi-box h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+  }
+
+  .tentang-visi-box p,
+  .tentang-misi-box li {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .tentang-misi-box ol {
+    padding-left: 18px;
+  }
+
+  /* Brand Grid - 2 columns for better spacing on iPhone 16 */
+  .tentang-brands-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .tentang-brand-item {
+    height: 75px;
+    padding: 12px;
+    border-radius: 12px;
+  }
+
+  .tentang-brand-item img {
+    max-width: 65px;
+    max-height: 40px;
+  }
+
+  /* Partners Grid */
+  .tentang-partners-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .tentang-partner-item {
+    height: 90px;
+    padding: 18px;
+    border-radius: 12px;
+  }
+
+  .tentang-partner-item img {
+    max-width: 85px;
+    max-height: 50px;
+  }
+
+  /* Struktur Image */
+  .tentang-struktur-image-wrapper {
+    padding: 15px;
+    border-radius: 15px;
+  }
+}
+
+/* Extra Small Devices (360px and below) */
+@media (max-width: 360px) {
+  .tentang-hero-title {
+    font-size: 1.9rem;
+  }
+
+  .tentang-hero-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .tentang-hero-button {
+    padding: 10px 28px;
+    font-size: 0.9rem;
   }
 
   .tentang-stat-value {
     font-size: 2rem;
   }
 
-  .tentang-stat-desc {
-    font-size: 0.9rem;
-  }
-
-  .tentang-text-content p {
-    font-size: 1rem;
-    text-align: left;
-  }
-
-  .tentang-visi-box,
-  .tentang-misi-box {
-    padding: 20px;
-  }
-
-  .tentang-visi-box h3,
-  .tentang-misi-box h3 {
-    font-size: 1.5rem;
-  }
-
-  .tentang-visi-box p,
-  .tentang-misi-box li {
-    font-size: 1rem;
-  }
-
-  .tentang-brands-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-  }
-
-  .tentang-brand-item {
-    height: 80px;
-    padding: 15px;
-  }
-
-  .tentang-brand-item img {
-    max-width: 60px;
-    max-height: 40px;
-  }
-
-  .tentang-partners-grid {
-    grid-template-columns: 1fr;
-    gap: 15px;
-  }
-
-  .tentang-partner-item {
-    height: 100px;
-    padding: 20px;
-  }
-
-  .tentang-partner-item img {
-    max-width: 80px;
-    max-height: 50px;
-  }
-
-  .tentang-struktur-image-wrapper {
-    padding: 15px;
+  .tentang-section-title {
+    font-size: 1.6rem;
   }
 }
 

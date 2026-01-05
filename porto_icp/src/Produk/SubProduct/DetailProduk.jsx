@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams, useLocation } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import {
   Cpu,
   MemoryStick,
@@ -104,56 +105,64 @@ for (const path in images) {
   imageMap[normalizedPath] = images[path].default || images[path];
 }
 
-const DetailProduk = () => {
+const DetailProduk = ({ dataSource }) => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { id } = useParams();
+  const { id } = useParams(); // brand tidak digunakan, jadi dihapus
 
   const [product, setProduct] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [activeTab, setActiveTab] = useState("spesifikasi");
   const [imgError, setImgError] = useState({});
-  const [category, setCategory] = useState("");
 
+  // Determine category from URL path
+  const category = location.pathname.split("/")[2]; // e.g., "server" from "/produk/server/Dell/1"
+
+  // Effect untuk update document title secara manual (fallback)
   useEffect(() => {
-    // Determine category from URL path
-    const pathSegments = location.pathname.split("/").filter(Boolean);
-    const categoryFromPath = pathSegments[1]; // produk/[category]/...
-    setCategory(categoryFromPath);
-
-    // Find product from appropriate data source
-    let found = null;
-    let dataSource = "";
-
-    if (categoryFromPath === "server") {
-      found = serverData.find((p) => String(p.id) === id);
-      dataSource = "server";
-    } else if (categoryFromPath === "hardware") {
-      found = hardwareData.find((p) => String(p.id) === id);
-      dataSource = "hardware";
-    } else if (categoryFromPath === "software") {
-      found = softwareData.find((p) => String(p.id) === id);
-      dataSource = "software";
-    } else if (categoryFromPath === "sparepart") {
-      found = sparepartData.find((p) => String(p.id) === id);
-      dataSource = "sparepart";
-    } else {
-      // laptop, computer, smartphone dari produk.json
-      found = produkData.find((p) => String(p.id) === id);
-      dataSource = "produk";
+    if (product && product.name && product.brand) {
+      document.title = `${product.name} - ${product.brand} | Infoduta Computindo Perkasa`;
     }
+  }, [product]);
+
+  // Effect untuk load product data
+  useEffect(() => {
+    let found = null;
+    let dataSourceType = "";
+
+    // Get data based on dataSource prop
+    const getData = () => {
+      if (dataSource === "../hardware.json")
+        return { data: hardwareData, type: "hardware" };
+      if (dataSource === "../software.json")
+        return { data: softwareData, type: "software" };
+      if (dataSource === "../../Produk/sparepart.json")
+        return { data: sparepartData, type: "sparepart" };
+      if (dataSource === "../server.json")
+        return { data: serverData, type: "server" };
+      return { data: produkData, type: "produk" };
+    };
+
+    const { data, type } = getData();
+    dataSourceType = type;
+
+    // Cari produk berdasarkan id
+    found = data.find((p) => String(p.id) === id);
 
     if (found) {
-      setProduct({ ...found, dataSource });
-      document.title = `${found.name} | Infoduta Computindo Perkasa`;
+      setProduct({ ...found, dataSource: dataSourceType, category });
     } else {
-      document.title = "Produk Tidak Ditemukan | Infoduta Computindo Perkasa";
+      setProduct(null);
     }
-  }, [id, location.pathname]);
+  }, [id, category, dataSource]);
 
   if (!product) {
     return (
       <div className="details-page">
+        <Helmet>
+          <title>Produk Tidak Ditemukan | Infoduta Computindo Perkasa</title>
+          <meta name="robots" content="noindex, nofollow" />
+        </Helmet>
         <Navbar />
         <div className="details-not-found">
           <h2>Produk tidak ditemukan</h2>
@@ -164,23 +173,112 @@ const DetailProduk = () => {
     );
   }
 
+  // Generate SEO-friendly metadata (setelah product sudah pasti ada)
+  const productTitle = `${product.name} - ${product.brand} | Infoduta Computindo Perkasa`;
+  const productDescription =
+    product.description ||
+    product.deskripsi ||
+    `${product.name} dari ${product.brand}. Hubungi kami untuk informasi lebih lanjut tentang spesifikasi dan harga.`;
+  const categoryLabel =
+    category === "computer"
+      ? "Computer"
+      : category === "software"
+        ? "Software"
+        : category === "hardware"
+          ? "Hardware"
+          : category === "sparepart"
+            ? "Sparepart"
+            : category === "server"
+              ? "Server"
+              : category === "laptop"
+                ? "Laptop"
+                : category === "smartphone"
+                  ? "Smartphone"
+                  : category.charAt(0).toUpperCase() + category.slice(1);
+
+  // Generate keywords untuk SEO
+  const keywords = [
+    product.name,
+    product.brand,
+    categoryLabel,
+    "Infoduta Computindo Perkasa",
+    "Jakarta",
+    "Indonesia",
+    "IT Solutions",
+  ].join(", ");
+
+  // Structured Data: Breadcrumb Schema
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Beranda",
+        item: `${window.location.origin}/`,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Produk",
+        item: `${window.location.origin}/produk`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: categoryLabel,
+        item: `${window.location.origin}/produk/${category}`,
+      },
+      {
+        "@type": "ListItem",
+        position: 4,
+        name: product.brand,
+        item: `${window.location.origin}/produk/${category}?brand=${product.brand}`,
+      },
+      {
+        "@type": "ListItem",
+        position: 5,
+        name: product.name,
+        item: window.location.href,
+      },
+    ],
+  };
+
+  // Structured Data: Product Schema
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.name,
+    brand: {
+      "@type": "Brand",
+      name: product.brand,
+    },
+    description: productDescription,
+    category: categoryLabel,
+    offers: {
+      "@type": "Offer",
+      availability: "https://schema.org/InStock",
+      priceCurrency: "IDR",
+      seller: {
+        "@type": "Organization",
+        name: "Infoduta Computindo Perkasa",
+      },
+    },
+  };
+
   // Get images array berdasarkan kategori
   const getImagePaths = () => {
     if (product.dataSource === "software") {
-      // Software hanya punya 1 gambar
       const img = softwareImageMap[product.name];
       return img ? [img] : [];
     } else if (product.dataSource === "hardware") {
-      // Hardware: images adalah string
       return product.images ? [product.images] : [];
     } else if (product.dataSource === "sparepart") {
-      // Sparepart: images adalah array
       return product.images || [];
     } else if (product.dataSource === "server") {
-      // Server: gambar field
       return product.gambar ? [product.gambar] : [];
     } else {
-      // Produk.json: images adalah array
       return product.images || [];
     }
   };
@@ -216,7 +314,6 @@ const DetailProduk = () => {
       return imageMap[normalizedPath] || "/api/placeholder/400/300";
     }
 
-    // Default produk.json
     return imageMap[imgPath] || "/api/placeholder/400/300";
   };
 
@@ -225,6 +322,12 @@ const DetailProduk = () => {
     currentImagePath,
     currentImageIndex,
   );
+
+  // Get first image for OG meta tags
+  const firstImageSrc =
+    imagePaths.length > 0
+      ? getResolvedImageSrc(imagePaths[0], 0)
+      : "/api/placeholder/400/300";
 
   const handleNextImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % imagePaths.length);
@@ -240,13 +343,8 @@ const DetailProduk = () => {
     setCurrentImageIndex(index);
   };
 
-  // Breadcrumb
+  // Breadcrumb component
   const getBreadcrumb = () => {
-    const categoryLabel =
-      category === "computer"
-        ? "Computer"
-        : category.charAt(0).toUpperCase() + category.slice(1);
-
     return (
       <div className="details-breadcrumb">
         <span onClick={() => navigate("/")} className="details-breadcrumb-link">
@@ -346,6 +444,43 @@ const DetailProduk = () => {
 
   return (
     <div className="details-page">
+      <Helmet>
+        {/* Primary Meta Tags */}
+        <title>{productTitle}</title>
+        <meta name="title" content={productTitle} />
+        <meta name="description" content={productDescription} />
+        <meta name="keywords" content={keywords} />
+        <meta name="author" content="Infoduta Computindo Perkasa" />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="product" />
+        <meta property="og:url" content={window.location.href} />
+        <meta property="og:title" content={productTitle} />
+        <meta property="og:description" content={productDescription} />
+        <meta property="og:image" content={firstImageSrc} />
+        <meta property="og:site_name" content="Infoduta Computindo Perkasa" />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={window.location.href} />
+        <meta property="twitter:title" content={productTitle} />
+        <meta property="twitter:description" content={productDescription} />
+        <meta property="twitter:image" content={firstImageSrc} />
+
+        {/* Canonical URL */}
+        <link rel="canonical" href={window.location.href} />
+
+        {/* Structured Data - Breadcrumb */}
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbSchema)}
+        </script>
+
+        {/* Structured Data - Product */}
+        <script type="application/ld+json">
+          {JSON.stringify(productSchema)}
+        </script>
+      </Helmet>
+
       <Navbar />
 
       {/* Breadcrumb */}
@@ -379,8 +514,8 @@ const DetailProduk = () => {
           <div className="details-description">
             <h3>Deskripsi:</h3>
             <p>
-              {product.deskripsi ||
-                product.description ||
+              {product.description ||
+                product.deskripsi ||
                 "Deskripsi produk tidak tersedia."}
             </p>
           </div>

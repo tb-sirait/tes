@@ -1213,10 +1213,10 @@
       "cpu": "Octa-core 2.0 GHz",
       "ram": "8GB",
       "gpu": "Mali-G52 MC2 (2-core graphics)",
-      "storage": "512GB SSD",
+      "storage": "128 GB",
       "os": "Android 13, One UI Core 5"
     },
-    "deskripsi": "Samsung Galaxy A17 with Octa-core 2.0 GHz processor, 8GB RAM, 512GB SSD storage, Mali-G52 MC2 graphics, and Android 13 with One UI Core 5.",
+    "deskripsi": "Samsung Galaxy A17 with Octa-core 2.0 GHz processor, 8GB RAM, 128GB SSD storage, Mali-G52 MC2 graphics, and Android 13 with One UI Core 5.",
     "released_date": "2025-08-06"
   },
   {
@@ -1229,10 +1229,10 @@
       "cpu": "Octa-core 2.0 GHz",
       "ram": "8GB",
       "gpu": "Mali-G52 MC2 (2-core graphics)",
-      "storage": "512GB SSD",
+      "storage": "128 GB",
       "os": "Android 13, One UI Core 5"
     },
-    "deskripsi": "Samsung Galaxy A17 with Octa-core 2.0 GHz processor, 8GB RAM, 512GB SSD storage, Mali-G52 MC2 graphics, and Android 13 with One UI Core 5.",
+    "deskripsi": "Samsung Galaxy A17 with Octa-core 2.0 GHz processor, 8GB RAM, 128GB SSD storage, Mali-G52 MC2 graphics, and Android 13 with One UI Core 5.",
     "released_date": "2025-08-06"
   }
 ]

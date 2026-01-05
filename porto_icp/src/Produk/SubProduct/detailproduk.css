@@ -496,12 +496,13 @@
 
 @media (max-width: 768px) {
   .details-page {
-    padding-top: 60px;
+    padding-top: 100px;
   }
 
   .details-breadcrumb {
     padding: 0 15px;
     font-size: 0.8rem;
+    margin-top: 10px;
   }
 
   .details-container {
@@ -533,12 +534,18 @@
   }
 
   .details-tabs-header {
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    gap: 4px;
+    overflow-x: auto;
   }
 
   .details-tab {
-    padding: 12px 16px;
-    font-size: 0.9rem;
+    padding: 10px 8px;
+    font-size: 0.75rem;
+    flex: 1;
+    text-align: center;
+    white-space: nowrap;
+    min-width: fit-content;
   }
 
   .details-thumbnails {

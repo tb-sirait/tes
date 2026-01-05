@@ -4,216 +4,247 @@
     "brand": "Microsoft",
     "name": "Microsoft Office 365 Family",
     "usage": "1 Tahun Berlangganan",
-    "image": "/src/assets/software/microsoft/1.png"
+    "image": "/src/assets/software/microsoft/1.png",
+    "description": "Microsoft Office 365 Family adalah paket langganan yang menyediakan akses ke aplikasi produktivitas Microsoft Office seperti Word, Excel, PowerPoint, Outlook, dan lainnya untuk hingga enam pengguna. Dengan langganan ini, pengguna mendapatkan pembaruan terbaru secara otomatis, penyimpanan cloud OneDrive sebesar 1 TB per pengguna, serta fitur kolaborasi yang memungkinkan berbagi dokumen dan bekerja bersama secara real-time. Office 365 Family cocok untuk keluarga atau kelompok kecil yang membutuhkan alat produktivitas yang andal dan fleksibel."
   },
   {
     "id": 2,
     "brand": "Microsoft",
     "name": "Microsoft Office 365 Personal",
     "usage": "1 Tahun Berlangganan",
-    "image": "/src/assets/software/microsoft/2.png"
+    "image": "/src/assets/software/microsoft/2.png",
+    "description": "Microsoft Office 365 Personal adalah paket langganan yang menyediakan akses ke aplikasi produktivitas Microsoft Office seperti Word, Excel, PowerPoint, Outlook, dan lainnya untuk satu pengguna. Dengan langganan ini, pengguna mendapatkan pembaruan terbaru secara otomatis, penyimpanan cloud OneDrive sebesar 1 TB, serta fitur kolaborasi yang memungkinkan berbagi dokumen dan bekerja bersama secara real-time. Office 365 Personal cocok untuk individu yang membutuhkan alat produktivitas yang andal dan fleksibel untuk penggunaan pribadi atau profesional."
   },
   {
     "id": 3,
     "brand": "Microsoft",
     "name": "Microsoft Office 2024 Home and Student",
     "usage": "Lisensi Seumur Hidup",
-    "image": "/src/assets/software/microsoft/3.png"
+    "image": "/src/assets/software/microsoft/3.png",
+    "description": "Microsoft Office 2024 Home and Student adalah paket perangkat lunak produktivitas yang dirancang khusus untuk penggunaan di rumah dan oleh pelajar. Paket ini mencakup aplikasi utama seperti Word, Excel, PowerPoint, dan OneNote, yang menyediakan alat-alat penting untuk membuat dokumen, spreadsheet, presentasi, dan catatan. Dengan lisensi seumur hidup, pengguna dapat menginstal Office 2024 Home and Student pada satu perangkat tanpa perlu membayar biaya berlangganan bulanan atau tahunan. Paket ini ideal untuk keluarga dan pelajar yang membutuhkan solusi produktivitas yang andal dan mudah digunakan."
   },
   {
     "id": 4,
     "brand": "Microsoft",
     "name": "Microsoft Office 2024 Home and Business",
     "usage": "Lisensi Seumur Hidup",
-    "image": "/src/assets/software/microsoft/4.png"
+    "image": "/src/assets/software/microsoft/4.png",
+    "description": "Microsoft Office 2024 Home and Business adalah paket perangkat lunak produktivitas yang dirancang untuk memenuhi kebutuhan pengguna di lingkungan rumah dan bisnis kecil. Paket ini mencakup aplikasi utama seperti Word, Excel, PowerPoint, OneNote, dan Outlook, yang menyediakan alat-alat penting untuk membuat dokumen, spreadsheet, presentasi, catatan, dan mengelola email. Dengan lisensi seumur hidup, pengguna dapat menginstal Office 2024 Home and Business pada satu perangkat tanpa perlu membayar biaya berlangganan bulanan atau tahunan. Paket ini ideal untuk individu dan pemilik usaha kecil yang membutuhkan solusi produktivitas yang andal dan efisien."
   },
   {
     "id": 5,
     "brand": "Microsoft",
     "name": "Microsoft Office Professional Plus 2024",
     "usage": "Lisensi Seumur Hidup",
-    "image": "/src/assets/software/microsoft/6.png"
+    "image": "/src/assets/software/microsoft/6.png",
+    "description": "Microsoft Office Professional Plus 2024 adalah paket perangkat lunak produktivitas yang dirancang untuk memenuhi kebutuhan profesional dan bisnis. Paket ini mencakup aplikasi utama seperti Word, Excel, PowerPoint, Outlook, OneNote, Access, Publisher, dan Skype for Business, yang menyediakan alat-alat penting untuk membuat dokumen, spreadsheet, presentasi, catatan, mengelola email, basis data, dan komunikasi bisnis. Dengan lisensi seumur hidup, pengguna dapat menginstal Office Professional Plus 2024 pada satu perangkat tanpa perlu membayar biaya berlangganan bulanan atau tahunan. Paket ini ideal untuk profesional dan organisasi yang membutuhkan solusi produktivitas yang komprehensif dan andal."
   },
   {
     "id": 6,
     "brand": "Microsoft",
     "name": "Microsoft Office Standard 2024",
     "usage": "Lisensi Seumur Hidup",
-    "image": "/src/assets/software/microsoft/5.png"
+    "image": "/src/assets/software/microsoft/5.png",
+    "description": "Microsoft Office Standard 2024 adalah paket perangkat lunak produktivitas yang dirancang untuk memenuhi kebutuhan pengguna di lingkungan bisnis dan profesional. Paket ini mencakup aplikasi utama seperti Word, Excel, PowerPoint, Outlook, dan OneNote, yang menyediakan alat-alat penting untuk membuat dokumen, spreadsheet, presentasi, catatan, dan mengelola email. Dengan lisensi seumur hidup, pengguna dapat menginstal Office Standard 2024 pada satu perangkat tanpa perlu membayar biaya berlangganan bulanan atau tahunan. Paket ini ideal untuk individu dan organisasi yang membutuhkan solusi produktivitas yang andal dan efisien."
   },
   {
     "id": 7,
     "brand": "Microsoft",
     "name": "Windows 11 Pro",
     "usage": "Lisensi Seumur Hidup",
-    "image": "/src/assets/software/windows/1.png"
+    "image": "/src/assets/software/windows/1.png",
+    "description": "Windows 11 Pro adalah sistem operasi terbaru dari Microsoft yang dirancang untuk memenuhi kebutuhan profesional dan bisnis. Dengan antarmuka yang diperbarui, Windows 11 Pro menawarkan pengalaman pengguna yang lebih intuitif dan efisien. Fitur-fitur unggulan seperti dukungan untuk aplikasi Android, peningkatan kinerja multitasking dengan Snap Layouts, serta keamanan yang ditingkatkan membuatnya ideal untuk lingkungan kerja. Windows 11 Pro juga menyediakan alat produktivitas tambahan seperti BitLocker, Remote Desktop, dan kemampuan untuk bergabung dengan domain, menjadikannya pilihan yang tepat bagi para profesional yang membutuhkan sistem operasi yang andal dan aman."
   },
   {
     "id": 8,
     "brand": "Adobe",
     "name": "Acrobat Pro for teams Subscription New",
     "usage": "1 Tahun Berlangganan",
-    "image": "/src/assets/software/adobe/1.png"
+    "image": "/src/assets/software/adobe/1.png",
+    "description": "Adobe Acrobat Pro for Teams Subscription New adalah solusi perangkat lunak yang dirancang untuk memenuhi kebutuhan kolaborasi dan produktivitas tim dalam mengelola dokumen PDF. Dengan langganan ini, tim dapat mengakses fitur-fitur canggih seperti pembuatan, pengeditan, dan konversi PDF, serta kemampuan untuk menandatangani dokumen secara digital. Acrobat Pro for Teams juga menyediakan alat kolaborasi yang memungkinkan anggota tim untuk berbagi, meninjau, dan mengomentari dokumen secara real-time, meningkatkan efisiensi kerja. Dengan penyimpanan cloud yang terintegrasi, tim dapat mengakses dokumen dari mana saja dan kapan saja, menjadikannya solusi ideal untuk lingkungan kerja yang dinamis dan terdistribusi."
   },
   {
     "id": 9,
     "brand": "Microsoft",
     "name": "Windows Server 2025 Standard - 16 Core License Pack",
     "usage": "Lisensi Seumur Hidup",
-    "image": "/src/assets/software/microsoft/2.png"
+    "image": "/src/assets/software/microsoft/2.png",
+    "description": "Windows Server 2025 Standard - 16 Core License Pack adalah solusi server yang dirancang untuk memenuhi kebutuhan bisnis dan organisasi dalam mengelola infrastruktur TI mereka. Dengan lisensi ini, pengguna dapat menginstal Windows Server 2025 Standard pada server fisik atau virtual dengan dukungan hingga 16 core prosesor. Windows Server 2025 Standard menawarkan fitur-fitur canggih seperti manajemen identitas dan akses, virtualisasi dengan Hyper-V, serta kemampuan penyimpanan dan jaringan yang ditingkatkan. Solusi ini ideal untuk bisnis yang membutuhkan platform server yang andal, aman, dan skalabel untuk mendukung operasi mereka."
   },
   {
     "id": 10,
     "brand": "Microsoft",
     "name": "Microsoft SQL Server 2022 Standard Edition",
     "usage": "Lisensi Seumur Hidup",
-    "image": "/src/assets/software/sql/1.png"
+    "image": "/src/assets/software/sql/1.png",
+    "description": "Microsoft SQL Server 2022 Standard Edition adalah sistem manajemen basis data relasional yang dirancang untuk memenuhi kebutuhan bisnis dan organisasi dalam mengelola data mereka. Dengan lisensi seumur hidup, pengguna dapat menginstal SQL Server 2022 Standard Edition pada server fisik atau virtual tanpa perlu membayar biaya berlangganan bulanan atau tahunan. SQL Server 2022 Standard Edition menawarkan fitur-fitur canggih seperti pemrosesan transaksi yang andal, analisis data, serta kemampuan integrasi dengan berbagai aplikasi dan layanan. Solusi ini ideal untuk bisnis yang membutuhkan platform basis data yang kuat, aman, dan skalabel untuk mendukung operasi mereka."
   },
   {
     "id": 11,
     "brand": "Heimdal",
     "name": "Heimdal EPDR Plus & Ransomware Encryption Protection",
     "usage": "Lisensi Seumur Hidup",
-    "image": "/src/assets/software/heimdal/1.png"
+    "image": "/src/assets/software/heimdal/1.png",
+    "description": "Heimdal EPDR Plus & Ransomware Encryption Protection adalah solusi keamanan siber yang dirancang untuk melindungi sistem dan data dari ancaman ransomware dan serangan siber lainnya. Dengan lisensi seumur hidup, pengguna dapat menginstal Heimdal EPDR Plus pada perangkat mereka tanpa perlu membayar biaya berlangganan bulanan atau tahunan. Solusi ini menawarkan fitur-fitur canggih seperti deteksi dan pencegahan ransomware, perlindungan terhadap malware, serta pemantauan aktivitas jaringan secara real-time. Heimdal EPDR Plus & Ransomware Encryption Protection ideal untuk individu dan organisasi yang membutuhkan perlindungan yang andal dan efektif terhadap ancaman siber yang terus berkembang."
   },
   {
     "id": 12,
     "brand": "PDF Exchange",
     "name": "PDF Exchange Pro",
     "usage": "1 Tahun Berlangganan",
-    "image": "/src/assets/software/pdf/1.png"
+    "image": "/src/assets/software/pdf/1.png",
+    "description": "PDF Exchange Pro adalah solusi perangkat lunak yang dirancang untuk memenuhi kebutuhan pengguna dalam mengelola dokumen PDF dengan efisien. Dengan langganan ini, pengguna dapat mengakses fitur-fitur canggih seperti pembuatan, pengeditan, dan konversi PDF, serta kemampuan untuk menandatangani dokumen secara digital. PDF Exchange Pro juga menyediakan alat kolaborasi yang memungkinkan pengguna untuk berbagi, meninjau, dan mengomentari dokumen secara real-time, meningkatkan efisiensi kerja. Dengan antarmuka yang intuitif dan alat produktivitas yang lengkap, PDF Exchange Pro ideal untuk individu dan organisasi yang membutuhkan solusi manajemen dokumen PDF yang andal dan mudah digunakan."
   },
   {
     "id": 13,
     "brand": "Autodesk",
     "name": "AutoCAD LT 2024 Commercial New Single-user",
     "usage": "Lisensi Seumur Hidup",
-    "image": "/src/assets/software/autocad/1.png"
+    "image": "/src/assets/software/autocad/1.png",
+    "description": "AutoCAD LT 2024 Commercial New Single-user adalah versi ringan dari perangkat lunak desain AutoCAD yang dirancang khusus untuk para profesional yang membutuhkan alat desain 2D yang andal dan efisien. Dengan lisensi seumur hidup, pengguna dapat menginstal AutoCAD LT 2024 pada satu perangkat tanpa perlu membayar biaya berlangganan bulanan atau tahunan. AutoCAD LT 2024 menawarkan fitur-fitur canggih seperti pembuatan gambar teknis, anotasi, dan dokumentasi, serta kompatibilitas dengan berbagai format file. Solusi ini ideal untuk arsitek, insinyur, dan desainer yang membutuhkan alat desain yang kuat namun mudah digunakan untuk proyek-proyek mereka."
   },
   {
     "id": 14,
     "brand": "Thinkcell",
     "name": "Thinkcell Annual Subscription",
     "usage": "1 Tahun Berlangganan",
-    "image": "/src/assets/software/thinkcell/1.png"
+    "image": "/src/assets/software/thinkcell/1.png",
+    "description": "Thinkcell Annual Subscription adalah solusi perangkat lunak yang dirancang untuk meningkatkan produktivitas dalam pembuatan presentasi dan visualisasi data. Dengan langganan ini, pengguna dapat mengakses fitur-fitur canggih seperti pembuatan grafik otomatis, diagram, dan slide presentasi yang menarik secara visual. Thinkcell terintegrasi dengan Microsoft PowerPoint, memungkinkan pengguna untuk dengan mudah menyisipkan grafik dan diagram yang kompleks tanpa perlu keterampilan desain khusus. Dengan pembaruan rutin dan dukungan teknis, Thinkcell Annual Subscription ideal untuk profesional bisnis, analis data, dan pembuat presentasi yang ingin menyampaikan informasi mereka dengan cara yang lebih efektif dan menarik."
   },
   {
     "id": 15,
     "brand": "SketchUp",
     "name": "Software SketchUp Pro For Professional Use, ANN TRM CTR",
     "usage": "Lisensi Seumur Hidup",
-    "image": "/src/assets/software/sketchup/1.png"
+    "image": "/src/assets/software/sketchup/1.png",
+    "description": "SketchUp Pro For Professional Use, ANN TRM CTR adalah versi profesional dari perangkat lunak desain 3D SketchUp yang dirancang khusus untuk para profesional di bidang arsitektur, desain interior, dan rekayasa. Dengan lisensi seumur hidup, pengguna dapat menginstal SketchUp Pro pada satu perangkat tanpa perlu membayar biaya berlangganan bulanan atau tahunan. SketchUp Pro menawarkan fitur-fitur canggih seperti pembuatan model 3D yang detail, alat pengukuran presisi, serta kemampuan untuk mengimpor dan mengekspor berbagai format file. Solusi ini ideal untuk para profesional yang membutuhkan alat desain 3D yang kuat, fleksibel, dan mudah digunakan untuk proyek-proyek mereka."
   },
   {
     "id": 16,
     "brand": "Enscape",
     "name": "Software Enscape Fixed Seat License",
     "usage": "Lisensi Seumur Hidup",
-    "image": "/src/assets/software/enscape/1.png"
+    "image": "/src/assets/software/enscape/1.png",
+    "description": "Enscape Fixed Seat License adalah solusi perangkat lunak visualisasi real-time yang dirancang untuk para profesional di bidang arsitektur, desain interior, dan rekayasa. Dengan lisensi seumur hidup, pengguna dapat menginstal Enscape pada satu perangkat tanpa perlu membayar biaya berlangganan bulanan atau tahunan. Enscape menawarkan fitur-fitur canggih seperti rendering real-time, pembuatan tur virtual, dan integrasi langsung dengan perangkat lunak desain populer seperti Revit, SketchUp, dan Rhino. Solusi ini ideal untuk para profesional yang ingin menghadirkan presentasi visual yang menakjubkan dan interaktif kepada klien mereka, meningkatkan pemahaman dan komunikasi proyek."
   },
   {
     "id": 17,
     "brand": "ChatGPT",
     "name": "ChatGPT Team",
     "usage": "1 Tahun Berlangganan",
-    "image": "/src/assets/software/chatgpt/1.png"
+    "image": "/src/assets/software/chatgpt/1.png",
+    "description": "ChatGPT Team adalah solusi kolaboratif yang dirancang untuk tim dan organisasi yang ingin memanfaatkan kekuatan kecerdasan buatan dalam komunikasi dan produktivitas mereka. Dengan langganan ini, tim dapat mengakses fitur-fitur canggih seperti pembuatan teks otomatis, analisis data, dan integrasi dengan berbagai platform komunikasi. ChatGPT Team memungkinkan anggota tim untuk bekerja bersama secara efisien, berbagi ide, dan menyelesaikan tugas dengan bantuan AI yang cerdas. Dengan dukungan teknis dan pembaruan rutin, ChatGPT Team ideal untuk bisnis dan organisasi yang ingin meningkatkan kolaborasi dan inovasi melalui teknologi AI."
   },
   {
     "id": 18,
     "brand": "Hootsuite",
     "name": "Hootsuite Professional",
     "usage": "1 Tahun Berlangganan",
-    "image": "/src/assets/software/hootsuite/1.png"
+    "image": "/src/assets/software/hootsuite/1.png",
+    "description": "Hootsuite Professional adalah platform manajemen media sosial yang dirancang untuk membantu individu dan bisnis mengelola kehadiran mereka di berbagai saluran media sosial secara efisien. Dengan langganan ini, pengguna dapat mengakses fitur-fitur canggih seperti penjadwalan posting, analitik kinerja, dan pemantauan percakapan di berbagai platform media sosial seperti Facebook, Twitter, Instagram, LinkedIn, dan lainnya. Hootsuite Professional memungkinkan pengguna untuk mengelola beberapa akun media sosial dari satu dasbor terpadu, meningkatkan produktivitas dan efektivitas strategi pemasaran digital mereka. Dengan dukungan teknis dan pembaruan rutin, Hootsuite Professional ideal untuk profesional pemasaran, pengelola media sosial, dan bisnis yang ingin memperkuat kehadiran online mereka."
   },
   {
     "id": 19,
     "brand": "S.id",
     "name": "S.id – Pro",
     "usage": "1 Tahun Berlangganan",
-    "image": "/src/assets/software/sid/1.png"
+    "image": "/src/assets/software/sid/1.png",
+    "description": "S.id – Pro adalah layanan pemendek URL yang dirancang untuk memenuhi kebutuhan profesional dan bisnis dalam mengelola tautan mereka secara efisien. Dengan langganan ini, pengguna dapat mengakses fitur-fitur canggih seperti pembuatan tautan pendek yang dapat disesuaikan, pelacakan klik, dan analitik kinerja tautan. S.id – Pro memungkinkan pengguna untuk mengoptimalkan strategi pemasaran digital mereka dengan menyediakan wawasan tentang bagaimana tautan mereka digunakan dan berinteraksi dengan audiens. Dengan antarmuka yang intuitif dan dukungan teknis, S.id – Pro ideal untuk profesional pemasaran, pengelola media sosial, dan bisnis yang ingin meningkatkan efektivitas kampanye online mereka melalui manajemen tautan yang cerdas."
   },
   {
     "id": 20,
     "brand": "Figma",
     "name": "Figma Organization Dev Seat",
     "usage": "Lisensi Seumur Hidup",
-    "image": "/src/assets/software/figma/1.svg"
+    "image": "/src/assets/software/figma/1.svg",
+    "description": "Figma Organization Dev Seat adalah solusi desain kolaboratif yang dirancang untuk tim dan organisasi yang ingin meningkatkan produktivitas dan kreativitas mereka dalam pembuatan desain digital. Dengan lisensi seumur hidup, pengguna dapat menginstal Figma pada satu perangkat tanpa perlu membayar biaya berlangganan bulanan atau tahunan. Figma menawarkan fitur-fitur canggih seperti desain antarmuka pengguna (UI), prototyping interaktif, dan kolaborasi real-time yang memungkinkan anggota tim untuk bekerja bersama secara efisien. Solusi ini ideal untuk desainer, pengembang, dan tim produk yang ingin menciptakan pengalaman digital yang menakjubkan dan inovatif."
   },
   {
     "id": 21,
     "brand": "Adobe",
     "name": "Adobe Illustrator",
     "usage": "Lisensi Seumur Hidup",
-    "image": "/src/assets/software/adobe/2.png"
+    "image": "/src/assets/software/adobe/2.png",
+    "description": "Adobe Illustrator adalah perangkat lunak desain grafis vektor yang digunakan oleh para profesional di seluruh dunia untuk membuat ilustrasi, logo, ikon, dan karya seni digital lainnya. Dengan lisensi seumur hidup, pengguna dapat menginstal Adobe Illustrator pada satu perangkat tanpa perlu membayar biaya berlangganan bulanan atau tahunan. Illustrator menawarkan fitur-fitur canggih seperti alat gambar vektor presisi, pengeditan teks yang kuat, dan integrasi dengan aplikasi Adobe Creative Cloud lainnya. Solusi ini ideal untuk desainer grafis, ilustrator, dan seniman digital yang ingin menciptakan karya seni yang menakjubkan dan berkualitas tinggi."
   },
   {
     "id": 22,
     "brand": "Adobe",
     "name": "Adobe Photoshop",
     "usage": "Lisensi Seumur Hidup",
-    "image": "/src/assets/software/adobe/3.png"
+    "image": "/src/assets/software/adobe/3.png",
+    "description": "Adobe Photoshop adalah perangkat lunak pengeditan gambar dan desain grafis yang digunakan oleh para profesional di seluruh dunia untuk mengolah foto, membuat ilustrasi, dan menciptakan karya seni digital. Dengan lisensi seumur hidup, pengguna dapat menginstal Adobe Photoshop pada satu perangkat tanpa perlu membayar biaya berlangganan bulanan atau tahunan. Photoshop menawarkan fitur-fitur canggih seperti alat pengeditan gambar yang presisi, lapisan dan masker, serta integrasi dengan aplikasi Adobe Creative Cloud lainnya. Solusi ini ideal untuk fotografer, desainer grafis, dan seniman digital yang ingin menghasilkan karya visual yang menakjubkan dan berkualitas tinggi."
   },
   {
     "id": 23,
     "brand": "Microsoft",
     "name": "Windows Server 2025  - CAL",
     "usage": "Lisensi Seumur Hidup",
-    "image": "/src/assets/software/microsoft/3.png"
+    "image": "/src/assets/software/microsoft/3.png",
+    "description": "Windows Server 2025 - CAL (Client Access License) adalah lisensi yang diperlukan untuk mengizinkan pengguna atau perangkat mengakses layanan yang disediakan oleh Windows Server 2025. Dengan lisensi seumur hidup, pengguna dapat menginstal CAL pada satu perangkat atau untuk satu pengguna tanpa perlu membayar biaya berlangganan bulanan atau tahunan. CAL ini memungkinkan organisasi untuk mematuhi persyaratan lisensi Microsoft saat mengakses sumber daya server seperti file, aplikasi, dan layanan jaringan. Solusi ini ideal untuk bisnis dan organisasi yang ingin memastikan kepatuhan lisensi sambil memanfaatkan fitur-fitur canggih dari Windows Server 2025."
   },
   {
     "id": 24,
     "brand": "Microsoft",
     "name": "Windows Server 2025 Standard",
     "usage": "Lisensi Seumur Hidup",
-    "image": "/src/assets/software/microsoft/4.png"
+    "image": "/src/assets/software/microsoft/4.png",
+    "description": "Windows Server 2025 Standard adalah sistem operasi server yang dirancang untuk memenuhi kebutuhan bisnis dan organisasi dalam mengelola infrastruktur TI mereka. Dengan lisensi seumur hidup, pengguna dapat menginstal Windows Server 2025 Standard pada server fisik atau virtual tanpa perlu membayar biaya berlangganan bulanan atau tahunan. Windows Server 2025 Standard menawarkan fitur-fitur canggih seperti manajemen identitas dan akses, virtualisasi dengan Hyper-V, serta kemampuan penyimpanan dan jaringan yang ditingkatkan. Solusi ini ideal untuk bisnis yang membutuhkan platform server yang andal, aman, dan skalabel untuk mendukung operasi mereka."
   },
   {
     "id": 25,
     "brand": "Microsoft",
     "name": "SQL Server Standard Edition",
     "usage": "Lisensi Seumur Hidup",
-    "image": "/src/assets/software/sql/2.png"
+    "image": "/src/assets/software/sql/2.png",
+    "description": "SQL Server Standard Edition adalah sistem manajemen basis data relasional yang dirancang untuk memenuhi kebutuhan bisnis dan organisasi dalam mengelola data mereka. Dengan lisensi seumur hidup, pengguna dapat menginstal SQL Server Standard Edition pada server fisik atau virtual tanpa perlu membayar biaya berlangganan bulanan atau tahunan. SQL Server Standard Edition menawarkan fitur-fitur canggih seperti pemrosesan transaksi yang andal, analisis data, serta kemampuan integrasi dengan berbagai aplikasi dan layanan. Solusi ini ideal untuk bisnis yang membutuhkan platform basis data yang kuat, aman, dan skalabel untuk mendukung operasi mereka."
   },
   {
     "id": 26,
     "brand": "VMware",
     "name": "Vmware Cloud Foundation 5",
     "usage": "Lisensi Seumur Hidup",
-    "image": "/src/assets/software/vmware/1.png"
+    "image": "/src/assets/software/vmware/1.png",
+    "description": "VMware Cloud Foundation 5 adalah platform infrastruktur cloud terintegrasi yang dirancang untuk membantu organisasi membangun dan mengelola lingkungan cloud hybrid dengan efisien. Dengan lisensi seumur hidup, pengguna dapat menginstal VMware Cloud Foundation 5 pada infrastruktur mereka tanpa perlu membayar biaya berlangganan bulanan atau tahunan. Platform ini menggabungkan virtualisasi server, penyimpanan, jaringan, dan manajemen cloud dalam satu solusi terpadu. VMware Cloud Foundation 5 menawarkan fitur-fitur canggih seperti otomatisasi, orkestrasi, dan keamanan yang ditingkatkan, memungkinkan organisasi untuk mengoptimalkan operasi TI mereka dan mempercepat penyebaran aplikasi di lingkungan cloud. Solusi ini ideal untuk bisnis yang ingin memanfaatkan keunggulan cloud computing dengan cara yang aman dan efisien."
   },
   {
     "id": 27,
     "brand": "VMware",
     "name": "FortiToken",
     "usage": "Lisensi Seumur Hidup",
-    "image": "/src/assets/software/fortitoken/1.svg"
+    "image": "/src/assets/software/fortitoken/1.svg",
+    "description": "FortiToken adalah solusi keamanan autentikasi dua faktor yang dirancang untuk melindungi akses ke sistem dan aplikasi penting dari ancaman siber. Dengan lisensi seumur hidup, pengguna dapat menginstal FortiToken pada perangkat mereka tanpa perlu membayar biaya berlangganan bulanan atau tahunan. FortiToken menyediakan metode autentikasi tambahan melalui token fisik atau aplikasi mobile, yang menghasilkan kode unik untuk setiap sesi login. Solusi ini ideal untuk organisasi yang ingin meningkatkan keamanan akses pengguna, mencegah akses tidak sah, dan melindungi data sensitif dari potensi pelanggaran keamanan."
   },
   {
     "id": 28,
     "brand": "Canva",
     "name": "Canva PRO",
     "usage": "1 Tahun Berlangganan",
-    "image": "/src/assets/software/canva/1.svg"
+    "image": "/src/assets/software/canva/1.svg",
+    "description": "Canva PRO adalah versi premium dari platform desain grafis Canva yang menawarkan fitur-fitur canggih untuk membantu individu dan bisnis menciptakan konten visual yang menakjubkan dengan mudah. Dengan langganan ini, pengguna dapat mengakses ribuan template profesional, elemen desain eksklusif, dan alat pengeditan yang lebih kuat dibandingkan dengan versi gratis. Canva PRO juga menyediakan kemampuan untuk mengatur merek dengan kit merek khusus, menyimpan desain tanpa batas, serta mengunduh konten dalam berbagai format berkualitas tinggi. Solusi ini ideal untuk pemasar, desainer, dan pemilik bisnis yang ingin meningkatkan kualitas dan efisiensi pembuatan konten visual mereka."
   },
   {
     "id": 29,
     "brand": "Figma",
     "name": "License Figma Full Seat",
     "usage": "1 Tahun Berlangganan",
-    "image": "/src/assets/software/figma/1.svg"
+    "image": "/src/assets/software/figma/1.svg",
+    "description": "Figma Full Seat License adalah solusi desain kolaboratif yang dirancang untuk tim dan organisasi yang ingin meningkatkan produktivitas dan kreativitas mereka dalam pembuatan desain digital. Dengan langganan ini, pengguna dapat mengakses fitur-fitur canggih seperti desain antarmuka pengguna (UI), prototyping interaktif, dan kolaborasi real-time yang memungkinkan anggota tim untuk bekerja bersama secara efisien. Figma Full Seat License ideal untuk desainer, pengembang, dan tim produk yang ingin menciptakan pengalaman digital yang menakjubkan dan inovatif."
   },
   {
     "id": 30,
     "brand": "Autodesk",
     "name": "AutoCAD LT 2026 Commercial New Single-user ELD Annual Subscription",
     "usage": "1 Tahun Berlangganan",
-    "image": "/src/assets/software/autocad/2.png"
+    "image": "/src/assets/software/autocad/2.png",
+    "description": "AutoCAD LT 2026 Commercial New Single-user ELD Annual Subscription adalah versi ringan dari perangkat lunak desain AutoCAD yang dirancang khusus untuk para profesional yang membutuhkan alat desain 2D yang andal dan efisien. Dengan langganan tahunan ini, pengguna mendapatkan akses ke pembaruan terbaru secara otomatis, serta dukungan teknis dari Autodesk. AutoCAD LT 2026 menawarkan fitur-fitur canggih seperti pembuatan gambar teknis, anotasi, dan dokumentasi, serta kompatibilitas dengan berbagai format file. Solusi ini ideal untuk arsitek, insinyur, dan desainer yang membutuhkan alat desain yang kuat namun mudah digunakan untuk proyek-proyek mereka."
   },
   {
     "id": 31,
     "brand": "Autodesk",
     "name": "SketchUp Pro For Professional Use",
     "usage": "1 Tahun Berlangganan",
-    "image": "/src/assets/software/sketchup/1.png"
+    "image": "/src/assets/software/sketchup/1.png",
+    "description": "SketchUp Pro For Professional Use adalah versi profesional dari perangkat lunak desain 3D SketchUp yang dirancang khusus untuk para profesional di bidang arsitektur, desain interior, dan rekayasa. Dengan langganan tahunan ini, pengguna mendapatkan akses ke pembaruan terbaru secara otomatis, serta dukungan teknis dari SketchUp. SketchUp Pro menawarkan fitur-fitur canggih seperti pembuatan model 3D yang detail, alat pengukuran presisi, serta kemampuan untuk mengimpor dan mengekspor berbagai format file. Solusi ini ideal untuk para profesional yang membutuhkan alat desain 3D yang kuat, fleksibel, dan mudah digunakan untuk proyek-proyek mereka."
   }
 ]

@@ -491,7 +491,7 @@ export default function Produk() {
             </div>
 
             <div className="produk-sort-wrapper">
-              <label>urut berdasarkan:</label>
+              <label>Urut berdasarkan:</label>
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}

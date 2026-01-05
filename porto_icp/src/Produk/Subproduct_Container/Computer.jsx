@@ -1,28 +1,27 @@
+import React from "react";
 import { useParams } from "react-router-dom";
 import SubProduk from "../SubProduct/Subproduk.jsx";
 import DetailProduk from "../SubProduct/DetailProduk.jsx";
 import { Helmet } from "react-helmet";
 
 const Computer = () => {
-  const { id } = useParams();
+  const { brand, id } = useParams();
 
-  // If there's an ID in the URL, show DetailProduk
-  // Otherwise, show SubProduk list
-  if (id) {
+  if (brand && id) {
     return (
       <>
         <Helmet>
-          <title>Detail Komputer | Infoduta Computindo Perkasa</title>
+          <title>Detail Computer | Infoduta Computindo Perkasa</title>
           <meta
             name="description"
-            content="Detail spesifikasi lengkap produk komputer untuk kebutuhan bisnis Anda."
+            content="Detail produk computer untuk kebutuhan bisnis Anda."
           />
           <link
             rel="canonical"
-            href={`https://www.infoduta.com/produk/computer/${id}`}
+            href={`https://www.infoduta.com/produk/computer/${brand}/${id}`}
           />
         </Helmet>
-        <DetailProduk />
+        <DetailProduk dataSource="../produk.json" />
       </>
     );
   }
@@ -30,33 +29,42 @@ const Computer = () => {
   return (
     <>
       <Helmet>
-        <title>Produk Komputer | Infoduta Computindo Perkasa</title>
+        <title>Produk Computer | Infoduta Computindo Perkasa</title>
+        <meta
+          name="title"
+          content="Produk Computer | Infoduta Computindo Perkasa"
+        />
         <meta
           name="description"
-          content="Temukan berbagai pilihan Komputer dengan spesifikasi terbaik yang sesuai dengan kebutuhan perusahaan Anda."
+          content="Temukan berbagai pilihan Computer dengan kualitas terbaik yang sesuai dengan kebutuhan perusahaan Anda."
         />
         <meta
           name="keywords"
-          content="Produk Komputer, PC, Desktop, Workstation, Infoduta Computindo Perkasa, Solusi IT, Perangkat Keras, Hardware, Komputer Bisnis"
+          content="Produk Computer, PC Bisnis, Desktop, Infoduta Computindo Perkasa"
         />
+        <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="Produk Komputer - Infoduta Computindo Perkasa"
+          content="Produk Computer - Infoduta Computindo Perkasa"
         />
         <meta
           property="og:description"
-          content="Temukan berbagai pilihan Komputer dengan spesifikasi terbaik yang sesuai dengan kebutuhan perusahaan Anda."
+          content="Temukan berbagai pilihan Computer dengan kualitas terbaik yang sesuai dengan kebutuhan perusahaan Anda."
         />
         <meta
           property="og:url"
           content="https://www.infoduta.com/produk/computer"
         />
+        <meta property="og:site_name" content="Infoduta Computindo Perkasa" />
+        <meta property="twitter:card" content="summary_large_image" />
         <link rel="canonical" href="https://www.infoduta.com/produk/computer" />
       </Helmet>
+
       <SubProduk
         jenisBarang="PC"
-        title="Produk Komputer"
-        description="Temukan berbagai pilihan Komputer dengan spesifikasi terbaik yang sesuai dengan kebutuhan perusahaan Anda."
+        title="Computer"
+        description="Temukan berbagai pilihan Computer dengan kualitas terbaik yang sesuai dengan kebutuhan perusahaan Anda."
+        dataSource="../produk.json"
       />
     </>
   );

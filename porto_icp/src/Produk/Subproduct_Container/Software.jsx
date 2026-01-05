@@ -5,9 +5,9 @@ import DetailProduk from "../SubProduct/DetailProduk.jsx";
 import { Helmet } from "react-helmet";
 
 const Software = () => {
-  const { id } = useParams();
+  const { brand, id } = useParams();
 
-  if (id) {
+  if (brand && id) {
     return (
       <>
         <Helmet>
@@ -18,7 +18,7 @@ const Software = () => {
           />
           <link
             rel="canonical"
-            href={`https://www.infoduta.com/produk/software/${id}`}
+            href={`https://www.infoduta.com/produk/software/${brand}/${id}`}
           />
         </Helmet>
         <DetailProduk dataSource="../software.json" />
@@ -31,32 +31,39 @@ const Software = () => {
       <Helmet>
         <title>Produk Software | Infoduta Computindo Perkasa</title>
         <meta
+          name="title"
+          content="Produk Software | Infoduta Computindo Perkasa"
+        />
+        <meta
           name="description"
-          content="Temukan berbagai pilihan Software yang sesuai dengan kebutuhan perusahaan Anda."
+          content="Temukan berbagai pilihan Software dengan kualitas terbaik yang sesuai dengan kebutuhan perusahaan Anda."
         />
         <meta
           name="keywords"
-          content="Produk Software, Lisensi Software, Aplikasi, Program, Windows, Office, Infoduta Computindo Perkasa"
+          content="Produk Software, Microsoft Office, Windows, Adobe, Infoduta Computindo Perkasa"
         />
+        <meta property="og:type" content="website" />
         <meta
           property="og:title"
           content="Produk Software - Infoduta Computindo Perkasa"
         />
         <meta
           property="og:description"
-          content="Temukan berbagai pilihan Software yang sesuai dengan kebutuhan perusahaan Anda."
+          content="Temukan berbagai pilihan Software dengan kualitas terbaik yang sesuai dengan kebutuhan perusahaan Anda."
         />
         <meta
           property="og:url"
           content="https://www.infoduta.com/produk/software"
         />
+        <meta property="og:site_name" content="Infoduta Computindo Perkasa" />
+        <meta property="twitter:card" content="summary_large_image" />
         <link rel="canonical" href="https://www.infoduta.com/produk/software" />
       </Helmet>
-      // Software.jsx
+
       <SubProduk
         jenisBarang="software"
         title="Software"
-        description="Lisensi software original"
+        description="Temukan berbagai pilihan Software dengan kualitas terbaik yang sesuai dengan kebutuhan perusahaan Anda."
         dataSource="../software.json"
       />
     </>
