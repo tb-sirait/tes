@@ -465,6 +465,7 @@
 @media (max-width: 480px) {
   .sub-produk-hero h1 {
     font-size: 1.6rem;
+    margin-top: 40px;
   }
 
   .sub-produk-hero p {
