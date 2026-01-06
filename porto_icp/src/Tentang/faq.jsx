@@ -116,7 +116,7 @@ const FAQ = () => {
       animation: "fadeInUp 0.6s ease-out",
     },
     header: {
-      background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+      background: "linear-gradient(135deg, #800080 0%, #4169e1 100%)",
       color: "white",
       padding: "20px 20px",
       textAlign: "center",

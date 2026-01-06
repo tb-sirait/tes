@@ -840,3 +840,248 @@
     font-size: 20px;
   }
 }
+
+/* ============================================
+   TOMBOL ACTION DI MODAL - PRODUK.JSX
+   ============================================ */
+
+.produk-action-buttons-container {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+  width: 100%;
+}
+
+.produk-btn {
+  flex: 1;
+  min-width: 180px;
+  padding: 14px 20px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.produk-btn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition:
+    width 0.5s ease,
+    height 0.5s ease;
+  z-index: 0;
+}
+
+.produk-btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.produk-btn:active {
+  transform: scale(0.98);
+}
+
+.produk-btn-icon,
+.produk-logo-icon {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  z-index: 1;
+}
+
+.produk-btn span {
+  z-index: 1;
+  position: relative;
+}
+
+/* Tombol Detail Selengkapnya */
+.produk-btn-detail {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.produk-btn-detail:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+  background: linear-gradient(135deg, #5568d3 0%, #6a3f8f 100%);
+}
+
+.produk-btn-detail:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Tombol WhatsApp */
+.produk-btn-primary {
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+}
+
+.produk-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+  background: linear-gradient(135deg, #20ba5a 0%, #0f7a6e 100%);
+}
+
+.produk-btn-primary:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 768px) {
+  .produk-action-buttons-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .produk-btn {
+    min-width: 100%;
+    padding: 16px 20px;
+    font-size: 14px;
+  }
+
+  .produk-btn-icon,
+  .produk-logo-icon {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .produk-btn {
+    padding: 14px 16px;
+    font-size: 13px;
+  }
+
+  .produk-btn span:not(.produk-btn-icon):not(.produk-logo-icon) {
+    font-size: 13px;
+  }
+}
+
+/* ============================================
+   BREADCRUMB NAVIGATION - PRODUK.JSX
+   Styling selaras dengan DetailProduk.jsx
+   ============================================ */
+
+.produk-breadcrumb-container {
+  width: 100%;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.produk-breadcrumb-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 0;
+}
+
+.produk-breadcrumb-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0;
+  font-size: 15px;
+  font-weight: 400;
+  color: #0066cc;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.produk-breadcrumb-item:hover:not(.produk-breadcrumb-active) {
+  color: #0052a3;
+  text-decoration: underline;
+}
+
+.produk-breadcrumb-home {
+  color: #0066cc;
+  font-weight: 400;
+}
+
+.produk-breadcrumb-active {
+  color: #1a1a1a;
+  font-weight: 600;
+  cursor: default;
+  pointer-events: none;
+}
+
+.produk-breadcrumb-icon {
+  font-size: 14px;
+  display: none; /* Hide icon by default, sesuai design */
+}
+
+.produk-breadcrumb-separator {
+  font-size: 14px;
+  color: #666;
+  flex-shrink: 0;
+  margin: 0;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN - BREADCRUMB
+   ============================================ */
+
+@media (max-width: 768px) {
+  .produk-breadcrumb-container {
+    margin-bottom: 15px;
+  }
+
+  .produk-breadcrumb-wrapper {
+    gap: 8px;
+  }
+
+  .produk-breadcrumb-item {
+    font-size: 14px;
+  }
+
+  .produk-breadcrumb-separator {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .produk-breadcrumb-container {
+    margin-bottom: 12px;
+  }
+
+  .produk-breadcrumb-item {
+    font-size: 13px;
+  }
+
+  .produk-breadcrumb-separator {
+    font-size: 12px;
+  }
+}
+
+/* ============================================
+   SPACING ADJUSTMENT
+   ============================================ */
+
+/* Adjust spacing between breadcrumb and search bar */
+.produk-search-sort-container {
+  margin-top: 0;
+}

@@ -22,6 +22,7 @@ import procureItImg from "../assets/layanan/procure_it.png";
 import serviceItImg from "../assets/layanan/service_it.png";
 import aiGeneratifProduk from "../assets/layanan/ai_generatif_produk.png";
 import aiGeneratifService from "../assets/layanan/ai_generatif_service.png";
+import aiGeneratifSewa from "../assets/layanan/ai_generatif_sewa.png";
 
 function Layanan() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -238,7 +239,7 @@ function Layanan() {
             >
               <div className="services-nav-image-wrapper">
                 <img
-                  src={aiGeneratifProduk}
+                  src={aiGeneratifSewa}
                   alt="Penyewaan Produk IT"
                   className="services-nav-image"
                 />
@@ -330,7 +331,7 @@ function Layanan() {
           <div className="services-detail-container">
             <div className="services-detail-image-wrapper">
               <img
-                src={aiGeneratifProduk}
+                src={aiGeneratifSewa}
                 alt="Penyewaan Produk IT"
                 className="services-detail-image"
               />

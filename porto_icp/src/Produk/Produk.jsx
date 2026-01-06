@@ -10,7 +10,14 @@ import { useParams, useNavigate } from "react-router-dom";
 import Navbar from "../Navigation/Navbar";
 import Footer from "../Navigation/footer";
 import produkData from "./produk.json";
-import { FaFilter, FaSearch, FaWhatsapp, FaTimes } from "react-icons/fa";
+import {
+  FaFilter,
+  FaSearch,
+  FaWhatsapp,
+  FaTimes,
+  FaChevronRight,
+  FaFileAlt as File,
+} from "react-icons/fa";
 import "./Produk.css";
 
 import { Helmet } from "react-helmet";
@@ -141,6 +148,47 @@ export default function Produk() {
 
   const products = useMemo(() => importImagesFromJson(produkData), []);
   const [filteredProducts, setFilteredProducts] = useState(products);
+
+  const Breadcrumb = () => {
+    return (
+      <div className="produk-breadcrumb-container">
+        <div className="produk-breadcrumb-wrapper">
+          <button
+            className="produk-breadcrumb-item"
+            onClick={() => navigate("/")}
+          >
+            Beranda
+          </button>
+
+          <FaChevronRight className="produk-breadcrumb-separator" />
+
+          {category ? (
+            <>
+              <button
+                className="produk-breadcrumb-item"
+                onClick={() => navigate("/produk")}
+              >
+                Produk
+              </button>
+
+              <FaChevronRight className="produk-breadcrumb-separator" />
+
+              <span className="produk-breadcrumb-item produk-breadcrumb-active">
+                {categories.find((cat) => cat.path === category)?.name ||
+                  category}
+              </span>
+            </>
+          ) : (
+            <>
+              <span className="produk-breadcrumb-item produk-breadcrumb-active">
+                Produk
+              </span>
+            </>
+          )}
+        </div>
+      </div>
+    );
+  };
 
   // Filter produk
   const filterProducts = useCallback(() => {
@@ -296,20 +344,29 @@ export default function Produk() {
           p.id.toString() === id &&
           p.brand.toLowerCase() === brand.toLowerCase(),
       );
+
       if (found) {
-        setSelectedProduct(found);
-        setCurrentImageIndex(0);
-        setIsModalOpen(true);
+        // PERBAIKAN: Jika ada kategori di URL, pastikan produk sesuai kategori
+        if (category && found.jenis.toLowerCase() !== category.toLowerCase()) {
+          // Produk tidak sesuai kategori, redirect ke kategori yang benar
+          navigate(`/produk/${found.jenis.toLowerCase()}/${brand}/${id}`);
+        } else {
+          setSelectedProduct(found);
+          setCurrentImageIndex(0);
+          setIsModalOpen(true);
+        }
       } else {
-        // Jika produk tidak ditemukan, redirect ke halaman produk
+        // Jika produk tidak ditemukan, tutup modal dan kembali
         setIsModalOpen(false);
         setSelectedProduct(null);
+        const basePath = category ? `/produk/${category}` : "/produk";
+        navigate(basePath);
       }
     } else {
       setIsModalOpen(false);
       setSelectedProduct(null);
     }
-  }, [brand, id, category, products]);
+  }, [brand, id, category, products, navigate]);
 
   useEffect(() => {
     document.title = "Produk | Infoduta Computindo Perkasa";
@@ -342,10 +399,6 @@ export default function Produk() {
     setSelectedProduct(product);
     setCurrentImageIndex(0);
     setIsModalOpen(true);
-    // Jika sudah di halaman kategori, tetap di kategori tersebut
-    // Jika di halaman /produk, buka modal tanpa menambah kategori ke URL
-    const basePath = category ? `/produk/${category}` : "/produk";
-    navigate(`${basePath}/${product.brand}/${product.id}`);
   };
 
   const goToPreviousImage = () => {
@@ -477,6 +530,7 @@ export default function Produk() {
         </div>
 
         <div className="produk-page-content" ref={mainContentRef}>
+          <Breadcrumb />
           {/* Search and Sort Bar */}
           <div className="produk-search-sort-container">
             <div className="produk-search-wrapper">
@@ -746,10 +800,23 @@ export default function Produk() {
               <div className="produk-modal-product-description">
                 {selectedProduct.deskripsi}
               </div>
-              <div className="produk-action-button">
-                <span className="produk-logo-icon">
-                  <FaWhatsapp />
-                </span>
+              <div className="produk-action-buttons-container">
+                <button
+                  className="produk-btn produk-btn-detail"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    // Navigate ke halaman detail lengkap
+                    navigate(
+                      `/produk/${selectedProduct.jenis.toLowerCase()}/${selectedProduct.brand}/${selectedProduct.id}`,
+                    );
+                  }}
+                >
+                  <span className="produk-btn-icon">
+                    <File />
+                  </span>
+                  <span>Detail Selengkapnya</span>
+                </button>
+
                 <a
                   href={`https://wa.me/6285545031039?text=Saya%20tertarik%20dengan%20produk%20${encodeURIComponent(
                     selectedProduct.name,
@@ -757,8 +824,12 @@ export default function Produk() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="produk-btn produk-btn-primary"
+                  onClick={(e) => e.stopPropagation()}
                 >
-                  Konsultasikan via WhatsApp
+                  <span className="produk-logo-icon">
+                    <FaWhatsapp />
+                  </span>
+                  <span>Konsultasi via WhatsApp</span>
                 </a>
               </div>
             </div>

@@ -72,7 +72,7 @@ function Footer() {
             <p>
               <strong>Telepon:</strong> +62 21 3983 1939
               <br />
-              <strong>Email:</strong> cs@infoduta.com
+              <strong>Email:</strong> dewi.handayani@infoduta.com
             </p>
             <p style={{ fontSize: "11px" }}>
               <i>
