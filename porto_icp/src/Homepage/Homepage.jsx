@@ -5,7 +5,7 @@ import Footer from "../Navigation/footer";
 import Navbar from "../Navigation/Navbar";
 import "./homepage.css";
 
-import {X} from "lucide-react";
+import { X } from "lucide-react";
 
 // Images
 import KantorImage from "../assets/kantor_icp(landscape1).webp";
@@ -203,7 +203,7 @@ function Homepage() {
             {/* Tombol Close - hanya muncul setelah 4 detik */}
             {showCloseButton && (
               <button className="ad-modal-close" onClick={handleCloseAd}>
-                <X size={24} style={{color: "black"}}/>
+                <X size={24} style={{ color: "black" }} />
               </button>
             )}
 
