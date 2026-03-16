@@ -10,12 +10,16 @@ import KantorImage from "../assets/kantor_icp(landscape1).webp";
 import WorkstationImage from "../assets/Workstation.png";
 import ServicesImage from "../assets/Services.png";
 import AboutImage from "../assets/About.png";
+import IklanImage from "../assets/iklan.png"; // Import gambar iklan Anda
 
 function Homepage() {
   const navigate = useNavigate();
   const [overlayOpacity, setOverlayOpacity] = useState(1);
   const [contentVisible, setContentVisible] = useState(false);
   const [cardsVisible, setCardsVisible] = useState([false, false, false]);
+  const [showAdModal, setShowAdModal] = useState(false);
+  const [showCloseButton, setShowCloseButton] = useState(false); // State untuk tombol close
+  const [isClosing, setIsClosing] = useState(false); // State untuk animasi close
   const mainContentRef = useRef(null);
   const cardRefs = useRef([]);
 
@@ -30,9 +34,21 @@ function Homepage() {
       setContentVisible(true);
     }, 600);
 
+    // Tampilkan modal iklan setelah 2 detik
+    const adTimer = setTimeout(() => {
+      setShowAdModal(true);
+    }, 2000);
+
+    // Tampilkan tombol close setelah 4 detik dari modal muncul
+    const closeButtonTimer = setTimeout(() => {
+      setShowCloseButton(true);
+    }, 6000); // 2 detik (modal muncul) + 4 detik = 6 detik total
+
     return () => {
       clearTimeout(overlayTimer);
       clearTimeout(contentTimer);
+      clearTimeout(adTimer);
+      clearTimeout(closeButtonTimer);
     };
   }, []);
 
@@ -53,7 +69,7 @@ function Homepage() {
                   newState[index] = true;
                   return newState;
                 });
-              }, index * 200); // Delay berbeda untuk setiap card
+              }, index * 200);
             }
           }
         });
@@ -77,13 +93,11 @@ function Homepage() {
 
   const handleExploreClick = () => {
     if (mainContentRef.current) {
-      // Cara 1: Gunakan scrollIntoView
       mainContentRef.current.scrollIntoView({
         behavior: "smooth",
         block: "start",
       });
 
-      // Cara 2: Fallback dengan window.scrollTo (lebih reliable untuk event trigger)
       setTimeout(() => {
         const targetPosition = mainContentRef.current.offsetTop;
         window.scrollTo({
@@ -92,6 +106,16 @@ function Homepage() {
         });
       }, 100);
     }
+  };
+
+  // Fungsi untuk menutup modal iklan dengan animasi
+  const handleCloseAd = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setShowAdModal(false);
+      setIsClosing(false);
+      setShowCloseButton(false);
+    }, 300); // Durasi animasi
   };
 
   const navigationItems = [
@@ -163,6 +187,45 @@ function Homepage() {
       </Helmet>
 
       <Navbar />
+
+      {/* Modal Iklan */}
+      {showAdModal && (
+        <div
+          className={`ad-modal-overlay ${isClosing ? "closing" : ""}`}
+          onClick={showCloseButton ? handleCloseAd : undefined}
+        >
+          <div
+            className={`ad-modal-content ${isClosing ? "closing" : ""}`}
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Tombol Close - hanya muncul setelah 4 detik */}
+            {showCloseButton && (
+              <button className="ad-modal-close" onClick={handleCloseAd}>
+                <svg
+                  width="50"
+                  height="50"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </button>
+            )}
+
+            {/* Gambar Iklan */}
+            <img
+              src={IklanImage}
+              alt="Iklan Promosi"
+              className="ad-modal-image"
+            />
+          </div>
+        </div>
+      )}
 
       {/* Hero Section */}
       <section className="home-hero-section" id="hero-section">

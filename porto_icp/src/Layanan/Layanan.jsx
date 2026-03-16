@@ -15,14 +15,14 @@ import FAQ from "../Tentang/faq";
 import KontakContainer from "../Tentang/kontakContainer";
 
 // Import images
-import awardImg from "../assets/layanan/award.png";
-import consulItImg from "../assets/layanan/consul_it.png";
-import hardwareItImg from "../assets/layanan/hardware_it.png";
-import procureItImg from "../assets/layanan/procure_it.png";
-import serviceItImg from "../assets/layanan/service_it.png";
-import aiGeneratifProduk from "../assets/layanan/ai_generatif_produk.png";
-import aiGeneratifService from "../assets/layanan/ai_generatif_service.png";
-import aiGeneratifSewa from "../assets/layanan/ai_generatif_sewa.png";
+import awardImg from "../assets/layanan/award.webp";
+import consulItImg from "../assets/layanan/consul_it.webp";
+import hardwareItImg from "../assets/layanan/hardware_it.webp";
+import procureItImg from "../assets/layanan/procure_it.webp";
+import serviceItImg from "../assets/layanan/service_it.webp";
+import aiGeneratifProduk from "../assets/layanan/ai_generatif_produk.webp";
+import aiGeneratifService from "../assets/layanan/ai_generatif_service.webp";
+import aiGeneratifSewa from "../assets/layanan/ai_generatif_sewa.webp";
 
 function Layanan() {
   const [currentSlide, setCurrentSlide] = useState(0);

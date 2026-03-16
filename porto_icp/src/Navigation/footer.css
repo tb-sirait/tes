@@ -459,6 +459,8 @@
   display: flex;
   justify-content: center;
   padding-top: 10px;
+  border-top: 1px solid #e0e0e0;
+  z-index: 10000;
 }
 
 .con-close-btn {
@@ -481,25 +483,6 @@
 
 .con-close-btn:active {
   transform: translateY(0);
-}
-
-/* Custom Scrollbar untuk Modal */
-.con-modal-container::-webkit-scrollbar {
-  width: 8px;
-}
-
-.con-modal-container::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 10px;
-}
-
-.con-modal-container::-webkit-scrollbar-thumb {
-  background: #1434a4;
-  border-radius: 10px;
-}
-
-.con-modal-container::-webkit-scrollbar-thumb:hover {
-  background: #0a2a75;
 }
 
 /* Responsive Design */

@@ -15,28 +15,30 @@ import {
   FaSearch,
   FaWhatsapp,
   FaTimes,
-  FaChevronRight,
+  FaChevronRight, 
+  FaChevronDown,
+  FaSort,
   FaFileAlt as File,
 } from "react-icons/fa";
-import "./Produk.css";
+import "./produk.css";
 
 import { Helmet } from "react-helmet";
-
-import DellLogoWhite from "../assets/Dell_logo_white.png";
-import XiaomiLogo from "../assets/xiaomi_logo.webp";
-import LenovoLogo from "../assets/lenovo_logo.png";
-import CiscoLogo from "../assets/Cisco_logo.png";
-import SamsungLogo from "../assets/samsung_logo.png";
-import AsusLogoWhite from "../assets/Asus_logo_white.png";
-import HpLogoWhite from "../assets/hp_logo_white.png";
-import InfocusLogo from "../assets/Infocus_logo.png";
-import AppleLogo from "../assets/Apple_logo.png";
-import AcerLogo from "../assets/Acer_logo.png";
 import PrevIcon from "../assets/produk/icon/prev.png";
 import NextIcon from "../assets/produk/icon/next.png";
 import kantorICP from "../assets/kantor_icp(landscape1).webp";
 
 import { MemoryStick, Gpu, Cpu, AppWindow, HardDrive, X } from "lucide-react";
+
+// Static data — defined outside component so it never causes stale-closure warnings
+const CATEGORIES = [
+  { name: "Software", path: "software" },
+  { name: "Hardware", path: "hardware" },
+  { name: "Server", path: "server" },
+  { name: "Komputer", path: "computer" },
+  { name: "Laptop", path: "laptop" },
+  { name: "Sparepart", path: "sparepart" },
+  { name: "Smartphone", path: "smartphone" },
+];
 
 export default function Produk() {
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -51,6 +53,10 @@ export default function Produk() {
   const [isClosing, setIsClosing] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [heroAnimated, setHeroAnimated] = useState(false);
+
+  // Mobile collapse states
+  const [isSortOpen, setIsSortOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   // Filter states
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -109,7 +115,6 @@ export default function Produk() {
       setIsModalOpen(false);
       setSelectedProduct(null);
       setIsClosing(false);
-      // Kembali ke halaman sebelumnya (kategori atau /produk)
       const basePath = category ? `/produk/${category}` : "/produk";
       navigate(basePath);
     }, 300);
@@ -174,7 +179,7 @@ export default function Produk() {
               <FaChevronRight className="produk-breadcrumb-separator" />
 
               <span className="produk-breadcrumb-item produk-breadcrumb-active">
-                {categories.find((cat) => cat.path === category)?.name ||
+                {CATEGORIES.find((cat) => cat.path === category)?.name ||
                   category}
               </span>
             </>
@@ -194,7 +199,6 @@ export default function Produk() {
   const filterProducts = useCallback(() => {
     let results = [...products];
 
-    // Filter by category
     if (selectedCategory) {
       results = results.filter(
         (product) =>
@@ -202,7 +206,6 @@ export default function Produk() {
       );
     }
 
-    // Filter by brand
     if (selectedBrand) {
       results = results.filter(
         (product) =>
@@ -210,7 +213,6 @@ export default function Produk() {
       );
     }
 
-    // Filter by type
     if (selectedType) {
       results = results.filter(
         (product) =>
@@ -219,23 +221,20 @@ export default function Produk() {
       );
     }
 
-    // Filter by search query
     if (searchQuery) {
       results = results.filter((product) =>
         product.name.toLowerCase().includes(searchQuery.toLowerCase()),
       );
     }
 
-    // Sort by release date
     if (sortByRelease) {
       results.sort((a, b) => {
         const dateA = new Date(a.released_date || 0);
         const dateB = new Date(b.released_date || 0);
-        return dateB - dateA; // Newest first
+        return dateB - dateA;
       });
     }
 
-    // Sort by selected option
     if (sortBy === "nama") {
       results.sort((a, b) => {
         if (sortOrder === "asc") {
@@ -268,7 +267,6 @@ export default function Produk() {
     sortOrder,
   ]);
 
-  // Handle search with debounce
   useEffect(() => {
     if (searchTimeout.current) {
       clearTimeout(searchTimeout.current);
@@ -296,16 +294,6 @@ export default function Produk() {
     filterProducts,
   ]);
 
-  const categories = [
-    { name: "Software", path: "software" },
-    { name: "Hardware", path: "hardware" },
-    { name: "Server", path: "server" },
-    { name: "Komputer", path: "computer" },
-    { name: "Laptop", path: "laptop" },
-    { name: "Sparepart", path: "sparepart" },
-    { name: "Smartphone", path: "smartphone" },
-  ];
-
   // Get unique types from products
   const uniqueTypes = useMemo(() => {
     const types = new Set();
@@ -330,14 +318,12 @@ export default function Produk() {
 
   // === ROUTE SYNC ===
   useEffect(() => {
-    // Set kategori dari URL jika ada
     if (category) {
       setSelectedCategory(category);
     } else {
       setSelectedCategory("");
     }
 
-    // Cek apakah ada brand dan id di URL untuk membuka modal
     if (brand && id) {
       const found = products.find(
         (p) =>
@@ -346,9 +332,7 @@ export default function Produk() {
       );
 
       if (found) {
-        // PERBAIKAN: Jika ada kategori di URL, pastikan produk sesuai kategori
         if (category && found.jenis.toLowerCase() !== category.toLowerCase()) {
-          // Produk tidak sesuai kategori, redirect ke kategori yang benar
           navigate(`/produk/${found.jenis.toLowerCase()}/${brand}/${id}`);
         } else {
           setSelectedProduct(found);
@@ -356,7 +340,6 @@ export default function Produk() {
           setIsModalOpen(true);
         }
       } else {
-        // Jika produk tidak ditemukan, tutup modal dan kembali
         setIsModalOpen(false);
         setSelectedProduct(null);
         const basePath = category ? `/produk/${category}` : "/produk";
@@ -453,6 +436,10 @@ export default function Produk() {
   const handleCategoryClick = (categoryPath) => {
     navigate(`/produk/${categoryPath}`);
     setSelectedCategory(categoryPath);
+    // Auto-collapse sidebar on mobile setelah pilih kategori
+    if (isMobile) {
+      setTimeout(() => setIsSidebarOpen(false), 150);
+    }
   };
 
   const resetFilters = () => {
@@ -474,6 +461,25 @@ export default function Produk() {
       });
     }
   };
+
+  // Label for active filter summary (mobile sidebar toggle)
+  const activeFilterLabel = useMemo(() => {
+    const parts = [];
+    if (selectedCategory) {
+      const found = CATEGORIES.find((c) => c.path === selectedCategory);
+      if (found) parts.push(found.name);
+    }
+    if (selectedBrand) parts.push(selectedBrand);
+    if (selectedType) parts.push(selectedType);
+    return parts.join(", ");
+  }, [selectedCategory, selectedBrand, selectedType]);
+
+  // Sort label for mobile toggle button
+  const sortLabel = useMemo(() => {
+    const byLabel = sortBy === "nama" ? "Nama" : "Tgl Rilis";
+    const orderLabel = sortOrder === "asc" ? "A-Z" : "Z-A";
+    return `Urut: ${byLabel} · ${orderLabel}`;
+  }, [sortBy, sortOrder]);
 
   return (
     <>
@@ -531,8 +537,10 @@ export default function Produk() {
 
         <div className="produk-page-content" ref={mainContentRef}>
           <Breadcrumb />
+
           {/* Search and Sort Bar */}
           <div className="produk-search-sort-container">
+            {/* Search */}
             <div className="produk-search-wrapper">
               <FaSearch className="produk-search-icon" />
               <input
@@ -544,6 +552,43 @@ export default function Produk() {
               />
             </div>
 
+            {/* Mobile: Sort toggle button */}
+            <button
+              className={`produk-sort-toggle-btn ${isSortOpen ? "open" : ""}`}
+              onClick={() => setIsSortOpen((prev) => !prev)}
+              aria-expanded={isSortOpen}
+            >
+              <span>
+                <FaSort style={{ marginRight: 6, opacity: 0.7 }} />
+                {sortLabel}
+              </span>
+              <FaChevronDown />
+            </button>
+
+            {/* Sort panel: collapsible on mobile, always visible on desktop */}
+            <div className={`produk-sort-panel ${isSortOpen ? "open" : ""}`}>
+              <div className="produk-sort-panel-inner">
+                <label>Urut berdasarkan:</label>
+                <select
+                  value={sortBy}
+                  onChange={(e) => setSortBy(e.target.value)}
+                  className="produk-sort-select"
+                >
+                  <option value="nama">Nama</option>
+                  <option value="tanggal">Tanggal Rilis</option>
+                </select>
+                <select
+                  value={sortOrder}
+                  onChange={(e) => setSortOrder(e.target.value)}
+                  className="produk-order-select"
+                >
+                  <option value="asc">A-Z / Terlama</option>
+                  <option value="desc">Z-A / Terbaru</option>
+                </select>
+              </div>
+            </div>
+
+            {/* Desktop sort wrapper (hidden on mobile via CSS) */}
             <div className="produk-sort-wrapper">
               <label>Urut berdasarkan:</label>
               <select
@@ -568,79 +613,182 @@ export default function Produk() {
           <div className="produk-content-wrapper">
             {/* Sidebar Filter */}
             <aside className="produk-sidebar-filter">
-              <h3>Kategori</h3>
-              <ul className="produk-category-list">
-                {categories.map((cat, idx) => (
-                  <li
-                    key={idx}
-                    className={
-                      selectedCategory === cat.path ? "produk-active" : ""
-                    }
-                    onClick={() => handleCategoryClick(cat.path)}
-                  >
-                    {cat.name}
-                  </li>
-                ))}
-              </ul>
-
-              <h3 className="produk-filter-title">Filter</h3>
-
-              <div className="produk-filter-group">
-                <div className="produk-filter-header">
-                  <span>Merk{selectedBrand ? `: ${selectedBrand}` : ""}</span>
-                </div>
-                <select
-                  value={selectedBrand}
-                  onChange={(e) => setSelectedBrand(e.target.value)}
-                  className="produk-filter-select"
-                >
-                  <option value="">Semua Merk</option>
-                  {uniqueBrands.map((brand, idx) => (
-                    <option key={idx} value={brand}>
-                      {brand}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              <div className="produk-filter-group">
-                <div className="produk-filter-header">
-                  <span>Tanggal Keluaran</span>
-                </div>
-                <label className="produk-checkbox-label">
-                  <input
-                    type="checkbox"
-                    checked={sortByRelease}
-                    onChange={(e) => setSortByRelease(e.target.checked)}
-                  />
-                  Terbaru - Terlama
-                </label>
-              </div>
-
-              <div className="produk-filter-group">
-                <div className="produk-filter-header">
-                  <span>Tipe{selectedType ? `: ${selectedType}` : ""}</span>
-                </div>
-                <select
-                  value={selectedType}
-                  onChange={(e) => setSelectedType(e.target.value)}
-                  className="produk-filter-select"
-                >
-                  <option value="">Semua Tipe</option>
-                  {uniqueTypes.map((type, idx) => (
-                    <option key={idx} value={type}>
-                      {type}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              <button
-                className="produk-reset-filter-btn"
-                onClick={resetFilters}
+              {/* Mobile: collapsible header */}
+              <div
+                className="produk-sidebar-header"
+                onClick={() => setIsSidebarOpen((prev) => !prev)}
+                role="button"
+                aria-expanded={isSidebarOpen}
               >
-                Reset Filter
-              </button>
+                <span className="produk-sidebar-header-title">
+                  <FaFilter style={{ fontSize: 12, opacity: 0.7 }} />
+                  Kategori &amp; Filter
+                  {activeFilterLabel && (
+                    <span className="produk-active-badge">
+                      {activeFilterLabel}
+                    </span>
+                  )}
+                </span>
+                <FaChevronDown
+                  className={`produk-sidebar-header-chevron ${isSidebarOpen ? "open" : ""}`}
+                />
+              </div>
+
+              {/* Collapsible body (mobile), always visible (desktop) */}
+              <div className={`produk-sidebar-body ${isSidebarOpen ? "open" : ""}`}>
+                <div className="produk-sidebar-body-inner">
+                  <h3>Kategori</h3>
+                  <ul className="produk-category-list">
+                    {CATEGORIES.map((cat, idx) => (
+                      <li
+                        key={idx}
+                        className={
+                          selectedCategory === cat.path ? "produk-active" : ""
+                        }
+                        onClick={() => handleCategoryClick(cat.path)}
+                      >
+                        {cat.name}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <h3 className="produk-filter-title">Filter</h3>
+
+                  <div className="produk-filter-group">
+                    <div className="produk-filter-header">
+                      <span>Merk{selectedBrand ? `: ${selectedBrand}` : ""}</span>
+                    </div>
+                    <select
+                      value={selectedBrand}
+                      onChange={(e) => setSelectedBrand(e.target.value)}
+                      className="produk-filter-select"
+                    >
+                      <option value="">Semua Merk</option>
+                      {uniqueBrands.map((brand, idx) => (
+                        <option key={idx} value={brand}>
+                          {brand}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div className="produk-filter-group">
+                    <div className="produk-filter-header">
+                      <span>Tanggal Keluaran</span>
+                    </div>
+                    <label className="produk-checkbox-label">
+                      <input
+                        type="checkbox"
+                        checked={sortByRelease}
+                        onChange={(e) => setSortByRelease(e.target.checked)}
+                      />
+                      Terbaru - Terlama
+                    </label>
+                  </div>
+
+                  <div className="produk-filter-group">
+                    <div className="produk-filter-header">
+                      <span>Tipe{selectedType ? `: ${selectedType}` : ""}</span>
+                    </div>
+                    <select
+                      value={selectedType}
+                      onChange={(e) => setSelectedType(e.target.value)}
+                      className="produk-filter-select"
+                    >
+                      <option value="">Semua Tipe</option>
+                      {uniqueTypes.map((type, idx) => (
+                        <option key={idx} value={type}>
+                          {type}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <button
+                    className="produk-reset-filter-btn"
+                    onClick={resetFilters}
+                  >
+                    Reset Filter
+                  </button>
+                </div>
+              </div>
+
+              {/* Desktop sidebar content (always rendered, shown via CSS) */}
+              <div className="produk-sidebar-desktop-only">
+                <h3>Kategori</h3>
+                <ul className="produk-category-list">
+                  {CATEGORIES.map((cat, idx) => (
+                    <li
+                      key={idx}
+                      className={
+                        selectedCategory === cat.path ? "produk-active" : ""
+                      }
+                      onClick={() => handleCategoryClick(cat.path)}
+                    >
+                      {cat.name}
+                    </li>
+                  ))}
+                </ul>
+
+                <h3 className="produk-filter-title">Filter</h3>
+
+                <div className="produk-filter-group">
+                  <div className="produk-filter-header">
+                    <span>Merk{selectedBrand ? `: ${selectedBrand}` : ""}</span>
+                  </div>
+                  <select
+                    value={selectedBrand}
+                    onChange={(e) => setSelectedBrand(e.target.value)}
+                    className="produk-filter-select"
+                  >
+                    <option value="">Semua Merk</option>
+                    {uniqueBrands.map((brand, idx) => (
+                      <option key={idx} value={brand}>
+                        {brand}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div className="produk-filter-group">
+                  <div className="produk-filter-header">
+                    <span>Tanggal Keluaran</span>
+                  </div>
+                  <label className="produk-checkbox-label">
+                    <input
+                      type="checkbox"
+                      checked={sortByRelease}
+                      onChange={(e) => setSortByRelease(e.target.checked)}
+                    />
+                    Terbaru - Terlama
+                  </label>
+                </div>
+
+                <div className="produk-filter-group">
+                  <div className="produk-filter-header">
+                    <span>Tipe{selectedType ? `: ${selectedType}` : ""}</span>
+                  </div>
+                  <select
+                    value={selectedType}
+                    onChange={(e) => setSelectedType(e.target.value)}
+                    className="produk-filter-select"
+                  >
+                    <option value="">Semua Tipe</option>
+                    {uniqueTypes.map((type, idx) => (
+                      <option key={idx} value={type}>
+                        {type}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <button
+                  className="produk-reset-filter-btn"
+                  onClick={resetFilters}
+                >
+                  Reset Filter
+                </button>
+              </div>
             </aside>
 
             {/* Products Grid */}
@@ -805,7 +953,6 @@ export default function Produk() {
                   className="produk-btn produk-btn-detail"
                   onClick={(e) => {
                     e.stopPropagation();
-                    // Navigate ke halaman detail lengkap
                     navigate(
                       `/produk/${selectedProduct.jenis.toLowerCase()}/${selectedProduct.brand}/${selectedProduct.id}`,
                     );

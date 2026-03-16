@@ -1,3 +1,154 @@
+/* Modal Iklan Styles */
+.ad-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.ad-modal-overlay.closing {
+  animation: fadeOut 0.3s ease-in-out;
+}
+
+.ad-modal-content {
+  position: relative;
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  animation: slideUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.ad-modal-content.closing {
+  animation: slideDown 0.3s ease-in-out;
+}
+
+.ad-modal-image {
+  display: block;
+  height: auto;
+  max-width: 500px; /* Batas maksimal untuk rasio 4:5 */
+  object-fit: cover;
+}
+
+.ad-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  animation: closeButtonAppear 0.4s ease-out;
+}
+
+.ad-modal-close:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: rotate(90deg) scale(1.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+.ad-modal-close:active {
+  transform: rotate(90deg) scale(0.95);
+}
+
+.ad-modal-close svg {
+  color: #333;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100px) scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(100px) scale(0.9);
+    opacity: 0;
+  }
+}
+
+@keyframes closeButtonAppear {
+  from {
+    transform: scale(0) rotate(-180deg);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+/* Responsive untuk mobile */
+@media (max-width: 768px) {
+  .ad-modal-image {
+    width: calc(100% - 80px); /* Dikurangi 80px untuk mobile */
+    max-width: 400px;
+  }
+
+  .ad-modal-close {
+    width: 38px;
+    height: 38px;
+    top: 8px;
+    right: 8px;
+  }
+
+  .ad-modal-close svg {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ad-modal-image {
+    width: calc(100% - 60px);
+    max-width: 320px;
+  }
+}
+
 /* Container */
 .home-container {
   min-height: 100vh;
@@ -26,6 +177,7 @@
   width: 100vw;
   height: 100%;
   object-fit: cover;
+  object-position: left center; /* Tambahkan ini */
   z-index: 1;
 }
 
