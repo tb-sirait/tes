@@ -15,7 +15,7 @@ import {
   FaSearch,
   FaWhatsapp,
   FaTimes,
-  FaChevronRight, 
+  FaChevronRight,
   FaChevronDown,
   FaSort,
   FaFileAlt as File,
@@ -635,7 +635,9 @@ export default function Produk() {
               </div>
 
               {/* Collapsible body (mobile), always visible (desktop) */}
-              <div className={`produk-sidebar-body ${isSidebarOpen ? "open" : ""}`}>
+              <div
+                className={`produk-sidebar-body ${isSidebarOpen ? "open" : ""}`}
+              >
                 <div className="produk-sidebar-body-inner">
                   <h3>Kategori</h3>
                   <ul className="produk-category-list">
@@ -656,7 +658,9 @@ export default function Produk() {
 
                   <div className="produk-filter-group">
                     <div className="produk-filter-header">
-                      <span>Merk{selectedBrand ? `: ${selectedBrand}` : ""}</span>
+                      <span>
+                        Merk{selectedBrand ? `: ${selectedBrand}` : ""}
+                      </span>
                     </div>
                     <select
                       value={selectedBrand}

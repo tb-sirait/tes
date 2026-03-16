@@ -934,14 +934,14 @@
   margin-top: 0;
 }
 
-
 /* ============================================
    HIDE SCROLLBAR ON MOBILE
    ============================================ */
 
 @media (max-width: 768px) {
   /* Hide scrollbar — Firefox */
-  html, body {
+  html,
+  body {
     scrollbar-width: none;
   }
 
@@ -1067,7 +1067,9 @@
     overflow: hidden;
     max-height: 0;
     opacity: 0;
-    transition: max-height 0.35s ease, opacity 0.25s ease;
+    transition:
+      max-height 0.35s ease,
+      opacity 0.25s ease;
   }
 
   .produk-sort-panel.open {
