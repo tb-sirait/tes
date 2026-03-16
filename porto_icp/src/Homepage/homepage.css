@@ -35,25 +35,37 @@
   height: auto;
   max-width: 500px; /* Batas maksimal untuk rasio 4:5 */
   object-fit: cover;
+  object-position: left center;
+  border-radius: 16px 16px 0 0;
 }
 
 .ad-modal-close {
   position: absolute;
   top: 10px;
   right: 10px;
-  background: rgba(255, 255, 255, 0.95);
-  border: 2px solid rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all 0.3s ease;
-  z-index: 10;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  animation: closeButtonAppear 0.4s ease-out;
+}
+
+.ad-modal-close:focus {
+  outline: none;
+}
+
+.ad-modal-close:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.ad-modal-close svg{
+  color: black;
 }
 
 .ad-modal-close:hover {
@@ -125,7 +137,7 @@
 /* Responsive untuk mobile */
 @media (max-width: 768px) {
   .ad-modal-image {
-    width: calc(100% - 80px); /* Dikurangi 80px untuk mobile */
+    width: 90vw;
     max-width: 400px;
   }
 
@@ -144,7 +156,6 @@
 
 @media (max-width: 480px) {
   .ad-modal-image {
-    width: calc(100% - 60px);
     max-width: 320px;
   }
 }

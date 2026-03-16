@@ -7,6 +7,7 @@ import {
   MemoryStick,
   HardDrive,
   Monitor,
+  ChevronDown,
 } from "lucide-react";
 import "./subproduk.css";
 
@@ -22,9 +23,7 @@ import Footer from "../../Navigation/footer";
 // Import gambar dengan glob patterns
 const produkImages = import.meta.glob(
   "../../assets/produk/**/*.{png,jpg,jpeg,svg}",
-  {
-    eager: true,
-  },
+  { eager: true },
 );
 
 // Software images - explicit imports
@@ -100,7 +99,20 @@ for (const path in produkImages) {
   imageMap[normalizedPath] = produkImages[path].default || produkImages[path];
 }
 
-// ProductCard Component - Dengan kondisi berbeda per kategori
+// Static category list outside component — stable reference
+const CATEGORIES = [
+  { label: "Software", path: "/produk/software", jenis: "software" },
+  { label: "Hardware", path: "/produk/hardware", jenis: "hardware" },
+  { label: "Sparepart", path: "/produk/sparepart", jenis: "sparepart" },
+  { label: "Computer", path: "/produk/computer", jenis: "PC" },
+  { label: "Smartphone", path: "/produk/smartphone", jenis: "smartphone" },
+  { label: "Laptop", path: "/produk/laptop", jenis: "laptop" },
+  { label: "Server", path: "/produk/server", jenis: "server" },
+];
+
+// ============================================
+// ProductCard Component
+// ============================================
 const ProductCard = ({ product, imageSrc, onClick, category }) => {
   const [imgError, setImgError] = useState(false);
   const finalImgSrc = imgError ? "/api/placeholder/200/150" : imageSrc;
@@ -205,14 +217,14 @@ const ProductCard = ({ product, imageSrc, onClick, category }) => {
             </div>
           )}
 
-        {/* Info untuk Software - tampilkan usage jika ada */}
+        {/* Info untuk Software */}
         {category === "software" && product.usage && (
           <div className="sub-produk-info-text">
             <small>{product.usage}</small>
           </div>
         )}
 
-        {/* Info untuk Hardware/Sparepart - tampilkan deskripsi singkat */}
+        {/* Info untuk Hardware/Sparepart */}
         {(category === "hardware" || category === "sparepart") &&
           product.description && (
             <div className="sub-produk-info-text">
@@ -224,6 +236,9 @@ const ProductCard = ({ product, imageSrc, onClick, category }) => {
   );
 };
 
+// ============================================
+// SubProduk Component
+// ============================================
 const SubProduk = ({ jenisBarang, title, description, dataSource }) => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -233,86 +248,68 @@ const SubProduk = ({ jenisBarang, title, description, dataSource }) => {
   const [selectedOrder, setSelectedOrder] = useState("newest");
   const [products, setProducts] = useState([]);
 
+  // Mobile collapse states
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth <= 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
   // Determine category from dataSource
   const getCategory = () => {
     if (dataSource === "../server.json") return "server";
     if (dataSource === "../hardware.json") return "hardware";
     if (dataSource === "../software.json") return "software";
     if (dataSource === "../../Produk/sparepart.json") return "sparepart";
-    return jenisBarang; // laptop, PC, smartphone
+    return jenisBarang;
   };
 
   const category = getCategory();
 
   // Get image resolver based on category
   const getImageSrc = (product) => {
-    // Software: gunakan mapping khusus
     if (category === "software") {
       return softwareImageMap[product.name] || "/api/placeholder/200/150";
     }
-
-    // Hardware: images field adalah string, bukan array
     if (category === "hardware") {
       const imagePath = product.images;
       if (!imagePath) return "/api/placeholder/200/150";
-
-      // Convert /src/assets/... ke ../../assets/...
       const normalizedPath = imagePath
         .replace(/^\/src\/assets\//, "")
         .replace(/\\/g, "/");
-
       return imageMap[normalizedPath] || "/api/placeholder/200/150";
     }
-
-    // Sparepart: images adalah array
     if (category === "sparepart") {
       const imagePath = product.images?.[0];
       if (!imagePath) return "/api/placeholder/200/150";
-
-      // Convert /assets/... ke produk/...
       const normalizedPath = imagePath
         .replace(/^\/assets\//, "")
         .replace(/\\/g, "/");
-
       return imageMap[normalizedPath] || "/api/placeholder/200/150";
     }
-
-    // Server: gambar field
     if (category === "server") {
       const imagePath = product.gambar;
       if (!imagePath) return "/api/placeholder/200/150";
-
       const normalizedPath = imagePath
         .replace(/^assets\//, "")
         .replace(/\\/g, "/");
-
       return imageMap[normalizedPath] || "/api/placeholder/200/150";
     }
-
-    // Default: produk.json (laptop, PC, smartphone)
     const firstImagePath = product.images?.[0];
     return (
       (firstImagePath && imageMap[firstImagePath]) || "/api/placeholder/200/150"
     );
   };
 
-  // Active category tabs
-  const categories = [
-    { label: "Software", path: "/produk/software", jenis: "software" },
-    { label: "Hardware", path: "/produk/hardware", jenis: "hardware" },
-    { label: "Sparepart", path: "/produk/sparepart", jenis: "sparepart" },
-    { label: "Computer", path: "/produk/computer", jenis: "PC" },
-    { label: "Smartphone", path: "/produk/smartphone", jenis: "smartphone" },
-    { label: "Laptop", path: "/produk/laptop", jenis: "laptop" },
-    { label: "Server", path: "/produk/server", jenis: "server" },
-  ];
-
-  const activeCategory = categories.find((cat) =>
+  const activeCategory = CATEGORIES.find((cat) =>
     location.pathname.includes(cat.path.split("/").pop()),
   );
 
   useEffect(() => {
-    // Get data based on dataSource prop
     const getData = () => {
       if (dataSource === "../hardware.json") return hardwareData;
       if (dataSource === "../software.json") return softwareData;
@@ -325,18 +322,15 @@ const SubProduk = ({ jenisBarang, title, description, dataSource }) => {
     let filtered = [];
 
     if (Array.isArray(data)) {
-      // Untuk server, software, hardware, sparepart - ambil semua
       if (["server", "hardware", "software", "sparepart"].includes(category)) {
         filtered = data;
       } else {
-        // Untuk laptop/PC/smartphone - filter by jenis
         filtered = data.filter(
           (p) => p.jenis?.toLowerCase() === jenisBarang.toLowerCase(),
         );
       }
     }
 
-    // Sort products
     if (selectedOrder === "newest") {
       filtered.sort(
         (a, b) =>
@@ -354,12 +348,10 @@ const SubProduk = ({ jenisBarang, title, description, dataSource }) => {
     setProducts(filtered);
   }, [jenisBarang, selectedOrder, dataSource, category]);
 
-  // Get unique brands
   const brandOptions = [...new Set(products.map((p) => p.brand))]
     .filter(Boolean)
     .sort();
 
-  // Filter products
   const filteredProducts = products.filter((product) => {
     const brandMatch = !selectedBrand || product.brand === selectedBrand;
     const nameMatch =
@@ -371,35 +363,125 @@ const SubProduk = ({ jenisBarang, title, description, dataSource }) => {
   });
 
   const handleProductClick = (product) => {
-    const basePath = location.pathname.split("/")[2]; // software, hardware, dll
-    const brandSlug = product.brand.replace(/\s+/g, "-"); // Handle brand dengan spasi
+    const basePath = location.pathname.split("/")[2];
+    const brandSlug = product.brand.replace(/\s+/g, "-");
     navigate(`/produk/${basePath}/${brandSlug}/${product.id}`);
   };
 
+  // Active filter label for mobile badge
+  const activeFilterLabel = [
+    selectedBrand,
+    selectedOrder !== "newest"
+      ? selectedOrder === "oldest"
+        ? "Terlama"
+        : "A-Z"
+      : null,
+  ]
+    .filter(Boolean)
+    .join(", ");
+
   // Breadcrumb
-  const getBreadcrumb = () => {
-    return (
-      <div className="sub-produk-breadcrumb">
-        <span
-          onClick={() => navigate("/")}
-          className="sub-produk-breadcrumb-link"
+  const getBreadcrumb = () => (
+    <div className="sub-produk-breadcrumb">
+      <span
+        onClick={() => navigate("/")}
+        className="sub-produk-breadcrumb-link"
+      >
+        Beranda
+      </span>
+      <span className="sub-produk-breadcrumb-separator">/</span>
+      <span
+        onClick={() => navigate("/produk")}
+        className="sub-produk-breadcrumb-link"
+      >
+        Produk
+      </span>
+      <span className="sub-produk-breadcrumb-separator">/</span>
+      <span className="sub-produk-breadcrumb-current">
+        {activeCategory?.label || title}
+      </span>
+    </div>
+  );
+
+  // ----------------------------------------
+  // Filter content (shared between mobile/desktop)
+  // ----------------------------------------
+  const filterContent = (
+    <>
+      <div className="sub-produk-filter-section">
+        <h4>Urutan</h4>
+        <select
+          value={selectedOrder}
+          onChange={(e) => setSelectedOrder(e.target.value)}
+          className="sub-produk-filter-select"
         >
-          Beranda
-        </span>
-        <span className="sub-produk-breadcrumb-separator">/</span>
-        <span
-          onClick={() => navigate("/produk")}
-          className="sub-produk-breadcrumb-link"
-        >
-          Produk
-        </span>
-        <span className="sub-produk-breadcrumb-separator">/</span>
-        <span className="sub-produk-breadcrumb-current">
-          {activeCategory?.label || title}
-        </span>
+          <option value="newest">Terbaru hingga Terlama</option>
+          <option value="oldest">Terlama hingga Terbaru</option>
+          <option value="name">Nama (A-Z)</option>
+        </select>
       </div>
-    );
-  };
+
+      <div className="sub-produk-filter-section">
+        <h4>Merk</h4>
+        <div className="sub-produk-filter-options">
+          <label className="sub-produk-filter-option">
+            <input
+              type="radio"
+              name="brand"
+              value=""
+              checked={selectedBrand === ""}
+              onChange={(e) => setSelectedBrand(e.target.value)}
+            />
+            <span>Semua Merk</span>
+          </label>
+          {brandOptions.map((brand) => (
+            <label key={brand} className="sub-produk-filter-option">
+              <input
+                type="radio"
+                name="brand"
+                value={brand}
+                checked={selectedBrand === brand}
+                onChange={(e) => {
+                  setSelectedBrand(e.target.value);
+                  // Auto-collapse filter after picking brand on mobile
+                  if (isMobile) {
+                    setTimeout(() => setIsFilterOpen(false), 150);
+                  }
+                }}
+              />
+              <span>{brand}</span>
+            </label>
+          ))}
+        </div>
+      </div>
+
+      <div className="sub-produk-filter-section">
+        <h4>Urutan Rilis Produk</h4>
+        <div className="sub-produk-filter-options">
+          <label className="sub-produk-filter-option">
+            <input
+              type="radio"
+              name="order"
+              value="newest"
+              checked={selectedOrder === "newest"}
+              onChange={(e) => setSelectedOrder(e.target.value)}
+            />
+            <span>Terbaru hingga terlama</span>
+          </label>
+          <label className="sub-produk-filter-option">
+            <input
+              type="radio"
+              name="order"
+              value="oldest"
+              checked={selectedOrder === "oldest"}
+              onChange={(e) => setSelectedOrder(e.target.value)}
+            />
+            <span>Terlama hingga terbaru</span>
+          </label>
+        </div>
+      </div>
+    </>
+  );
 
   return (
     <div className="sub-produk-page">
@@ -438,7 +520,7 @@ const SubProduk = ({ jenisBarang, title, description, dataSource }) => {
 
           {/* Category Tabs */}
           <div className="sub-produk-category-tabs">
-            {categories.map((cat) => (
+            {CATEGORIES.map((cat) => (
               <button
                 key={cat.jenis}
                 className={`sub-produk-category-tab ${
@@ -458,83 +540,50 @@ const SubProduk = ({ jenisBarang, title, description, dataSource }) => {
 
       {/* Main Content */}
       <div className="sub-produk-main-content">
-        {/* Left Sidebar - Filter */}
+        {/* Sidebar Filter */}
         <aside className="sub-produk-sidebar">
           <div className="sub-produk-filter-box">
-            <h3 className="sub-produk-filter-title">
-              <Filter size={20} /> Filter
-            </h3>
+            {/* ---- MOBILE: toggle button ---- */}
+            <button
+              className="sub-produk-filter-toggle"
+              onClick={() => setIsFilterOpen((prev) => !prev)}
+              aria-expanded={isFilterOpen}
+            >
+              <span className="sub-produk-filter-toggle-left">
+                <Filter size={13} />
+                Filter &amp; Urutan
+                {activeFilterLabel && (
+                  <span className="sub-produk-filter-active-badge">
+                    {activeFilterLabel}
+                  </span>
+                )}
+              </span>
+              <ChevronDown
+                size={14}
+                className={`sub-produk-filter-toggle-chevron ${isFilterOpen ? "open" : ""}`}
+              />
+            </button>
 
-            <div className="sub-produk-filter-section">
-              <h4>Urutan</h4>
-              <select
-                value={selectedOrder}
-                onChange={(e) => setSelectedOrder(e.target.value)}
-                className="sub-produk-filter-select"
-              >
-                <option value="newest">Terbaru hingga Terlama</option>
-                <option value="oldest">Terlama hingga Terbaru</option>
-                <option value="name">Nama (A-Z)</option>
-              </select>
-            </div>
-
-            <div className="sub-produk-filter-section">
-              <h4>Merk</h4>
-              <div className="sub-produk-filter-options">
-                <label className="sub-produk-filter-option">
-                  <input
-                    type="radio"
-                    name="brand"
-                    value=""
-                    checked={selectedBrand === ""}
-                    onChange={(e) => setSelectedBrand(e.target.value)}
-                  />
-                  <span>Semua Merk</span>
-                </label>
-                {brandOptions.map((brand) => (
-                  <label key={brand} className="sub-produk-filter-option">
-                    <input
-                      type="radio"
-                      name="brand"
-                      value={brand}
-                      checked={selectedBrand === brand}
-                      onChange={(e) => setSelectedBrand(e.target.value)}
-                    />
-                    <span>{brand}</span>
-                  </label>
-                ))}
+            {/* ---- MOBILE: collapsible body ---- */}
+            <div
+              className={`sub-produk-filter-body ${isFilterOpen ? "open" : ""}`}
+            >
+              <div className="sub-produk-filter-body-inner">
+                {filterContent}
               </div>
             </div>
 
-            <div className="sub-produk-filter-section">
-              <h4>Urutan Rilis Produk</h4>
-              <div className="sub-produk-filter-options">
-                <label className="sub-produk-filter-option">
-                  <input
-                    type="radio"
-                    name="order"
-                    value="newest"
-                    checked={selectedOrder === "newest"}
-                    onChange={(e) => setSelectedOrder(e.target.value)}
-                  />
-                  <span>Terbaru hingga terlama</span>
-                </label>
-                <label className="sub-produk-filter-option">
-                  <input
-                    type="radio"
-                    name="order"
-                    value="oldest"
-                    checked={selectedOrder === "oldest"}
-                    onChange={(e) => setSelectedOrder(e.target.value)}
-                  />
-                  <span>Terlama hingga terbaru</span>
-                </label>
-              </div>
+            {/* ---- DESKTOP: always-visible title + content ---- */}
+            <div className="sub-produk-filter-desktop">
+              <h3 className="sub-produk-filter-title">
+                <Filter size={20} /> Filter
+              </h3>
+              {filterContent}
             </div>
           </div>
         </aside>
 
-        {/* Right Content - Product Grid */}
+        {/* Product Grid */}
         <div className="sub-produk-content">
           {filteredProducts.length === 0 ? (
             <div className="sub-produk-empty">
@@ -555,6 +604,7 @@ const SubProduk = ({ jenisBarang, title, description, dataSource }) => {
           )}
         </div>
       </div>
+
       <Footer />
     </div>
   );

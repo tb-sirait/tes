@@ -5,6 +5,8 @@ import Footer from "../Navigation/footer";
 import Navbar from "../Navigation/Navbar";
 import "./homepage.css";
 
+import {X} from "lucide-react";
+
 // Images
 import KantorImage from "../assets/kantor_icp(landscape1).webp";
 import WorkstationImage from "../assets/Workstation.png";
@@ -201,19 +203,7 @@ function Homepage() {
             {/* Tombol Close - hanya muncul setelah 4 detik */}
             {showCloseButton && (
               <button className="ad-modal-close" onClick={handleCloseAd}>
-                <svg
-                  width="50"
-                  height="50"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <line x1="18" y1="6" x2="6" y2="18"></line>
-                  <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
+                <X size={24} style={{color: "black"}}/>
               </button>
             )}
 
