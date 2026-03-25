@@ -30,9 +30,7 @@ const toPublicImageUrl = (imagePath) => {
 const toBrandSlug = (brand) => brand.replace(/\s+/g, "-");
 
 // ─── Filter hanya produk PC dari produk.json ──────────────────────────────────
-const computerData = produkData.filter(
-  (p) => p.jenis?.toLowerCase() === "pc",
-);
+const computerData = produkData.filter((p) => p.jenis?.toLowerCase() === "pc");
 
 // ─── JSON-LD: BreadcrumbList ──────────────────────────────────────────────────
 const breadcrumbJsonLd = {
@@ -180,7 +178,9 @@ const ComputerCatalogHelmet = () => (
     {/* JSON-LD Structured Data */}
     <script type="application/ld+json">{toJsonLd(webPageJsonLd)}</script>
     <script type="application/ld+json">{toJsonLd(breadcrumbJsonLd)}</script>
-    <script type="application/ld+json">{toJsonLd(computerCatalogJsonLd)}</script>
+    <script type="application/ld+json">
+      {toJsonLd(computerCatalogJsonLd)}
+    </script>
     <script type="application/ld+json">{toJsonLd(organizationJsonLd)}</script>
   </Helmet>
 );

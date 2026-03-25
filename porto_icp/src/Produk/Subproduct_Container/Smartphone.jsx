@@ -196,7 +196,9 @@ const SmartphoneCatalogHelmet = () => (
     {/* JSON-LD Structured Data */}
     <script type="application/ld+json">{toJsonLd(webPageJsonLd)}</script>
     <script type="application/ld+json">{toJsonLd(breadcrumbJsonLd)}</script>
-    <script type="application/ld+json">{toJsonLd(smartphoneCatalogJsonLd)}</script>
+    <script type="application/ld+json">
+      {toJsonLd(smartphoneCatalogJsonLd)}
+    </script>
     <script type="application/ld+json">{toJsonLd(organizationJsonLd)}</script>
   </Helmet>
 );
@@ -209,8 +211,7 @@ const SmartphoneDetailHelmet = ({ brand, id }) => {
   // Cari data produk nyata dari produk.json berdasarkan id & jenis smartphone
   const product = produkData.find(
     (p) =>
-      String(p.id) === String(id) &&
-      p.jenis?.toLowerCase() === "smartphone",
+      String(p.id) === String(id) && p.jenis?.toLowerCase() === "smartphone",
   );
 
   const productName = product?.name || `Smartphone ${brandDecoded}`;

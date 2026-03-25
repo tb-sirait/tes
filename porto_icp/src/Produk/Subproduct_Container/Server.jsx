@@ -25,9 +25,7 @@ const SERVER_SEO = {
 const toPublicImageUrl = (imagePath) => {
   if (!imagePath) return null;
   // Hapus leading slash atau "src/" jika ada, lalu tambah BASE_URL
-  const cleaned = imagePath
-    .replace(/^\/src\//, "/")
-    .replace(/^(?!\/)/, "/"); // pastikan ada leading slash
+  const cleaned = imagePath.replace(/^\/src\//, "/").replace(/^(?!\/)/, "/"); // pastikan ada leading slash
   return `${BASE_URL}${cleaned}`;
 };
 

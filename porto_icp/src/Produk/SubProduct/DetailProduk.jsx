@@ -29,9 +29,12 @@ import serverData from "../server.json";
 import "./detailproduk.css";
 
 // Dynamically import all images
-const images = import.meta.glob("../../assets/produk/**/*.{png,jpg,jpeg,svg,webp}", {
-  eager: true,
-});
+const images = import.meta.glob(
+  "../../assets/produk/**/*.{png,jpg,jpeg,svg,webp}",
+  {
+    eager: true,
+  },
+);
 
 // Software images
 import microsoft1 from "../../assets/software/microsoft/1.png";

@@ -24,9 +24,7 @@ const SPAREPART_SEO = {
 // contoh: "/assets/produk/sparepart/ssd/1.png" → "https://www.infoduta.com/assets/produk/sparepart/ssd/1.png"
 const toPublicImageUrl = (imagePath) => {
   if (!imagePath) return null;
-  const cleaned = imagePath
-    .replace(/^\/src\//, "/")
-    .replace(/^(?!\/)/, "/");
+  const cleaned = imagePath.replace(/^\/src\//, "/").replace(/^(?!\/)/, "/");
   return `${BASE_URL}${cleaned}`;
 };
 
@@ -157,7 +155,9 @@ const SparepartCatalogHelmet = () => (
     {/* JSON-LD Structured Data */}
     <script type="application/ld+json">{toJsonLd(webPageJsonLd)}</script>
     <script type="application/ld+json">{toJsonLd(breadcrumbJsonLd)}</script>
-    <script type="application/ld+json">{toJsonLd(sparepartCatalogJsonLd)}</script>
+    <script type="application/ld+json">
+      {toJsonLd(sparepartCatalogJsonLd)}
+    </script>
     <script type="application/ld+json">{toJsonLd(organizationJsonLd)}</script>
   </Helmet>
 );

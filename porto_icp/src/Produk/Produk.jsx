@@ -279,9 +279,7 @@ const ProdukHelmet = ({ category, selectedProduct }) => {
         />
         <meta property="og:url" content={detailUrl} />
         <meta property="og:locale" content="id_ID" />
-        {productImage && (
-          <meta property="og:image" content={productImage} />
-        )}
+        {productImage && <meta property="og:image" content={productImage} />}
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta
@@ -295,13 +293,13 @@ const ProdukHelmet = ({ category, selectedProduct }) => {
             `Dapatkan ${selectedProduct.name} resmi bergaransi di Infoduta Computindo Perkasa.`
           }
         />
-        {productImage && (
-          <meta name="twitter:image" content={productImage} />
-        )}
+        {productImage && <meta name="twitter:image" content={productImage} />}
 
         <script type="application/ld+json">{toJsonLd(productJsonLd)}</script>
         <script type="application/ld+json">{toJsonLd(detailBreadcrumb)}</script>
-        <script type="application/ld+json">{toJsonLd(organizationJsonLd)}</script>
+        <script type="application/ld+json">
+          {toJsonLd(organizationJsonLd)}
+        </script>
       </Helmet>
     );
   }
@@ -433,7 +431,9 @@ export default function Produk() {
 
   useEffect(() => {
     document.documentElement.style.overflow = isModalOpen ? "hidden" : "auto";
-    return () => { document.documentElement.style.overflow = "auto"; };
+    return () => {
+      document.documentElement.style.overflow = "auto";
+    };
   }, [isModalOpen]);
 
   const closeModal = useCallback(() => {
@@ -494,7 +494,8 @@ export default function Produk() {
             </button>
             <FaChevronRight className="produk-breadcrumb-separator" />
             <span className="produk-breadcrumb-item produk-breadcrumb-active">
-              {CATEGORIES.find((cat) => cat.path === category)?.name || category}
+              {CATEGORIES.find((cat) => cat.path === category)?.name ||
+                category}
             </span>
           </>
         ) : (
@@ -549,8 +550,14 @@ export default function Produk() {
     }
     setFilteredProducts(results);
   }, [
-    products, selectedCategory, selectedBrand, selectedType,
-    searchQuery, sortByRelease, sortBy, sortOrder,
+    products,
+    selectedCategory,
+    selectedBrand,
+    selectedType,
+    searchQuery,
+    sortByRelease,
+    sortBy,
+    sortOrder,
   ]);
 
   useEffect(() => {
@@ -560,21 +567,33 @@ export default function Produk() {
       filterProducts();
       setIsLoading(false);
     }, 1000);
-    return () => { if (searchTimeout.current) clearTimeout(searchTimeout.current); };
+    return () => {
+      if (searchTimeout.current) clearTimeout(searchTimeout.current);
+    };
   }, [
-    searchQuery, selectedCategory, selectedBrand, selectedType,
-    sortByRelease, sortBy, sortOrder, filterProducts,
+    searchQuery,
+    selectedCategory,
+    selectedBrand,
+    selectedType,
+    sortByRelease,
+    sortBy,
+    sortOrder,
+    filterProducts,
   ]);
 
   const uniqueTypes = useMemo(() => {
     const types = new Set();
-    products.forEach((p) => { if (p.type) types.add(p.type); });
+    products.forEach((p) => {
+      if (p.type) types.add(p.type);
+    });
     return Array.from(types);
   }, [products]);
 
   const uniqueBrands = useMemo(() => {
     const brands = new Set();
-    products.forEach((p) => { if (p.brand) brands.add(p.brand); });
+    products.forEach((p) => {
+      if (p.brand) brands.add(p.brand);
+    });
     return Array.from(brands);
   }, [products]);
 
@@ -638,8 +657,12 @@ export default function Produk() {
     }
   }, [currentImageIndex, selectedProduct]);
 
-  const handleTouchStart = (e) => { touchStartX.current = e.changedTouches[0].clientX; };
-  const handleTouchMove = (e) => { touchEndX.current = e.changedTouches[0].clientX; };
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.changedTouches[0].clientX;
+  };
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.changedTouches[0].clientX;
+  };
   const handleTouchEnd = () => {
     if (!touchStartX.current || !touchEndX.current) return;
     const distance = touchStartX.current - touchEndX.current;
@@ -678,7 +701,10 @@ export default function Produk() {
   };
 
   const scrollToMainContent = () => {
-    mainContentRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    mainContentRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
   };
 
   const activeFilterLabel = useMemo(() => {
@@ -721,7 +747,10 @@ export default function Produk() {
             className={`produk-hero-content ${heroAnimated ? "produk-content-animated" : ""}`}
           >
             <h1>Produk Infoduta</h1>
-            <p>Kami menyediakan segala solusi produk IT untuk kebutuhan Bisnis Anda</p>
+            <p>
+              Kami menyediakan segala solusi produk IT untuk kebutuhan Bisnis
+              Anda
+            </p>
             <button className="produk-hero-btn" onClick={scrollToMainContent}>
               Jelajahi Produk
             </button>
@@ -759,11 +788,19 @@ export default function Produk() {
             <div className={`produk-sort-panel ${isSortOpen ? "open" : ""}`}>
               <div className="produk-sort-panel-inner">
                 <label>Urut berdasarkan:</label>
-                <select value={sortBy} onChange={(e) => setSortBy(e.target.value)} className="produk-sort-select">
+                <select
+                  value={sortBy}
+                  onChange={(e) => setSortBy(e.target.value)}
+                  className="produk-sort-select"
+                >
                   <option value="nama">Nama</option>
                   <option value="tanggal">Tanggal Rilis</option>
                 </select>
-                <select value={sortOrder} onChange={(e) => setSortOrder(e.target.value)} className="produk-order-select">
+                <select
+                  value={sortOrder}
+                  onChange={(e) => setSortOrder(e.target.value)}
+                  className="produk-order-select"
+                >
                   <option value="asc">A-Z / Terlama</option>
                   <option value="desc">Z-A / Terbaru</option>
                 </select>
@@ -772,11 +809,19 @@ export default function Produk() {
 
             <div className="produk-sort-wrapper">
               <label>Urut berdasarkan:</label>
-              <select value={sortBy} onChange={(e) => setSortBy(e.target.value)} className="produk-sort-select">
+              <select
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value)}
+                className="produk-sort-select"
+              >
                 <option value="nama">Nama</option>
                 <option value="tanggal">Tanggal Rilis</option>
               </select>
-              <select value={sortOrder} onChange={(e) => setSortOrder(e.target.value)} className="produk-order-select">
+              <select
+                value={sortOrder}
+                onChange={(e) => setSortOrder(e.target.value)}
+                className="produk-order-select"
+              >
                 <option value="asc">A-Z / Terlama</option>
                 <option value="desc">Z-A / Terbaru</option>
               </select>
@@ -797,20 +842,28 @@ export default function Produk() {
                   <FaFilter style={{ fontSize: 12, opacity: 0.7 }} />
                   Kategori &amp; Filter
                   {activeFilterLabel && (
-                    <span className="produk-active-badge">{activeFilterLabel}</span>
+                    <span className="produk-active-badge">
+                      {activeFilterLabel}
+                    </span>
                   )}
                 </span>
-                <FaChevronDown className={`produk-sidebar-header-chevron ${isSidebarOpen ? "open" : ""}`} />
+                <FaChevronDown
+                  className={`produk-sidebar-header-chevron ${isSidebarOpen ? "open" : ""}`}
+                />
               </div>
 
-              <div className={`produk-sidebar-body ${isSidebarOpen ? "open" : ""}`}>
+              <div
+                className={`produk-sidebar-body ${isSidebarOpen ? "open" : ""}`}
+              >
                 <div className="produk-sidebar-body-inner">
                   <h3>Kategori</h3>
                   <ul className="produk-category-list">
                     {CATEGORIES.map((cat, idx) => (
                       <li
                         key={idx}
-                        className={selectedCategory === cat.path ? "produk-active" : ""}
+                        className={
+                          selectedCategory === cat.path ? "produk-active" : ""
+                        }
                         onClick={() => handleCategoryClick(cat.path)}
                       >
                         {cat.name}
@@ -820,17 +873,33 @@ export default function Produk() {
                   <h3 className="produk-filter-title">Filter</h3>
                   <div className="produk-filter-group">
                     <div className="produk-filter-header">
-                      <span>Merk{selectedBrand ? `: ${selectedBrand}` : ""}</span>
+                      <span>
+                        Merk{selectedBrand ? `: ${selectedBrand}` : ""}
+                      </span>
                     </div>
-                    <select value={selectedBrand} onChange={(e) => setSelectedBrand(e.target.value)} className="produk-filter-select">
+                    <select
+                      value={selectedBrand}
+                      onChange={(e) => setSelectedBrand(e.target.value)}
+                      className="produk-filter-select"
+                    >
                       <option value="">Semua Merk</option>
-                      {uniqueBrands.map((b, idx) => <option key={idx} value={b}>{b}</option>)}
+                      {uniqueBrands.map((b, idx) => (
+                        <option key={idx} value={b}>
+                          {b}
+                        </option>
+                      ))}
                     </select>
                   </div>
                   <div className="produk-filter-group">
-                    <div className="produk-filter-header"><span>Tanggal Keluaran</span></div>
+                    <div className="produk-filter-header">
+                      <span>Tanggal Keluaran</span>
+                    </div>
                     <label className="produk-checkbox-label">
-                      <input type="checkbox" checked={sortByRelease} onChange={(e) => setSortByRelease(e.target.checked)} />
+                      <input
+                        type="checkbox"
+                        checked={sortByRelease}
+                        onChange={(e) => setSortByRelease(e.target.checked)}
+                      />
                       Terbaru - Terlama
                     </label>
                   </div>
@@ -838,12 +907,25 @@ export default function Produk() {
                     <div className="produk-filter-header">
                       <span>Tipe{selectedType ? `: ${selectedType}` : ""}</span>
                     </div>
-                    <select value={selectedType} onChange={(e) => setSelectedType(e.target.value)} className="produk-filter-select">
+                    <select
+                      value={selectedType}
+                      onChange={(e) => setSelectedType(e.target.value)}
+                      className="produk-filter-select"
+                    >
                       <option value="">Semua Tipe</option>
-                      {uniqueTypes.map((t, idx) => <option key={idx} value={t}>{t}</option>)}
+                      {uniqueTypes.map((t, idx) => (
+                        <option key={idx} value={t}>
+                          {t}
+                        </option>
+                      ))}
                     </select>
                   </div>
-                  <button className="produk-reset-filter-btn" onClick={resetFilters}>Reset Filter</button>
+                  <button
+                    className="produk-reset-filter-btn"
+                    onClick={resetFilters}
+                  >
+                    Reset Filter
+                  </button>
                 </div>
               </div>
 
@@ -854,7 +936,9 @@ export default function Produk() {
                   {CATEGORIES.map((cat, idx) => (
                     <li
                       key={idx}
-                      className={selectedCategory === cat.path ? "produk-active" : ""}
+                      className={
+                        selectedCategory === cat.path ? "produk-active" : ""
+                      }
                       onClick={() => handleCategoryClick(cat.path)}
                     >
                       {cat.name}
@@ -866,15 +950,29 @@ export default function Produk() {
                   <div className="produk-filter-header">
                     <span>Merk{selectedBrand ? `: ${selectedBrand}` : ""}</span>
                   </div>
-                  <select value={selectedBrand} onChange={(e) => setSelectedBrand(e.target.value)} className="produk-filter-select">
+                  <select
+                    value={selectedBrand}
+                    onChange={(e) => setSelectedBrand(e.target.value)}
+                    className="produk-filter-select"
+                  >
                     <option value="">Semua Merk</option>
-                    {uniqueBrands.map((b, idx) => <option key={idx} value={b}>{b}</option>)}
+                    {uniqueBrands.map((b, idx) => (
+                      <option key={idx} value={b}>
+                        {b}
+                      </option>
+                    ))}
                   </select>
                 </div>
                 <div className="produk-filter-group">
-                  <div className="produk-filter-header"><span>Tanggal Keluaran</span></div>
+                  <div className="produk-filter-header">
+                    <span>Tanggal Keluaran</span>
+                  </div>
                   <label className="produk-checkbox-label">
-                    <input type="checkbox" checked={sortByRelease} onChange={(e) => setSortByRelease(e.target.checked)} />
+                    <input
+                      type="checkbox"
+                      checked={sortByRelease}
+                      onChange={(e) => setSortByRelease(e.target.checked)}
+                    />
                     Terbaru - Terlama
                   </label>
                 </div>
@@ -882,12 +980,25 @@ export default function Produk() {
                   <div className="produk-filter-header">
                     <span>Tipe{selectedType ? `: ${selectedType}` : ""}</span>
                   </div>
-                  <select value={selectedType} onChange={(e) => setSelectedType(e.target.value)} className="produk-filter-select">
+                  <select
+                    value={selectedType}
+                    onChange={(e) => setSelectedType(e.target.value)}
+                    className="produk-filter-select"
+                  >
                     <option value="">Semua Tipe</option>
-                    {uniqueTypes.map((t, idx) => <option key={idx} value={t}>{t}</option>)}
+                    {uniqueTypes.map((t, idx) => (
+                      <option key={idx} value={t}>
+                        {t}
+                      </option>
+                    ))}
                   </select>
                 </div>
-                <button className="produk-reset-filter-btn" onClick={resetFilters}>Reset Filter</button>
+                <button
+                  className="produk-reset-filter-btn"
+                  onClick={resetFilters}
+                >
+                  Reset Filter
+                </button>
               </div>
             </aside>
 
@@ -922,7 +1033,9 @@ export default function Produk() {
                             alt={product.name}
                             className={`produk-product-image ${fade ? "produk-fade" : ""}`}
                           />
-                          <h4 className="produk-product-title">{product.name}</h4>
+                          <h4 className="produk-product-title">
+                            {product.name}
+                          </h4>
                         </div>
                       </div>
                     </div>
@@ -946,7 +1059,10 @@ export default function Produk() {
           >
             <div className="produk-closeModalButton">
               {isMobile && (
-                <button className="produk-product-close-button" onClick={closeModal}>
+                <button
+                  className="produk-product-close-button"
+                  onClick={closeModal}
+                >
                   <X style={{ fontSize: "20px" }} />
                 </button>
               )}
@@ -960,7 +1076,10 @@ export default function Produk() {
               {!isMobile && (
                 <button
                   className="produk-nav-button"
-                  onClick={(e) => { e.stopPropagation(); goToPreviousImage(); }}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    goToPreviousImage();
+                  }}
                 >
                   <img src={PrevIcon} alt="Previous" />
                 </button>
@@ -983,7 +1102,10 @@ export default function Produk() {
               {!isMobile && (
                 <button
                   className="produk-nav-button"
-                  onClick={(e) => { e.stopPropagation(); goToNextImage(); }}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    goToNextImage();
+                  }}
                 >
                   <img src={NextIcon} alt="Next" />
                 </button>
@@ -998,23 +1120,33 @@ export default function Produk() {
 
             <div className="produk-modal-specs">
               <div className="produk-modal-spec-item">
-                <span className="produk-spec-icon"><Cpu /></span>
+                <span className="produk-spec-icon">
+                  <Cpu />
+                </span>
                 {selectedProduct.specs.cpu}
               </div>
               <div className="produk-modal-spec-item">
-                <span className="produk-spec-icon"><Gpu /></span>
+                <span className="produk-spec-icon">
+                  <Gpu />
+                </span>
                 {selectedProduct.specs.gpu}
               </div>
               <div className="produk-modal-spec-item">
-                <span className="produk-spec-icon"><MemoryStick /></span>
+                <span className="produk-spec-icon">
+                  <MemoryStick />
+                </span>
                 {selectedProduct.specs.ram}
               </div>
               <div className="produk-modal-spec-item">
-                <span className="produk-spec-icon"><HardDrive /></span>
+                <span className="produk-spec-icon">
+                  <HardDrive />
+                </span>
                 {selectedProduct.specs.storage}
               </div>
               <div className="produk-modal-spec-item">
-                <span className="produk-spec-icon"><AppWindow /></span>
+                <span className="produk-spec-icon">
+                  <AppWindow />
+                </span>
                 {selectedProduct.specs.os}
               </div>
               <div className="produk-modal-product-description">
@@ -1030,7 +1162,9 @@ export default function Produk() {
                     );
                   }}
                 >
-                  <span className="produk-btn-icon"><File /></span>
+                  <span className="produk-btn-icon">
+                    <File />
+                  </span>
                   <span>Detail Selengkapnya</span>
                 </button>
                 <a
@@ -1040,7 +1174,9 @@ export default function Produk() {
                   className="produk-btn produk-btn-primary"
                   onClick={(e) => e.stopPropagation()}
                 >
-                  <span className="produk-logo-icon"><FaWhatsapp /></span>
+                  <span className="produk-logo-icon">
+                    <FaWhatsapp />
+                  </span>
                   <span>Konsultasi via WhatsApp</span>
                 </a>
               </div>

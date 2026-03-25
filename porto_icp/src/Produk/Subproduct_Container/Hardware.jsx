@@ -152,7 +152,9 @@ const HardwareCatalogHelmet = () => (
     {/* JSON-LD Structured Data */}
     <script type="application/ld+json">{toJsonLd(webPageJsonLd)}</script>
     <script type="application/ld+json">{toJsonLd(breadcrumbJsonLd)}</script>
-    <script type="application/ld+json">{toJsonLd(hardwareCatalogJsonLd)}</script>
+    <script type="application/ld+json">
+      {toJsonLd(hardwareCatalogJsonLd)}
+    </script>
     <script type="application/ld+json">{toJsonLd(organizationJsonLd)}</script>
   </Helmet>
 );
@@ -170,7 +172,9 @@ const HardwareDetailHelmet = ({ brand, id }) => {
     product?.description ||
     `Spesifikasi dan harga hardware ${brandDecoded} — temukan detail lengkap produk ini di katalog Infoduta Computindo Perkasa.`;
   const productType = product?.type || "Hardware";
-  const productImage = product?.images ? toPublicImageUrl(product.images) : null;
+  const productImage = product?.images
+    ? toPublicImageUrl(product.images)
+    : null;
 
   const detailTitle = `${productName} | ${SITE_NAME}`;
 
