@@ -1234,5 +1234,21 @@
     },
     "deskripsi": "Samsung Galaxy A17 with Octa-core 2.0 GHz processor, 8GB RAM, 128GB SSD storage, Mali-G52 MC2 graphics, and Android 13 with One UI Core 5.",
     "released_date": "2025-08-06"
+  },
+  {
+    "id": 77,
+    "name": "Lenovo V14 G2 ITL 8/256",
+    "brand": "Lenovo",
+    "jenis": "Laptop",
+    "images": ["produk/Lenovo/Notebook_V14/2.png"],
+    "specs": {
+      "cpu": "Intel Core i7-1165G7",
+      "ram": "8GB",
+      "gpu": "Intel UHD Graphics",
+      "storage": "256 GB",
+      "os": "Windows 11 Pro"
+    },
+    "deskripsi": "Lenovo V14 G2 ITL with Intel Core i7-1165G7 processor, 8GB RAM, 256GB SSD storage, Intel UHD Graphics, and Windows 11 Pro.",
+    "released_date": "2025-01-01"
   }
 ]

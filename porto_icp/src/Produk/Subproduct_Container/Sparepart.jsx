@@ -1,68 +1,278 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import SubProduk from "../SubProduct/Subproduk.jsx";
 import DetailProduk from "../SubProduct/DetailProduk.jsx";
-import { Helmet } from "react-helmet";
+import sparepartData from "../../Produk/sparepart.json";
 
+// ─── SEO constants ───────────────────────────────────────────────────────────
+const BASE_URL = "https://www.infoduta.com";
+const SITE_NAME = "Infoduta Computindo Perkasa";
+
+const SPAREPART_SEO = {
+  title: `Produk Sparepart Komputer Terbaik & Terlengkap | ${SITE_NAME}`,
+  description:
+    "Temukan berbagai pilihan Sparepart komputer terbaik — SSD, RAM, HDD, processor, VGA, motherboard, dan lainnya — dengan kualitas terjamin dan harga kompetitif. Cocok untuk upgrade maupun perbaikan perangkat. Cek katalog lengkap kami.",
+  keywords:
+    "sparepart komputer, SSD murah, RAM laptop, HDD eksternal, processor Intel, processor AMD, VGA card, motherboard, sparepart PC, upgrade komputer jakarta, Infoduta Computindo Perkasa, Kingston, Samsung SSD, Corsair RAM",
+  canonicalUrl: `${BASE_URL}/produk/sparepart`,
+  ogImage: `${BASE_URL}/og/sparepart-catalog.jpg`,
+};
+
+// ─── Helper: konversi path gambar lokal → URL publik ─────────────────────────
+// sparepart.json memakai field "images" berupa array
+// contoh: "/assets/produk/sparepart/ssd/1.png" → "https://www.infoduta.com/assets/produk/sparepart/ssd/1.png"
+const toPublicImageUrl = (imagePath) => {
+  if (!imagePath) return null;
+  const cleaned = imagePath
+    .replace(/^\/src\//, "/")
+    .replace(/^(?!\/)/, "/");
+  return `${BASE_URL}${cleaned}`;
+};
+
+// ─── Helper: buat brand slug untuk URL ───────────────────────────────────────
+const toBrandSlug = (brand) => brand.replace(/\s+/g, "-");
+
+// ─── JSON-LD: BreadcrumbList ──────────────────────────────────────────────────
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Beranda",
+      item: BASE_URL,
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Produk",
+      item: `${BASE_URL}/produk`,
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      name: "Sparepart",
+      item: SPAREPART_SEO.canonicalUrl,
+    },
+  ],
+};
+
+// ─── JSON-LD: ItemList — dibangun dari sparepart.json ────────────────────────
+const sparepartCatalogJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Katalog Sparepart Komputer — Infoduta Computindo Perkasa",
+  description: SPAREPART_SEO.description,
+  url: SPAREPART_SEO.canonicalUrl,
+  numberOfItems: sparepartData.length,
+  itemListElement: sparepartData.map((product, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    item: {
+      "@type": "Product",
+      "@id": `${BASE_URL}/produk/sparepart/${toBrandSlug(product.brand)}/${product.id}`,
+      name: product.name,
+      description: product.description || "",
+      brand: {
+        "@type": "Brand",
+        name: product.brand,
+      },
+      // sparepart.json pakai field "jenis" untuk kategori (SSD, RAM, HDD, dll)
+      category: product.jenis || "Sparepart",
+      url: `${BASE_URL}/produk/sparepart/${toBrandSlug(product.brand)}/${product.id}`,
+      // images adalah array — ambil index pertama
+      ...(product.images?.[0] && {
+        image: toPublicImageUrl(product.images[0]),
+      }),
+      offers: {
+        "@type": "Offer",
+        priceCurrency: "IDR",
+        availability: "https://schema.org/InStock",
+        seller: { "@type": "Organization", name: SITE_NAME },
+      },
+    },
+  })),
+};
+
+// ─── JSON-LD: Organization ────────────────────────────────────────────────────
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: SITE_NAME,
+  url: BASE_URL,
+  logo: `${BASE_URL}/logo.png`,
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "customer service",
+    availableLanguage: "Indonesian",
+  },
+};
+
+// ─── JSON-LD: WebPage ─────────────────────────────────────────────────────────
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: SPAREPART_SEO.title,
+  description: SPAREPART_SEO.description,
+  url: SPAREPART_SEO.canonicalUrl,
+  inLanguage: "id-ID",
+  isPartOf: {
+    "@type": "WebSite",
+    name: SITE_NAME,
+    url: BASE_URL,
+  },
+  breadcrumb: breadcrumbJsonLd,
+};
+
+// ─── Helper: serialize JSON-LD ────────────────────────────────────────────────
+const toJsonLd = (obj) => JSON.stringify(obj);
+
+// ─── Helmet untuk halaman katalog ─────────────────────────────────────────────
+const SparepartCatalogHelmet = () => (
+  <Helmet>
+    <html lang="id" />
+    <title>{SPAREPART_SEO.title}</title>
+    <meta name="description" content={SPAREPART_SEO.description} />
+    <meta name="keywords" content={SPAREPART_SEO.keywords} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={SPAREPART_SEO.canonicalUrl} />
+
+    {/* Open Graph */}
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE_NAME} />
+    <meta property="og:title" content={SPAREPART_SEO.title} />
+    <meta property="og:description" content={SPAREPART_SEO.description} />
+    <meta property="og:url" content={SPAREPART_SEO.canonicalUrl} />
+    <meta property="og:image" content={SPAREPART_SEO.ogImage} />
+    <meta property="og:locale" content="id_ID" />
+
+    {/* Twitter Card */}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={SPAREPART_SEO.title} />
+    <meta name="twitter:description" content={SPAREPART_SEO.description} />
+    <meta name="twitter:image" content={SPAREPART_SEO.ogImage} />
+
+    {/* JSON-LD Structured Data */}
+    <script type="application/ld+json">{toJsonLd(webPageJsonLd)}</script>
+    <script type="application/ld+json">{toJsonLd(breadcrumbJsonLd)}</script>
+    <script type="application/ld+json">{toJsonLd(sparepartCatalogJsonLd)}</script>
+    <script type="application/ld+json">{toJsonLd(organizationJsonLd)}</script>
+  </Helmet>
+);
+
+// ─── Helmet untuk halaman detail produk ───────────────────────────────────────
+const SparepartDetailHelmet = ({ brand, id }) => {
+  const brandDecoded = decodeURIComponent(brand).replace(/-/g, " ");
+  const detailUrl = `${BASE_URL}/produk/sparepart/${brand}/${id}`;
+
+  // Cari data produk nyata dari sparepart.json berdasarkan id
+  const product = sparepartData.find((p) => String(p.id) === String(id));
+
+  const productName = product?.name || `Sparepart ${brandDecoded}`;
+  const productDesc =
+    product?.description ||
+    `Spesifikasi dan harga sparepart ${brandDecoded} — temukan detail lengkap produk ini di katalog Infoduta Computindo Perkasa.`;
+  const productCategory = product?.jenis || "Sparepart";
+  const productImage = product?.images?.[0]
+    ? toPublicImageUrl(product.images[0])
+    : null;
+
+  const detailTitle = `${productName} | ${SITE_NAME}`;
+
+  const productJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: productName,
+    description: productDesc,
+    category: productCategory,
+    brand: { "@type": "Brand", name: brandDecoded },
+    url: detailUrl,
+    ...(productImage && { image: productImage }),
+    offers: {
+      "@type": "Offer",
+      priceCurrency: "IDR",
+      availability: "https://schema.org/InStock",
+      seller: { "@type": "Organization", name: SITE_NAME },
+    },
+  };
+
+  const detailBreadcrumb = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Beranda", item: BASE_URL },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Produk",
+        item: `${BASE_URL}/produk`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: "Sparepart",
+        item: SPAREPART_SEO.canonicalUrl,
+      },
+      {
+        "@type": "ListItem",
+        position: 4,
+        name: productName,
+        item: detailUrl,
+      },
+    ],
+  };
+
+  return (
+    <Helmet>
+      <html lang="id" />
+      <title>{detailTitle}</title>
+      <meta name="description" content={productDesc} />
+      <meta name="robots" content="index, follow" />
+      <link rel="canonical" href={detailUrl} />
+
+      {/* Open Graph */}
+      <meta property="og:type" content="product" />
+      <meta property="og:site_name" content={SITE_NAME} />
+      <meta property="og:title" content={detailTitle} />
+      <meta property="og:description" content={productDesc} />
+      <meta property="og:url" content={detailUrl} />
+      <meta property="og:locale" content="id_ID" />
+      {productImage && <meta property="og:image" content={productImage} />}
+
+      {/* Twitter Card */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={detailTitle} />
+      <meta name="twitter:description" content={productDesc} />
+      {productImage && <meta name="twitter:image" content={productImage} />}
+
+      {/* JSON-LD Structured Data */}
+      <script type="application/ld+json">{toJsonLd(productJsonLd)}</script>
+      <script type="application/ld+json">{toJsonLd(detailBreadcrumb)}</script>
+      <script type="application/ld+json">{toJsonLd(organizationJsonLd)}</script>
+    </Helmet>
+  );
+};
+
+// ─── Main Component ────────────────────────────────────────────────────────────
 const Sparepart = () => {
   const { brand, id } = useParams();
 
+  // ── Halaman Detail Produk ──
   if (brand && id) {
     return (
       <>
-        <Helmet>
-          <title>Detail Sparepart | Infoduta Computindo Perkasa</title>
-          <meta
-            name="description"
-            content="Detail produk sparepart untuk kebutuhan bisnis Anda."
-          />
-          <link
-            rel="canonical"
-            href={`https://www.infoduta.com/produk/sparepart/${brand}/${id}`}
-          />
-        </Helmet>
+        <SparepartDetailHelmet brand={brand} id={id} />
         <DetailProduk dataSource="../../Produk/sparepart.json" />
       </>
     );
   }
 
+  // ── Halaman Katalog ──
   return (
     <>
-      <Helmet>
-        <title>Produk Sparepart | Infoduta Computindo Perkasa</title>
-        <meta
-          name="title"
-          content="Produk Sparepart | Infoduta Computindo Perkasa"
-        />
-        <meta
-          name="description"
-          content="Temukan berbagai pilihan Sparepart dengan kualitas terbaik yang sesuai dengan kebutuhan perusahaan Anda."
-        />
-        <meta
-          name="keywords"
-          content="Produk Sparepart, SSD, RAM, HDD, Processor, Infoduta Computindo Perkasa"
-        />
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:title"
-          content="Produk Sparepart - Infoduta Computindo Perkasa"
-        />
-        <meta
-          property="og:description"
-          content="Temukan berbagai pilihan Sparepart dengan kualitas terbaik yang sesuai dengan kebutuhan perusahaan Anda."
-        />
-        <meta
-          property="og:url"
-          content="https://www.infoduta.com/produk/sparepart"
-        />
-        <meta property="og:site_name" content="Infoduta Computindo Perkasa" />
-        <meta property="twitter:card" content="summary_large_image" />
-        <link
-          rel="canonical"
-          href="https://www.infoduta.com/produk/sparepart"
-        />
-      </Helmet>
-
+      <SparepartCatalogHelmet />
       <SubProduk
         jenisBarang="sparepart"
         title="Sparepart"

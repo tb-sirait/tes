@@ -29,7 +29,7 @@ import serverData from "../server.json";
 import "./detailproduk.css";
 
 // Dynamically import all images
-const images = import.meta.glob("../../assets/produk/**/*.{png,jpg,jpeg,svg}", {
+const images = import.meta.glob("../../assets/produk/**/*.{png,jpg,jpeg,svg,webp}", {
   eager: true,
 });
 

@@ -22,7 +22,7 @@ import Footer from "../../Navigation/footer";
 
 // Import gambar dengan glob patterns
 const produkImages = import.meta.glob(
-  "../../assets/produk/**/*.{png,jpg,jpeg,svg}",
+  "../../assets/produk/**/*.{png,jpg,jpeg,svg,webp}",
   { eager: true },
 );
 

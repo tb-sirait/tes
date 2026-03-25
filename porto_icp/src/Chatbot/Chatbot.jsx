@@ -322,6 +322,17 @@ const ChatBot = () => {
             yang bisa saya bantu?
           </>
         );
+      }
+      else if (
+        inputMessage.toLowerCase().includes("rekomendasi") ||
+        inputMessage.toLowerCase().includes("terbaik") &&
+        inputMessage.toLowerCase().includes("laptop") 
+      ){
+        botText = (
+          <>
+            Silahkan beritahu kami untuk kebutuhan proyek Laptop Anda.
+          </>
+        );
       } else if (
         inputMessage.toLowerCase().includes("terima kasih") ||
         inputMessage.toLowerCase().includes("terimakasih") ||

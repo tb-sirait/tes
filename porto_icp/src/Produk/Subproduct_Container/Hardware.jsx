@@ -1,65 +1,271 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import SubProduk from "../SubProduct/Subproduk.jsx";
 import DetailProduk from "../SubProduct/DetailProduk.jsx";
-import { Helmet } from "react-helmet";
+import hardwareData from "../hardware.json";
 
+// ─── SEO constants ───────────────────────────────────────────────────────────
+const BASE_URL = "https://www.infoduta.com";
+const SITE_NAME = "Infoduta Computindo Perkasa";
+
+const HARDWARE_SEO = {
+  title: `Produk Hardware Terbaik untuk Bisnis & Kantor | ${SITE_NAME}`,
+  description:
+    "Temukan berbagai pilihan Hardware terbaik — printer, scanner, networking, UPS, proyektor — dengan harga kompetitif. Cocok untuk kebutuhan perusahaan maupun personal. Cek katalog lengkap kami.",
+  keywords:
+    "hardware komputer, perangkat keras, printer bisnis, scanner kantor, networking, switch, router, UPS, proyektor, beli hardware jakarta, Infoduta Computindo Perkasa, hardware HP, hardware Canon, hardware Epson",
+  canonicalUrl: `${BASE_URL}/produk/hardware`,
+  ogImage: `${BASE_URL}/og/hardware-catalog.jpg`,
+};
+
+// ─── JSON-LD: BreadcrumbList ──────────────────────────────────────────────────
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Beranda",
+      item: BASE_URL,
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Produk",
+      item: `${BASE_URL}/produk`,
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      name: "Hardware",
+      item: HARDWARE_SEO.canonicalUrl,
+    },
+  ],
+};
+
+// ─── Helper: konversi path gambar lokal → URL publik ─────────────────────────
+// "/src/assets/produk/hardware/dell/4.png" → "https://www.infoduta.com/assets/produk/hardware/dell/4.png"
+const toPublicImageUrl = (imagePath) => {
+  if (!imagePath) return null;
+  const cleaned = imagePath.replace(/^\/src\//, "/");
+  return `${BASE_URL}${cleaned}`;
+};
+
+// ─── Helper: buat brand slug untuk URL (sama seperti di SubProduk) ─────────
+const toBrandSlug = (brand) => brand.replace(/\s+/g, "-");
+
+// ─── JSON-LD: ItemList (katalog hardware) — dibangun dari hardware.json ───────
+const hardwareCatalogJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Katalog Hardware — Infoduta Computindo Perkasa",
+  description: HARDWARE_SEO.description,
+  url: HARDWARE_SEO.canonicalUrl,
+  numberOfItems: hardwareData.length,
+  itemListElement: hardwareData.map((product, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    item: {
+      "@type": "Product",
+      "@id": `${BASE_URL}/produk/hardware/${toBrandSlug(product.brand)}/${product.id}`,
+      name: product.name,
+      description: product.description || "",
+      brand: {
+        "@type": "Brand",
+        name: product.brand,
+      },
+      category: product.type || "Hardware",
+      url: `${BASE_URL}/produk/hardware/${toBrandSlug(product.brand)}/${product.id}`,
+      ...(product.images && {
+        image: toPublicImageUrl(product.images),
+      }),
+      offers: {
+        "@type": "Offer",
+        priceCurrency: "IDR",
+        availability: "https://schema.org/InStock",
+        seller: { "@type": "Organization", name: SITE_NAME },
+      },
+    },
+  })),
+};
+
+// ─── JSON-LD: Organization ────────────────────────────────────────────────────
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: SITE_NAME,
+  url: BASE_URL,
+  logo: `${BASE_URL}/logo.png`,
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "customer service",
+    availableLanguage: "Indonesian",
+  },
+};
+
+// ─── JSON-LD: WebPage ─────────────────────────────────────────────────────────
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: HARDWARE_SEO.title,
+  description: HARDWARE_SEO.description,
+  url: HARDWARE_SEO.canonicalUrl,
+  inLanguage: "id-ID",
+  isPartOf: {
+    "@type": "WebSite",
+    name: SITE_NAME,
+    url: BASE_URL,
+  },
+  breadcrumb: breadcrumbJsonLd,
+};
+
+// ─── Helper: serialize JSON-LD ────────────────────────────────────────────────
+const toJsonLd = (obj) => JSON.stringify(obj);
+
+// ─── Helmet untuk halaman katalog ─────────────────────────────────────────────
+const HardwareCatalogHelmet = () => (
+  <Helmet>
+    <html lang="id" />
+    <title>{HARDWARE_SEO.title}</title>
+    <meta name="description" content={HARDWARE_SEO.description} />
+    <meta name="keywords" content={HARDWARE_SEO.keywords} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={HARDWARE_SEO.canonicalUrl} />
+
+    {/* Open Graph */}
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE_NAME} />
+    <meta property="og:title" content={HARDWARE_SEO.title} />
+    <meta property="og:description" content={HARDWARE_SEO.description} />
+    <meta property="og:url" content={HARDWARE_SEO.canonicalUrl} />
+    <meta property="og:image" content={HARDWARE_SEO.ogImage} />
+    <meta property="og:locale" content="id_ID" />
+
+    {/* Twitter Card */}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={HARDWARE_SEO.title} />
+    <meta name="twitter:description" content={HARDWARE_SEO.description} />
+    <meta name="twitter:image" content={HARDWARE_SEO.ogImage} />
+
+    {/* JSON-LD Structured Data */}
+    <script type="application/ld+json">{toJsonLd(webPageJsonLd)}</script>
+    <script type="application/ld+json">{toJsonLd(breadcrumbJsonLd)}</script>
+    <script type="application/ld+json">{toJsonLd(hardwareCatalogJsonLd)}</script>
+    <script type="application/ld+json">{toJsonLd(organizationJsonLd)}</script>
+  </Helmet>
+);
+
+// ─── Helmet untuk halaman detail produk ───────────────────────────────────────
+const HardwareDetailHelmet = ({ brand, id }) => {
+  const brandDecoded = decodeURIComponent(brand).replace(/-/g, " ");
+  const detailUrl = `${BASE_URL}/produk/hardware/${brand}/${id}`;
+
+  // Cari data produk nyata dari hardware.json berdasarkan id
+  const product = hardwareData.find((p) => String(p.id) === String(id));
+
+  const productName = product?.name || `Hardware ${brandDecoded}`;
+  const productDesc =
+    product?.description ||
+    `Spesifikasi dan harga hardware ${brandDecoded} — temukan detail lengkap produk ini di katalog Infoduta Computindo Perkasa.`;
+  const productType = product?.type || "Hardware";
+  const productImage = product?.images ? toPublicImageUrl(product.images) : null;
+
+  const detailTitle = `${productName} | ${SITE_NAME}`;
+
+  const productJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: productName,
+    description: productDesc,
+    category: productType,
+    brand: { "@type": "Brand", name: brandDecoded },
+    url: detailUrl,
+    ...(productImage && { image: productImage }),
+    offers: {
+      "@type": "Offer",
+      priceCurrency: "IDR",
+      availability: "https://schema.org/InStock",
+      seller: { "@type": "Organization", name: SITE_NAME },
+    },
+  };
+
+  const detailBreadcrumb = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Beranda", item: BASE_URL },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Produk",
+        item: `${BASE_URL}/produk`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: "Hardware",
+        item: HARDWARE_SEO.canonicalUrl,
+      },
+      {
+        "@type": "ListItem",
+        position: 4,
+        name: productName,
+        item: detailUrl,
+      },
+    ],
+  };
+
+  return (
+    <Helmet>
+      <html lang="id" />
+      <title>{detailTitle}</title>
+      <meta name="description" content={productDesc} />
+      <meta name="robots" content="index, follow" />
+      <link rel="canonical" href={detailUrl} />
+
+      {/* Open Graph */}
+      <meta property="og:type" content="product" />
+      <meta property="og:site_name" content={SITE_NAME} />
+      <meta property="og:title" content={detailTitle} />
+      <meta property="og:description" content={productDesc} />
+      <meta property="og:url" content={detailUrl} />
+      <meta property="og:locale" content="id_ID" />
+      {productImage && <meta property="og:image" content={productImage} />}
+
+      {/* Twitter Card */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={detailTitle} />
+      <meta name="twitter:description" content={productDesc} />
+      {productImage && <meta name="twitter:image" content={productImage} />}
+
+      {/* JSON-LD Structured Data */}
+      <script type="application/ld+json">{toJsonLd(productJsonLd)}</script>
+      <script type="application/ld+json">{toJsonLd(detailBreadcrumb)}</script>
+      <script type="application/ld+json">{toJsonLd(organizationJsonLd)}</script>
+    </Helmet>
+  );
+};
+
+// ─── Main Component ────────────────────────────────────────────────────────────
 const Hardware = () => {
   const { brand, id } = useParams();
 
+  // ── Halaman Detail Produk ──
   if (brand && id) {
     return (
       <>
-        <Helmet>
-          <title>Detail Hardware | Infoduta Computindo Perkasa</title>
-          <meta
-            name="description"
-            content="Detail produk hardware untuk kebutuhan bisnis Anda."
-          />
-          <link
-            rel="canonical"
-            href={`https://www.infoduta.com/produk/hardware/${brand}/${id}`}
-          />
-        </Helmet>
+        <HardwareDetailHelmet brand={brand} id={id} />
         <DetailProduk dataSource="../hardware.json" />
       </>
     );
   }
 
+  // ── Halaman Katalog ──
   return (
     <>
-      <Helmet>
-        <title>Produk Hardware | Infoduta Computindo Perkasa</title>
-        <meta
-          name="title"
-          content="Produk Hardware | Infoduta Computindo Perkasa"
-        />
-        <meta
-          name="description"
-          content="Temukan berbagai pilihan Hardware dengan kualitas terbaik yang sesuai dengan kebutuhan perusahaan Anda."
-        />
-        <meta
-          name="keywords"
-          content="Produk Hardware, Perangkat Keras, Printer, Scanner, Networking, Infoduta Computindo Perkasa"
-        />
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:title"
-          content="Produk Hardware - Infoduta Computindo Perkasa"
-        />
-        <meta
-          property="og:description"
-          content="Temukan berbagai pilihan Hardware dengan kualitas terbaik yang sesuai dengan kebutuhan perusahaan Anda."
-        />
-        <meta
-          property="og:url"
-          content="https://www.infoduta.com/produk/hardware"
-        />
-        <meta property="og:site_name" content="Infoduta Computindo Perkasa" />
-        <meta property="twitter:card" content="summary_large_image" />
-        <link rel="canonical" href="https://www.infoduta.com/produk/hardware" />
-      </Helmet>
-
+      <HardwareCatalogHelmet />
       <SubProduk
         jenisBarang="hardware"
         title="Hardware"
