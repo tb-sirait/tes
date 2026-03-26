@@ -167,16 +167,17 @@ export default function BioLinks() {
             <div className="profile-info">
               <h1 className="profile-name">PT Infoduta Computindo Perkasa</h1>
               <p className="profile-title">
-                Solusi Hardware dan Software Pilihan Bisnis Anda
+                Hi-tech Recommended for Hardware-Software-Service-Rental
               </p>
               <p className="profile-description">
                 Menyediakan produk Hardware, Software,
                 <br />
-                Laptop, Smartphone, Server, dan Komputer dengan layanan purna
-                jual terbaik.
+                Laptop, Smartphone, Server, dan Komputer dengan Layanan Purna
+                Jual terbaik.
               </p>
               <p className="profile-location">
-                📍 Jl. KH. Wahid Hasyim No. 5 RT.12/RW.9. Kb. Sirih, Kec.
+                📍 HR Building 1 Wahid Hasyim Lantai 4 <br/>
+                Jl. KH. Wahid Hasyim No. 5 RT.12/RW.9. Kb. Sirih, Kec.
                 Menteng, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta.
                 10340.
               </p>
@@ -236,7 +237,7 @@ export default function BioLinks() {
 
           {/* Footer */}
           <div className="bio-footer">
-            <p>© 2025 PT Infoduta Computindo Perkasa</p>
+            <p>© 2026 | PT Infoduta Computindo Perkasa</p>
           </div>
         </div>
       </div>

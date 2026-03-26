@@ -274,6 +274,19 @@ function AppContent() {
 
 function App() {
   useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://analytics.ahrefs.com/analytics.js";
+    script.async = true;
+    script.setAttribute("data-key", "BF1PCwL3Nm73qxMAkl2C1g");
+
+    document.head.appendChild(script);
+
+    return () => {
+      document.head.removeChild(script); // optional cleanup
+    };
+  }, []);
+
+  useEffect(() => {
     const visitorCountRef = ref(database, "visitorCount");
     runTransaction(visitorCountRef, (currentCount) => {
       return (currentCount || 0) + 1;
