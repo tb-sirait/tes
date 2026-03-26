@@ -176,10 +176,9 @@ export default function BioLinks() {
                 Jual terbaik.
               </p>
               <p className="profile-location">
-                📍 HR Building 1 Wahid Hasyim Lantai 4 <br/>
-                Jl. KH. Wahid Hasyim No. 5 RT.12/RW.9. Kb. Sirih, Kec.
-                Menteng, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta.
-                10340.
+                📍 HR Building 1 Wahid Hasyim Lantai 4 <br />
+                Jl. KH. Wahid Hasyim No. 5 RT.12/RW.9. Kb. Sirih, Kec. Menteng,
+                Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta. 10340.
               </p>
             </div>
           </div>
