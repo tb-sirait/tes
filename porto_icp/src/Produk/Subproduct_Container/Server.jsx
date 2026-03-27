@@ -5,7 +5,7 @@ import SubProduk from "../SubProduct/Subproduk.jsx";
 import DetailProduk from "../SubProduct/DetailProduk.jsx";
 import serverData from "../server.json";
 
-// ─── SEO constants ───────────────────────────────────────────────────────────
+// ─── SEO constants ────────────────────────────────────────────────────────────
 const BASE_URL = "https://www.infoduta.com";
 const SITE_NAME = "Infoduta Computindo Perkasa";
 
@@ -24,13 +24,33 @@ const SERVER_SEO = {
 // contoh: "assets/produk/server/dell/1.png" → "https://www.infoduta.com/assets/produk/server/dell/1.png"
 const toPublicImageUrl = (imagePath) => {
   if (!imagePath) return null;
-  // Hapus leading slash atau "src/" jika ada, lalu tambah BASE_URL
-  const cleaned = imagePath.replace(/^\/src\//, "/").replace(/^(?!\/)/, "/"); // pastikan ada leading slash
+  const cleaned = imagePath.replace(/^\/src\//, "/").replace(/^(?!\/)/, "/");
   return `${BASE_URL}${cleaned}`;
 };
 
-// ─── JSON-LD: BreadcrumbList ──────────────────────────────────────────────────
-const breadcrumbJsonLd = {
+// ─── Helper: buat brand slug untuk URL ───────────────────────────────────────
+// eslint-disable-next-line no-unused-vars
+const toBrandSlug = (brand) => brand.replace(/\s+/g, "-");
+
+// ─── Helper: serialize JSON-LD ────────────────────────────────────────────────
+const toJsonLd = (obj) => JSON.stringify(obj);
+
+// ─── JSON-LD: Organization (dipakai di katalog & detail) ─────────────────────
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: SITE_NAME,
+  url: BASE_URL,
+  logo: `${BASE_URL}/logo.png`,
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "customer service",
+    availableLanguage: "Indonesian",
+  },
+};
+
+// ─── JSON-LD: BreadcrumbList (katalog) ───────────────────────────────────────
+const catalogBreadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
@@ -55,7 +75,10 @@ const breadcrumbJsonLd = {
   ],
 };
 
-// ─── JSON-LD: ItemList — dibangun dari server.json ────────────────────────────
+// ─── JSON-LD: ItemList katalog — hanya ListItem + URL, tanpa offers/harga ─────
+// Google akan crawl tiap URL ini secara individual untuk ambil data Product
+// dari halaman detail masing-masing. Ini cara paling aman dan bebas error GSC.
+// Catatan: Server URL tidak pakai brand slug, hanya /produk/server/:id
 const serverCatalogJsonLd = {
   "@context": "https://schema.org",
   "@type": "ItemList",
@@ -66,69 +89,13 @@ const serverCatalogJsonLd = {
   itemListElement: serverData.map((product, index) => ({
     "@type": "ListItem",
     position: index + 1,
-    item: {
-      "@type": "Product",
-      "@id": `${BASE_URL}/produk/server/${product.id}`,
-      name: product.name,
-      description: product.description || "",
-      brand: {
-        "@type": "Brand",
-        name: product.brand,
-      },
-      category: product.chassis || "Server",
-      url: `${BASE_URL}/produk/server/${product.id}`,
-      ...(product.gambar && {
-        image: toPublicImageUrl(product.gambar),
-      }),
-      // Specs server: processor, memory, OS, chassis
-      additionalProperty: [
-        product.processor && {
-          "@type": "PropertyValue",
-          name: "Processor",
-          value: product.processor,
-        },
-        product.memory && {
-          "@type": "PropertyValue",
-          name: "Memory",
-          value: product.memory,
-        },
-        product.chassis && {
-          "@type": "PropertyValue",
-          name: "Chassis",
-          value: product.chassis,
-        },
-        product.os && {
-          "@type": "PropertyValue",
-          name: "Operating System",
-          value: product.os,
-        },
-      ].filter(Boolean),
-      offers: {
-        "@type": "Offer",
-        priceCurrency: "IDR",
-        availability: "https://schema.org/InStock",
-        seller: { "@type": "Organization", name: SITE_NAME },
-      },
-    },
+    name: product.name,
+    url: `${BASE_URL}/produk/server/${product.id}`,
   })),
 };
 
-// ─── JSON-LD: Organization ────────────────────────────────────────────────────
-const organizationJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: SITE_NAME,
-  url: BASE_URL,
-  logo: `${BASE_URL}/logo.png`,
-  contactPoint: {
-    "@type": "ContactPoint",
-    contactType: "customer service",
-    availableLanguage: "Indonesian",
-  },
-};
-
-// ─── JSON-LD: WebPage ─────────────────────────────────────────────────────────
-const webPageJsonLd = {
+// ─── JSON-LD: WebPage katalog ─────────────────────────────────────────────────
+const catalogWebPageJsonLd = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   name: SERVER_SEO.title,
@@ -140,13 +107,10 @@ const webPageJsonLd = {
     name: SITE_NAME,
     url: BASE_URL,
   },
-  breadcrumb: breadcrumbJsonLd,
+  breadcrumb: catalogBreadcrumbJsonLd,
 };
 
-// ─── Helper: serialize JSON-LD ────────────────────────────────────────────────
-const toJsonLd = (obj) => JSON.stringify(obj);
-
-// ─── Helmet untuk halaman katalog ─────────────────────────────────────────────
+// ─── Helmet: halaman katalog ──────────────────────────────────────────────────
 const ServerCatalogHelmet = () => (
   <Helmet>
     <html lang="id" />
@@ -172,22 +136,22 @@ const ServerCatalogHelmet = () => (
     <meta name="twitter:image" content={SERVER_SEO.ogImage} />
 
     {/* JSON-LD Structured Data */}
-    <script type="application/ld+json">{toJsonLd(webPageJsonLd)}</script>
-    <script type="application/ld+json">{toJsonLd(breadcrumbJsonLd)}</script>
+    <script type="application/ld+json">{toJsonLd(catalogWebPageJsonLd)}</script>
+    <script type="application/ld+json">{toJsonLd(catalogBreadcrumbJsonLd)}</script>
     <script type="application/ld+json">{toJsonLd(serverCatalogJsonLd)}</script>
     <script type="application/ld+json">{toJsonLd(organizationJsonLd)}</script>
   </Helmet>
 );
 
-// ─── Helmet untuk halaman detail produk ───────────────────────────────────────
-// Server URL: /produk/server/:id (tanpa brand di URL)
+// ─── Helmet: halaman detail produk ───────────────────────────────────────────
+// Server URL: /produk/server/:id (tanpa brand di URL — berbeda dari kategori lain)
 const ServerDetailHelmet = ({ id }) => {
   const detailUrl = `${BASE_URL}/produk/server/${id}`;
 
-  // Cari data produk nyata dari server.json berdasarkan id
+  // Ambil data produk dari server.json berdasarkan id
   const product = serverData.find((p) => String(p.id) === String(id));
 
-  const productName = product?.name || `Server`;
+  const productName = product?.name || "Server";
   const productBrand = product?.brand || "Server";
   const productDesc =
     product?.description ||
@@ -198,47 +162,8 @@ const ServerDetailHelmet = ({ id }) => {
 
   const detailTitle = `${productName} | ${SITE_NAME}`;
 
-  const productJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    name: productName,
-    description: productDesc,
-    category: product?.chassis || "Server",
-    brand: { "@type": "Brand", name: productBrand },
-    url: detailUrl,
-    ...(productImage && { image: productImage }),
-    // Specs server lengkap
-    additionalProperty: [
-      product?.processor && {
-        "@type": "PropertyValue",
-        name: "Processor",
-        value: product.processor,
-      },
-      product?.memory && {
-        "@type": "PropertyValue",
-        name: "Memory",
-        value: product.memory,
-      },
-      product?.chassis && {
-        "@type": "PropertyValue",
-        name: "Chassis",
-        value: product.chassis,
-      },
-      product?.os && {
-        "@type": "PropertyValue",
-        name: "Operating System",
-        value: product.os,
-      },
-    ].filter(Boolean),
-    offers: {
-      "@type": "Offer",
-      priceCurrency: "IDR",
-      availability: "https://schema.org/InStock",
-      seller: { "@type": "Organization", name: SITE_NAME },
-    },
-  };
-
-  const detailBreadcrumb = {
+  // ── Breadcrumb detail ───────────────────────────────────────────────────────
+  const detailBreadcrumbJsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
@@ -262,6 +187,59 @@ const ServerDetailHelmet = ({ id }) => {
         item: detailUrl,
       },
     ],
+  };
+
+  // ── Product JSON-LD — tanpa offers/harga, ganti potentialAction ─────────────
+  // Specs server (processor, memory, chassis, os) tetap dipertahankan
+  // via additionalProperty — tidak membutuhkan harga dari schema.org
+  const productJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: productName,
+    description: productDesc,
+    category: product?.chassis || "Server",
+    brand: { "@type": "Brand", name: productBrand },
+    url: detailUrl,
+    ...(productImage && { image: productImage }),
+
+    // Specs server lengkap — dipertahankan, tidak butuh harga
+    additionalProperty: [
+      product?.processor && {
+        "@type": "PropertyValue",
+        name: "Processor",
+        value: product.processor,
+      },
+      product?.memory && {
+        "@type": "PropertyValue",
+        name: "Memory",
+        value: product.memory,
+      },
+      product?.chassis && {
+        "@type": "PropertyValue",
+        name: "Chassis",
+        value: product.chassis,
+      },
+      product?.os && {
+        "@type": "PropertyValue",
+        name: "Operating System",
+        value: product.os,
+      },
+    ].filter(Boolean),
+
+    // potentialAction menggantikan offers — tidak butuh harga,
+    // tapi tetap memberi sinyal ke Google bahwa produk bisa dihubungi/dipesan
+    potentialAction: {
+      "@type": "CommunicateAction",
+      name: "Hubungi untuk Informasi Harga",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: `${BASE_URL}/kontak?produk=${encodeURIComponent(productName)}`,
+        actionPlatform: [
+          "http://schema.org/DesktopWebPlatform",
+          "http://schema.org/MobileWebPlatform",
+        ],
+      },
+    },
   };
 
   return (
@@ -289,7 +267,7 @@ const ServerDetailHelmet = ({ id }) => {
 
       {/* JSON-LD Structured Data */}
       <script type="application/ld+json">{toJsonLd(productJsonLd)}</script>
-      <script type="application/ld+json">{toJsonLd(detailBreadcrumb)}</script>
+      <script type="application/ld+json">{toJsonLd(detailBreadcrumbJsonLd)}</script>
       <script type="application/ld+json">{toJsonLd(organizationJsonLd)}</script>
     </Helmet>
   );

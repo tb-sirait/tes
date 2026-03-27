@@ -5,7 +5,7 @@ import SubProduk from "../SubProduct/Subproduk.jsx";
 import DetailProduk from "../SubProduct/DetailProduk.jsx";
 import softwareData from "../software.json";
 
-// ─── SEO constants ───────────────────────────────────────────────────────────
+// ─── SEO constants ────────────────────────────────────────────────────────────
 const BASE_URL = "https://www.infoduta.com";
 const SITE_NAME = "Infoduta Computindo Perkasa";
 
@@ -22,8 +22,25 @@ const SOFTWARE_SEO = {
 // ─── Helper: buat brand slug untuk URL ───────────────────────────────────────
 const toBrandSlug = (brand) => brand.replace(/\s+/g, "-");
 
-// ─── JSON-LD: BreadcrumbList ──────────────────────────────────────────────────
-const breadcrumbJsonLd = {
+// ─── Helper: serialize JSON-LD ────────────────────────────────────────────────
+const toJsonLd = (obj) => JSON.stringify(obj);
+
+// ─── JSON-LD: Organization (dipakai di katalog & detail) ─────────────────────
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: SITE_NAME,
+  url: BASE_URL,
+  logo: `${BASE_URL}/logo.png`,
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "customer service",
+    availableLanguage: "Indonesian",
+  },
+};
+
+// ─── JSON-LD: BreadcrumbList (katalog) ───────────────────────────────────────
+const catalogBreadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
@@ -48,9 +65,11 @@ const breadcrumbJsonLd = {
   ],
 };
 
-// ─── JSON-LD: ItemList — dibangun dari software.json ─────────────────────────
-// Software tidak punya field images/gambar di JSON (pakai softwareImageMap di
-// komponen), jadi field image di JSON-LD dikosongkan — tidak masalah untuk SEO.
+// ─── JSON-LD: ItemList katalog — hanya ListItem + URL, tanpa offers/harga ─────
+// Google akan crawl tiap URL ini secara individual untuk ambil data
+// SoftwareApplication dari halaman detail masing-masing.
+// Software memakai tipe "SoftwareApplication" (bukan "Product") — lebih tepat
+// secara semantik dan tidak mensyaratkan harga dari schema.org sama sekali.
 const softwareCatalogJsonLd = {
   "@context": "https://schema.org",
   "@type": "ItemList",
@@ -61,50 +80,13 @@ const softwareCatalogJsonLd = {
   itemListElement: softwareData.map((product, index) => ({
     "@type": "ListItem",
     position: index + 1,
-    item: {
-      "@type": "SoftwareApplication",
-      "@id": `${BASE_URL}/produk/software/${toBrandSlug(product.brand)}/${product.id}`,
-      name: product.name,
-      description: product.description || product.usage || "",
-      brand: {
-        "@type": "Brand",
-        name: product.brand,
-      },
-      applicationCategory: product.category || "BusinessApplication",
-      url: `${BASE_URL}/produk/software/${toBrandSlug(product.brand)}/${product.id}`,
-      // Tambahan info lisensi jika ada di data
-      ...(product.license_type && {
-        license: product.license_type,
-      }),
-      ...(product.usage && {
-        featureList: product.usage,
-      }),
-      offers: {
-        "@type": "Offer",
-        priceCurrency: "IDR",
-        availability: "https://schema.org/InStock",
-        seller: { "@type": "Organization", name: SITE_NAME },
-      },
-    },
+    name: product.name,
+    url: `${BASE_URL}/produk/software/${toBrandSlug(product.brand)}/${product.id}`,
   })),
 };
 
-// ─── JSON-LD: Organization ────────────────────────────────────────────────────
-const organizationJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: SITE_NAME,
-  url: BASE_URL,
-  logo: `${BASE_URL}/logo.png`,
-  contactPoint: {
-    "@type": "ContactPoint",
-    contactType: "customer service",
-    availableLanguage: "Indonesian",
-  },
-};
-
-// ─── JSON-LD: WebPage ─────────────────────────────────────────────────────────
-const webPageJsonLd = {
+// ─── JSON-LD: WebPage katalog ─────────────────────────────────────────────────
+const catalogWebPageJsonLd = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   name: SOFTWARE_SEO.title,
@@ -116,13 +98,10 @@ const webPageJsonLd = {
     name: SITE_NAME,
     url: BASE_URL,
   },
-  breadcrumb: breadcrumbJsonLd,
+  breadcrumb: catalogBreadcrumbJsonLd,
 };
 
-// ─── Helper: serialize JSON-LD ────────────────────────────────────────────────
-const toJsonLd = (obj) => JSON.stringify(obj);
-
-// ─── Helmet untuk halaman katalog ─────────────────────────────────────────────
+// ─── Helmet: halaman katalog ──────────────────────────────────────────────────
 const SoftwareCatalogHelmet = () => (
   <Helmet>
     <html lang="id" />
@@ -148,50 +127,31 @@ const SoftwareCatalogHelmet = () => (
     <meta name="twitter:image" content={SOFTWARE_SEO.ogImage} />
 
     {/* JSON-LD Structured Data */}
-    <script type="application/ld+json">{toJsonLd(webPageJsonLd)}</script>
-    <script type="application/ld+json">{toJsonLd(breadcrumbJsonLd)}</script>
-    <script type="application/ld+json">
-      {toJsonLd(softwareCatalogJsonLd)}
-    </script>
+    <script type="application/ld+json">{toJsonLd(catalogWebPageJsonLd)}</script>
+    <script type="application/ld+json">{toJsonLd(catalogBreadcrumbJsonLd)}</script>
+    <script type="application/ld+json">{toJsonLd(softwareCatalogJsonLd)}</script>
     <script type="application/ld+json">{toJsonLd(organizationJsonLd)}</script>
   </Helmet>
 );
 
-// ─── Helmet untuk halaman detail produk ───────────────────────────────────────
+// ─── Helmet: halaman detail produk ───────────────────────────────────────────
 const SoftwareDetailHelmet = ({ brand, id }) => {
   const brandDecoded = decodeURIComponent(brand).replace(/-/g, " ");
   const detailUrl = `${BASE_URL}/produk/software/${brand}/${id}`;
 
-  // Cari data produk nyata dari software.json berdasarkan id
+  // Ambil data produk dari software.json berdasarkan id
   const product = softwareData.find((p) => String(p.id) === String(id));
 
   const productName = product?.name || `Software ${brandDecoded}`;
   const productDesc =
     product?.description ||
     product?.usage ||
-    `Spesifikasi dan harga software ${brandDecoded} — temukan detail lengkap produk ini di katalog Infoduta Computindo Perkasa.`;
+    `Spesifikasi dan detail software ${brandDecoded} — temukan informasi lengkap produk ini di katalog Infoduta Computindo Perkasa.`;
 
   const detailTitle = `${productName} | ${SITE_NAME}`;
 
-  const productJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    name: productName,
-    description: productDesc,
-    applicationCategory: product?.category || "BusinessApplication",
-    brand: { "@type": "Brand", name: brandDecoded },
-    url: detailUrl,
-    ...(product?.license_type && { license: product.license_type }),
-    ...(product?.usage && { featureList: product.usage }),
-    offers: {
-      "@type": "Offer",
-      priceCurrency: "IDR",
-      availability: "https://schema.org/InStock",
-      seller: { "@type": "Organization", name: SITE_NAME },
-    },
-  };
-
-  const detailBreadcrumb = {
+  // ── Breadcrumb detail ───────────────────────────────────────────────────────
+  const detailBreadcrumbJsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
@@ -217,6 +177,40 @@ const SoftwareDetailHelmet = ({ brand, id }) => {
     ],
   };
 
+  // ── SoftwareApplication JSON-LD — tanpa offers/harga, ganti potentialAction ─
+  // "SoftwareApplication" adalah tipe yang paling tepat untuk software — berbeda
+  // dari kategori lain yang memakai "Product". Tipe ini TIDAK mensyaratkan harga
+  // dari schema.org, sehingga tidak akan pernah throw error di GSC.
+  // Field license_type, usage, dan category tetap dipertahankan sebagai metadata.
+  const productJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: productName,
+    description: productDesc,
+    applicationCategory: product?.category || "BusinessApplication",
+    brand: { "@type": "Brand", name: brandDecoded },
+    url: detailUrl,
+
+    // Info lisensi & fitur — dipertahankan, tidak butuh harga
+    ...(product?.license_type && { license: product.license_type }),
+    ...(product?.usage && { featureList: product.usage }),
+
+    // potentialAction menggantikan offers — tidak butuh harga,
+    // tapi tetap memberi sinyal ke Google bahwa software bisa dihubungi/dipesan
+    potentialAction: {
+      "@type": "CommunicateAction",
+      name: "Hubungi untuk Informasi Harga & Lisensi",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: `${BASE_URL}/kontak?produk=${encodeURIComponent(productName)}`,
+        actionPlatform: [
+          "http://schema.org/DesktopWebPlatform",
+          "http://schema.org/MobileWebPlatform",
+        ],
+      },
+    },
+  };
+
   return (
     <Helmet>
       <html lang="id" />
@@ -240,7 +234,7 @@ const SoftwareDetailHelmet = ({ brand, id }) => {
 
       {/* JSON-LD Structured Data */}
       <script type="application/ld+json">{toJsonLd(productJsonLd)}</script>
-      <script type="application/ld+json">{toJsonLd(detailBreadcrumb)}</script>
+      <script type="application/ld+json">{toJsonLd(detailBreadcrumbJsonLd)}</script>
       <script type="application/ld+json">{toJsonLd(organizationJsonLd)}</script>
     </Helmet>
   );

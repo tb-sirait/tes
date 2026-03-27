@@ -473,7 +473,9 @@
   box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
 }
 
-/* Responsive Design */
+/* ============================================
+   RESPONSIVE — Tablet (max 1024px)
+   ============================================ */
 @media (max-width: 1024px) {
   .details-container {
     grid-template-columns: 1fr;
@@ -494,53 +496,121 @@
   }
 }
 
+/* ============================================
+   RESPONSIVE — Mobile (max 768px)
+   ============================================ */
 @media (max-width: 768px) {
   .details-page {
-    padding-top: 100px;
+    padding-top: 0;
   }
 
+  /* Breadcrumb — tampil jelas di bawah navbar */
   .details-breadcrumb {
-    padding: 0 15px;
-    font-size: 0.8rem;
-    margin-top: 10px;
+    padding: 8px 14px;
+    font-size: 0.75rem;
+    margin: 0 auto 4px;
+    gap: 5px;
+    margin-top: 70px; /* sesuai tinggi navbar mobile */
+    background: #f9fafb;
+    border-bottom: 1px solid #e5e7eb;
   }
 
+  /* Container */
   .details-container {
-    margin: 20px auto;
-    padding: 0 15px;
+    margin: 14px auto;
+    padding: 0 14px;
+    gap: 20px;
   }
 
+  /* Gambar utama lebih compact */
   .details-main-image {
-    min-height: 300px;
-    padding: 30px;
+    min-height: 220px;
+    padding: 20px;
+    border-radius: 14px;
   }
 
   .details-main-image img {
-    max-width: 300px;
+    max-width: 220px;
   }
 
+  /* Thumbnails lebih kecil */
+  .details-thumbnails {
+    gap: 8px;
+  }
+
+  .details-thumbnail {
+    width: 56px;
+    height: 56px;
+    border-radius: 8px;
+    border-width: 2px;
+  }
+
+  .details-thumbnail-nav {
+    width: 30px;
+    height: 30px;
+  }
+
+  /* Judul produk */
   .details-info-section h1 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
   }
 
+  /* Badge brand & tipe */
+  .details-meta {
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+
+  .details-brand-tag,
+  .details-type-tag {
+    padding: 5px 12px;
+    font-size: 0.78rem;
+    border-radius: 6px;
+  }
+
+  /* Deskripsi */
+  .details-description {
+    padding: 14px 16px;
+    margin-bottom: 16px;
+    border-radius: 10px;
+  }
+
+  .details-description h3 {
+    font-size: 0.88rem;
+    margin-bottom: 6px;
+  }
+
+  .details-description p {
+    font-size: 0.82rem;
+    line-height: 1.6;
+  }
+
+  /* Tombol hubungi — tidak full width, lebih compact */
   .details-contact-button {
-    width: 100%;
-    justify-content: center;
+    display: inline-flex;
+    width: auto;
+    align-self: flex-start;
+    padding: 10px 20px;
+    font-size: 0.875rem;
+    border-radius: 9px;
+    gap: 8px;
+    box-shadow: 0 3px 10px rgba(16, 185, 129, 0.25);
   }
 
+  /* Tabs container */
   .details-tabs-container {
-    margin: 40px auto;
-    padding: 0 15px;
+    margin: 28px auto;
+    padding: 0 14px;
   }
 
   .details-tabs-header {
-    flex-wrap: nowrap;
-    gap: 4px;
-    overflow-x: auto;
+    margin-bottom: 18px;
+    gap: 2px;
   }
 
   .details-tab {
-    padding: 10px 8px;
+    padding: 9px 10px;
     font-size: 0.75rem;
     flex: 1;
     text-align: center;
@@ -548,59 +618,203 @@
     min-width: fit-content;
   }
 
-  .details-thumbnails {
-    gap: 8px;
-  }
-
-  .details-thumbnail {
-    width: 60px;
-    height: 60px;
-  }
-}
-
-@media (max-width: 480px) {
-  .details-main-image {
-    min-height: 250px;
-    padding: 20px;
-  }
-
-  .details-main-image img {
-    max-width: 250px;
-  }
-
-  .details-info-section h1 {
-    font-size: 1.3rem;
-  }
-
-  .details-description {
-    padding: 16px;
-  }
-
+  /* Spec rows */
   .details-spec-row {
-    padding: 16px;
+    padding: 12px 14px;
+    gap: 12px;
+    border-radius: 10px;
   }
 
   .details-spec-icon {
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    flex-shrink: 0;
   }
 
+  .details-spec-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .details-spec-info strong {
+    font-size: 0.7rem;
+  }
+
+  .details-spec-info span {
+    font-size: 0.875rem;
+  }
+
+  /* Service & warranty cards */
   .details-service-card,
   .details-warranty-card {
-    padding: 20px;
+    padding: 16px 18px;
+    border-radius: 12px;
   }
 
-  .details-thumbnails {
-    gap: 6px;
+  .details-service-card svg,
+  .details-warranty-card svg {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 10px;
   }
 
+  .details-service-card h3,
+  .details-warranty-card h3 {
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+  }
+
+  .details-service-card p,
+  .details-warranty-card li {
+    font-size: 0.82rem;
+    line-height: 1.55;
+  }
+
+  .details-warranty-card li {
+    margin-bottom: 4px;
+  }
+}
+
+/* ============================================
+   RESPONSIVE — Small Mobile (max 480px)
+   ============================================ */
+@media (max-width: 480px) {
+  .details-page {
+    padding-top: 0;
+  }
+
+  /* Breadcrumb */
+  .details-breadcrumb {
+    font-size: 0.7rem;
+    gap: 4px;
+    padding: 7px 12px;
+    margin-top: 95px;
+  }
+
+  /* Container */
+  .details-container {
+    padding: 0 12px;
+    margin: 10px auto;
+  }
+
+  /* Gambar */
+  .details-main-image {
+    min-height: 180px;
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  .details-main-image img {
+    max-width: 180px;
+  }
+
+  /* Thumbnails */
   .details-thumbnail {
-    width: 50px;
-    height: 50px;
+    width: 46px;
+    height: 46px;
   }
 
   .details-thumbnail-nav {
+    width: 26px;
+    height: 26px;
+  }
+
+  /* Judul */
+  .details-info-section h1 {
+    font-size: 1.05rem;
+    line-height: 1.35;
+  }
+
+  /* Badge */
+  .details-brand-tag,
+  .details-type-tag {
+    padding: 4px 10px;
+    font-size: 0.72rem;
+  }
+
+  /* Deskripsi */
+  .details-description {
+    padding: 12px 13px;
+    border-radius: 8px;
+    border-left-width: 3px;
+  }
+
+  .details-description h3 {
+    font-size: 0.82rem;
+  }
+
+  .details-description p {
+    font-size: 0.78rem;
+    line-height: 1.55;
+  }
+
+  /* Tombol */
+  .details-contact-button {
+    padding: 9px 18px;
+    font-size: 0.82rem;
+    border-radius: 8px;
+    gap: 7px;
+  }
+
+  .details-contact-button svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  /* Tabs */
+  .details-tabs-container {
+    padding: 0 12px;
+    margin: 22px auto;
+  }
+
+  .details-tab {
+    padding: 8px 7px;
+    font-size: 0.7rem;
+  }
+
+  /* Spec rows */
+  .details-spec-row {
+    padding: 10px 12px;
+    gap: 10px;
+    border-radius: 8px;
+  }
+
+  .details-spec-icon {
     width: 32px;
     height: 32px;
+    border-radius: 7px;
+  }
+
+  .details-spec-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .details-spec-info strong {
+    font-size: 0.65rem;
+    letter-spacing: 0.3px;
+  }
+
+  .details-spec-info span {
+    font-size: 0.82rem;
+  }
+
+  /* Cards */
+  .details-service-card,
+  .details-warranty-card {
+    padding: 14px 15px;
+    border-radius: 10px;
+  }
+
+  .details-service-card h3,
+  .details-warranty-card h3 {
+    font-size: 0.88rem;
+  }
+
+  .details-service-card p,
+  .details-warranty-card li {
+    font-size: 0.78rem;
+    line-height: 1.5;
   }
 }

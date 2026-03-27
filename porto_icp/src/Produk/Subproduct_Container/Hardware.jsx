@@ -5,7 +5,7 @@ import SubProduk from "../SubProduct/Subproduk.jsx";
 import DetailProduk from "../SubProduct/DetailProduk.jsx";
 import hardwareData from "../hardware.json";
 
-// ─── SEO constants ───────────────────────────────────────────────────────────
+// ─── SEO constants ────────────────────────────────────────────────────────────
 const BASE_URL = "https://www.infoduta.com";
 const SITE_NAME = "Infoduta Computindo Perkasa";
 
@@ -19,8 +19,35 @@ const HARDWARE_SEO = {
   ogImage: `${BASE_URL}/og/hardware-catalog.jpg`,
 };
 
-// ─── JSON-LD: BreadcrumbList ──────────────────────────────────────────────────
-const breadcrumbJsonLd = {
+// ─── Helper: konversi path gambar lokal → URL publik ─────────────────────────
+const toPublicImageUrl = (imagePath) => {
+  if (!imagePath) return null;
+  const cleaned = imagePath.replace(/^\/src\//, "/");
+  return `${BASE_URL}${cleaned}`;
+};
+
+// ─── Helper: buat brand slug untuk URL ───────────────────────────────────────
+const toBrandSlug = (brand) => brand.replace(/\s+/g, "-");
+
+// ─── Helper: serialize JSON-LD ────────────────────────────────────────────────
+const toJsonLd = (obj) => JSON.stringify(obj);
+
+// ─── JSON-LD: Organization (dipakai di katalog & detail) ─────────────────────
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: SITE_NAME,
+  url: BASE_URL,
+  logo: `${BASE_URL}/logo.png`,
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "customer service",
+    availableLanguage: "Indonesian",
+  },
+};
+
+// ─── JSON-LD: BreadcrumbList (katalog) ───────────────────────────────────────
+const catalogBreadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
@@ -45,18 +72,9 @@ const breadcrumbJsonLd = {
   ],
 };
 
-// ─── Helper: konversi path gambar lokal → URL publik ─────────────────────────
-// "/src/assets/produk/hardware/dell/4.png" → "https://www.infoduta.com/assets/produk/hardware/dell/4.png"
-const toPublicImageUrl = (imagePath) => {
-  if (!imagePath) return null;
-  const cleaned = imagePath.replace(/^\/src\//, "/");
-  return `${BASE_URL}${cleaned}`;
-};
-
-// ─── Helper: buat brand slug untuk URL (sama seperti di SubProduk) ─────────
-const toBrandSlug = (brand) => brand.replace(/\s+/g, "-");
-
-// ─── JSON-LD: ItemList (katalog hardware) — dibangun dari hardware.json ───────
+// ─── JSON-LD: ItemList katalog — hanya ListItem + URL, tanpa offers/harga ─────
+// Google akan crawl tiap URL ini secara individual untuk ambil data Product
+// dari halaman detail masing-masing. Ini cara paling aman dan bebas error GSC.
 const hardwareCatalogJsonLd = {
   "@context": "https://schema.org",
   "@type": "ItemList",
@@ -67,46 +85,13 @@ const hardwareCatalogJsonLd = {
   itemListElement: hardwareData.map((product, index) => ({
     "@type": "ListItem",
     position: index + 1,
-    item: {
-      "@type": "Product",
-      "@id": `${BASE_URL}/produk/hardware/${toBrandSlug(product.brand)}/${product.id}`,
-      name: product.name,
-      description: product.description || "",
-      brand: {
-        "@type": "Brand",
-        name: product.brand,
-      },
-      category: product.type || "Hardware",
-      url: `${BASE_URL}/produk/hardware/${toBrandSlug(product.brand)}/${product.id}`,
-      ...(product.images && {
-        image: toPublicImageUrl(product.images),
-      }),
-      offers: {
-        "@type": "Offer",
-        priceCurrency: "IDR",
-        availability: "https://schema.org/InStock",
-        seller: { "@type": "Organization", name: SITE_NAME },
-      },
-    },
+    name: product.name,
+    url: `${BASE_URL}/produk/hardware/${toBrandSlug(product.brand)}/${product.id}`,
   })),
 };
 
-// ─── JSON-LD: Organization ────────────────────────────────────────────────────
-const organizationJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: SITE_NAME,
-  url: BASE_URL,
-  logo: `${BASE_URL}/logo.png`,
-  contactPoint: {
-    "@type": "ContactPoint",
-    contactType: "customer service",
-    availableLanguage: "Indonesian",
-  },
-};
-
-// ─── JSON-LD: WebPage ─────────────────────────────────────────────────────────
-const webPageJsonLd = {
+// ─── JSON-LD: WebPage katalog ─────────────────────────────────────────────────
+const catalogWebPageJsonLd = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   name: HARDWARE_SEO.title,
@@ -118,13 +103,10 @@ const webPageJsonLd = {
     name: SITE_NAME,
     url: BASE_URL,
   },
-  breadcrumb: breadcrumbJsonLd,
+  breadcrumb: catalogBreadcrumbJsonLd,
 };
 
-// ─── Helper: serialize JSON-LD ────────────────────────────────────────────────
-const toJsonLd = (obj) => JSON.stringify(obj);
-
-// ─── Helmet untuk halaman katalog ─────────────────────────────────────────────
+// ─── Helmet: halaman katalog ──────────────────────────────────────────────────
 const HardwareCatalogHelmet = () => (
   <Helmet>
     <html lang="id" />
@@ -150,27 +132,25 @@ const HardwareCatalogHelmet = () => (
     <meta name="twitter:image" content={HARDWARE_SEO.ogImage} />
 
     {/* JSON-LD Structured Data */}
-    <script type="application/ld+json">{toJsonLd(webPageJsonLd)}</script>
-    <script type="application/ld+json">{toJsonLd(breadcrumbJsonLd)}</script>
-    <script type="application/ld+json">
-      {toJsonLd(hardwareCatalogJsonLd)}
-    </script>
+    <script type="application/ld+json">{toJsonLd(catalogWebPageJsonLd)}</script>
+    <script type="application/ld+json">{toJsonLd(catalogBreadcrumbJsonLd)}</script>
+    <script type="application/ld+json">{toJsonLd(hardwareCatalogJsonLd)}</script>
     <script type="application/ld+json">{toJsonLd(organizationJsonLd)}</script>
   </Helmet>
 );
 
-// ─── Helmet untuk halaman detail produk ───────────────────────────────────────
+// ─── Helmet: halaman detail produk ───────────────────────────────────────────
 const HardwareDetailHelmet = ({ brand, id }) => {
   const brandDecoded = decodeURIComponent(brand).replace(/-/g, " ");
   const detailUrl = `${BASE_URL}/produk/hardware/${brand}/${id}`;
 
-  // Cari data produk nyata dari hardware.json berdasarkan id
+  // Ambil data produk dari hardware.json berdasarkan id
   const product = hardwareData.find((p) => String(p.id) === String(id));
 
   const productName = product?.name || `Hardware ${brandDecoded}`;
   const productDesc =
     product?.description ||
-    `Spesifikasi dan harga hardware ${brandDecoded} — temukan detail lengkap produk ini di katalog Infoduta Computindo Perkasa.`;
+    `Spesifikasi dan detail hardware ${brandDecoded} — temukan informasi lengkap produk ini di katalog Infoduta Computindo Perkasa.`;
   const productType = product?.type || "Hardware";
   const productImage = product?.images
     ? toPublicImageUrl(product.images)
@@ -178,24 +158,8 @@ const HardwareDetailHelmet = ({ brand, id }) => {
 
   const detailTitle = `${productName} | ${SITE_NAME}`;
 
-  const productJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    name: productName,
-    description: productDesc,
-    category: productType,
-    brand: { "@type": "Brand", name: brandDecoded },
-    url: detailUrl,
-    ...(productImage && { image: productImage }),
-    offers: {
-      "@type": "Offer",
-      priceCurrency: "IDR",
-      availability: "https://schema.org/InStock",
-      seller: { "@type": "Organization", name: SITE_NAME },
-    },
-  };
-
-  const detailBreadcrumb = {
+  // ── Breadcrumb detail ───────────────────────────────────────────────────────
+  const detailBreadcrumbJsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
@@ -219,6 +183,35 @@ const HardwareDetailHelmet = ({ brand, id }) => {
         item: detailUrl,
       },
     ],
+  };
+
+  // ── Product JSON-LD — tanpa offers/harga, ganti potentialAction ─────────────
+  // Menggunakan "CommunicateAction" sebagai sinyal bahwa produk tersedia
+  // untuk ditanyakan/dipesan, tanpa mensyaratkan harga dari schema.org
+  const productJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: productName,
+    description: productDesc,
+    category: productType,
+    brand: { "@type": "Brand", name: brandDecoded },
+    url: detailUrl,
+    ...(productImage && { image: productImage }),
+
+    // potentialAction menggantikan offers — tidak butuh harga,
+    // tapi tetap memberi sinyal ke Google bahwa produk bisa dihubungi/dipesan
+    potentialAction: {
+      "@type": "CommunicateAction",
+      name: "Hubungi untuk Informasi Harga",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: `${BASE_URL}/kontak?produk=${encodeURIComponent(productName)}`,
+        actionPlatform: [
+          "http://schema.org/DesktopWebPlatform",
+          "http://schema.org/MobileWebPlatform",
+        ],
+      },
+    },
   };
 
   return (
@@ -246,7 +239,7 @@ const HardwareDetailHelmet = ({ brand, id }) => {
 
       {/* JSON-LD Structured Data */}
       <script type="application/ld+json">{toJsonLd(productJsonLd)}</script>
-      <script type="application/ld+json">{toJsonLd(detailBreadcrumb)}</script>
+      <script type="application/ld+json">{toJsonLd(detailBreadcrumbJsonLd)}</script>
       <script type="application/ld+json">{toJsonLd(organizationJsonLd)}</script>
     </Helmet>
   );

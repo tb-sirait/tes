@@ -1063,7 +1063,7 @@ export default function Produk() {
                   className="produk-product-close-button"
                   onClick={closeModal}
                 >
-                  <X style={{ fontSize: "20px" }} />
+                  <X style={{ fontSize: "40px" }} />
                 </button>
               )}
             </div>
