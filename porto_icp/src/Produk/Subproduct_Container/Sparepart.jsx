@@ -135,8 +135,12 @@ const SparepartCatalogHelmet = () => (
 
     {/* JSON-LD Structured Data */}
     <script type="application/ld+json">{toJsonLd(catalogWebPageJsonLd)}</script>
-    <script type="application/ld+json">{toJsonLd(catalogBreadcrumbJsonLd)}</script>
-    <script type="application/ld+json">{toJsonLd(sparepartCatalogJsonLd)}</script>
+    <script type="application/ld+json">
+      {toJsonLd(catalogBreadcrumbJsonLd)}
+    </script>
+    <script type="application/ld+json">
+      {toJsonLd(sparepartCatalogJsonLd)}
+    </script>
     <script type="application/ld+json">{toJsonLd(organizationJsonLd)}</script>
   </Helmet>
 );
@@ -241,7 +245,9 @@ const SparepartDetailHelmet = ({ brand, id }) => {
 
       {/* JSON-LD Structured Data */}
       <script type="application/ld+json">{toJsonLd(productJsonLd)}</script>
-      <script type="application/ld+json">{toJsonLd(detailBreadcrumbJsonLd)}</script>
+      <script type="application/ld+json">
+        {toJsonLd(detailBreadcrumbJsonLd)}
+      </script>
       <script type="application/ld+json">{toJsonLd(organizationJsonLd)}</script>
     </Helmet>
   );

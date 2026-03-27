@@ -138,7 +138,9 @@ const LaptopCatalogHelmet = () => (
 
     {/* JSON-LD Structured Data */}
     <script type="application/ld+json">{toJsonLd(catalogWebPageJsonLd)}</script>
-    <script type="application/ld+json">{toJsonLd(catalogBreadcrumbJsonLd)}</script>
+    <script type="application/ld+json">
+      {toJsonLd(catalogBreadcrumbJsonLd)}
+    </script>
     <script type="application/ld+json">{toJsonLd(laptopCatalogJsonLd)}</script>
     <script type="application/ld+json">{toJsonLd(organizationJsonLd)}</script>
   </Helmet>
@@ -151,8 +153,7 @@ const LaptopDetailHelmet = ({ brand, id }) => {
 
   // Ambil data produk dari produk.json berdasarkan id & jenis laptop
   const product = produkData.find(
-    (p) =>
-      String(p.id) === String(id) && p.jenis?.toLowerCase() === "laptop",
+    (p) => String(p.id) === String(id) && p.jenis?.toLowerCase() === "laptop",
   );
 
   const productName = product?.name || `Laptop ${brandDecoded}`;
@@ -272,7 +273,9 @@ const LaptopDetailHelmet = ({ brand, id }) => {
 
       {/* JSON-LD Structured Data */}
       <script type="application/ld+json">{toJsonLd(productJsonLd)}</script>
-      <script type="application/ld+json">{toJsonLd(detailBreadcrumbJsonLd)}</script>
+      <script type="application/ld+json">
+        {toJsonLd(detailBreadcrumbJsonLd)}
+      </script>
       <script type="application/ld+json">{toJsonLd(organizationJsonLd)}</script>
     </Helmet>
   );

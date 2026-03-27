@@ -138,8 +138,12 @@ const SmartphoneCatalogHelmet = () => (
 
     {/* JSON-LD Structured Data */}
     <script type="application/ld+json">{toJsonLd(catalogWebPageJsonLd)}</script>
-    <script type="application/ld+json">{toJsonLd(catalogBreadcrumbJsonLd)}</script>
-    <script type="application/ld+json">{toJsonLd(smartphoneCatalogJsonLd)}</script>
+    <script type="application/ld+json">
+      {toJsonLd(catalogBreadcrumbJsonLd)}
+    </script>
+    <script type="application/ld+json">
+      {toJsonLd(smartphoneCatalogJsonLd)}
+    </script>
     <script type="application/ld+json">{toJsonLd(organizationJsonLd)}</script>
   </Helmet>
 );
@@ -287,7 +291,9 @@ const SmartphoneDetailHelmet = ({ brand, id }) => {
 
       {/* JSON-LD Structured Data */}
       <script type="application/ld+json">{toJsonLd(productJsonLd)}</script>
-      <script type="application/ld+json">{toJsonLd(detailBreadcrumbJsonLd)}</script>
+      <script type="application/ld+json">
+        {toJsonLd(detailBreadcrumbJsonLd)}
+      </script>
       <script type="application/ld+json">{toJsonLd(organizationJsonLd)}</script>
     </Helmet>
   );
