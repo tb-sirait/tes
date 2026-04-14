@@ -127,15 +127,15 @@ function Homepage() {
       image: AboutImage,
       route: "/tentang",
       description:
-        "PT Infoduta Computindo Perkasa adalah perusahaan B2B (Business to Business) yang bergerak di bidang Teknologi Informasi (IT), yang menyediakan layanan pengadaan serta penyewaan produk IT (hardware, software, dan produk pendukung lainnya).",
+        "PT Infoduta Computindo Perkasa adalah perusahaan B2B pengadaan produk IT terpercaya di Jakarta Pusat & Jabodetabek, melayani pengadaan hardware, software, server, laptop, komputer, dan sewa perangkat IT untuk kebutuhan bisnis.",
     },
     {
       id: "layanan",
-      title: "Layanan Kami",
+      title: "Layanan Pengadaan IT Kami",
       image: ServicesImage,
       route: "/layanan",
       description:
-        "Kami menyediakan berbagai produk IT berkualitas dari merek-merek ternama, serta layanan pemeliharaan dan dukungan teknis untuk memastikan sistem IT anda berjalan optimal.",
+        "Layanan pengadaan produk IT lengkap — komputer, laptop, server, printer, hardware, dan sparepart — serta jasa sewa perangkat IT dan dukungan teknis untuk bisnis Anda di Jabodetabek.",
     },
     {
       id: "produk",
@@ -143,7 +143,7 @@ function Homepage() {
       image: WorkstationImage,
       route: "/produk",
       description:
-        "Jelajahi berbagai produk IT berkualitas tinggi dari merek-merek ternama yang kami sediakan. Dari perangkat keras hingga perangkat lunak, Infoduta siap memenuhi kebutuhan teknologi informasi bisnis Anda. Kami juga menyediakan layanan pemeliharaan dan dukungan teknis untuk memastikan sistem IT anda berjalan optimal.",
+        "Jelajahi katalog pengadaan produk IT kami: komputer, laptop, server, sparepart, printer, dan hardware dari merek ternama. Tersedia layanan jual beli dan sewa perangkat IT untuk kebutuhan bisnis B2B.",
     },
   ];
 
@@ -151,31 +151,163 @@ function Homepage() {
     <div className="home-container">
       <Helmet>
         <title>
-          PT. Infoduta Computindo Perkasa | Solusi Pengadaan Produk IT terbaik
-          untuk Bisnis Anda
+          PT. Infoduta Computindo Perkasa | Pengadaan Produk IT B2B Terpercaya —
+          Hardware, Software, Server, Laptop, Komputer
         </title>
         <meta
           name="description"
-          content="Temukan solusi teknologi terdepan untuk mengembangkan bisnis Anda bersama PT Infoduta Computindo Perkasa. Jelajahi produk dan layanan kami sekarang!"
+          content="PT Infoduta Computindo Perkasa adalah perusahaan pengadaan produk IT B2B terpercaya di Jakarta Pusat & Jabodetabek. Melayani pengadaan komputer, laptop, server, printer, hardware, sparepart, dan sewa alat IT untuk bisnis Anda."
         />
         <meta
           name="keywords"
-          content="Infoduta, Infoduta Computindo Perkasa, Software, Hardware, Solusi IT, Produk IT, Layanan IT, Teknologi Bisnis, Infrastruktur IT, Perangkat Lunak, Perangkat Keras, Solusi Teknologi, Transformasi Digital"
+          content="pengadaan produk IT, pengadaan komputer, pengadaan laptop, pengadaan server, pengadaan printer, pengadaan hardware, pengadaan sparepart, pengadaan IT B2B, jual beli IT, sewa perangkat IT, perusahaan IT Jakarta, pengadaan IT Jabodetabek, pengadaan IT Jakarta Pusat, PT Infoduta Computindo Perkasa, hi-tech solution hardware software service rental"
         />
         <meta name="author" content="PT Infoduta Computindo Perkasa" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://infoduta.com/" />
+
+        {/* Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Infoduta Computindo Perkasa" />
         <meta
           property="og:title"
-          content="Infoduta Computindo Perkasa | Solusi Software & Hardware Pilihan Anda"
+          content="PT. Infoduta Computindo Perkasa | Pengadaan Produk IT B2B — Hardware, Software, Server, Laptop"
         />
         <meta
           property="og:description"
-          content="PT Infoduta Computindo Perkasa menyediakan solusi IT terbaik dengan produk software dan hardware berkualitas tinggi. Temukan layanan unggulan kami untuk mendukung kebutuhan bisnis Anda."
+          content="Perusahaan pengadaan produk IT B2B terpercaya di Jakarta Pusat & Jabodetabek. Melayani pengadaan komputer, laptop, server, printer, sparepart, dan sewa alat IT."
         />
-        <meta property="og:image" content="/api/og-image/homepage" />
+        <meta
+          property="og:image"
+          content="https://infoduta.com/og/homepage.jpg"
+        />
         <meta property="og:url" content="https://infoduta.com/" />
-        <link rel="canonical" href="https://infoduta.com/" />
-        <meta property="og:site_name" content="Infoduta Computindo Perkasa" />
-        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="id_ID" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="PT. Infoduta Computindo Perkasa | Pengadaan Produk IT B2B"
+        />
+        <meta
+          name="twitter:description"
+          content="Perusahaan pengadaan produk IT B2B — komputer, laptop, server, hardware, sparepart & sewa IT di Jakarta Pusat & Jabodetabek."
+        />
+        <meta
+          name="twitter:image"
+          content="https://infoduta.com/og/homepage.jpg"
+        />
+
+        {/* JSON-LD: Organization */}
+        <script type="application/ld+json">{`
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "PT Infoduta Computindo Perkasa",
+      "alternateName": "Infoduta",
+      "description": "Perusahaan B2B pengadaan produk IT — hardware, software, server, laptop, komputer, sparepart, printer, dan layanan sewa perangkat IT di Jakarta Pusat & Jabodetabek.",
+      "url": "https://infoduta.com",
+      "logo": "https://infoduta.com/logo.png",
+      "foundingLocation": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Jakarta Pusat",
+          "addressRegion": "DKI Jakarta",
+          "addressCountry": "ID"
+        }
+      },
+      "areaServed": [
+        "Jakarta Pusat", "Jakarta", "Bogor", "Depok", "Tangerang", "Bekasi"
+      ],
+      "knowsAbout": [
+        "Pengadaan Komputer", "Pengadaan Laptop", "Pengadaan Server",
+        "Pengadaan Printer", "Pengadaan Hardware", "Pengadaan Sparepart",
+        "Pengadaan Produk IT B2B", "Sewa Perangkat IT", "Jual Beli IT"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "availableLanguage": "Indonesian"
+      },
+      "sameAs": []
+    }
+  `}</script>
+
+        {/* JSON-LD: LocalBusiness (sangat penting untuk SEO lokal Jakarta) */}
+        <script type="application/ld+json">{`
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "PT Infoduta Computindo Perkasa",
+      "description": "Perusahaan pengadaan produk IT B2B di Jakarta Pusat. Menyediakan komputer, laptop, server, hardware, software, sparepart, printer, dan layanan sewa perangkat IT untuk kebutuhan bisnis.",
+      "url": "https://infoduta.com",
+      "logo": "https://infoduta.com/logo.png",
+      "image": "https://infoduta.com/og/homepage.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Jakarta Pusat",
+        "addressRegion": "DKI Jakarta",
+        "addressCountry": "ID"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -6.1862,
+        "longitude": 106.8310
+      },
+      "areaServed": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": -6.1862,
+          "longitude": 106.8310
+        },
+        "geoRadius": "50000"
+      },
+      "priceRange": "$$",
+      "currenciesAccepted": "IDR",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "08:00",
+        "closes": "17:00"
+      }
+    }
+  `}</script>
+
+        {/* JSON-LD: WebPage */}
+        <script type="application/ld+json">{`
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "PT. Infoduta Computindo Perkasa | Pengadaan Produk IT B2B",
+      "description": "Halaman utama PT Infoduta Computindo Perkasa — perusahaan pengadaan produk IT B2B terpercaya di Jakarta Pusat & Jabodetabek.",
+      "url": "https://infoduta.com/",
+      "inLanguage": "id-ID",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "Infoduta Computindo Perkasa",
+        "url": "https://infoduta.com"
+      },
+      "about": {
+        "@type": "Organization",
+        "name": "PT Infoduta Computindo Perkasa"
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Beranda",
+            "item": "https://infoduta.com/"
+          }
+        ]
+      }
+    }
+  `}</script>
+
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
@@ -237,12 +369,18 @@ function Homepage() {
               <br />
               Untuk Bisnis Anda
             </h2>
+            {/* Tambahkan hidden text untuk SEO tanpa merusak tampilan */}
+            <p className="sr-only">
+              Pengadaan komputer, laptop, server, printer, hardware, sparepart,
+              dan sewa perangkat IT untuk bisnis Anda di Jakarta Pusat, Jakarta,
+              Bogor, Depok, Tangerang, dan Bekasi.
+            </p>
             <button
               onClick={handleExploreClick}
               className="home-explore-button"
               aria-label="Jelajahi layanan kami"
             >
-              Jelajah Sekarang
+              Jelajahi Kami Sekarang
               <svg
                 fill="none"
                 stroke="currentColor"

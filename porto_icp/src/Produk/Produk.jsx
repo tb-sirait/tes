@@ -47,70 +47,70 @@ const CATEGORIES = [
 // ─── SEO config per kategori ──────────────────────────────────────────────────
 const CATEGORY_SEO = {
   software: {
-    title: `Produk Software Terbaik untuk Bisnis & Produktivitas | ${SITE_NAME}`,
+    title: `Pengadaan Software Bisnis — Microsoft, Windows, Adobe, AutoCAD | ${SITE_NAME}`,
     description:
-      "Temukan berbagai pilihan Software terbaik — Microsoft Office, Windows, Adobe, AutoCAD — dengan lisensi resmi dan harga kompetitif.",
+      "Layanan pengadaan software bisnis resmi berlisensi: Microsoft Office 365, Windows 11, Adobe, AutoCAD. PT Infoduta Computindo Perkasa, solusi pengadaan IT B2B di Jakarta Pusat & Jabodetabek.",
     keywords:
-      "software bisnis, Microsoft Office 365, Windows 11, Adobe, AutoCAD, lisensi resmi, Infoduta Computindo Perkasa",
+      "pengadaan software, software bisnis, Microsoft Office 365, Windows 11, Adobe, AutoCAD, lisensi resmi, pengadaan IT B2B, Infoduta Jakarta",
     canonicalUrl: `${BASE_URL}/produk/software`,
   },
   hardware: {
-    title: `Produk Hardware Terbaik untuk Bisnis & Kantor | ${SITE_NAME}`,
+    title: `Pengadaan Hardware & Printer untuk Bisnis | ${SITE_NAME}`,
     description:
-      "Temukan berbagai pilihan Hardware terbaik — printer, scanner, networking, UPS, proyektor — dengan harga kompetitif.",
+      "Layanan pengadaan hardware bisnis: printer, scanner, networking, UPS, proyektor. PT Infoduta Computindo Perkasa melayani pengadaan hardware IT B2B di Jakarta Pusat & Jabodetabek.",
     keywords:
-      "hardware komputer, printer bisnis, scanner kantor, networking, UPS, proyektor, Infoduta Computindo Perkasa",
+      "pengadaan hardware, pengadaan printer, printer bisnis, scanner kantor, networking, UPS, proyektor, pengadaan IT B2B, Infoduta Jakarta",
     canonicalUrl: `${BASE_URL}/produk/hardware`,
   },
   server: {
-    title: `Produk Server Terbaik untuk Bisnis & Enterprise | ${SITE_NAME}`,
+    title: `Pengadaan Server Bisnis & Enterprise — Dell, HP, Lenovo | ${SITE_NAME}`,
     description:
-      "Temukan berbagai pilihan Server terbaik — rack server, tower server, blade server — dari brand terpercaya Dell, HP, dan Lenovo.",
+      "Layanan pengadaan server bisnis dan enterprise: rack server, tower server, blade server dari Dell, HP, Lenovo. PT Infoduta Computindo Perkasa, pengadaan IT B2B Jakarta Pusat & Jabodetabek.",
     keywords:
-      "server bisnis, rack server, tower server, Dell server, HP server, Lenovo server, Infoduta Computindo Perkasa",
+      "pengadaan server, server bisnis, rack server, tower server, Dell server, HP server, Lenovo server, pengadaan IT B2B, Infoduta Jakarta",
     canonicalUrl: `${BASE_URL}/produk/server`,
   },
   computer: {
-    title: `Produk Computer & PC Terbaik untuk Bisnis | ${SITE_NAME}`,
+    title: `Pengadaan Komputer & PC untuk Bisnis — Desktop, Workstation | ${SITE_NAME}`,
     description:
-      "Temukan berbagai pilihan PC dan Desktop terbaik — komputer bisnis, workstation, all-in-one — dengan harga kompetitif.",
+      "Layanan pengadaan komputer dan PC bisnis: desktop, workstation, all-in-one. PT Infoduta Computindo Perkasa melayani pengadaan komputer B2B di Jakarta Pusat & Jabodetabek.",
     keywords:
-      "computer bisnis, PC desktop, komputer kantor, workstation, all-in-one PC, Infoduta Computindo Perkasa",
+      "pengadaan komputer, pengadaan PC, komputer bisnis, desktop kantor, workstation, all-in-one PC, pengadaan IT B2B, Infoduta Jakarta",
     canonicalUrl: `${BASE_URL}/produk/computer`,
   },
   laptop: {
-    title: `Produk Laptop Terbaik untuk Bisnis & Gaming | ${SITE_NAME}`,
+    title: `Pengadaan Laptop Bisnis & Gaming — HP, Dell, Lenovo | ${SITE_NAME}`,
     description:
-      "Temukan berbagai pilihan Laptop terbaik — laptop bisnis, gaming, ultrabook — dengan harga kompetitif.",
+      "Layanan pengadaan laptop bisnis, gaming, dan ultrabook dari merek HP, Dell, Lenovo. PT Infoduta Computindo Perkasa, solusi pengadaan laptop B2B di Jakarta Pusat & Jabodetabek.",
     keywords:
-      "laptop bisnis, laptop gaming, ultrabook, laptop HP, laptop Dell, laptop Lenovo, Infoduta Computindo Perkasa",
+      "pengadaan laptop, laptop bisnis, laptop gaming, ultrabook, laptop HP, laptop Dell, laptop Lenovo, pengadaan IT B2B, Infoduta Jakarta",
     canonicalUrl: `${BASE_URL}/produk/laptop`,
   },
   sparepart: {
-    title: `Produk Sparepart Komputer Terbaik & Terlengkap | ${SITE_NAME}`,
+    title: `Pengadaan Sparepart Komputer, Laptop & Server — SSD, RAM, HDD | ${SITE_NAME}`,
     description:
-      "Temukan berbagai pilihan Sparepart komputer — SSD, RAM, HDD, processor, VGA, motherboard — dengan kualitas terjamin.",
+      "Layanan pengadaan sparepart komputer, laptop, dan server: SSD, RAM, HDD, processor, VGA, motherboard. PT Infoduta Computindo Perkasa, pengadaan sparepart IT B2B Jakarta Pusat & Jabodetabek.",
     keywords:
-      "sparepart komputer, SSD, RAM laptop, HDD, processor Intel, processor AMD, VGA card, Infoduta Computindo Perkasa",
+      "pengadaan sparepart, sparepart komputer, sparepart laptop, sparepart server, SSD, RAM, HDD, processor Intel, VGA card, pengadaan IT B2B, Infoduta Jakarta",
     canonicalUrl: `${BASE_URL}/produk/sparepart`,
   },
   smartphone: {
-    title: `Produk Smartphone Terbaik untuk Bisnis & Personal | ${SITE_NAME}`,
+    title: `Pengadaan Smartphone Bisnis — iPhone, Samsung & Lainnya | ${SITE_NAME}`,
     description:
-      "Temukan berbagai pilihan Smartphone terbaik — iPhone, Samsung, dan brand terpercaya — dengan harga kompetitif.",
+      "Layanan pengadaan smartphone bisnis dan personal: iPhone, Samsung, dan brand terpercaya lainnya. PT Infoduta Computindo Perkasa, pengadaan IT B2B di Jakarta Pusat & Jabodetabek.",
     keywords:
-      "smartphone bisnis, iPhone, Samsung Galaxy, mobile phone kantor, Infoduta Computindo Perkasa",
+      "pengadaan smartphone, smartphone bisnis, iPhone, Samsung Galaxy, mobile phone kantor, pengadaan IT B2B, Infoduta Jakarta",
     canonicalUrl: `${BASE_URL}/produk/smartphone`,
   },
 };
 
 // ─── Default SEO (halaman /produk tanpa kategori) ─────────────────────────────
 const DEFAULT_SEO = {
-  title: `Produk IT Terlengkap — Komputer, Laptop, Server, Software | ${SITE_NAME}`,
+  title: `Pengadaan Produk IT B2B — Komputer, Laptop, Server, Hardware, Sparepart | ${SITE_NAME}`,
   description:
-    "Temukan berbagai pilihan produk IT terlengkap — Komputer, Laptop, Smartphone, Server, Hardware, Software, dan Sparepart — dengan kualitas terbaik dan harga kompetitif di Infoduta Computindo Perkasa.",
+    "PT Infoduta Computindo Perkasa melayani pengadaan produk IT B2B di Jakarta Pusat & Jabodetabek — komputer, laptop, server, printer, hardware, sparepart, software, dan sewa perangkat IT untuk kebutuhan bisnis Anda.",
   keywords:
-    "produk IT, komputer, laptop, smartphone, server, hardware, software, sparepart, perangkat keras, perangkat lunak, teknologi informasi, solusi bisnis IT, Infoduta Computindo Perkasa",
+    "pengadaan produk IT, pengadaan komputer, pengadaan laptop, pengadaan server, pengadaan printer, pengadaan hardware, pengadaan sparepart, pengadaan IT B2B, sewa perangkat IT, jual beli IT, perusahaan IT Jakarta Pusat, pengadaan IT Jabodetabek, PT Infoduta Computindo Perkasa",
   canonicalUrl: `${BASE_URL}/produk`,
 };
 
@@ -299,6 +299,31 @@ const ProdukHelmet = ({ category, selectedProduct }) => {
         <script type="application/ld+json">{toJsonLd(detailBreadcrumb)}</script>
         <script type="application/ld+json">
           {toJsonLd(organizationJsonLd)}
+        </script>
+
+        {/* JSON-LD: Service — untuk menjelaskan ke Google bahwa ini layanan pengadaan */}
+        <script type="application/ld+json">
+          {toJsonLd({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: `Pengadaan ${CATEGORIES.find((c) => c.path === category)?.name || "Produk IT"} B2B`,
+            description: seo.description,
+            provider: {
+              "@type": "Organization",
+              name: SITE_NAME,
+              url: BASE_URL,
+            },
+            areaServed: [
+              "Jakarta Pusat",
+              "Jakarta",
+              "Bogor",
+              "Depok",
+              "Tangerang",
+              "Bekasi",
+            ],
+            serviceType: "Pengadaan Produk IT",
+            url: seo.canonicalUrl,
+          })}
         </script>
       </Helmet>
     );
