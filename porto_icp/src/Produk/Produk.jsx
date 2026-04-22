@@ -31,7 +31,8 @@ import { MemoryStick, Gpu, Cpu, AppWindow, HardDrive, X } from "lucide-react";
 
 // ─── SEO constants ────────────────────────────────────────────────────────────
 const BASE_URL = "https://www.infoduta.com";
-const SITE_NAME = "Infoduta Computindo Perkasa";
+const SITE_NAME =
+  "PT. Infoduta Computindo Perkasa | Hi-Tech Recommendation for Hardware-Software-Service-Rental";
 
 // ─── Static data ──────────────────────────────────────────────────────────────
 const CATEGORIES = [
@@ -161,6 +162,10 @@ const websiteJsonLd = {
 // ─── Helmet Component ─────────────────────────────────────────────────────────
 const ProdukHelmet = ({ category, selectedProduct }) => {
   // ── Halaman Detail Produk (modal open) ──
+
+  // ── Halaman Kategori (/produk/:category) atau halaman utama (/produk) ──
+  const seo = CATEGORY_SEO[category] || DEFAULT_SEO;
+
   if (selectedProduct) {
     const detailUrl = `${BASE_URL}/produk/${selectedProduct.jenis?.toLowerCase()}/${toBrandSlug(selectedProduct.brand)}/${selectedProduct.id}`;
     const productImage = selectedProduct.images?.[0]
@@ -328,9 +333,6 @@ const ProdukHelmet = ({ category, selectedProduct }) => {
       </Helmet>
     );
   }
-
-  // ── Halaman Kategori (/produk/:category) atau halaman utama (/produk) ──
-  const seo = CATEGORY_SEO[category] || DEFAULT_SEO;
 
   const breadcrumbItems = [
     { "@type": "ListItem", position: 1, name: "Beranda", item: BASE_URL },

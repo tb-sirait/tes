@@ -1,0 +1,554 @@
+[
+  {
+    "id": "greeting",
+    "keywords": [
+      "hai",
+      "hello",
+      "hi",
+      "halo",
+      "hallo",
+      "helo",
+      "selamat pagi",
+      "selamat siang",
+      "selamat sore",
+      "selamat malam",
+      "good morning",
+      "good afternoon",
+      "good evening",
+      "assalamualaikum",
+      "permisi",
+      "hey"
+    ],
+    "response": "Hai-hai halo, sobat Duta! Selamat datang di Website Infoduta. Ada yang bisa saya bantu hari ini? 😊"
+  },
+  {
+    "id": "thanks",
+    "keywords": [
+      "terima kasih",
+      "terimakasih",
+      "thank",
+      "makasih",
+      "thank you",
+      "thanks",
+      "thx",
+      "tengkyu",
+      "tq"
+    ],
+    "response": "Terima kasih kembali! Kami sangat menghargai Anda. Jika ada keperluan tambahan, silakan hubungi kami.",
+    "links": [
+      {
+        "label": "Hubungi Kami via WhatsApp",
+        "url": "https://wa.me/6285545031039",
+        "color": "#25D366",
+        "external": true
+      }
+    ]
+  },
+  {
+    "id": "inquiry",
+    "keywords": [
+      "tanya",
+      "diskusi",
+      "menanyakan",
+      "konsultasi",
+      "bertanya",
+      "ingin tahu",
+      "minta info",
+      "tanyakan",
+      "nanya"
+    ],
+    "response": "Silakan tanyakan langsung kepada tim kami melalui WhatsApp:",
+    "links": [
+      {
+        "label": "Chat via WhatsApp",
+        "url": "https://wa.me/6285545031039",
+        "color": "#25D366",
+        "external": true
+      }
+    ]
+  },
+  {
+    "id": "software",
+    "keywords": [
+      "software",
+      "perangkat lunak",
+      "aplikasi",
+      "app",
+      "program",
+      "sistem operasi",
+      "lisensi",
+      "antivirus",
+      "office",
+      "microsoft"
+    ],
+    "response": "Kami menyediakan berbagai produk software berlisensi resmi. Cek selengkapnya di sini:",
+    "links": [
+      {
+        "label": "Halaman Software",
+        "url": "/produk/software",
+        "color": "#2575fc",
+        "external": false
+      }
+    ]
+  },
+  {
+    "id": "hardware",
+    "keywords": [
+      "hardware",
+      "perangkat keras",
+      "printer",
+      "scanner",
+      "monitor",
+      "keyboard",
+      "mouse",
+      "proyektor",
+      "router",
+      "switch",
+      "access point",
+      "ups"
+    ],
+    "response": "Kami menyediakan berbagai produk hardware berkualitas. Cek selengkapnya di sini:",
+    "links": [
+      {
+        "label": "Halaman Hardware",
+        "url": "/produk/hardware",
+        "color": "#2575fc",
+        "external": false
+      }
+    ]
+  },
+  {
+    "id": "laptop",
+    "keywords": [
+      "laptop",
+      "notebook",
+      "macbook",
+      "ultrabook",
+      "gaming laptop",
+      "laptop kerja",
+      "laptop bisnis"
+    ],
+    "response": "Kami menyediakan berbagai pilihan laptop untuk kebutuhan Anda. Cek selengkapnya di sini:",
+    "links": [
+      {
+        "label": "Halaman Laptop",
+        "url": "/produk/laptop",
+        "color": "#2575fc",
+        "external": false
+      }
+    ]
+  },
+  {
+    "id": "smartphone",
+    "keywords": [
+      "smartphone",
+      "handphone",
+      "hp",
+      "ponsel",
+      "iphone",
+      "android",
+      "tablet",
+      "gadget",
+      "mobile"
+    ],
+    "response": "Kami menyediakan berbagai smartphone dan perangkat mobile. Cek selengkapnya di sini:",
+    "links": [
+      {
+        "label": "Halaman Smartphone",
+        "url": "/produk/smartphone",
+        "color": "#2575fc",
+        "external": false
+      }
+    ]
+  },
+  {
+    "id": "computer",
+    "keywords": [
+      "computer",
+      "komputer",
+      "pc",
+      "desktop",
+      "all in one",
+      "workstation",
+      "imac"
+    ],
+    "response": "Kami menyediakan berbagai komputer desktop dan workstation. Cek selengkapnya di sini:",
+    "links": [
+      {
+        "label": "Halaman Komputer",
+        "url": "/produk/computer",
+        "color": "#2575fc",
+        "external": false
+      }
+    ]
+  },
+  {
+    "id": "server",
+    "keywords": [
+      "server",
+      "rack server",
+      "tower server",
+      "blade server",
+      "nas",
+      "storage",
+      "data center",
+      "cloud server",
+      "hosting"
+    ],
+    "response": "Kami menyediakan solusi server dan infrastruktur IT. Cek selengkapnya di sini:",
+    "links": [
+      {
+        "label": "Halaman Server",
+        "url": "/produk/server",
+        "color": "#2575fc",
+        "external": false
+      }
+    ]
+  },
+  {
+    "id": "sparepart",
+    "keywords": [
+      "sparepart",
+      "part",
+      "aksesoris",
+      "spare part",
+      "komponen",
+      "onderdil",
+      "ram",
+      "ssd",
+      "harddisk",
+      "baterai",
+      "charger",
+      "kabel",
+      "adaptor"
+    ],
+    "response": "Kami menyediakan berbagai sparepart dan aksesoris IT. Cek selengkapnya di sini:",
+    "links": [
+      {
+        "label": "Halaman Sparepart",
+        "url": "/produk/sparepart",
+        "color": "#2575fc",
+        "external": false
+      }
+    ]
+  },
+  {
+    "id": "products",
+    "keywords": [
+      "produk",
+      "barang",
+      "item",
+      "perangkat",
+      "device",
+      "beli",
+      "order",
+      "pesan",
+      "harga",
+      "price",
+      "catalog",
+      "katalog",
+      "daftar produk"
+    ],
+    "response": "Kami menyediakan berbagai produk IT lengkap. Kamu bisa cek katalog kami atau hubungi tim kami langsung:",
+    "links": [
+      {
+        "label": "Halaman Produk",
+        "url": "/produk",
+        "color": "#2575fc",
+        "external": false
+      },
+      {
+        "label": "Tanya via WhatsApp",
+        "url": "https://wa.me/6285545031039",
+        "color": "#25D366",
+        "external": true
+      }
+    ]
+  },
+  {
+    "id": "services",
+    "keywords": [
+      "layanan",
+      "service",
+      "jasa",
+      "solusi",
+      "instalasi",
+      "maintenance",
+      "perbaikan",
+      "servis",
+      "support",
+      "implementasi",
+      "konsultasi it",
+      "it solution"
+    ],
+    "response": "Kami menyediakan berbagai layanan IT profesional. Cek selengkapnya di sini:",
+    "links": [
+      {
+        "label": "Halaman Layanan",
+        "url": "/layanan",
+        "color": "#2575fc",
+        "external": false
+      }
+    ]
+  },
+  {
+    "id": "contact",
+    "keywords": [
+      "kontak",
+      "info",
+      "telepon",
+      "email",
+      "hubungi",
+      "menghubungi",
+      "whatsapp",
+      "chat",
+      "sales",
+      "customer service",
+      "cs",
+      "alamat",
+      "address",
+      "lokasi",
+      "kantor",
+      "office",
+      "nomor",
+      "contact us"
+    ],
+    "response": "Silakan akses halaman berikut untuk mengetahui semua kontak yang kami sediakan:",
+    "links": [
+      {
+        "label": "Halaman Kontak Kami",
+        "url": "/telusuri-kami",
+        "color": "#2575fc",
+        "external": false
+      }
+    ]
+  },
+  {
+    "id": "about",
+    "keywords": [
+      "tentang",
+      "perusahaan",
+      "info perusahaan",
+      "profil",
+      "profile",
+      "about",
+      "siapa",
+      "infoduta",
+      "pt infoduta",
+      "visi",
+      "misi",
+      "sejarah"
+    ],
+    "response": "Kami adalah PT. Infoduta Cipta Persada, perusahaan yang bergerak di bidang penyediaan solusi IT terpercaya. Untuk informasi lebih lengkap:",
+    "links": [
+      {
+        "label": "Halaman Tentang Kami",
+        "url": "/tentang",
+        "color": "#2575fc",
+        "external": false
+      }
+    ]
+  },
+  {
+    "id": "career",
+    "keywords": [
+      "karir",
+      "lowongan",
+      "pekerjaan",
+      "rekrutmen",
+      "recruitment",
+      "career",
+      "kerja",
+      "hiring",
+      "magang",
+      "internship",
+      "lamaran",
+      "cv",
+      "resume",
+      "bergabung",
+      "join"
+    ],
+    "response": "Kami sering membuka kesempatan berkarir di perusahaan kami. Info lengkap tersedia di sini:",
+    "links": [
+      {
+        "label": "Halaman Karir",
+        "url": "/karir",
+        "color": "#2575fc",
+        "external": false
+      }
+    ]
+  },
+  {
+    "id": "recommendation",
+    "keywords": [
+      "rekomendasi",
+      "terbaik",
+      "rekomendasikan",
+      "saran",
+      "suggest",
+      "bagus",
+      "cocok",
+      "pilihan",
+      "recommend"
+    ],
+    "response": "Dengan senang hati kami akan membantu merekomendasikan produk yang tepat sesuai kebutuhan Anda! Silakan ceritakan kebutuhan proyek atau anggaran Anda kepada tim kami:",
+    "links": [
+      {
+        "label": "Konsultasi via WhatsApp",
+        "url": "https://wa.me/6285545031039",
+        "color": "#25D366",
+        "external": true
+      }
+    ]
+  },
+  {
+    "id": "promo",
+    "keywords": [
+      "promo",
+      "diskon",
+      "discount",
+      "sale",
+      "penawaran",
+      "murah",
+      "harga spesial",
+      "cashback",
+      "bundling",
+      "paket"
+    ],
+    "response": "Untuk informasi promo dan penawaran spesial terbaru, silakan hubungi tim sales kami atau kunjungi halaman produk kami:",
+    "links": [
+      {
+        "label": "Lihat Produk",
+        "url": "/produk",
+        "color": "#2575fc",
+        "external": false
+      },
+      {
+        "label": "Tanya Promo via WhatsApp",
+        "url": "https://wa.me/6285545031039",
+        "color": "#25D366",
+        "external": true
+      }
+    ]
+  },
+  {
+    "id": "payment",
+    "keywords": [
+      "bayar",
+      "pembayaran",
+      "payment",
+      "transfer",
+      "cicilan",
+      "kredit",
+      "invoice",
+      "tagihan",
+      "dp",
+      "uang muka",
+      "metode pembayaran"
+    ],
+    "response": "Untuk informasi metode pembayaran dan kemudahan cicilan, silakan hubungi tim kami langsung:",
+    "links": [
+      {
+        "label": "Hubungi Tim via WhatsApp",
+        "url": "https://wa.me/6285545031039",
+        "color": "#25D366",
+        "external": true
+      }
+    ]
+  },
+  {
+    "id": "delivery",
+    "keywords": [
+      "kirim",
+      "pengiriman",
+      "delivery",
+      "ongkir",
+      "ekspedisi",
+      "kurir",
+      "estimasi",
+      "tiba",
+      "sampai",
+      "shipping",
+      "jne",
+      "jnt",
+      "sicepat"
+    ],
+    "response": "Untuk informasi pengiriman dan estimasi sampai ke lokasi Anda, silakan hubungi tim kami:",
+    "links": [
+      {
+        "label": "Tanya Pengiriman via WhatsApp",
+        "url": "https://wa.me/6285545031039",
+        "color": "#25D366",
+        "external": true
+      }
+    ]
+  },
+  {
+    "id": "warranty",
+    "keywords": [
+      "garansi",
+      "warranty",
+      "rusak",
+      "kerusakan",
+      "klaim",
+      "claim",
+      "rma",
+      "pengembalian",
+      "return",
+      "refund",
+      "komplain",
+      "complain"
+    ],
+    "response": "Kami memberikan garansi resmi pada setiap produk yang kami jual. Untuk klaim garansi atau komplain produk, silakan hubungi tim support kami:",
+    "links": [
+      {
+        "label": "Hubungi Support via WhatsApp",
+        "url": "https://wa.me/6285545031039",
+        "color": "#25D366",
+        "external": true
+      },
+      {
+        "label": "Halaman Layanan",
+        "url": "/layanan",
+        "color": "#2575fc",
+        "external": false
+      }
+    ]
+  },
+  {
+    "id": "news",
+    "keywords": [
+      "berita",
+      "news",
+      "artikel",
+      "blog",
+      "update",
+      "terbaru",
+      "info terbaru",
+      "pengumuman",
+      "announcement"
+    ],
+    "response": "Untuk berita dan update terbaru seputar produk dan layanan kami, kamu bisa cek:",
+    "links": [
+      {
+        "label": "Halaman Berita",
+        "url": "/berita",
+        "color": "#2575fc",
+        "external": false
+      }
+    ]
+  },
+  {
+    "id": "default",
+    "keywords": [],
+    "response": "Terima kasih atas pesan Anda! Sepertinya saya belum memahami pertanyaan Anda. Coba gunakan kata kunci seperti: produk, layanan, kontak, karir, atau tentang kami. Atau hubungi langsung tim kami:",
+    "links": [
+      {
+        "label": "Chat via WhatsApp",
+        "url": "https://wa.me/6285545031039",
+        "color": "#25D366",
+        "external": true
+      }
+    ]
+  }
+]

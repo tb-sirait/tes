@@ -1,9 +1,56 @@
 import React, { useState, useEffect, useRef } from "react";
 import { X, MessageCircle, Send } from "lucide-react";
 import fotoBot from "../assets/foto-bot.png";
+import botResponses from "./chatbotResponses.json";
 
 import "./chatbot.css";
 
+// ─── Helper: cari respons yang cocok dari JSON ──────────────────────────────
+const findBotResponse = (input) => {
+  const lowerInput = input.toLowerCase();
+
+  // Cari rule pertama yang keyword-nya cocok dengan input
+  const matched = botResponses.find(
+    (rule) =>
+      rule.id !== "default" &&
+      rule.keywords.some((keyword) => lowerInput.includes(keyword)),
+  );
+
+  // Jika tidak ada yang cocok, gunakan respons default
+  return matched ?? botResponses.find((rule) => rule.id === "default");
+};
+
+// ─── Helper: render teks + link dari rule ──────────────────────────────────
+const renderBotMessage = (rule) => {
+  if (!rule.links || rule.links.length === 0) {
+    return <>{rule.response}</>;
+  }
+
+  return (
+    <>
+      {rule.response}{" "}
+      {rule.links.map((link, index) => (
+        <React.Fragment key={index}>
+          <a
+            href={link.url}
+            target={link.external ? "_blank" : "_self"}
+            rel={link.external ? "noopener noreferrer" : undefined}
+            style={{
+              color: link.color,
+              fontWeight: "bold",
+              textDecoration: "underline",
+            }}
+          >
+            {link.label}
+          </a>
+          {index < rule.links.length - 1 && " atau "}
+        </React.Fragment>
+      ))}
+    </>
+  );
+};
+
+// ─── Komponen utama ────────────────────────────────────────────────────────
 const ChatBot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
@@ -15,368 +62,40 @@ const ChatBot = () => {
   ]);
   const [inputMessage, setInputMessage] = useState("");
 
-  const messagesEndRef = useRef(null); // ref untuk scroll ke bawah
+  const messagesEndRef = useRef(null);
 
-  const toggleChat = () => {
-    setIsOpen(!isOpen);
-  };
+  const toggleChat = () => setIsOpen((prev) => !prev);
 
   const sendMessage = () => {
     if (inputMessage.trim() === "") return;
 
-    const newMessage = {
-      id: messages.length + 1,
+    const userMessage = {
+      id: Date.now(),
       text: inputMessage,
       sender: "user",
     };
 
-    setMessages([...messages, newMessage]);
+    setMessages((prev) => [...prev, userMessage]);
 
-    // Respon bot
+    // Cari & render respons bot
     setTimeout(() => {
-      let botText =
-        "Terima kasih atas pesan Anda! Mungkin Saya masih belum mengerti tentang pesan Anda. Dapatkah Anda mengirimi Ulang pesan Anda dengan kata-kata yang lebih mudah di mengerti?";
-
-      if (
-        inputMessage.toLowerCase().includes("tanya") ||
-        inputMessage.toLowerCase().includes("diskusi") ||
-        inputMessage.toLowerCase().includes("menanyakan")
-      ) {
-        botText = (
-          <>
-            Silakan tanyakan barang melalui{" "}
-            <a
-              href="https://wa.me/6285545031039"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                color: "#25D366",
-                fontWeight: "bold",
-                textDecoration: "underline",
-              }}
-            >
-              WhatsApp ini
-            </a>
-          </>
-        );
-      } else if (inputMessage.toLowerCase().includes("software")) {
-        botText = (
-          <>
-            Kamu bisa cek daftar software di{" "}
-            <a
-              href="/produk/software"
-              style={{
-                color: "#2575fc",
-                fontWeight: "bold",
-                textDecoration: "underline",
-              }}
-            >
-              halaman Software
-            </a>
-          </>
-        );
-      } else if (inputMessage.toLowerCase().includes("hardware")) {
-        botText = (
-          <>
-            Kamu bisa cek daftar hardware di{" "}
-            <a
-              href="/produk/hardware"
-              style={{
-                color: "#2575fc",
-                fontWeight: "bold",
-                textDecoration: "underline",
-              }}
-            >
-              halaman Hardware
-            </a>
-          </>
-        );
-      } else if (inputMessage.toLowerCase().includes("laptop")) {
-        botText = (
-          <>
-            Kamu bisa cek daftar laptop di{" "}
-            <a
-              href="/produk/laptop"
-              style={{
-                color: "#2575fc",
-                fontWeight: "bold",
-                textDecoration: "underline",
-              }}
-            >
-              halaman Laptop
-            </a>
-          </>
-        );
-      } else if (
-        inputMessage.toLowerCase().includes("smartphone") ||
-        inputMessage.toLowerCase().includes("handphone") ||
-        inputMessage.toLowerCase().includes("hp") ||
-        inputMessage.toLowerCase().includes("ponsel")
-      ) {
-        botText = (
-          <>
-            Kamu bisa cek daftar smartphone di{" "}
-            <a
-              href="/produk/smartphone"
-              style={{
-                color: "#2575fc",
-                fontWeight: "bold",
-                textDecoration: "underline",
-              }}
-            >
-              halaman Smartphone
-            </a>
-          </>
-        );
-      } else if (
-        inputMessage.toLowerCase().includes("computer") ||
-        inputMessage.toLowerCase().includes("komputer") ||
-        inputMessage.toLowerCase().includes("pc")
-      ) {
-        botText = (
-          <>
-            Kamu bisa cek daftar computer di{" "}
-            <a
-              href="/produk/computer"
-              style={{
-                color: "#2575fc",
-                fontWeight: "bold",
-                textDecoration: "underline",
-              }}
-            >
-              halaman Komputer
-            </a>
-          </>
-        );
-      } else if (inputMessage.toLowerCase().includes("server")) {
-        botText = (
-          <>
-            Kamu bisa cek daftar server di{" "}
-            <a
-              href="/produk/server"
-              style={{
-                color: "#2575fc",
-                fontWeight: "bold",
-                textDecoration: "underline",
-              }}
-            >
-              halaman Server
-            </a>
-          </>
-        );
-      } else if (
-        inputMessage.toLowerCase().includes("sparepart") ||
-        inputMessage.toLowerCase().includes("part") ||
-        inputMessage.toLowerCase().includes("aksesoris")
-      ) {
-        botText = (
-          <>
-            Kamu bisa cek daftar sparepart di{" "}
-            <a
-              href="/produk/sparepart"
-              style={{
-                color: "#2575fc",
-                fontWeight: "bold",
-                textDecoration: "underline",
-              }}
-            >
-              halaman Sparepart
-            </a>
-          </>
-        );
-      } else if (
-        inputMessage.toLowerCase().includes("produk") ||
-        inputMessage.toLowerCase().includes("barang") ||
-        inputMessage.toLowerCase().includes("item") ||
-        inputMessage.toLowerCase().includes("perangkat") ||
-        inputMessage.toLowerCase().includes("device")
-      ) {
-        botText = (
-          <>
-            Kami menyediakan berbagai produk IT, kamu bisa cek di{" "}
-            <a
-              href="/produk"
-              style={{
-                color: "#2575fc",
-                fontWeight: "bold",
-                textDecoration: "underline",
-              }}
-            >
-              halaman produk
-            </a>{" "}
-            atau kamu bisa tanyakan barang melalui{" "}
-            <a
-              href="https://wa.me/6285545031039"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ color: "#25D366", fontWeight: "bold" }}
-            >
-              WhatsApp ini
-            </a>
-          </>
-        );
-      } else if (inputMessage.toLowerCase().includes("layanan")) {
-        botText = (
-          <>
-            Kami menyediakan berbagai layanan IT, kamu bisa cek di{" "}
-            <a
-              href="/layanan"
-              style={{
-                color: "#2575fc",
-                fontWeight: "bold",
-                textDecoration: "underline",
-              }}
-            >
-              halaman layanan
-            </a>
-          </>
-        );
-      } else if (
-        inputMessage.toLowerCase().includes("kontak") ||
-        inputMessage.toLowerCase().includes("info") ||
-        inputMessage.toLowerCase().includes("telepon") ||
-        inputMessage.toLowerCase().includes("email") ||
-        inputMessage.toLowerCase().includes("hubungi") ||
-        inputMessage.toLowerCase().includes("menghubungi") ||
-        inputMessage.toLowerCase().includes("whatsapp") ||
-        inputMessage.toLowerCase().includes("chat") ||
-        inputMessage.toLowerCase().includes("sales") ||
-        inputMessage.toLowerCase().includes("customer service")
-      ) {
-        botText = (
-          <>
-            Silahkan akses halaman ini untuk mengetahui kontak-kontak yang kami
-            sediakan{" "}
-            <a
-              href="/telusuri-kami"
-              style={{
-                color: "#2575fc",
-                fontWeight: "bold",
-                textDecoration: "underline",
-              }}
-            >
-              di sini
-            </a>
-          </>
-        );
-      } else if (
-        inputMessage.toLowerCase().includes("tentang") ||
-        inputMessage.toLowerCase().includes("perusahaan") ||
-        inputMessage.toLowerCase().includes("info perusahaan") ||
-        inputMessage.toLowerCase().includes("profil") ||
-        inputMessage.toLowerCase().includes("profile") ||
-        inputMessage.toLowerCase().includes("about")
-      ) {
-        botText = (
-          <>
-            Kami adalah PT. Infoduta Cipta Persada, sebuah perusahaan yang
-            bergerak di bidang penyediaan solusi IT. Untuk informasi lebih
-            lengkap, silakan kunjungi{" "}
-            <a
-              href="/tentang"
-              style={{
-                color: "#2575fc",
-                fontWeight: "bold",
-                textDecoration: "underline",
-              }}
-            >
-              halaman tentang kami
-            </a>
-          </>
-        );
-      } else if (
-        inputMessage.toLowerCase().includes("karir") ||
-        inputMessage.toLowerCase().includes("lowongan") ||
-        inputMessage.toLowerCase().includes("pekerjaan") ||
-        inputMessage.toLowerCase().includes("rekrutmen") ||
-        inputMessage.toLowerCase().includes("recruitment") ||
-        inputMessage.toLowerCase().includes("career")
-      ) {
-        botText = (
-          <>
-            Kami sering membuka kesempatan berkarir di perusahaan kami. Untuk
-            informasi lebih lengkap, silakan kunjungi{" "}
-            <a
-              href="/karir"
-              style={{
-                color: "#2575fc",
-                fontWeight: "bold",
-                textDecoration: "underline",
-              }}
-            >
-              halaman karir
-            </a>
-          </>
-        );
-      } else if (
-        inputMessage.toLowerCase().includes("hai") ||
-        inputMessage.toLowerCase().includes("hello") ||
-        inputMessage.toLowerCase().includes("hi") ||
-        inputMessage.toLowerCase().includes("halo") ||
-        inputMessage.toLowerCase().includes("hallo") ||
-        inputMessage.toLowerCase().includes("helo")
-      ) {
-        botText = (
-          <>
-            Hai-hai halo, sobat Duta. Selamat datang di Website Infoduta. Ada
-            yang bisa saya bantu?
-          </>
-        );
-      } else if (
-        inputMessage.toLowerCase().includes("rekomendasi") ||
-        (inputMessage.toLowerCase().includes("terbaik") &&
-          inputMessage.toLowerCase().includes("laptop"))
-      ) {
-        botText = (
-          <>Silahkan beritahu kami untuk kebutuhan proyek Laptop Anda.</>
-        );
-      } else if (
-        inputMessage.toLowerCase().includes("terima kasih") ||
-        inputMessage.toLowerCase().includes("terimakasih") ||
-        inputMessage.toLowerCase().includes("thank") ||
-        inputMessage.toLowerCase().includes("makasih") ||
-        inputMessage.toLowerCase().includes("thank you")
-      ) {
-        botText = (
-          <>
-            Terima Kasih kembali. Kami sangat menghargai Anda. Jika ada
-            keperluan tambahan, bisa{" "}
-            <a
-              href="https://wa.me/6285545031039"
-              style={{
-                color: "#2575fc",
-                fontWeight: "bold",
-                textDecoration: "underline",
-              }}
-            >
-              Hubungi Kami via WhatsApp
-            </a>{" "}
-            ini.
-          </>
-        );
-      }
-
-      // Jika botText adalah elemen JSX, render sebagai elemen
-
-      const botResponse = {
-        id: messages.length + 2,
-        text: botText,
+      const rule = findBotResponse(inputMessage);
+      const botMessage = {
+        id: Date.now() + 1,
+        text: renderBotMessage(rule),
         sender: "bot",
       };
-
-      setMessages((prev) => [...prev, botResponse]);
+      setMessages((prev) => [...prev, botMessage]);
     }, 500);
 
     setInputMessage("");
   };
 
   const handleKeyPress = (e) => {
-    if (e.key === "Enter") {
-      sendMessage();
-    }
+    if (e.key === "Enter") sendMessage();
   };
 
-  // Scroll otomatis ke bawah setiap ada pesan baru
+  // Auto-scroll ke pesan terbaru
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
@@ -415,9 +134,7 @@ const ChatBot = () => {
               <div className="sender-name">
                 {message.sender === "bot" ? "DutaBot" : "Anda"}
               </div>
-              <div className="message-bubble">
-                {typeof message.text === "string" ? message.text : message.text}
-              </div>
+              <div className="message-bubble">{message.text}</div>
             </div>
           ))}
           <div ref={messagesEndRef} />
@@ -438,7 +155,7 @@ const ChatBot = () => {
         </div>
       </div>
 
-      {/* Chat Toggle Button + Tooltip */}
+      {/* Toggle Button + Tooltip */}
       <div className={`chat-container ${isOpen ? "open" : ""}`}>
         <div className="chatbox-tooltip">Tanya DutaBot</div>
         <button className="chat-toggle" onClick={toggleChat}>

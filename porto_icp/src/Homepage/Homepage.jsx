@@ -151,8 +151,8 @@ function Homepage() {
     <div className="home-container">
       <Helmet>
         <title>
-          PT. Infoduta Computindo Perkasa | Pengadaan Produk IT B2B Terpercaya —
-          Hardware, Software, Server, Laptop, Komputer
+          PT. Infoduta Computindo Perkasa | Hi-Tech Recommendation for
+          Hardware-Software-Service-Rental
         </title>
         <meta
           name="description"
@@ -365,9 +365,7 @@ function Homepage() {
           <div className="home-hero-content-inner">
             <h1 className="home-hero-title">PT. Infoduta Computindo Perkasa</h1>
             <h2 className="home-hero-subtitle">
-              Solusi Pengadaan Produk IT Terbaik
-              <br />
-              Untuk Bisnis Anda
+              Hi-Tech Recommendation for Hardware-Software-Service-Rental
             </h2>
             {/* Tambahkan hidden text untuk SEO tanpa merusak tampilan */}
             <p className="sr-only">
